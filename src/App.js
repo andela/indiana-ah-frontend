@@ -5,7 +5,7 @@ import store from './redux/store';
 const AppComp = () => (
   <Provider store={store}>
     <div>
-      <h2>this is indiana front-end pages kelvin</h2>
+      <h2>Welcome to Author's Haven</h2>
     </div>
   </Provider>
 );
