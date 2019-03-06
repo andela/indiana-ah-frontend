@@ -1,10 +1,13 @@
-import React from "react";
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux';
+import store from './redux/store';
 
-const AppComp = () => {
-  return (
-    <div>
-      <h2>this is indiana front-end pages kelvin</h2>
-    </div>
-  );
-};
-export default AppComp;
+const App = () => (
+  <Provider store={store}>
+  <BrowserRouter>
+      <h2>Welcome to Author's Haven!</h2>
+    </BrowserRouter>
+  </Provider>
+);
+export default App;

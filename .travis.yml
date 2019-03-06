@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - 'stable'
+env:
+  matrix:
+  - REACT=16.7
+sudo: false
+script:
+  - npm run test
