@@ -3,7 +3,7 @@ node_js:
  - "stable"
 env:
   global:
-    - CC_TEST_REPORTER_ID=a8b0cc4505e473c4cb29f7ef0e287c41d431c5805ba1f5183b2c9f29afdab118
+    - CC_TEST_REPORTER_ID=0b88681771ae84256e88bf6320b5262a2cec5ec5a40dc79780535f9245ee71fd
   matrix:
   - REACT=16.7
 
