@@ -2,5 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './styles/styles.scss';
+import Tag from './components/common/Tag';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <React.Fragment>
+    <App />
+    <Tag />
+  </React.Fragment>,
+  document.getElementById('root')
+);

@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route , Switch, Link, NavLink} from 'react-router-dom';
 import { Provider } from 'react-redux';
+import Tags from './components/common/Tag'
 import store from './redux/store';
 import IndexPage from './components/IndexPage';
 
