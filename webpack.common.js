@@ -32,12 +32,6 @@ module.exports = {
           { loader: "style-loader" },
           {
             loader: "css-loader",
-            options: {
-              modules: false,
-              importLoaders: 1,
-              localIdentName: "[name]_[local]_[hash:base64]",
-              sourceMap: true
-            }
           },
           { loader: "sass-loader" }
         ]
