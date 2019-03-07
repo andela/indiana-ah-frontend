@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AppComp from './App';
+import App from './App';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/styles.scss';
 
-ReactDOM.render(<AppComp />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));

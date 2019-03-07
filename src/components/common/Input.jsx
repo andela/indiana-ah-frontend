@@ -1,27 +1,28 @@
 import React from 'react';
 import PropTypes from "prop-types";
+import { InputGroup ,FormControl } from 'react-bootstrap';
 
-const Input = ({ label, text, placeholder, type, id, value, handleChange, required}) => (
-  <div className="">
-    <label htmlFor={label}>{text}</label>
-    <input 
+const Input = ({ placeholder, type, id, value, handleChange}) => (
+  <InputGroup >
+    <FormControl 
+      id={id} 
       type={type}
-      id={id}
       value={value}
       placeholder={placeholder}
       onChange={handleChange}
-      required={required}
+      required
     />
-  </div>
+  </InputGroup vcxfdrtybhukljkjgtyrterwaeestyugihojuijgvfdsaew456ruy8hi;,.>
 );
 
 Input.propTypes = {
   label: PropTypes.string,
+  labelText: PropTypes.string,
   type: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  required: PropTypes.bool.isRequired,
+  onChange: PropTypes.func.isRequired,
+
 }
-export default Input;
+export default InputField;

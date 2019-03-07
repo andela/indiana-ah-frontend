@@ -1,12 +1,15 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Route , Switch, Link, NavLink} from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import IndexPage from './components/IndexPage';
 
 const App = () => (
   <Provider store={store}>
-  <BrowserRouter>
-      <h2>Welcome to Author's Haven!</h2>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" component={IndexPage} exact/>
+      </Switch>
     </BrowserRouter>
   </Provider>
 );
