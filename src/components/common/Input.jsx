@@ -12,7 +12,7 @@ const Input = ({ placeholder, type, id, value, handleChange }) => (
       onChange={handleChange}
       required
     />
-  </InputGroup >
+  </InputGroup>
 );
 
 Input.propTypes = {
