@@ -1,10 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { InputGroup, FormControl } from 'react-bootstrap';
+import PropTypes from "prop-types";
+import Input from '../../styles/styled-components/input';
 
-const Input = ({ placeholder, type, id, value, handleChange }) => (
-  <InputGroup >
-    <FormControl
+const InputField = ({ placeholder, width, type, id, value, handleChange }) => (
+    <Input
+    inputWidth={width}
       id={id}
       type={type}
       value={value}
@@ -12,17 +12,18 @@ const Input = ({ placeholder, type, id, value, handleChange }) => (
       onChange={handleChange}
       required
     />
-  </InputGroup>
+
 );
 
-Input.propTypes = {
+InputField.propTypes = {
   label: PropTypes.string,
   labelText: PropTypes.string,
   type: PropTypes.string.isRequired,
+  width: PropTypes.string,
   id: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
 
-};
-export default Input;
+}
+export default InputField;
