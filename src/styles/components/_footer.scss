@@ -1,0 +1,47 @@
+.logo-text {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.logo2 {
+  width: 6rem;
+  height: auto;
+}
+.justify-evenly {
+  justify-content: space-evenly;
+}
+.footer {
+  padding: $l-pd-size 0;
+  border-top: .25px solid $opaque-black;
+  a {
+    text-decoration: none;
+  }
+  h2 {
+    font-size: 3rem;
+    font-weight: $medium;
+  }
+  h4 {
+    font-size: 2rem;
+    color: $opaque-black;
+    font-weight: $medium;
+  }
+
+}
+
+
+@media (min-width: 768px) {
+  .footer {
+    padding: $l-pd-size 0;
+    
+    h2 {
+      font-size: 2.1rem;
+    }
+    h4 {
+      font-size: 1.5rem;
+    }
+
+    // svg {
+    //   width: 3rem;
+    //   height: auto;
+    // }
+  }
+}
