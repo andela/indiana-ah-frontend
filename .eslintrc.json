@@ -1,12 +1,6 @@
 {
-  "plugins": [
-    "react"
-  ],
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "airbnb-base"
-  ],
+  "plugins": ["react"],
+  "extends": ["eslint:recommended", "plugin:react/recommended", "airbnb-base"],
   "rules": {
     "react/jsx-filename-extension": [
       1,
@@ -16,7 +10,7 @@
     ],
     "one-var-declaration-per-line": 0,
     "no-use-before-define": 1,
-    "react/prop-types": "on",
+    "react/prop-types": 2,
     "comma-dangle": "off",
     "max-len": [
       1,
@@ -26,10 +20,7 @@
         "ignoreComments": true
       }
     ],
-    "quotes": [
-      "error",
-      "single"
-    ]
+    "quotes": ["error", "single"]
   },
   "parser": "babel-eslint",
   "globals": {
