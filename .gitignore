@@ -18,3 +18,5 @@ coverage
 
 # Dependency directory
 node_modules
+
+_test_/**/__snapshots__
