@@ -4,7 +4,7 @@
   "description": "the front-end part of the authors haven application",
   "main": "index.js",
   "scripts": {
-    "test": "jest \"--coverage\"",
+    "test": "jest \"--coverage\" \"-u\"",
     "start-dev": "webpack-dev-server --config webpack.dev.js",
     "start-prod": "webpack --config webpack.prod.js"
   },
