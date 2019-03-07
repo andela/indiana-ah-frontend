@@ -1,18 +1,17 @@
 import React from 'react';
 import PropTypes from "prop-types";
-import Input from '../../styles/styled-components/input';
+import Input from '../../styles/styledComponents/input';
 
 const InputField = ({ placeholder, width, type, id, value, handleChange }) => (
     <Input
-    inputWidth={width}
+      inputWidth={width}
       id={id}
       type={type}
       value={value}
       placeholder={placeholder}
       onChange={handleChange}
       required
-    />
-
+    />  
 );
 
 InputField.propTypes = {
