@@ -4,9 +4,9 @@ const Input = styled.input`
   padding: 0.8rem;
   margin: 0.8rem;
   height: 4.3rem;
-  background: #FFFFFF;
+  background: #FBFCFF;
   border: 0.05rem solid rgba(0, 0, 0, 0.4);
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   width: ${props => props.inputWidth || "37.1rem"};
   box-sizing: border-box;
 `;
