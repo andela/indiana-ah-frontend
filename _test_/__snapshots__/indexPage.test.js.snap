@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Custom Footer component renders correctly 1`] = `
+<div
+  className="container"
+>
+  <h2>
+    Welcome to Author's Haven!
+  </h2>
+</div>
+`;
