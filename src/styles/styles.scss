@@ -1,5 +1,4 @@
-body {
-  font-family: sans-serif;
-  color: #333;
-  background: #ffffff;
-}
+@import './base/settings'; // must come first so other scss files can take advantage of the variables
+@import './base/base';
+@import './components/container';
+
