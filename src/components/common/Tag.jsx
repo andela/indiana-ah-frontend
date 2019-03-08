@@ -2,25 +2,19 @@ import React, { Component } from 'react';
 import { WithContext as ReactTags } from 'react-tag-input';
 
 class Tag extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      tags: []
-    };
-    this.handleDelete = this.handleDelete.bind(this);
-    this.handleAddition = this.handleAddition.bind(this);
-  }
-
-  handleDelete(i) {
+  state = {
+    tags: []
+  };
+  handleDelete = i => {
     const { tags } = this.state;
     this.setState({
       tags: tags.filter((tag, index) => index !== i)
     });
-  }
+  };
 
-  handleAddition(tag) {
+  handleAddition = tag => {
     this.setState(state => ({ tags: [...state.tags, tag] }));
-  }
+  };
   render() {
     const { tags } = this.state;
     return (
