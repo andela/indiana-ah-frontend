@@ -1,2 +1,3 @@
 @import './base/settings'; // must come first so other scss files can take advantage of the variables
 @import './base/base';
+@import './components/modal';
