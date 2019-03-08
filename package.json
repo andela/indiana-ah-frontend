@@ -8,7 +8,8 @@
     "start-dev": "webpack-dev-server --config webpack.dev.js",
     "start-prod": "webpack --config webpack.prod.js",
     "build": "babel server.js -d ./public",
-    "start": "npm run build && npm run start-prod && node ./public/server.js"
+    "heroku-postbuild": "npm run build && npm run start-prod",
+    "start":"node ./public/server.js"
   },
   "jest": {
     "setupFilesAfterEnv": [
