@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from 'react-modal';
 
 Modal.setAppElement('#root');
-const FormModal = (props) => (
+const CustomModal = (props) => (
   <Modal
     isOpen={props.modalIsOpen}
     onRequestClose={props.closeModal}
@@ -13,10 +13,10 @@ const FormModal = (props) => (
   >
     <div ><span className="close" onClick={props.closeModal}> &times; </span></div>
     <div className="modal__body">
-      {props.form && <p>{props.form}</p>}
+      {props.content && <p>{props.content}</p>}
 
     </div>
     
   </Modal>
 );
-export default FormModal;
+export default CustomModal;

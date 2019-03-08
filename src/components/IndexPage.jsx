@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import FormModal from './common/FormModal';
+import Modal from './common/Modal';
 
 class IndexPage extends Component {
 
@@ -19,7 +19,7 @@ class IndexPage extends Component {
       <div className="container">
         <h2>Welcome to Author's Haven!</h2>
         <button onClick={this.openModal}>Open Modal</button>
-        <FormModal  
+        <Modal  
           modalIsOpen={this.state.modalIsOpen}
           closeModal={this.closeModal}
         />
