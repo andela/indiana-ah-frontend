@@ -1,12 +1,16 @@
 import React from 'react';
+import { shallow } from 'enzyme';
 import { MemoryRouter } from 'react-router-dom';
-import { shallow, mount, render } from 'enzyme';
 import renderer from 'react-test-renderer';
 import IndexPage from '../src/components/IndexPage.jsx';
 
 describe('Custom Footer component', () => {
   it('renders correctly', () => {
-    const tree = renderer.create(<IndexPage />).toJSON();
+    const tree = renderer.create(
+      <MemoryRouter>
+        <IndexPage />
+      </MemoryRouter>
+    ).toJSON();
     expect(tree).toMatchSnapshot();
   });
   it('renders a footer', () => {

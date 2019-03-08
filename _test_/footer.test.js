@@ -1,6 +1,6 @@
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
-import { shallow, mount, render } from 'enzyme';
+import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 import Footer from '../src/components/common/footer.jsx';
 
