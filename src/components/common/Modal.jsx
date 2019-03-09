@@ -9,17 +9,9 @@ const CustomModal = (props) => (
     onHide={props.closeModal}
     dialogClassName="Modal"
   >
-    {/* <Modal.Header closeButton >
-      {props.title && 
-        <Modal.Title >
-       <h2>{props.title}</h2>
-      </Modal.Title>
-      }
-      
-    </Modal.Header> */}
-      <Modal.Body>
-        {props.body}
-      </Modal.Body>
+    <Modal.Body>
+      {props.body}
+    </Modal.Body>
     
   </Modal>
 );
