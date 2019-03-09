@@ -1,21 +1,25 @@
 import React from 'react';
-import Modal from 'react-modal';
+//import Modal from 'react-modal';
+import {Modal, InputGroup, FormControl} from 'react-bootstrap';
 
-Modal.setAppElement('#root');
+//Modal.setAppElement('#root');
 const CustomModal = (props) => (
   <Modal
-    isOpen={props.modalIsOpen}
-    onRequestClose={props.closeModal}
-    contentLabel='Selected Modal'
-    closeTimeoutMS={200}
-    overlayClassName="Overlay"
-    className="Modal"
+    show={props.modalIsOpen}
+    onHide={props.closeModal}
+    dialogClassName="Modal"
   >
-    <div ><span className="close" onClick={props.closeModal}> &times; </span></div>
-    <div className="modal__body">
-      {props.content && <p>{props.content}</p>}
-
-    </div>
+    {/* <Modal.Header closeButton >
+      {props.title && 
+        <Modal.Title >
+       <h2>{props.title}</h2>
+      </Modal.Title>
+      }
+      
+    </Modal.Header> */}
+      <Modal.Body>
+        {props.body}
+      </Modal.Body>
     
   </Modal>
 );
