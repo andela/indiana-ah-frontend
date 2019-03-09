@@ -4,11 +4,12 @@ describe('Pagination utils test', () => {
   const component = {
     state: {},
     setState(obj) {
-      this.state = obj;
+      Object.assign(this.state, obj);
     }
   };
   it("should test that the current page is set in a component's state when the 'setCurrentPage' method is called", () => {
     setCurrentPage(component);
+    console.log(component.state.currentPage);
     expect(component.state.currentPage).toBeDefined();
   });
 
