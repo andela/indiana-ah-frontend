@@ -1,15 +1,14 @@
 .pagination {
   background: white;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: 0.1rem solid rgba(0, 0, 0, 0.15);
   width: fit-content;
   margin: 0 auto;
 }
 
 .pagination a {
-  padding: 10px 15px 10px 15px;
+  padding: 0.8rem 1.5rem 0.8rem 1.5rem;
   display: table-cell;
   text-decoration: none;
-  max-height: 50px;
   overflow: hidden;
 }
 
@@ -21,17 +20,19 @@
 .pagination .next-page {
   height: 0;
   width: 0;
-  border-left: 20px solid #0b41cd;
-  border-bottom: 12px solid transparent;
-  border-top: 12px solid transparent;
+  margin-top: 0.2rem;
+  border-left: 1.7rem solid #0b41cd;
+  border-bottom: 1rem solid transparent;
+  border-top: 1rem solid transparent;
 }
 
 .pagination .prev-page {
   height: 0;
   width: 0;
-  border-right: 20px solid #0b41cd;
-  border-bottom: 12px solid transparent;
-  border-top: 12px solid transparent;
+  margin-top: 0.2rem;
+  border-right: 1.7rem solid #0b41cd;
+  border-bottom: 1rem solid transparent;
+  border-top: 1rem solid transparent;
 }
 
 .prev-page.caret-left-arrow-disabled {
