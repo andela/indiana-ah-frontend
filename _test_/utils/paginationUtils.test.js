@@ -9,7 +9,6 @@ describe('Pagination utils test', () => {
   };
   it("should test that the current page is set in a component's state when the 'setCurrentPage' method is called", () => {
     setCurrentPage(component);
-    console.log(component.state.currentPage);
     expect(component.state.currentPage).toBeDefined();
   });
 
