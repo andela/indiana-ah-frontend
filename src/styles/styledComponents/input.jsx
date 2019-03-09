@@ -10,6 +10,11 @@ const Input = styled.input`
   border-radius: 0.2rem;
   width: ${props => props.inputWidth || "94%"};
   box-sizing: border-box;
+  @media (max-width: 76.8rem) {
+    flex-direction: column;
+    height: 3rem;
+    font-size: 1.5rem
+  }
 `;
 
 export default Input;
