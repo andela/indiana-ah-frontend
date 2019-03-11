@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import Modal from 'react-bootstrap/Modal';
 
 const CustomModal = props => (
-  <Modal
+  <div>
+    <Modal
     show={ props.modalIsOpen }
     onHide={props.closeModal}
     dialogClassName="Modal"
@@ -13,6 +14,7 @@ const CustomModal = props => (
     </Modal.Body>
 
   </Modal>
+  </div>
 );
 
 CustomModal.propTypes = {
