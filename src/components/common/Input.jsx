@@ -1,8 +1,12 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import Input from '../../styles/styledComponents/input';
+import Form from 'react-bootstrap/Form';
 
-const InputField = ({ placeholder, width, type, id, value, handleChange }) => (
+const InputField = ({
+  placeholder, width, type, id, value, errorMessage, handleChange, onBlur
+}) => (
+  <div>
     <Input
       inputWidth={width}
       id={id}
@@ -10,8 +14,16 @@ const InputField = ({ placeholder, width, type, id, value, handleChange }) => (
       value={value}
       placeholder={placeholder}
       onChange={handleChange}
+      onBlur = {onBlur}
       required
-    />  
+    />
+    {
+      <Form.Text className="text-danger ml-3">
+      {errorMessage}
+      </Form.Text>
+    }
+
+  </div>
 );
 
 InputField.propTypes = {
@@ -21,8 +33,10 @@ InputField.propTypes = {
   width: PropTypes.string,
   id: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
+  errorMessage: PropTypes.string,
   placeholder: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
+  onBlur: PropTypes.func,
 
 }
 export default InputField;

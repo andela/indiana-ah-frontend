@@ -28,6 +28,7 @@ class IndexPage extends Component {
           id="email"
           value=""
           placeholder="Enter your email"
+          errorMessage="This is wrong"
         />
         <Input 
           type="password"
