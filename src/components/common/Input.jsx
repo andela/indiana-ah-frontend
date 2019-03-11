@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
-// eslint-disable-next-line import/no-unresolved
-import Input from '../../styles/styledComponents/Input';
+// import Input from '../../styles/styledComponents/Input';
+import Input from '../../styles/styledComponents/Input.jsx';
 
 
 const InputField = ({

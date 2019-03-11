@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 import InputField from '../../src/components/common/Input.jsx';
-import Input from '../../src/styles/styledComponents/Input';
+import Input from '../../src/styles/styledComponents/Input.jsx';
 
 describe('Custom Input component', () => {
   const props = {
