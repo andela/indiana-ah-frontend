@@ -8,7 +8,7 @@ const Input = styled.input`
   fill: #FBFCFF;
   border: 0.05rem solid rgba(0, 0, 0, 0.4);
   border-radius: 0.2rem;
-  width: ${props => props.inputWidth || "94%"};
+  width: ${props => props.inputWidth || '94%'};
   box-sizing: border-box;
   @media (max-width: 76.8rem) {
     flex-direction: column;

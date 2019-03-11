@@ -1,7 +1,9 @@
 import React from 'react';
-import PropTypes from "prop-types";
-import Input from '../../styles/styledComponents/input';
+import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
+// eslint-disable-next-line import/no-unresolved
+import Input from '../../styles/styledComponents/Input';
+
 
 const InputField = ({
   placeholder, width, type, id, value, errorMessage, handleChange, onBlur
@@ -38,5 +40,5 @@ InputField.propTypes = {
   handleChange: PropTypes.func.isRequired,
   onBlur: PropTypes.func,
 
-}
+};
 export default InputField;

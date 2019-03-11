@@ -15,15 +15,14 @@ exports[`testing the button element should mount custom button 1`] = `
   border-radius: 0.3rem;
   text-align: center;
   color: #0B41CD;
-  font-weight: bold;
   cursor: pointer;
   border: 0.12rem solid #0B41CD;
   margin: 1rem;
   text-transform: capitalize;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  height: 35px;
-  width: 97px;
+  width: auto;
+  padding: .2rem .6rem;
   display: block;
 }
 

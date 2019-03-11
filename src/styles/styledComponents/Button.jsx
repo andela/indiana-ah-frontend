@@ -11,14 +11,13 @@ const Button = styled.button`
   border-radius: 0.3rem;
   text-align: center;
   color: ${props => (props.danger ? '#CD160B' : '#0B41CD')};
-  font-weight: bold;
   cursor: pointer;
   border: ${props => (props.danger ? '0.12rem solid #CD160B' : '0.12rem solid #0B41CD')};
   margin: 1rem;
   text-transform: capitalize;
   transition: all 0.3s;
-  height: 35px;
-  width: 97px;
+  width: auto;
+  padding: .2rem .6rem 
   display: ${props => (props.inlineButton ? 'inline-block' : 'block')};
 `;
 
