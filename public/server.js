@@ -13,7 +13,7 @@ var _path = _interopRequireDefault(require("path"));
 
 var app = (0, _express.default)();
 var port = process.env.PORT || 3000; // __dirname = /
-//react app 
+// react  app
 // resolve = /dist
 
 app.use(_express.default.static(_path.default.resolve(__dirname, 'dist'))); // handling react router, for request to react app

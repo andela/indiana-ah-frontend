@@ -5,16 +5,18 @@ class Tag extends Component {
   state = {
     tags: []
   };
-  handleDelete = i => {
+
+  handleDelete = (i) => {
     const { tags } = this.state;
     this.setState({
       tags: tags.filter((tag, index) => index !== i)
     });
   };
 
-  handleAddition = tag => {
+  handleAddition = (tag) => {
     this.setState(state => ({ tags: [...state.tags, tag] }));
   };
+
   render() {
     const { tags } = this.state;
     return (

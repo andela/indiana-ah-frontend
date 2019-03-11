@@ -1,8 +1,8 @@
 import React from 'react';
-import { BrowserRouter, Route , Switch, Link, NavLink} from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import Tags from './components/common/Tag'
 import store from './redux/store';
+// eslint-disable-next-line import/no-unresolved
 import IndexPage from './components/IndexPage';
 
 const App = () => (

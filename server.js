@@ -1,14 +1,12 @@
 import express from 'express';
 import path from 'path';
 
-
-
 const app = express();
 
 const port = process.env.PORT || 3000;
 
 // __dirname = /
-//react app 
+// react  app
 // resolve = /dist
 app.use(express.static(path.resolve(__dirname, 'dist')));
 

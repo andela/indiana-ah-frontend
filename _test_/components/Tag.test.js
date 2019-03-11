@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Tag from '../../src/components/common/Tag';
+import Tag from '../../src/components/common/Tag.jsx';
 
-let mockFn = jest.fn();
+const mockFn = jest.fn();
 
 describe('Test Tag Component', () => {
   it('should render order component', () => {
