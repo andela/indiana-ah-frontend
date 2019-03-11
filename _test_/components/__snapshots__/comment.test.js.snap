@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CommentComponent /> renders correctly 1`] = `
+<span
+  className="icon_holder"
+>
+  <img
+    alt="CommentIcon"
+    className="icon_height icon_margin"
+    src="test-file-stub"
+  />
+  <sub
+    className="count"
+  >
+    5
+  </sub>
+</span>
+`;
