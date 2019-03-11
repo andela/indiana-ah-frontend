@@ -1,6 +1,12 @@
 {
   "plugins": ["react"],
   "extends": ["eslint:recommended", "plugin:react/recommended", "airbnb-base"],
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "jest": true
+  },
   "rules": {
     "react/jsx-filename-extension": [
       1,
