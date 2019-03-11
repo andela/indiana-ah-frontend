@@ -2,7 +2,7 @@ import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
-import Footer from '../src/components/common/footer.jsx';
+import Footer from '../../src/components/common/footer.jsx';
 
 describe('Custom Footer component', () => {
   it('renders correctly', () => {
