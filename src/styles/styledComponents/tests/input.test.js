@@ -1,8 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
-import InputField from '../../../components/common/Input.jsx';
-import Input from '../Input.jsx';
+// eslint-disable-next-line import/no-unresolved
+import InputField from '../../../components/common/Input';
+// eslint-disable-next-line import/no-unresolved
+import Input from '../Input';
 
 describe('Custom Input component', () => {
   const props = {

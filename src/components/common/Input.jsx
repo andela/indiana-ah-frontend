@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
-import Input from '../../styles/styledComponents/Input.jsx';
-
+import Input from '../../styles/styledComponents/Input';
 
 const InputField = ({
   placeholder, width, type, id, value, errorMessage, handleChange, onBlur
