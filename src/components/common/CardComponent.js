@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import PropTypes from 'prop-types';
 import LikeComponent from './LikeComponent';
 import DislikeComponent from './DislikeComponent';
-import CommentComponent from './CommentComponent';
+import CommentIconComponent from './CommentIconComponent';
 
 const CardComponent = ({
   img, title, text, likeCount, dislikeCount, commentCount
@@ -29,7 +29,7 @@ const CardComponent = ({
   < DislikeComponent dislikeCount={dislikeCount} color='black'/>
   </div>
   <div className='col'>
-  < CommentComponent commentCount={commentCount}/>
+  < CommentIconComponent commentCount={commentCount}/>
   </div>
   <div className='col'>
 </div>

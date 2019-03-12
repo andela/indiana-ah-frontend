@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CommentComponent /> renders correctly 1`] = `
+exports[`<CommentIconComponent /> renders correctly 1`] = `
 <span
   className="icon-holder"
 >

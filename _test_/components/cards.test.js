@@ -6,7 +6,7 @@ import renderer from 'react-test-renderer';
 import LikeComponent from '../../src/components/common/LikeComponent';
 import DislikeComponent from '../../src/components/common/DislikeComponent';
 import CardComponent from '../../src/components/common/CardComponent';
-import CommentComponent from '../../src/components/common/CommentComponent';
+import CommentIconComponent from '../../src/components/common/CommentIconComponent';
 import UserProfileCard from '../../src/components/common/UserProfileCardComponent';
 import UserArticleCard from '../../src/components/common/UserArticleCardComponent';
 import BadgeComponent from '../../src/components/common/BadgeComponent';
@@ -26,7 +26,7 @@ describe('<CardComponent />', () => {
     expect(wrapper.length).toEqual(1);
     expect(wrapper.find(LikeComponent)).toHaveLength(1);
     expect(wrapper.find(DislikeComponent)).toHaveLength(1);
-    expect(wrapper.find(CommentComponent)).toHaveLength(1);
+    expect(wrapper.find(CommentIconComponent)).toHaveLength(1);
   });
   it('renders correctly', () => {
     const tree = renderer.create(<CardComponent {...cardProps} />).toJSON();
@@ -79,7 +79,7 @@ describe('<UserArticleCardComponent />', () => {
     expect(wrapper.find(TimerComponent)).toHaveLength(1);
     expect(wrapper.find(TimerComponent)).toHaveLength(1);
     expect(wrapper.find(DislikeComponent)).toHaveLength(1);
-    expect(wrapper.find(CommentComponent)).toHaveLength(1);
+    expect(wrapper.find(CommentIconComponent)).toHaveLength(1);
     expect(wrapper.find(LikeComponent)).toHaveLength(1);
     expect(wrapper.find(BadgeComponent)).toHaveLength(4);
   });

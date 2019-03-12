@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 import BadgeComponent from './BadgeComponent';
 import LikeComponent from './LikeComponent';
 import DislikeComponent from './DislikeComponent';
-import CommentComponent from './CommentComponent';
+import CommentIconComponent from './CommentIconComponent';
 import TimerComponent from './TimerComponent';
 import BookmarkComponent from './BookmarkComponent';
 
@@ -46,7 +46,7 @@ const UserArticleCard = ({
                   <DislikeComponent dislikeCount={dislikeCount} color='black' />
                  </span>
                  <span className="col-2">
-                 <CommentComponent commentCount={commentCount}/>
+                 <CommentIconComponent commentCount={commentCount}/>
                  </span>
               </div>
             </div>
