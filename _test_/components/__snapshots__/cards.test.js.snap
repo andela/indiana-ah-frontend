@@ -2,13 +2,7 @@
 
 exports[`<CardComponent /> renders correctly 1`] = `
 <div
-  className="card"
-  style={
-    Object {
-      "height": "50rem",
-      "width": "35rem",
-    }
-  }
+  className="card-style card"
 >
   <img
     className="card-img-top"
