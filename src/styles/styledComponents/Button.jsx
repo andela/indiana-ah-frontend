@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 const Button = styled.button`
   background: ${props => (props.bgColor ? '#0B41CD' : '#fff')};
-  font-size: 20px;
-  line-height: 27px;
+  font-size: 2rem;
+  line-height: 2.7rem;
   align: Center;
   letterspacing: 5%;
   border-radius: 0.4rem;
@@ -15,8 +15,13 @@ const Button = styled.button`
   text-transform: capitalize;
   transition: all 0.3s;
   width: auto;
-  padding: .8rem 1.5rem 
+  padding: .8rem 1.5rem;
   display: ${props => (props.inlineButton ? 'inline-block' : 'block')};
+  @media (max-width: 830px) {
+    width: auto;
+    line-height: 2rem;
+    font-size: 1.7rem
+  }
 `;
 
 export default Button;

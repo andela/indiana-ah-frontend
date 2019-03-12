@@ -1,9 +1,15 @@
-$pd-bottom: 4.3rem;
+$l-pd-bottom: 4.3rem;
+$md-pd-bottom: 2.5rem;
+$sm-pd-bottom: 1rem;
 $sm-pd-size: 5.2rem;
 
 .w-80 {
   width: 80%;
 }
+.mt-10 {
+  margin-top: 10rem;
+}
+
 h1 {
   font-weight: $bold;
   font-size: 4.2rem;
@@ -23,19 +29,19 @@ p {
   color: rgba(0,0,0,1);
   padding: $l-pd-size 0;
   h1, h2 {
-    padding-bottom: $pd-bottom;
+    padding-bottom: $l-pd-bottom;
     margin-bottom: 0;
   }
   .banner-p {
     letter-spacing: .3rem;
     font-size: 2.1rem;
-    padding-bottom: $pd-bottom;
+    padding-bottom: $l-pd-bottom;
     font-family: 'The Girl Next Door', cursive;
   }
   .banner-p2 {
     font-weight: $regular;
     font-size: 2.7rem;
-    padding-bottom: $pd-bottom;
+    padding-bottom: $l-pd-bottom;
   }
 }
 
@@ -66,9 +72,7 @@ p {
 
 .subscription {
   background: rgba(253,253,255,1);
-  div:nth-of-type(2) {
-    margin-top: 10rem;
-  }
+  
   .img-div {
     float: left;
     background: rgba(11,65,205,1);
@@ -99,3 +103,141 @@ p {
   }
 }
 
+@media (max-width: 1199px) {
+  .w-80 {
+    width: 100%;
+  }
+  .mt-10 {
+    margin-top: 3.5rem;
+  }
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 3.1rem;
+  }
+
+  .banner {
+    .banner-p {
+      font-size: 1.7rem;
+      padding-bottom: $md-pd-bottom;
+    }
+    .banner-p2 {
+      font-size: 2.3rem;
+      padding-bottom: $md-pd-bottom;
+    }
+    h2 {
+      padding-bottom: $md-pd-bottom;
+    }
+  }
+
+  .reviews {
+    h2 {
+      padding-bottom: 6rem;
+    }
+    p {
+      font-size: 1.5rem;
+    }
+    .quotes {
+      width: 3rem;
+      margin: 1.5rem auto;
+    }
+  }
+
+  .subscription {
+    .sub-form {
+      width: 45rem;
+    }
+  }
+
+}
+
+@media (max-width: 991px) {
+  h1 {
+    font-size: 3.2rem;
+  }
+  h2 {
+    font-size: 2.7rem;
+  }
+
+  .banner {
+    .banner-p2 {
+      font-size: 2rem;
+    }
+  }
+
+  .reviews {
+    p {
+      font-size: 1.3rem;
+    }
+    .quotes {
+      width: 2.5rem;
+      margin: 1rem auto;
+    }
+  }
+
+  .subscription {
+    p {
+      font-size: 1.7rem;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: 2.9rem;
+  }
+  .subscription {
+    h2 {
+      text-align: center;
+    }
+    .sub-form {
+      position: inherit;
+      margin: 4rem auto;
+    }
+    .banner-p2 {
+      width: 60%;
+      margin: auto;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 560px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+  h2 {
+    font-size: 2.15rem;
+  }
+
+  .banner {
+    h1 {
+      padding-bottom: $sm-pd-bottom;
+    }
+    .banner-p {
+      font-size: 1.2rem;
+      padding-bottom: $sm-pd-bottom;
+    }
+    .banner-p2 {
+      font-size: 1.7rem;
+      padding-bottom: $sm-pd-bottom;
+    }
+    h2 {
+      padding-bottom: $sm-pd-bottom;
+    }
+  }
+
+  .reviews {
+    p {
+      font-size: 1rem;
+    }
+    .quotes {
+      width: 2rem;
+      margin: 0.5rem auto;
+    }
+    h2 {
+      padding-bottom: $md-pd-bottom;
+    }
+  }
+}

@@ -4,7 +4,7 @@ import { MemoryRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import IndexPage from '../../src/components/IndexPage.jsx';
 
-describe('Custom Footer component', () => {
+describe('Index page component', () => {
   it('renders correctly', () => {
     const tree = renderer.create(
       <MemoryRouter>
@@ -17,7 +17,6 @@ describe('Custom Footer component', () => {
     const indexPage = shallow(<IndexPage />);
     expect(indexPage.find('.container')).toBeDefined();
     const h2 = indexPage.find('h2');
-    expect(h2.length).toEqual(1);
-    expect(h2.text()).toEqual('Welcome to Author\'s Haven! Indiana');
+    expect(h2.length).toEqual(3);
   });
 });

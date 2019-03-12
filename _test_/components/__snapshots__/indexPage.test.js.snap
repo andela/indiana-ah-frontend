@@ -1,15 +1,240 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Custom Footer component renders correctly 1`] = `
+exports[`Index page component renders correctly 1`] = `
 Array [
   <div
     className="container"
   >
-    <h2>
-      Welcome to Author's Haven! 
-      Indiana
-    </h2>
+    <div
+      className="banner row"
+    >
+      <div
+        className="d-flex align-items-center col"
+      >
+        <div>
+          <h1
+            className="w-80"
+          >
+            Share Your Thoughts With The World
+          </h1>
+          <p
+            className="banner-p"
+          >
+            There is no limit to what you can achieve with a pen.. Write, the world is ready to read.
+          </p>
+          <button
+            className="sc-bdVaJa bsDjTF"
+          >
+            Get Started
+          </button>
+        </div>
+      </div>
+      <div
+        className="col"
+      >
+        <span
+          className="isvg loading"
+        />
+      </div>
+    </div>
   </div>,
+  <section
+    className="container-fluid reviews"
+  >
+    <div
+      className="justify-content-center row"
+    >
+      <div
+        className="col-md-8"
+      >
+        <h2
+          className="text-center"
+        >
+          A community of like-minded authors fostering inspiration and innovation by leveraging the modern web.
+        </h2>
+      </div>
+    </div>
+    <div
+      className="text-center row"
+    >
+      <div
+        className="col-md-4"
+      >
+        <p>
+          Author’s haven indeed lives up to its name.
+          It has been a source of succor and comfort to me.
+          In here I have found individuals of like mind as I and
+          I have also gained inspiration and motivation.
+          The author’s haven team are also very efficient, professional 
+          and prompt with their responses.
+        </p>
+        <div
+          className="quotes"
+        >
+          <span
+            className="isvg loading"
+          />
+        </div>
+        <p
+          className="reviews-name"
+        >
+          Tiku Okoye
+        </p>
+        <p>
+          California
+        </p>
+      </div>
+      <div
+        className="col-md-4"
+      >
+        <p>
+          Author’s haven indeed lives up to its name.
+          It has been a source of succor and comfort to me.
+          In here I have found individuals of like mind as I and
+          I have also gained inspiration and motivation.
+          The author’s haven team are also very efficient, professional 
+          and prompt with their responses.
+        </p>
+        <div
+          className="quotes"
+        >
+          <span
+            className="isvg loading"
+          />
+        </div>
+        <p
+          className="reviews-name"
+        >
+          Dozie Nwoga
+        </p>
+        <p>
+          Anambra
+        </p>
+      </div>
+      <div
+        className="col-md-4"
+      >
+        <p>
+          Author’s haven indeed lives up to its name.
+          It has been a source of succor and comfort to me.
+          In here I have found individuals of like mind as I and
+          I have also gained inspiration and motivation.
+          The author’s haven team are also very efficient, professional 
+          and prompt with their responses.
+        </p>
+        <div
+          className="quotes"
+        >
+          <span
+            className="isvg loading"
+          />
+        </div>
+        <p
+          className="reviews-name"
+        >
+          Ozone Ezenwa
+        </p>
+        <p>
+          Hawaii
+        </p>
+      </div>
+    </div>
+  </section>,
+  <section
+    className="container"
+  >
+    <div
+      className="banner row"
+    >
+      <div
+        className="col-md-7"
+      >
+        <span
+          className="isvg loading"
+        />
+      </div>
+      <div
+        className="d-flex align-items-center col"
+      >
+        <div>
+          <h2>
+            Are you ready to put down those wonderful ideas?
+          </h2>
+          <p
+            className="banner-p2"
+          >
+            Get Started for free today.
+          </p>
+          <button
+            className="sc-bdVaJa iQmcrA"
+          >
+            Get Started
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>,
+  <section
+    className="container-fluid"
+  >
+    <div
+      className="subscription row"
+    >
+      <div
+        className="col-md-1"
+      />
+      <div
+        className="position-relative col-md-4"
+      >
+        <div
+          className="w-80"
+        >
+          <h2>
+            Subscribe To Email List
+          </h2>
+          <p
+            className="banner-p2"
+          >
+            Interdum consectetur libero id faucibus nisl. Risus pretium quam vulputate dignissim suspendisse in
+          </p>
+        </div>
+        <div
+          className="sub-form"
+        >
+          <div
+            className="input-div"
+          >
+            <input
+              className="sc-bwzfXH jLxEfk"
+              id="email"
+              name="email"
+              onChange={[Function]}
+              placeholder="Email"
+              required={true}
+              type="email"
+              value=""
+            />
+            <small
+              className="text-danger ml-3 form-text"
+            />
+          </div>
+          <button
+            className="sc-bdVaJa gbqfHe"
+          >
+            Get Started
+          </button>
+        </div>
+      </div>
+      <div
+        className="img-div p-0 col"
+      >
+        <img
+          className="banner-img"
+          src="../src/assets/images/index_img.jpg"
+        />
+      </div>
+    </div>
+  </section>,
   <div
     className="footer"
   >

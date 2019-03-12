@@ -12,7 +12,7 @@ const Input = styled.input`
   box-sizing: border-box;
   @media (max-width: 76.8rem) {
     flex-direction: column;
-    height: 3rem;
+    height: 3.5rem;
     font-size: 1.5rem
   }
 `;

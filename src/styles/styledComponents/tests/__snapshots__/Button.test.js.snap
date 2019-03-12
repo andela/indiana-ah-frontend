@@ -3,8 +3,6 @@
 exports[`testing the button element should mount custom button 1`] = `
 .c0 {
   background: #fff;
-  font-family: Alegreya Medium;
-  font-style: Regular;
   font-size: 20px;
   line-height: 27px;
   align: Center;
@@ -12,17 +10,16 @@ exports[`testing the button element should mount custom button 1`] = `
   -moz-letterspacing: 5%;
   -ms-letterspacing: 5%;
   letterspacing: 5%;
-  border-radius: 0.3rem;
+  border-radius: 0.4rem;
   text-align: center;
   color: #0B41CD;
   cursor: pointer;
-  border: 0.12rem solid #0B41CD;
-  margin: 1rem;
+  border: 0.2rem solid #0B41CD;
   text-transform: capitalize;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   width: auto;
-  padding: .2rem .6rem;
+  padding: .8rem 1.5rem;
   display: block;
 }
 
