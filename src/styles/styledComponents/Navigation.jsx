@@ -44,11 +44,18 @@ const Nav = styled.nav`
   }
 `;
 
+const ProfileImg = styled.img`
+  height: 35px;
+  width: 35px;
+  object-fit: cover;
+  border-radius: 30rem;
+`;
+
 const ImageLogo = styled.div`
-  width: 3rem;
-  height: 3rem;
-  display: inline-block;
-  margin: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline;
+  margin-top: -1rem;
 `;
 
 const Ul = styled.ul`
@@ -62,5 +69,5 @@ const Li = styled.li`
 `;
 
 export {
-  Header, Nav, Li, Ul, ImageLogo
+  Header, Nav, Li, Ul, ImageLogo, ProfileImg
 };
