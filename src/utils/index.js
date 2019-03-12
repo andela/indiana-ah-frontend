@@ -1,3 +1,6 @@
+/* eslint-disable no-restricted-globals */
+/* eslint-disable radix */
+/* eslint-disable no-plusplus */
 export const handlePageClick = (component, page) => {
   component.setState({ currentPage: page });
 };
@@ -21,7 +24,7 @@ export const renderPageLinks = (currentPage, numberOfPages) => {
 // call this function in 'componentDidMount' of any 'page component' (that renders paginated data) and pass 'this' as the argument
 export const setCurrentPage = (component) => {
   const urlSearchParams = new URLSearchParams(location.search);
-  const page = parseInt(urlSearchParams.get('page'));
-  if (isNaN(page)) return component.setState({ currentPage: 1 });
+  let page = parseInt(urlSearchParams.get('page'));
+  if (!isNaN(page)) page = 1;
   component.setState({ currentPage: page });
 };

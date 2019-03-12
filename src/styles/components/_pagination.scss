@@ -17,22 +17,21 @@
   text-align: center;
 }
 
-.pagination .next-page {
-  height: 0;
-  width: 0;
-  margin-top: 0.2rem;
-  border-left: 1.7rem solid #0b41cd;
-  border-bottom: 1rem solid transparent;
-  border-top: 1rem solid transparent;
-}
-
+.pagination .next-page,
 .pagination .prev-page {
   height: 0;
   width: 0;
   margin-top: 0.2rem;
-  border-right: 1.7rem solid #0b41cd;
   border-bottom: 1rem solid transparent;
   border-top: 1rem solid transparent;
+}
+
+.pagination .next-page {
+  border-left: 1.7rem solid #0b41cd;
+}
+
+.pagination .prev-page {
+  border-right: 1.7rem solid #0b41cd;
 }
 
 .prev-page.caret-left-arrow-disabled {

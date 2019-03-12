@@ -35,10 +35,6 @@
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.3.4",
     "@babel/plugin-transform-runtime": "^7.3.4",
-    "@fortawesome/fontawesome-svg-core": "^1.2.15",
-    "@fortawesome/free-solid-svg-icons": "^5.7.2",
-    "@fortawesome/react-fontawesome": "^0.1.4",
-    "bootstrap": "^4.3.1",
     "clean-webpack-plugin": "^2.0.0",
     "font-awesome": "^4.7.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.3.4",
