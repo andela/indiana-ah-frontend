@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Fragment, Component } from 'react';
+import Footer from './common/footer.jsx';
 
 class IndexPage extends Component {
   state = {
@@ -7,9 +8,12 @@ class IndexPage extends Component {
 
   render() {
     return (
-      <div className="container">
-        <h2>Welcome to Author's Haven! {this.state.name}</h2>
-      </div>
+      <Fragment>
+        <div className="container">
+          <h2>Welcome to Author&apos;s Haven! {this.state.name}</h2>
+        </div>
+        <Footer />
+      </Fragment>
     );
   }
 }
