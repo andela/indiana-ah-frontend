@@ -1,1 +1,7 @@
+@import './base/settings'; // must come first so other scss files can take advantage of the variables
+@import './base/base';
+@import './components/container';
+@import './components/footer';
+@import './components/tag';
+@import './components/modal';
 @import './components/pagination';

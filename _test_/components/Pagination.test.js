@@ -2,10 +2,10 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Pagination from '../../src/components/common/Pagination';
 
-let onPageClick = jest.fn();
+const onPageClick = jest.fn();
 
 describe('Pagination test', () => {
-  let wrapper = shallow(
+  const wrapper = shallow(
     <Pagination currentPage={1} numberOfPages={10} onPageClick={onPageClick} />
   );
   it('should test that the component rendered', () => {

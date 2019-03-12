@@ -1,12 +1,16 @@
 import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import IndexPage from './components/IndexPage';
 
-const AppComp = () => (
+const App = () => (
   <Provider store={store}>
-    <div>
-      <h2>Welcome to Author's Haven</h2>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" component={IndexPage} exact />
+      </Switch>
+    </BrowserRouter>
   </Provider>
 );
-export default AppComp;
+export default App;

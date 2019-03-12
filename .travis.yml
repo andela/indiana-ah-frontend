@@ -1,13 +1,13 @@
 language: node_js
 node_js:
- - "stable"
+  - "11.10.1"
 env:
   global:
     - CC_TEST_REPORTER_ID=0b88681771ae84256e88bf6320b5262a2cec5ec5a40dc79780535f9245ee71fd
   matrix:
-  - REACT=16.7
+    - REACT=16.7
 
-install: 
+install:
   - npm install
 
 before_script:
@@ -20,5 +20,3 @@ script: npm test
 
 after_success:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
-  
-

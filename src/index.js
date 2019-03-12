@@ -1,7 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AppComp from './App';
-import 'bootstrap/dist/css/bootstrap.css';
+import App from './App';
 import './styles/styles.scss';
+import Tag from './components/common/Tag.jsx';
 
-ReactDOM.render(<AppComp />, document.getElementById('root'));
+ReactDOM.render(
+  <React.Fragment>
+    <App />
+    <Tag />
+  </React.Fragment>,
+  document.getElementById('root')
+);
