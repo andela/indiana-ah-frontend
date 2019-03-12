@@ -15,7 +15,7 @@ const CardComponent = ({
   <div className='title-height'><b>{title}</b></div>
 
   <div className='text-height'>
-  <Card.Text className = 'cardText'>
+  <Card.Text className = 'card-text'>
       {text}
     </Card.Text>
   </div>

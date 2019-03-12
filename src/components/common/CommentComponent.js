@@ -4,8 +4,8 @@ import CommentIcon from '../../images/icons/chat-1.png';
 
 const CommentComponent = ({ commentCount }) => (
 <Fragment>
-<span className = 'icon_holder'>
-<img src = {CommentIcon} alt = 'CommentIcon' className= 'icon_height icon_margin'/>
+<span className = 'icon-holder'>
+<img src = {CommentIcon} alt = 'CommentIcon' className= 'icon-height icon_margin'/>
 <sub className='count'>{commentCount}</sub>
 </span>
 </Fragment>

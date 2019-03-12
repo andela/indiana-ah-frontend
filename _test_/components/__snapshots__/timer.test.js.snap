@@ -2,11 +2,11 @@
 
 exports[`<BadgeComponent /> renders correctly 1`] = `
 <span
-  className="icon_holder"
+  className="icon-holder"
 >
   <img
     alt="ClockIcon"
-    className="icon_height"
+    className="icon-height"
     src="test-file-stub"
   />
   <sub

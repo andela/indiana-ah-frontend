@@ -2,11 +2,11 @@
 
 exports[`<CommentComponent /> renders correctly 1`] = `
 <span
-  className="icon_holder"
+  className="icon-holder"
 >
   <img
     alt="CommentIcon"
-    className="icon_height icon_margin"
+    className="icon-height icon_margin"
     src="test-file-stub"
   />
   <sub

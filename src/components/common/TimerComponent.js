@@ -4,8 +4,8 @@ import ClockIcon from '../../images/icons/clock.png';
 
 const TimerComponent = ({ timeCount }) => (
 <Fragment>
-<span className = 'icon_holder'>
-<img src = {ClockIcon} alt = 'ClockIcon' className= 'icon_height'/>
+<span className = 'icon-holder'>
+<img src = {ClockIcon} alt = 'ClockIcon' className= 'icon-height'/>
 <sub className='count'>{ timeCount }</sub>
 </span>
 </Fragment>

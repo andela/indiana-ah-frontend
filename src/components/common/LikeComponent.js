@@ -29,7 +29,7 @@ d="M28.7063 20.3952C29.3211 19.611 29.6159 18.7704 29.5783 17.9046C29.5407 16.95
 
 const LikeComponent = ({ likeCount, color }) => (
 <Fragment>
-<span className = 'icon_holder'>
+<span className = 'icon-holder'>
  {likeSvg(color)}
 <sub className='count'>{likeCount}</sub>
 </span>

@@ -1,14 +1,14 @@
-.icon_height{
+.icon-height{
   height: 2.8rem;
   cursor:pointer;
  }
 
-.card_container{
+.card-container{
 display: flex;
 justify-content: center;
 }
 
-.cardText{
+.card-text{
   color: #888;
   font-size: 1.3rem;
   margin-top: 0.8rem;
@@ -29,11 +29,11 @@ justify-content: center;
   text-overflow: ellipsis; 
 }
 
-.card_container .card:not(:last-child){
+.card-container .card:not(:last-child){
   margin-right: 1.5rem  
 }
 
-.TopContent{
+.top-content{
   display: flex;
 }
 .count{
@@ -41,12 +41,12 @@ justify-content: center;
   bottom: -1.8em;
 }
 
-.icon_container{
+.icon-container{
   display: flex;
   justify-content: flex-start;
 }
 
-.icon_holder{
+.icon-holder{
   display: flex;
   margin-right: 15%;
 }
@@ -81,7 +81,7 @@ font-weight: bolder;
   color: rgba(0, 0, 0, 0.9)
 }
 
-.card_container_column{
+.card-container-column{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -104,12 +104,12 @@ background-color: #EFEFEF;
 }
 
 @media only screen and (max-width: 900px) {
-  .card_container{
+  .card-container{
     flex-direction: column;
     align-items: center
   }
 
-  .card_container .card:not(:last-child){
+  .card-container .card:not(:last-child){
     margin-right: 0px  
   }
   .card{

@@ -8,7 +8,7 @@ const UserProfileCard = ({
 }) => (
 <Fragment>
 <Card style={{ width: '38rem', height: '33rem' }} className = 'p-5 user-card'>
-<div className = 'TopContent mb-5'>
+<div className = 'top-content mb-5'>
 <span className = 'float-left'>
 <p className = 'user-name'>{userName}</p>
 <b>Posts&nbsp;({postCount})</b>

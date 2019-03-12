@@ -28,7 +28,7 @@ exports[`<CardComponent /> renders correctly 1`] = `
       className="text-height"
     >
       <p
-        className="cardText card-text"
+        className="card-text card-text"
       >
         lkjhljugyghjh
       </p>
@@ -43,7 +43,7 @@ exports[`<CardComponent /> renders correctly 1`] = `
           className="col pl-0"
         >
           <span
-            className="icon_holder"
+            className="icon-holder"
           >
             <svg
               fill="none"
@@ -101,10 +101,10 @@ exports[`<CardComponent /> renders correctly 1`] = `
           className="col"
         >
           <span
-            className="icon_holder"
+            className="icon-holder"
           >
             <svg
-              className="icon_height icon_margin"
+              className="icon-height icon_margin"
               height="4rem"
               id="Capa_1"
               style={
@@ -144,11 +144,11 @@ exports[`<CardComponent /> renders correctly 1`] = `
           className="col"
         >
           <span
-            className="icon_holder"
+            className="icon-holder"
           >
             <img
               alt="CommentIcon"
-              className="icon_height icon_margin"
+              className="icon-height icon_margin"
               src="test-file-stub"
             />
             <sub
@@ -178,7 +178,7 @@ exports[`<UserProfileCardComponent /> renders correctly 1`] = `
   }
 >
   <div
-    className="TopContent mb-5"
+    className="top-content mb-5"
   >
     <span
       className="float-left"
