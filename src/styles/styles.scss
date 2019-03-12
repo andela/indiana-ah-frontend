@@ -4,30 +4,4 @@
 @import "./components/footer";
 @import "./components/tag";
 @import "./components/modal";
-body {
-  font-family: sans-serif;
-  color: #0b41cd;
-  background: #ffffff;
-}
-html {
-  font-size: 62.5%;
-}
-nav a {
-  font-size: 1.5rem;
-  font-family: "Alegreya", serif;
-  color: #000000;
-}
-.notification-logo {
-  height: 2rem;
-  width: 2rem;
-}
-@media (max-width: 400px) {
-  .d-xs-block {
-    display: block !important;
-  }
-}
-@media (max-width: 400px) {
-  .d-xs-none {
-    display: none !important;
-  }
-}
+@import "./components/navbar";
