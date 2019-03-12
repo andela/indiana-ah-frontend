@@ -4,14 +4,15 @@ import Form from 'react-bootstrap/Form';
 import Input from './Input.jsx';
 
 const InputField = ({
-  placeholder, width, type, id, value, errorMessage, handleChange, onBlur
+  placeholder, width, type, id, value, errorMessage, handleChange, onBlur, margin, wrapper
 }) => (
-  <div>
+  <div className={wrapper}>
     <Input
       inputWidth={width}
       id={id}
       type={type}
       value={value}
+      margin={margin}
       placeholder={placeholder}
       onChange={handleChange}
       onBlur = {onBlur}
@@ -22,7 +23,6 @@ const InputField = ({
       {errorMessage}
       </Form.Text>
     }
-
   </div>
 );
 
@@ -37,6 +37,7 @@ InputField.propTypes = {
   placeholder: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
   onBlur: PropTypes.func,
-
+  margin: PropTypes.string,
+  wrapper: PropTypes.string
 };
 export default InputField;
