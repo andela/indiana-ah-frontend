@@ -36,7 +36,6 @@
     "@babel/plugin-proposal-class-properties": "^7.3.4",
     "@babel/plugin-transform-runtime": "^7.3.4",
     "clean-webpack-plugin": "^2.0.0",
-    "font-awesome": "^4.7.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.3.4",
     "@babel/runtime": "^7.3.4",
     "express": "^4.16.4",
