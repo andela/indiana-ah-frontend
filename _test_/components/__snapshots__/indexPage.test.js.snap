@@ -23,7 +23,7 @@ Array [
             There is no limit to what you can achieve with a pen.. Write, the world is ready to read.
           </p>
           <button
-            className="sc-bdVaJa bsDjTF"
+            className="sc-bdVaJa jFrvla"
           >
             Get Started
           </button>
@@ -45,7 +45,7 @@ Array [
       className="justify-content-center row"
     >
       <div
-        className="col-md-8"
+        className="col-lg-8 col-md-10"
       >
         <h2
           className="text-center"
@@ -58,7 +58,7 @@ Array [
       className="text-center row"
     >
       <div
-        className="col-md-4"
+        className="col"
       >
         <p>
           Author’s haven indeed lives up to its name.
@@ -85,7 +85,7 @@ Array [
         </p>
       </div>
       <div
-        className="col-md-4"
+        className="col"
       >
         <p>
           Author’s haven indeed lives up to its name.
@@ -112,7 +112,7 @@ Array [
         </p>
       </div>
       <div
-        className="col-md-4"
+        className="col"
       >
         <p>
           Author’s haven indeed lives up to its name.
@@ -147,7 +147,7 @@ Array [
       className="banner row"
     >
       <div
-        className="col-md-7"
+        className="col"
       >
         <span
           className="isvg loading"
@@ -166,7 +166,7 @@ Array [
             Get Started for free today.
           </p>
           <button
-            className="sc-bdVaJa iQmcrA"
+            className="sc-bdVaJa kGxJaI"
           >
             Get Started
           </button>
@@ -181,16 +181,16 @@ Array [
       className="subscription row"
     >
       <div
-        className="col-md-1"
+        className="d-md-none d-lg-block col-md-1"
       />
       <div
-        className="position-relative col-md-4"
+        className="position-relative col-lg-4 col-md-5"
       >
         <div
-          className="w-80"
+          className="w-80 mt-10"
         >
           <h2>
-            Subscribe To Email List
+            Subscribe To Our Email List
           </h2>
           <p
             className="banner-p2"
@@ -205,7 +205,7 @@ Array [
             className="input-div"
           >
             <input
-              className="sc-bwzfXH jLxEfk"
+              className="sc-bwzfXH eNLgwL"
               id="email"
               name="email"
               onChange={[Function]}
@@ -219,14 +219,14 @@ Array [
             />
           </div>
           <button
-            className="sc-bdVaJa gbqfHe"
+            className="sc-bdVaJa goSSOR"
           >
-            Get Started
+            Subscribe
           </button>
         </div>
       </div>
       <div
-        className="img-div p-0 col"
+        className="img-div p-0 col-md-7"
       >
         <img
           className="banner-img"
