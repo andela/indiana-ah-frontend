@@ -4,9 +4,9 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import App from '../../src/App';
 
-describe('first test', () => {
+describe('<App /> ', () => {
   const wrapper = shallow(<App />);
-  it('should render the App', () => {
+  it('should render the App component', () => {
     expect(wrapper.length).toEqual(1);
     expect(wrapper.find('div')).toHaveLength;
   });

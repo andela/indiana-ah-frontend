@@ -9,7 +9,7 @@ const CardComponent = ({
   img, title, text, likeCount, dislikeCount, commentCount
 }) => (
 <Fragment>
-<Card style={{ width: '35rem', height: '50rem' }}>
+<Card className='card-style'>
   <Card.Img variant='top' src= {img}/>
   <Card.Body className='pb-0'>
   <div className='title-height'><b>{title}</b></div>
