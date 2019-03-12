@@ -8,7 +8,7 @@ const App = () => (
   <Provider store={store}>
     <BrowserRouter>
       <Switch>
-        <Route path="/" component={IndexPage} exact/>
+        <Route path="/" component={IndexPage} exact />
       </Switch>
     </BrowserRouter>
   </Provider>
