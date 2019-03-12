@@ -25,6 +25,6 @@ export const renderPageLinks = (currentPage, numberOfPages) => {
 export const setCurrentPage = (component) => {
   const urlSearchParams = new URLSearchParams(location.search);
   let page = parseInt(urlSearchParams.get('page'));
-  if (!isNaN(page)) page = 1;
+  if (isNaN(page)) page = 1;
   component.setState({ currentPage: page });
 };
