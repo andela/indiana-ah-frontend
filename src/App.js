@@ -1,10 +1,11 @@
 import React, { Fragment } from 'react';
-import NavBar from './components/common/Navbar.jsx';
+import Navbar from './components/common/Navbar.jsx';
+import './styles/styles.scss';
 
 const App = () => (
   <Fragment>
-    <NavBar />
-    <h2>Welcome to Authors Haven!</h2>
+    <Navbar />
+    <h2 className="gg">Welcome to Authors Havenn!</h2>
   </Fragment>
 );
 export default App;

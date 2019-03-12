@@ -1,50 +1,59 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Row, Col } from 'react-bootstrap';
+import React, { Fragment } from 'react';
 import {
-  Header,
-  Nav,
-  Ul,
-  Li,
-  ImageLogo
-} from '../../styles/styledComponents/Navigation.jsx';
+  Navbar, Nav, Form, FormControl
+} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { ProfileImg, ImageLogo } from '../../styles/styledComponents/Navigation.jsx';
 
-const NavBar = () => (
-  <Header>
-    <div className="container-fluid px-5">
-      <Row className="d-flex">
-        <Col md={4} className="mt-1">
-          <ImageLogo>
-            <Link to="/">
-              {/* eslint-disable-next-line global-require */}
-              <img src={require('../../img/logo2.svg')} alt="logo" />
-            </Link>
-          </ImageLogo>
-        </Col>
-        <Col md={8} className="mt-4 d-flex flex-row justify-content-between">
-          <Col md={6}>Input</Col>
-          <Col md={6}>
-            <Nav className="d-flex flex-row justify-content-between">
-              <img
-                className="mr-5"
-                src={require('../../img/notificationIcon.svg')}
-                alt="logo"
-              />
-              <img
-                className="mr-5 rounded-circle"
-                src={require('../../img/profile.jpg')}
-                alt="logo"
-              />
-              <Ul>
-                <Li>
-                  <Link to="/signup">Samantha</Link>
-                </Li>
-              </Ul>
-            </Nav>
-          </Col>
-        </Col>
-      </Row>
-    </div>
-  </Header>
+const Bnav = () => (
+  <Fragment>
+    <Navbar bg="white shadow-sm" expand="lg">
+      <Navbar.Brand href="#home">
+        <ImageLogo>
+          <Link to="/">
+            {/* eslint-disable-next-line global-require */}
+            <img src={require('../../img/logo2.svg')} alt="logo" />
+          </Link>
+        </ImageLogo>
+      </Navbar.Brand>
+      <img
+        className="notification-logo ml-auto mr-3 d-none d-sm-block"
+        src={require('../../img/notificationIcon.svg')}
+        alt="logo"
+      />
+      <Nav.Link to="/signup" className="mr-3 d-none d-md-block">
+        Samantha
+      </Nav.Link>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="mr-auto">
+          <Form inline>
+            <FormControl
+              type="text"
+              placeholder="Search"
+              className="mr-sm-2 search"
+              style={{ minWidth: '300px' }}
+            />
+          </Form>
+        </Nav>
+        <Nav>
+          <img
+            className="ml-auto d-none d-md-none d-lg-block d-xs-none"
+            src={require('../../img/notificationIcon.svg')}
+            alt="logo"
+          />
+          <ProfileImg
+            src={require('../../img/profile.jpg')}
+            className="ml-5 mt-2 d-none d-md-none d-xs-none d-lg-block"
+            alt="logo"
+          />
+          <Nav.Link to="/signup" className="ft-size-2 ml-5">
+            Samantha
+          </Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+    ;
+  </Fragment>
 );
-export default NavBar;
+export default Bnav;
