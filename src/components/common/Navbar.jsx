@@ -1,54 +1,52 @@
 import React, { Fragment } from 'react';
-import {
-  Navbar, Nav, Form, FormControl
-} from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import SVG from 'react-inlinesvg';
 import { ProfileImg, ImageLogo } from '../../styles/styledComponents/Navigation.jsx';
+import InputField from './input/InputComponent.jsx';
 
-const Bnav = () => (
+const NavBar = () => (
   <Fragment>
-    <Navbar bg="white shadow-sm" expand="lg">
+    <Navbar bg="white shadow-sm px-5" expand="lg">
       <Navbar.Brand href="#home">
         <ImageLogo>
           <Link to="/">
-            {/* eslint-disable-next-line global-require */}
-            <img src={require('../../img/logo2.svg')} alt="logo" />
+            <SVG src="../src/assets/images/svg/customLogo.svg" className="feather" />
           </Link>
         </ImageLogo>
       </Navbar.Brand>
-      <img
-        className="notification-logo ml-auto mr-3 d-none d-sm-block"
-        src={require('../../img/notificationIcon.svg')}
-        alt="logo"
-      />
-      <Nav.Link to="/signup" className="mr-3 d-none d-md-block">
+      <Nav.Link to="/signup" className="mr-3 d-none d-sm-block d-lg-none d-md-none">
         Samantha
       </Nav.Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
-          <Form inline>
-            <FormControl
-              type="text"
-              placeholder="Search"
-              className="mr-sm-2 search"
-              style={{ minWidth: '300px' }}
-            />
-          </Form>
+        <Nav className="mr-auto ml-5">
+          <InputField
+            type="text"
+            id="search"
+            value=""
+            placeholder="search"
+            handleChange={() => {}}
+            width="38rem"
+          />
+          <SVG className="search-logo" src="../src/assets/images/svg/searchIcon.svg" />
         </Nav>
         <Nav>
-          <img
-            className="ml-auto d-none d-md-none d-lg-block d-xs-none"
-            src={require('../../img/notificationIcon.svg')}
-            alt="logo"
+          <SVG
+            className="ml-auto d-none d-md-none d-xs-none d-lg-block"
+            src="../src/assets/images/svg/notificationIcon.svg"
           />
           <ProfileImg
-            src={require('../../img/profile.jpg')}
+            src="../src/assets/images/profile.jpg"
             className="ml-5 mt-2 d-none d-md-none d-xs-none d-lg-block"
             alt="logo"
           />
-          <Nav.Link to="/signup" className="ft-size-2 ml-5">
+          <Nav.Link to="/signup" className="d-flex ft-size-2 ml-5">
             Samantha
+            <SVG
+              className="mx-3 d-none d-md-none d-lg-block d-xs-none"
+              src="../src/assets/images/svg/dropDownIcon.svg"
+            />
           </Nav.Link>
         </Nav>
       </Navbar.Collapse>
@@ -56,4 +54,4 @@ const Bnav = () => (
     ;
   </Fragment>
 );
-export default Bnav;
+export default NavBar;

@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
-import Navbar from './components/common/Navbar.jsx';
+import NavBar from './components/common/Navbar.jsx';
 import './styles/styles.scss';
+import Footer from './components/common/footer.jsx';
 
 const App = () => (
   <Provider store={store}>
