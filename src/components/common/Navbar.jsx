@@ -54,4 +54,4 @@ const NavBar = () => (
     ;
   </Fragment>
 );
-export default Bnav;
+export default NavBar;
