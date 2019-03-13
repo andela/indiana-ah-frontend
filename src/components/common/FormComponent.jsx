@@ -2,6 +2,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import SVG from 'react-inlinesvg';
+import { Circle } from 'better-react-spinkit';
 import { FormContainer, FormTitle } from '../../styles/styledComponents/form.jsx';
 import { TextArea } from './input/Input.jsx';
 import InputField from './input/InputComponent.jsx';
@@ -17,17 +18,23 @@ const Form = ({
   handleChange,
   usernameValue,
   passwordValue,
-  handleSubmit
+  handleSubmit,
+  handleBlur,
+  isLoading,
+  responseErrorMessage,
+  errors
 }) => (
-  <FormContainer className="d-flex flex-column align-items-center pt-4">
+  <FormContainer
+    className="d-flex flex-column align-items-center pt-4"
+    onSubmit={handleSubmit}>
     {registerForm || loginForm ? (
       <Fragment>
-        <Button fbSocial className="d-flex justify-content-around">
-          <SVG src="../src/assets/images/svg/facebook.svg" />
+        <Button fbSocial className="d-flex justify-content-left">
+          <SVG src="../src/assets/images/svg/facebook.svg" className="mx-5" />
           {registerForm ? 'Signup with facebook' : 'Continue with facebook'}
         </Button>
-        <Button ggSocial className="d-flex justify-content-around">
-          <SVG src="../src/assets/images/svg/google.svg" />
+        <Button ggSocial className="d-flex">
+          <SVG src="../src/assets/images/svg/google.svg" className="mx-5" />
           {registerForm ? 'Signup with google' : 'Continue with google'}
         </Button>
       </Fragment>
@@ -45,16 +52,19 @@ const Form = ({
         ) : (
           <Fragment />
         )}
+        <span className="text-danger">{responseErrorMessage}</span>
         <InputField
           className="my-3"
-          id={reportForm ? 'reportTitle' : 'emailValue'}
-          width={resetPasswordForm ? '70%' : '80%'}
+          id={reportForm ? 'reportTitle' : 'email'}
+          width={resetPasswordForm ? '80%' : '100%'}
           placeholder={reportForm ? 'report title' : 'email'}
-          type="text"
+          type={reportForm ? 'text' : 'email'}
           name={reportForm ? 'reportTitle' : 'emailValue'}
           value={reportForm ? reportTitleValue : emailValue}
           noMargin
-          onChange={handleChange}
+          handleChange={handleChange}
+          onBlur={handleBlur}
+          errorMessage={errors ? errors.email : ''}
         />
       </div>
     ) : (
@@ -65,7 +75,7 @@ const Form = ({
       {reportForm ? (
         <TextArea
           className="my-3"
-          width={'80%'}
+          width={'100%'}
           rows="10"
           placeholder="report description"
           type="text"
@@ -74,12 +84,14 @@ const Form = ({
       ) : registerForm || loginForm ? (
         <InputField
           className="my-3"
-          width={'80%'}
+          width={'100%'}
           id={registerForm ? 'username' : 'password'}
           placeholder={registerForm ? 'username' : 'password'}
-          onChange={handleChange}
+          handleChange={handleChange}
+          onBlur={handleBlur}
           name={registerForm ? 'username' : 'passwordValue'}
           value={registerForm ? usernameValue : passwordValue}
+          errorMessage={errors ? errors.username : ''}
           type="text"
           noMargin
         />
@@ -87,20 +99,34 @@ const Form = ({
         <Fragment />
       )}
     </div>
-    {registerForm ? (
-      <InputField
-        className="my-3"
-        width={'80%'}
-        placeholder="password"
-        type="text"
-        noMargin
-      />
-    ) : (
-      <Fragment />
-    )}
+    <div className="w-100 px-1">
+      {registerForm ? (
+        <InputField
+          className="my-3"
+          width={'100%'}
+          placeholder="password"
+          type="password"
+          id="password"
+          noMargin
+          onBlur={handleBlur}
+          handleChange={handleChange}
+          value={passwordValue}
+          errorMessage={errors.password || ''}
+        />
+      ) : (
+        <Fragment />
+      )}
+    </div>
 
     {registerForm ? (
-      <Button>signup</Button>
+      <Button type="submit" disabled={isLoading} onClick={handleSubmit}>
+        signup{' '}
+        {isLoading && (
+          <span style={{ float: 'right', padding: '3px 3px 0 10px' }}>
+            <Circle color={'#0b41cd'} />
+          </span>
+        )}
+      </Button>
     ) : loginForm ? (
       <Button onClick={handleSubmit}>login</Button>
     ) : reportForm ? (
@@ -147,15 +173,19 @@ const Form = ({
   </FormContainer>
 );
 Form.propTypes = {
-  registerForm: PropTypes.string,
-  loginForm: PropTypes.string,
+  registerForm: PropTypes.boolean,
+  loginForm: PropTypes.boolean,
   reportForm: PropTypes.string,
   resetPasswordForm: PropTypes.string,
   reportTitleValue: PropTypes.string,
   emailValue: PropTypes.string,
-  passwordValue: PropTypes.string.isRequired,
+  passwordValue: PropTypes.string,
   handleSubmit: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
-  usernameValue: PropTypes.string
+  handleBlur: PropTypes.func,
+  usernameValue: PropTypes.string,
+  errors: PropTypes.object,
+  isLoading: PropTypes.boolean,
+  responseErrorMessage: PropTypes.string
 };
 export default Form;

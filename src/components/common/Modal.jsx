@@ -4,22 +4,15 @@ import Modal from 'react-bootstrap/Modal';
 
 const CustomModal = props => (
   <div>
-    <Modal
-    show={ props.modalIsOpen }
-    onHide={props.closeModal}
-    dialogClassName="Modal"
-  >
-    <Modal.Body>
-      {props.body}
-    </Modal.Body>
-
-  </Modal>
+    <Modal show={props.modalIsOpen} onHide={props.closeModal} dialogClassName="Modal">
+      <Modal.Body>{props.body}</Modal.Body>
+    </Modal>
   </div>
 );
 
 CustomModal.propTypes = {
   body: PropTypes.string,
   modalIsOpen: PropTypes.func.isRequired,
-  closeModal: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired
 };
 export default CustomModal;

@@ -38,8 +38,7 @@ const Button = styled.button`
   padding: .3rem 1rem 
   display: ${props => (props.inlineButton ? 'inline-block' : 'block')};
   text-transform: capitalize;
-  width: ${props => (props.fbSocial || props.ggSocial ? '80%' : 'auto')};
-
+  width: ${props => (props.fbSocial || props.ggSocial ? '100%' : 'auto')};
   svg {
     height: 35px;
     width: 35px;
