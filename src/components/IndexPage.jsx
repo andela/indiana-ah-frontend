@@ -3,7 +3,6 @@ import { Row, Col } from 'react-bootstrap';
 import SVG from 'react-inlinesvg';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Footer from './common/footer.jsx';
 import Button from '../styles/styledComponents/Button.jsx';
 import IndexForm from './forms/indexForm.jsx';
 import getAllArticles from '../redux/actions/articleActions';
@@ -137,7 +136,6 @@ class IndexPage extends Component {
             </Col>
           </Row>
         </section>
-        <Footer />
       </Fragment>
     );
   }

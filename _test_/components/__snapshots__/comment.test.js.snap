@@ -6,7 +6,7 @@ exports[`<CommentIconComponent /> renders correctly 1`] = `
 >
   <img
     alt="CommentIcon"
-    className="icon-height icon_margin"
+    className="icon-color icon-height icon_margin"
     src="test-file-stub"
   />
   <sub

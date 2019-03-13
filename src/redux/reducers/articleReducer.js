@@ -1,5 +1,5 @@
 import {
-  GET_ALL_ARTICLES, GET_ALL_ARTICLES_ERROR
+  GET_ALL_ARTICLES
 } from '../actions/actionTypes';
 
 const initialState = {
@@ -13,11 +13,6 @@ const articleReducer = (state = initialState, action) => {
       return {
         ...state,
         allArticles: action.payload,
-      };
-    case GET_ALL_ARTICLES_ERROR:
-      return {
-        ...state,
-        error: ''
       };
     default:
       return state;

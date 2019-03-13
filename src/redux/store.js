@@ -3,8 +3,8 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction';
 import rootReducer from './reducers/index';
 
-const initialState = {},
-  middleware = [thunk];
+const initialState = {};
+const middleware = [thunk];
 
 const store = createStore(
   rootReducer,

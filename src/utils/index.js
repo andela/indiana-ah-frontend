@@ -1,7 +1,7 @@
+/* eslint-disable no-plusplus */
+/* eslint-disable radix */
 /* eslint-disable no-confusing-arrow */
 /* eslint-disable no-restricted-globals */
-/* eslint-disable radix */
-/* eslint-disable no-plusplus */
 import axios from 'axios';
 
 export const apiInstance = axios.create({

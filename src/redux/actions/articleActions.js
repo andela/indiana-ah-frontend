@@ -1,5 +1,6 @@
+import Swal from 'sweetalert2';
 import {
-  GET_ALL_ARTICLES, GET_ALL_ARTICLES_ERROR
+  GET_ALL_ARTICLES
 } from './actionTypes';
 import { sendHttpRequest } from '../../utils';
 
@@ -8,9 +9,13 @@ const getAllArticles = () => async (dispatch) => {
     const { articles } = await sendHttpRequest('/articles?page=1&limit=10', 'GET');
     dispatch({ type: GET_ALL_ARTICLES, payload: articles });
   } catch ({ response }) {
-    dispatch({
-      type: GET_ALL_ARTICLES_ERROR,
-      payload: response
+    Swal.fire({
+      title: 'Error!',
+      text: response,
+      type: 'error',
+      timer: 3000,
+      showConfirmButton: false,
+      width: 400,
     });
   }
 };
