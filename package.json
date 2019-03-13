@@ -1,7 +1,7 @@
 {
   "name": "indiana-ah-frontend",
   "version": "1.0.0",
-  "description": "the front-end part of the authors haven application",
+  "description": "The front-end part of the authors haven application",
   "main": "index.js",
   "scripts": {
     "test": "jest",

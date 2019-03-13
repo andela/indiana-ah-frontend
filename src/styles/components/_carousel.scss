@@ -1,4 +1,45 @@
-.carousel-card {
+.carousel-card.card-style {
   width: 33rem;
-  height: auto;
+}
+
+@media only screen and (max-width: 840px) {
+  .carousel-card.card-style {
+    width: 37rem;
+  }
+}
+
+@media only screen and (max-width: 790px) {
+  .carousel-card.card-style {
+    width: 35rem;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .carousel-card.card-style {
+    width: 33rem;
+  }
+}
+
+@media only screen and (max-width: 710px) {
+  .carousel-card.card-style {
+    width: 30rem;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .carousel-card.card-style {
+    width: 27rem;
+  }
+}
+
+@media only screen and (max-width: 590px) {
+  .carousel-card.card-style {
+    width: 24rem;
+  }
+}
+
+@media only screen and (max-width: 530px) {
+  .carousel-card.card-style {
+    width: 100%;
+  }
 }

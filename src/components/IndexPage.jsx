@@ -61,16 +61,16 @@ class IndexPage extends Component {
         <div className='container'>
           <Row className='banner'>
             <Col className='d-flex align-items-center'>
-              <div>
+              <div className='index-banner'>
                 <h1 className='w-80'>Share Your Thoughts With The World</h1>
                 <p className='banner-p'>There is no limit to what you can
                   achieve with a pen..
                   Write, the world is ready to read.
                 </p>
-                <Button bgColor>Get Started</Button>
+                <Button bgColor className='index-button'>Get Started</Button>
               </div>
             </Col>
-            <Col>
+            <Col className='d-none d-sm-block'>
               <SVG src='../src/assets/images/svg/banner_image.svg'></SVG>
             </Col>
           </Row>
@@ -132,7 +132,7 @@ class IndexPage extends Component {
               </div>
               <IndexForm />
             </Col>
-            <Col md={7} className='img-div p-0'>
+            <Col md={7} className='img-div p-0 d-none d-md-block'>
               <img src='../src/assets/images/index_img.jpg' className='banner-img' />
             </Col>
           </Row>
