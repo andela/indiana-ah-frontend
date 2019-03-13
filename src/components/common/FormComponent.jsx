@@ -29,14 +29,14 @@ const Form = ({
     onSubmit={handleSubmit}>
     {registerForm || loginForm ? (
       <Fragment>
-        <Button fbSocial className="d-flex justify-content-left">
+        <div className="fbButton">
           <SVG src="../src/assets/images/svg/facebook.svg" className="mx-5" />
-          {registerForm ? 'Signup with facebook' : 'Continue with facebook'}
-        </Button>
-        <Button ggSocial className="d-flex">
+          <span>{registerForm ? 'Signup with facebook' : 'Continue with facebook'}</span>
+        </div>
+        <div className="ggButton">
           <SVG src="../src/assets/images/svg/google.svg" className="mx-5" />
-          {registerForm ? 'Signup with google' : 'Continue with google'}
-        </Button>
+          <span>{registerForm ? 'Signup with google' : 'Continue with google'}</span>
+        </div>
       </Fragment>
     ) : reportForm ? (
       <FormTitle>report article</FormTitle>
@@ -154,13 +154,15 @@ const Form = ({
     {registerForm || loginForm || resetPasswordForm ? (
       <Fragment>
         {resetPasswordForm ? (
-          <div className="bg-light w-100 p-3 mt-3">Never mind</div>
+          <div className="d-flex justify-content-center bg-light w-100 p-3 mt-3">
+            Never mind
+          </div>
         ) : loginForm ? (
-          <div className="bg-light w-100 p-3 mt-3">
+          <div className="d-flex justify-content-center bg-light w-100 p-3 mt-3">
             <a href="/">Forgot password?</a>
           </div>
         ) : registerForm ? (
-          <div className="bg-light w-100 p-4 mt-3">
+          <div className="d-flex justify-content-center bg-light w-100 p-4 mt-3">
             Have an account? <a href="/">Login</a>
           </div>
         ) : (

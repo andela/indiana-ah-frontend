@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const FormContainer = styled.form`
   width: 100%;
-  text-align: center;
   background: #fff;
   border-radius: 0.3rem;
   border: 0.5rem solid #fff;

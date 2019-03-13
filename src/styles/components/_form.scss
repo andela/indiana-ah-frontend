@@ -3,3 +3,47 @@
   width: 55px;
   display: inline-block;
 }
+.fbButton {
+  display: flex;
+  flex-wrap: wrap;
+  background: #3b5997;
+  padding: 0.3rem auto;
+  width: 100%;
+  border-radius: 0.4rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.4);
+
+  svg {
+    height: 35px;
+    width: 35px;
+    padding: 0 10px 0 0;
+  }
+
+  @media (max-width: 40rem) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.ggButton {
+  display: flex;
+  flex-wrap: wrap;
+  background: #f2f3f5;
+  padding: 0.3rem auto;
+  width: 100%;
+  border-radius: 0.4rem;
+  color: #365c67;
+  margin-bottom: 1rem;
+  box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.1);
+
+  svg {
+    height: 35px;
+    width: 35px;
+    padding: 0 10px 0 0;
+  }
+  @media (max-width: 40rem) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
