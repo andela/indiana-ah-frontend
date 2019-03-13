@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import CommentIcon from '../../images/icons/chat-1.png';
+import CommentIcon from '../../assets/images/icons/chat-1.png';
 
 const CommentIconComponent = ({ commentCount }) => (
 <Fragment>

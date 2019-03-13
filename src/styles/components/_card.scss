@@ -1,16 +1,19 @@
-.icon-height{
+.icon-height {
   height: 2.8rem;
   cursor:pointer;
  }
 
- .card-style{ 
+.card-style { 
   width: 35rem;
-   height: 50rem 
-  }
+  height: 50rem 
+}
   
 .card-container{
 display: flex;
 justify-content: center;
+}
+.card-body {
+  padding: 2rem;
 }
 
 .card-text{
@@ -23,7 +26,7 @@ justify-content: center;
   height:25px
 }
 .text-height{
-  height:50px;
+  height:80px;
   word-wrap: break-word;
 }
 

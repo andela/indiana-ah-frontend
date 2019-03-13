@@ -23,6 +23,26 @@ class IndexCarousel extends Component {
         {
           img: 'https://avatars0.githubusercontent.com/u/38977569?s=400&v=4',
           title: 'lkjhljugyghjh',
+          text: `Lorem Ipsum has been the industry standard dummy text ever since
+            the 1500s, when an unknown printer took a galley of type and scrambled it to
+            make a type specimen book.`,
+          likeCount: 2,
+          dislikeCount: 2,
+          commentCount: 2
+        },
+        {
+          img: 'https://avatars0.githubusercontent.com/u/38977569?s=400&v=4',
+          title: 'lkjhljugyghjh',
+          text: `Lorem Ipsum has been the industry standard dummy text ever since
+            the 1500s, when an unknown printer took a galley of type and scrambled it to
+            make a type specimen book.`,
+          likeCount: 2,
+          dislikeCount: 2,
+          commentCount: 2
+        },
+        {
+          img: 'https://avatars0.githubusercontent.com/u/38977569?s=400&v=4',
+          title: 'lkjhljugyghjh',
           text: `If you are going to use a passage of Lorem Ipsum, you need to
             be sure there isnt anything embarrassing hidden in the middle of text.`,
           likeCount: 2,
@@ -58,50 +78,49 @@ class IndexCarousel extends Component {
   render() {
     const {
       activeItemIndex,
-      children,
       featuredArticle,
     } = this.state;
+
+    const cards = featuredArticle.map((eachCard, index) => <CardComponent
+      key={index}
+      img={eachCard.img}
+      color={eachCard.color}
+      commentCount={eachCard.commentCount}
+      likeCount={eachCard.likeCount}
+      dislikeCount={eachCard.dislikeCount}
+      title={eachCard.title}
+      text={eachCard.text}
+      />);
+
     return <ItemsCarousel
       // Placeholder configurations
-      enablePlaceholder
-      numberOfPlaceholderItems={5}
+      enablePlaceholder={true}
+      numberOfPlaceholderItems={4}
       minimumPlaceholderTime={1000}
       placeholderItem={<div style={{ height: 200, background: '#900' }}>Placeholder</div>}
 
       // Carousel configurations
-      numberOfCards={3}
-      gutter={12}
+      numberOfCards={4}
+      gutter={0}
       showSlither={true}
-      firstAndLastGutter={true}
-      freeScrolling={false}
+      firstAndLastGutter={false}
+      freeScrolling={true}
 
       // Active item configurations
       requestToChangeActive={this.changeActiveItem}
       activeItemIndex={activeItemIndex}
       activePosition={'center'}
 
-      chevronWidth={24}
+      chevronWidth={29}
       rightChevron={'>'}
       leftChevron={'<'}
       outsideChevron={false}
-    >
-      children = {
-        <div className="card-container">
-          {featuredArticle.map((eachCard, index) => <CardComponent
-            key={index}
-            img={eachCard.img}
-            color={eachCard.color}
-            commentCount={eachCard.commentCount}
-            likeCount={eachCard.likeCount}
-            dislikeCount={eachCard.dislikeCount}
-            title={eachCard.title}
-            text={eachCard.text}
-          />)}
-        </div>
-      }
-  );
-    </ItemsCarousel>;
+      springConfig={{ stiffness: 100, damping: 12 }}
+      // eslint-disable-next-line react/no-children-prop
+      children={cards}
+     />;
   }
 }
+
 
 export default IndexCarousel;

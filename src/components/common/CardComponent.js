@@ -9,9 +9,9 @@ const CardComponent = ({
   img, title, text, likeCount, dislikeCount, commentCount
 }) => (
 <Fragment>
-<Card className='card-style'>
+  <Card className='carousel-card card-style'>
   <Card.Img variant='top' src= {img}/>
-  <Card.Body className='pb-0'>
+  <Card.Body className='pb-0 card-body'>
   <div className='title-height'><b>{title}</b></div>
 
   <div className='text-height'>
@@ -21,7 +21,7 @@ const CardComponent = ({
   </div>
 
 <div className='container'>
-  <div className='row mt-4'>
+  <div className='row mt-4 mb-5'>
   <div className='col pl-0'>
   < LikeComponent likeCount={likeCount} color='black'/>
   </div>
