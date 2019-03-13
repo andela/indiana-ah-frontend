@@ -4,6 +4,7 @@ import SVG from 'react-inlinesvg';
 import Footer from './common/footer.jsx';
 import Button from '../styles/styledComponents/Button.jsx';
 import IndexForm from './forms/indexForm.jsx';
+import IndexCarousel from './carousels/indexCarousel.jsx';
 
 class IndexPage extends Component {
   state = {
@@ -85,6 +86,10 @@ class IndexPage extends Component {
               ))
             }
           </Row>
+        </section>
+        <section className='container-fluid'>
+          <h1>Featured articles</h1>
+          <IndexCarousel />
         </section>
         <section className='container'>
           <Row className='banner'>
