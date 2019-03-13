@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SideNav/> should render the SideNav component with 3 NavLinks 1`] = `
+<div
+  className="sidenav"
+>
+  <NavLink
+    activeClassName="is-active"
+    aria-current="page"
+    className="sidenav__logo-box"
+    to="/profile"
+  >
+    <InlineSVG
+      alt="profile-logo"
+      baseURL=""
+      cacheGetRequests={false}
+      onLoad={[Function]}
+      src="./src/images/icons/sideNavProfile.svg"
+      supportTest={[Function]}
+      uniquifyIDs={true}
+      wrapper={[Function]}
+    />
+    <span
+      className="sidenav__logo-label"
+    >
+      Profile
+    </span>
+  </NavLink>
+  <NavLink
+    activeClassName="is-active"
+    aria-current="page"
+    className="sidenav__logo-box"
+    to="/articles"
+  >
+    <InlineSVG
+      baseURL=""
+      cacheGetRequests={false}
+      onLoad={[Function]}
+      src="./src/images/icons/sideNavArticles.svg"
+      supportTest={[Function]}
+      uniquifyIDs={true}
+      wrapper={[Function]}
+    />
+    <span
+      className="sidenav__logo-label"
+    >
+      Articles
+    </span>
+  </NavLink>
+  <NavLink
+    activeClassName="is-active"
+    aria-current="page"
+    className="sidenav__logo-box"
+    to="/statistics"
+  >
+    <InlineSVG
+      alt="profile-logo"
+      baseURL=""
+      cacheGetRequests={false}
+      onLoad={[Function]}
+      src="./src/images/icons/sideNavStatistics.svg"
+      supportTest={[Function]}
+      uniquifyIDs={true}
+      wrapper={[Function]}
+    />
+    <span
+      className="sidenav__logo-label"
+    >
+      Statistics
+    </span>
+  </NavLink>
+  <Route
+    path="/"
+  />
+</div>
+`;

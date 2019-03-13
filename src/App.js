@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import store from './redux/store';
 import IndexPage from './components/IndexPage.jsx';
 
+
 const App = () => (
   <Provider store={store}>
     <BrowserRouter>
