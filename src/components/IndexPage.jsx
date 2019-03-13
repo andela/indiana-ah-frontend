@@ -1,14 +1,17 @@
 import React, { Fragment, Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import SVG from 'react-inlinesvg';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Footer from './common/footer.jsx';
 import Button from '../styles/styledComponents/Button.jsx';
 import IndexForm from './forms/indexForm.jsx';
+import getAllArticles from '../redux/actions/articleActions';
+import { filterArticlesByLikes, filterArticlesByDate } from '../utils/index';
 import IndexCarousel from './carousels/indexCarousel.jsx';
 
 class IndexPage extends Component {
   state = {
-    name: 'Indiana',
     reviews: [
       {
         name: 'Tiku Okoye',
@@ -43,8 +46,16 @@ class IndexPage extends Component {
     ]
   };
 
+  componentDidMount() {
+    this.props.getAllArticles();
+  }
+
+
   render() {
     const { reviews } = this.state;
+    const articles = this.props.articles.allArticles;
+    const topArticles = filterArticlesByLikes(articles);
+    const newArticles = filterArticlesByDate(articles);
     return (
       <Fragment>
         <div className='container'>
@@ -89,11 +100,11 @@ class IndexPage extends Component {
         </section>
         <section className='top-articles container-fluid'>
           <h1>Top articles</h1>
-          <IndexCarousel />
+          <IndexCarousel articles={topArticles} />
         </section>
         <section className='new-articles container-fluid'>
           <h1>New articles</h1>
-          <IndexCarousel />
+          <IndexCarousel articles={newArticles} />
         </section>
         <section className='container'>
           <Row className='banner'>
@@ -132,4 +143,14 @@ class IndexPage extends Component {
   }
 }
 
-export default IndexPage;
+IndexPage.propTypes = {
+  getAllArticles: PropTypes.func,
+  articles: PropTypes.object,
+};
+
+
+const mapStateToProps = state => ({
+  articles: state.articles,
+});
+
+export default connect(mapStateToProps, { getAllArticles })(IndexPage);

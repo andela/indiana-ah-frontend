@@ -10,7 +10,9 @@ const CardComponent = ({
 }) => (
 <Fragment>
   <Card className='carousel-card card-style'>
-  <Card.Img variant='top' src= {img}/>
+  <div className='image-wrapper-card'>
+    <Card.Img variant='top' className='image-card-style' src= {img}/>
+  </div>
   <Card.Body className='pb-0 card-body'>
   <div className='title-height'><b>{title}</b></div>
 
@@ -23,13 +25,13 @@ const CardComponent = ({
 <div className='container'>
   <div className='row mt-4 mb-5'>
   <div className='col pl-0'>
-  < LikeComponent likeCount={likeCount} color='black'/>
+    <LikeComponent likeCount={likeCount} color='rgba(0,0,0,.5)'/>
   </div>
   <div className='col'>
-  < DislikeComponent dislikeCount={dislikeCount} color='black'/>
+    <DislikeComponent dislikeCount={dislikeCount} color='rgba(0,0,0,.5)'/>
   </div>
   <div className='col'>
-  < CommentIconComponent commentCount={commentCount}/>
+    <CommentIconComponent commentCount={commentCount}/>
   </div>
   <div className='col'>
 </div>

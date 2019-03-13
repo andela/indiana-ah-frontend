@@ -4,7 +4,7 @@
  }
 
 .card-style { 
-  width: 35rem;
+  width: 37rem;
   height: 50rem 
 }
   
@@ -66,7 +66,9 @@ justify-content: center;
 .image-wrapper{
 height: 100px ;
 }
-
+.icon-color {
+  opacity: 0.5;
+}
 .user-card{
   box-shadow: 7px 10px 20px -5px rgba(0,0,0,0.5);
 }
@@ -108,6 +110,14 @@ background-color: #EFEFEF;
 .article-icons {
   flex: 1 0 21%;
   margin: 5px;
+}
+
+.image-wrapper-card {
+ height: 60% !important
+}
+.image-card-style {
+  object-fit: cover;
+  height: 100% !important;
 }
 
 @media only screen and (max-width: 900px) {
