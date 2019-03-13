@@ -35,5 +35,4 @@ class LoginContainer extends Component {
     );
   }
 }
-
 export default LoginContainer;
