@@ -29,26 +29,21 @@ module.exports = {
       {
         test: /\.s?css$/,
         use: [
+
           { loader: 'style-loader' },
           {
-            loader: 'css-loader',
-            options: {
-              modules: false,
-              importLoaders: 1,
-              localIdentName: '[name]_[local]_[hash:base64]',
-              sourceMap: true
-            }
+            loader: 'css-loader'
           },
           { loader: 'sass-loader' }
         ]
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
-        loader: 'url-loader'
-      },
-      {
-        test: /\.svg$/,
-        loader: 'svg-inline-loader',
+        use: [
+          {
+            loader: 'url-loader',
+          },
+        ],
       }
     ]
   },
