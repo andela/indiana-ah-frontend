@@ -6,11 +6,13 @@ import IndexPage from '../../src/components/IndexPage.jsx';
 
 describe('Custom Footer component', () => {
   it('renders correctly', () => {
-    const tree = renderer.create(
-      <MemoryRouter>
-        <IndexPage />
-      </MemoryRouter>
-    ).toJSON();
+    const tree = renderer
+      .create(
+        <MemoryRouter>
+          <IndexPage />
+        </MemoryRouter>
+      )
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
   it('renders the Index Page', () => {
@@ -18,6 +20,6 @@ describe('Custom Footer component', () => {
     expect(indexPage.find('.container')).toBeDefined();
     const h2 = indexPage.find('h2');
     expect(h2.length).toEqual(1);
-    expect(h2.text()).toEqual('Welcome to Author\'s Haven! Indiana');
+    expect(h2.text()).toEqual('Welcome to Authors Haven!');
   });
 });

@@ -1,0 +1,241 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form test should test that the login form rendered 1`] = `
+<form
+  className="d-flex flex-column align-items-center pt-4 sc-bdVaJa jzIRnc"
+>
+  <div
+    className="fbButton"
+  >
+    <a
+      href="https://indiana-ah-staging.herokuapp.com/auth/facebook"
+    >
+      <span
+        className="isvg loading mx-5"
+      />
+      <span>
+        Continue with facebook
+      </span>
+    </a>
+  </div>
+  <div
+    className="ggButton"
+  >
+    <a
+      href="https://indiana-ah-staging.herokuapp.com/auth/google"
+    >
+      <span
+        className="isvg loading mx-5"
+      />
+      <span>
+        Continue with google
+      </span>
+    </a>
+  </div>
+  <div
+    className="ttButton"
+  >
+    <a
+      href="https://indiana-ah-staging.herokuapp.com/auth/twitter"
+    >
+      <span
+        className="isvg loading mx-5"
+      />
+      <span>
+        Continue with twitter
+      </span>
+    </a>
+  </div>
+  <div
+    className="w-100 px-1"
+  >
+    <span
+      className="text-danger"
+    />
+    <div>
+      <input
+        className="sc-htpNat gZHvXm"
+        id="email"
+        placeholder="email"
+        required={true}
+        type="email"
+      />
+      <small
+        className="text-danger ml-3 form-text"
+      >
+        
+      </small>
+    </div>
+  </div>
+  <div
+    className="w-100 px-1"
+  >
+    <div>
+      <input
+        className="sc-htpNat gZHvXm"
+        id="password"
+        placeholder="password"
+        required={true}
+        type="text"
+      />
+      <small
+        className="text-danger ml-3 form-text"
+      >
+        
+      </small>
+    </div>
+  </div>
+  <div
+    className="w-100 px-1"
+  />
+  <button
+    className="sc-ifAKCX dEHoLg"
+  >
+    login
+  </button>
+  <p>
+    Dont have an account?
+     
+    <a
+      href="#"
+    >
+      Create one
+    </a>
+  </p>
+  <div
+    className="d-flex justify-content-center bg-light w-100 p-3 mt-3"
+  >
+    <a
+      href="#"
+    >
+      Forgot password?
+    </a>
+  </div>
+</form>
+`;
+
+exports[`Register Form should test that the register form rendered 1`] = `
+<form
+  className="d-flex flex-column align-items-center pt-4 sc-bdVaJa jzIRnc"
+>
+  <div
+    className="fbButton"
+  >
+    <a
+      href="https://indiana-ah-staging.herokuapp.com/auth/facebook"
+    >
+      <span
+        className="isvg loading mx-5"
+      />
+      <span>
+        Signup with facebook
+      </span>
+    </a>
+  </div>
+  <div
+    className="ggButton"
+  >
+    <a
+      href="https://indiana-ah-staging.herokuapp.com/auth/google"
+    >
+      <span
+        className="isvg loading mx-5"
+      />
+      <span>
+        Signup with google
+      </span>
+    </a>
+  </div>
+  <div
+    className="ttButton"
+  >
+    <a
+      href="https://indiana-ah-staging.herokuapp.com/auth/twitter"
+    >
+      <span
+        className="isvg loading mx-5"
+      />
+      <span>
+        Signup with twitter
+      </span>
+    </a>
+  </div>
+  <div
+    className="w-100 px-1"
+  >
+    <span
+      className="text-danger"
+    />
+    <div>
+      <input
+        className="sc-htpNat gZHvXm"
+        id="email"
+        placeholder="email"
+        required={true}
+        type="email"
+      />
+      <small
+        className="text-danger ml-3 form-text"
+      >
+        
+      </small>
+    </div>
+  </div>
+  <div
+    className="w-100 px-1"
+  >
+    <div>
+      <input
+        className="sc-htpNat gZHvXm"
+        id="username"
+        placeholder="username"
+        required={true}
+        type="text"
+      />
+      <small
+        className="text-danger ml-3 form-text"
+      >
+        
+      </small>
+    </div>
+  </div>
+  <div
+    className="w-100 px-1"
+  >
+    <div>
+      <input
+        className="sc-htpNat gZHvXm"
+        id="password"
+        placeholder="password"
+        required={true}
+        type="password"
+      />
+      <small
+        className="text-danger ml-3 form-text"
+      >
+        
+      </small>
+    </div>
+  </div>
+  <button
+    className="sc-ifAKCX dEHoLg"
+    type="submit"
+  >
+    signup
+     
+  </button>
+  <p>
+    By signing up, you agree to our terms and condition
+  </p>
+  <div
+    className="d-flex justify-content-center bg-light w-100 p-4 mt-3"
+  >
+    Have an account?
+    <a
+      href="#"
+    >
+      Login
+    </a>
+  </div>
+</form>
+`;

@@ -10,6 +10,8 @@ import Button from '../../styles/styledComponents/Button.jsx';
 
 const Form = ({
   registerForm,
+  openLoginForm,
+  openRegisterForm,
   loginForm,
   reportForm,
   resetPasswordForm,
@@ -24,18 +26,28 @@ const Form = ({
   responseErrorMessage,
   errors
 }) => (
-  <FormContainer
-    className="d-flex flex-column align-items-center pt-4"
-    onSubmit={handleSubmit}>
+  <FormContainer className="d-flex flex-column align-items-center pt-4">
     {registerForm || loginForm ? (
       <Fragment>
         <div className="fbButton">
-          <SVG src="../src/assets/images/svg/facebook.svg" className="mx-5" />
-          <span>{registerForm ? 'Signup with facebook' : 'Continue with facebook'}</span>
+          <a href="https://indiana-ah-staging.herokuapp.com/auth/facebook">
+            <SVG src="../src/assets/images/svg/facebook.svg" className="mx-5" />
+            <span>
+              {registerForm ? 'Signup with facebook' : 'Continue with facebook'}
+            </span>
+          </a>
         </div>
         <div className="ggButton">
-          <SVG src="../src/assets/images/svg/google.svg" className="mx-5" />
-          <span>{registerForm ? 'Signup with google' : 'Continue with google'}</span>
+          <a href="https://indiana-ah-staging.herokuapp.com/auth/google">
+            <SVG src="../src/assets/images/svg/google.svg" className="mx-5" />
+            <span>{registerForm ? 'Signup with google' : 'Continue with google'}</span>
+          </a>
+        </div>
+        <div className="ttButton">
+          <a href="https://indiana-ah-staging.herokuapp.com/auth/twitter">
+            <SVG src="../src/assets/images/svg/twitter.svg" className="mx-5" />
+            <span>{registerForm ? 'Signup with twitter' : 'Continue with twitter'}</span>
+          </a>
         </div>
       </Fragment>
     ) : reportForm ? (
@@ -111,7 +123,7 @@ const Form = ({
           onBlur={handleBlur}
           handleChange={handleChange}
           value={passwordValue}
-          errorMessage={errors.password || ''}
+          errorMessage={errors ? errors.password : ''}
         />
       ) : (
         <Fragment />
@@ -143,7 +155,10 @@ const Form = ({
       <p>By signing up, you agree to our terms and condition</p>
     ) : loginForm ? (
       <p>
-        Dont have an account? <a href="/">Create one</a>
+        Dont have an account?{' '}
+        <a href="#" onClick={openRegisterForm}>
+          Create one
+        </a>
       </p>
     ) : resetPasswordForm ? (
       <p>By signing up, you agree to our terms and condition</p>
@@ -159,11 +174,14 @@ const Form = ({
           </div>
         ) : loginForm ? (
           <div className="d-flex justify-content-center bg-light w-100 p-3 mt-3">
-            <a href="/">Forgot password?</a>
+            <a href="#">Forgot password?</a>
           </div>
         ) : registerForm ? (
           <div className="d-flex justify-content-center bg-light w-100 p-4 mt-3">
-            Have an account? <a href="/">Login</a>
+            Have an account?
+            <a href="#" onClick={openLoginForm}>
+              Login
+            </a>
           </div>
         ) : (
           <Fragment />
@@ -188,6 +206,8 @@ Form.propTypes = {
   usernameValue: PropTypes.string,
   errors: PropTypes.object,
   isLoading: PropTypes.boolean,
-  responseErrorMessage: PropTypes.string
+  responseErrorMessage: PropTypes.string,
+  openLoginForm: PropTypes.boolean,
+  openRegisterForm: PropTypes.boolean
 };
 export default Form;

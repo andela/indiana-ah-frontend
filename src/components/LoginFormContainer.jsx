@@ -11,7 +11,6 @@ class LoginContainer extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('>>>>>>>state', this.state);
   };
 
   handleChange = (e) => {

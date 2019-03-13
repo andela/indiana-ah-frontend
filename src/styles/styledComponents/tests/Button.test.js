@@ -7,7 +7,7 @@ describe('testing the button element', () => {
   it('should mount custom button', () => {
     const tree = renderer.create(<Button />).toJSON();
     expect(tree).toMatchSnapshot();
-    expect(tree).toHaveStyleRule('background', '#fff');
+    expect(tree).toHaveStyleRule('background', '#ffffff');
   });
 
   it('should apply styles according to passed props', () => {
