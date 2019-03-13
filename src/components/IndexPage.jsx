@@ -87,8 +87,12 @@ class IndexPage extends Component {
             }
           </Row>
         </section>
-        <section className='container-fluid'>
-          <h1>Featured articles</h1>
+        <section className='top-articles container-fluid'>
+          <h1>Top articles</h1>
+          <IndexCarousel />
+        </section>
+        <section className='new-articles container-fluid'>
+          <h1>New articles</h1>
           <IndexCarousel />
         </section>
         <section className='container'>
