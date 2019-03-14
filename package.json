@@ -84,11 +84,11 @@
     "react-test-renderer": "^16.8.4",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.1",
     "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.10.0",
-    "url-loader": "^1.1.2"
+    "enzyme-adapter-react-16": "^1.10.0"
   }
 }
