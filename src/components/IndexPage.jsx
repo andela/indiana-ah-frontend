@@ -3,7 +3,6 @@ import { Row, Col } from 'react-bootstrap';
 import SVG from 'react-inlinesvg';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import SignupFormContainer from './SignupFormContainer.jsx';
 import LoginContainer from './LoginFormContainer.jsx';
 import Modal from './common/Modal.jsx';
 import Button from '../styles/styledComponents/Button.jsx';
@@ -170,10 +169,7 @@ class IndexPage extends Component {
                 closeModal={this.closeModal}
               />
             ) : (
-              <SignupFormContainer
-                displayForm={this.displayForm}
-                closeModal={this.closeModal}
-              />
+              <div />
             )
           }
         />

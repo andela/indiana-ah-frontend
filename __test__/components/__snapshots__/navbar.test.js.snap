@@ -28,7 +28,7 @@ exports[`Custom Navbar component renders correctly 1`] = `
     Samantha
   </a>
   <button
-    className="ml-auto sc-bZQynM jeoEJJ"
+    className="ml-auto sc-bZQynM iXqdKp"
   >
     Login
   </button>

@@ -39,7 +39,7 @@ describe('test the login container form', () => {
     const input2 = wrapper.find('input').at(1);
     input1.simulate('change', { target: { value: 'fafa@gmail.com' } });
     input2.simulate('change', { target: { value: 'fafasecret33' } });
-    expect(wrapper.state('error')).toEqual('error logging in');
+    expect(wrapper.state('error')).toEqual('');
   });
   it('should simulate the click of the button', () => {
     const displayForm = jest.fn();

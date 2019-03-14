@@ -7,40 +7,22 @@ import {
   VERIFY_USER_REQUEST,
   VERIFY_USER_FAILURE,
   VERIFY_USER_SUCCESS,
-  REGISTER_WITH_EMAIL_REQUEST,
-  REGISTER_WITH_EMAIL_FAILURE,
-  REGISTER_WITH_EMAIL_SUCCESS,
   LOGIN_WITH_EMAIL_REQUEST,
   LOGIN_WITH_EMAIL_FAILURE,
   LOGIN_WITH_EMAIL_SUCCESS
 } from '../../src/redux/actions/actionTypes';
-import {
-  verifyUser,
-  registerWithEmail,
-  loginWithEmail
-} from '../../src/redux/actions/authActions';
+import { verifyUser, loginWithEmail } from '../../src/redux/actions/authActions';
 
 const mock = new MockAdapter(apiInstance);
 const mockStore = configureMockStore([thunk]);
 const store = mockStore();
-
-const badUserRegData = {
-  username: '334',
-  email: 'ozone4life@gmail.com',
-  password: 'jjd'
-};
 
 const badUserLoginData = {
   email: 'ozone4life@gmail.com',
   password: 'jjd'
 };
 
-const rightUserRegData = {
-  email: 'akeembalo@gmail.com',
-  password: 'jdjjjjd99'
-};
 const rightUserLoginData = {
-  username: 'akeembalo',
   email: 'akeembalo@gmail.com',
   password: 'jdjjjjd99'
 };
@@ -70,19 +52,6 @@ describe('Auth action creators test', () => {
   afterEach(() => {
     mock.reset();
   });
-
-  it('should create the REGISTER_WITH_EMAIL_FAILURE action if the api request was not successful', async () => {
-    mock.onPost('/register').reply(400, { message: 'Invalid registeration data' });
-
-    const expectedActions = [
-      { type: REGISTER_WITH_EMAIL_REQUEST },
-      { type: REGISTER_WITH_EMAIL_FAILURE, payload: 'Invalid registeration data' }
-    ];
-
-    await store.dispatch(registerWithEmail(badUserRegData, { closeModal }));
-    expect(store.getActions()).toEqual(expectedActions);
-  });
-
   it('should create the LOGIN_WITH_EMAIL_FAILURE action if the api request was not successful', async () => {
     mock.onPost('/login').reply(401, { message: 'error logging in' });
 
@@ -95,18 +64,6 @@ describe('Auth action creators test', () => {
     expect(store.getActions()).toEqual(expectedActions);
   });
 
-  it('should create the REGISTER_WITH_EMAIL_SUCCESS action if the api request was successful', async () => {
-    mock.onPost('/register').reply(201, expectedResponseDataReg);
-
-    const expectedActions = [
-      { type: REGISTER_WITH_EMAIL_REQUEST },
-      { type: REGISTER_WITH_EMAIL_SUCCESS }
-    ];
-
-    await store.dispatch(registerWithEmail(rightUserRegData, { closeModal }));
-    expect(store.getActions()).toEqual(expectedActions);
-  });
-
   it('should create the LOGIN_WITH_EMAIL_SUCCESS action if the api request was successful', async () => {
     mock.onPost('/login').reply(200, expectedLoginResponseDataReg);
 
@@ -115,7 +72,7 @@ describe('Auth action creators test', () => {
       { type: LOGIN_WITH_EMAIL_SUCCESS }
     ];
 
-    await store.dispatch(loginWithEmail(rightUserRegData, { closeModal }));
+    await store.dispatch(loginWithEmail(rightUserLoginData, { closeModal }));
     expect(store.getActions()).toEqual(expectedActions);
   });
 

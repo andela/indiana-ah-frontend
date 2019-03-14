@@ -1,7 +1,4 @@
 import {
-  REGISTER_WITH_EMAIL_REQUEST,
-  REGISTER_WITH_EMAIL_FAILURE,
-  REGISTER_WITH_EMAIL_SUCCESS,
   LOGIN_WITH_EMAIL_REQUEST,
   LOGIN_WITH_EMAIL_FAILURE,
   LOGIN_WITH_EMAIL_SUCCESS,
@@ -19,17 +16,6 @@ const initialState = {
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
-    case REGISTER_WITH_EMAIL_REQUEST:
-      return { ...state, isLoading: true, error: '' };
-    case REGISTER_WITH_EMAIL_FAILURE:
-      return { ...state, isLoading: false, error: action.payload };
-    case REGISTER_WITH_EMAIL_SUCCESS:
-      return {
-        ...state,
-        isLoading: false,
-        error: '',
-        isAuthenticated: true
-      };
     case LOGIN_WITH_EMAIL_REQUEST:
       return { ...state, isLoading: true, error: '' };
     case LOGIN_WITH_EMAIL_FAILURE:

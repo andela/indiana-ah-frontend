@@ -93,20 +93,16 @@ exports[`Custom Footer component renders correctly 1`] = `
             href="/"
             onClick={[Function]}
           >
-            <img
-              alt="facebook logo"
-              className="mr-6 d-block logo2"
-              src="test-file-stub"
+            <span
+              className="isvg loading mr-5 d-block logo2"
             />
           </a>
           <a
             href="/"
             onClick={[Function]}
           >
-            <img
-              alt="twitter logo"
-              className="d-block logo3"
-              src="test-file-stub"
+            <span
+              className="isvg loading d-block logo2"
             />
           </a>
         </div>
