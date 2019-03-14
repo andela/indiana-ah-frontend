@@ -38,6 +38,7 @@ const CardComponent = ({
 </div>
 </div>
   </Card.Body>
+
 </Card>
 </Fragment>
 );

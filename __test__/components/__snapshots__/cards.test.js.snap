@@ -4,6 +4,17 @@ exports[`<CardComponent /> renders correctly 1`] = `
 <div
   className="carousel-card card-style card"
 >
+<<<<<<< HEAD
+=======
+  <div
+    className="image-wrapper-card"
+  >
+    <img
+      className="card-img-top img-card-style"
+      src="https://avatars0.githubusercontent.com/u/38977569?s=400&v=4"
+    />
+  </div>
+>>>>>>> feat: create personalised component
   <div
     className="image-wrapper-card"
   >

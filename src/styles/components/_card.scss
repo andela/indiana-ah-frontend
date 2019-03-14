@@ -3,14 +3,21 @@
   cursor:pointer;
  }
 
+<<<<<<< HEAD
 .card-style { 
   width: 37rem;
   height: 50rem 
 }
+=======
+ .card-style{ 
+  width: 37rem;
+   height: 50rem 
+  }
+>>>>>>> feat: create personalised component
   
 .card-container{
 display: flex;
-justify-content: center;
+justify-content: space-between;
 }
 .card-body {
   padding: 2rem;
@@ -112,6 +119,7 @@ background-color: #EFEFEF;
   margin: 5px;
 }
 
+<<<<<<< HEAD
 .image-wrapper-card {
  height: 60% !important
 }
@@ -120,6 +128,22 @@ background-color: #EFEFEF;
   height: 100% !important;
 }
 
+=======
+.image-wrapper-card{
+  height: 60% !important
+}
+
+.img-card-style{
+  object-fit: cover;
+  height: 100% !important; 
+}
+
+
+
+
+
+
+>>>>>>> feat: create personalised component
 @media only screen and (max-width: 900px) {
   .card-container{
     flex-direction: column;
