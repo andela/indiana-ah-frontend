@@ -54,7 +54,7 @@ class IndexPage extends Component {
 
   render() {
     const { reviews } = this.state;
-    const articles = this.props.articles.allArticles;
+    const { allArticles: articles, isLoading } = this.props.articles;
     const topArticles = filterArticlesByLikes(articles);
     const newArticles = filterArticlesByDate(articles);
     return (
@@ -101,11 +101,11 @@ class IndexPage extends Component {
         </section>
         <section className='top-articles container-fluid'>
           <h1>Top articles</h1>
-          <IndexCarousel articles={topArticles} />
+          <IndexCarousel articles={topArticles} isLoading={isLoading} />
         </section>
         <section className='new-articles container-fluid'>
           <h1>New articles</h1>
-          <IndexCarousel articles={newArticles} />
+          <IndexCarousel articles={newArticles} isLoading={isLoading} />
         </section>
         <section className='container'>
           <Row className='banner'>
