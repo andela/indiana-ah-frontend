@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Button from '../styles/styledComponents/Button.jsx';
 import IndexForm from './forms/indexForm.jsx';
-import getAllArticles from '../redux/actions/articleActions';
+import getAllArticles from '../redux/actions/articleActions/articleActions';
 import { filterArticlesByLikes, filterArticlesByDate } from '../utils/index';
 import IndexCarousel from './carousels/indexCarousel.jsx';
 

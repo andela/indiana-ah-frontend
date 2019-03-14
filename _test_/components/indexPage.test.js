@@ -7,10 +7,9 @@ import { MemoryRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import IndexForm from '../../src/components/forms/indexForm.jsx';
 import reducer from '../../src/redux/reducers/articleReducer';
-import getAllArticles from '../../src/redux/actions/articleActions';
 import IndexPage from '../../src/components/IndexPage.jsx';
 import IndexCarousel from '../../src/components/carousels/indexCarousel.jsx';
-import initialState from '../__mocks__/indexPageMock';
+import initialState from '../../__fixtures__/indexPage';
 
 const mockStore = configureStore([thunk]);
 const store = mockStore(initialState);
@@ -40,15 +39,6 @@ describe('Index page', () => {
   it('passes articles from state', () => {
     const props = indexPage.props().value.storeState;
     expect(props.articles).toEqual(initialState.articles);
-  });
-});
-
-describe('get all parcels action', () => {
-  it('handles getting all parcels', async () => {
-    await store.dispatch(getAllArticles());
-    const actions = store.getActions();
-    articles = actions[0].payload;
-    expect(actions[0].type).toEqual('GET_ALL_ARTICLES');
   });
 });
 

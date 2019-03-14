@@ -1,8 +1,8 @@
 import Swal from 'sweetalert2';
 import {
   GET_ALL_ARTICLES
-} from './actionTypes';
-import { sendHttpRequest } from '../../utils';
+} from '../actionTypes';
+import { sendHttpRequest } from '../../../utils';
 
 const getAllArticles = () => async (dispatch) => {
   try {
