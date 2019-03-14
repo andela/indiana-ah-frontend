@@ -1,6 +1,5 @@
 import React, { Fragment, Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import SVG from 'react-inlinesvg';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Button from '../styles/styledComponents/Button.jsx';
@@ -8,6 +7,9 @@ import IndexForm from './forms/indexForm.jsx';
 import getAllArticles from '../redux/actions/articleActions/articleActions';
 import { filterArticlesByLikes, filterArticlesByDate } from '../utils/index';
 import IndexCarousel from './carousels/indexCarousel.jsx';
+import {
+  BannerImage, BannerImage2, quotes, indexImage
+} from '../assets/images/svg';
 
 class IndexPage extends Component {
   state = {
@@ -70,7 +72,7 @@ class IndexPage extends Component {
               </div>
             </Col>
             <Col className='d-none d-sm-block'>
-              <SVG src='../src/assets/images/svg/banner_image.svg'></SVG>
+              <img src={BannerImage} />
             </Col>
           </Row>
         </div>
@@ -88,7 +90,7 @@ class IndexPage extends Component {
                 <Col key={index}>
                   <p>{item.review}</p>
                   <div className='quotes'>
-                    <SVG src='../src/assets/images/svg/quotes.svg'></SVG>
+                    <img src={quotes} />
                   </div>
                   <p className='reviews-name'>{item.name}</p>
                   <p>{item.location}</p>
@@ -108,7 +110,7 @@ class IndexPage extends Component {
         <section className='container'>
           <Row className='banner'>
             <Col>
-              <SVG src='../src/assets/images/svg/banner_image2.svg'></SVG>
+              <img src={BannerImage2} />
             </Col>
             <Col className='d-flex align-items-center'>
               <div>
@@ -132,7 +134,7 @@ class IndexPage extends Component {
               <IndexForm />
             </Col>
             <Col md={7} className='img-div p-0 d-none d-md-block'>
-              <img src='../src/assets/images/index_img.jpg' className='banner-img' />
+              <img src={indexImage} className='banner-img' />
             </Col>
           </Row>
         </section>
