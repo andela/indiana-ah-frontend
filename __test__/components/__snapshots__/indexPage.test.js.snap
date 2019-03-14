@@ -25,11 +25,15 @@ Array [
           <div
             className="d-flex"
           >
-            <span
-              className="isvg loading feather"
+            <img
+              alt="facebook logo"
+              className="feather"
+              src="test-file-stub"
             />
-            <span
-              className="isvg loading d-block app-logo"
+            <img
+              alt="facebook logo"
+              className="d-block app-logo"
+              src="test-file-stub"
             />
           </div>
         </div>
@@ -102,16 +106,20 @@ Array [
               href="/"
               onClick={[Function]}
             >
-              <span
-                className="isvg loading mr-5 d-block logo2"
+              <img
+                alt="facebook logo"
+                className="d-block logo2"
+                src="test-file-stub"
               />
             </a>
             <a
               href="/"
               onClick={[Function]}
             >
-              <span
-                className="isvg loading d-block logo2"
+              <img
+                alt="twitter logo"
+                className="d-block logo2"
+                src="test-file-stub"
               />
             </a>
           </div>

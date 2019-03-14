@@ -15,9 +15,9 @@ describe('Pagination test', () => {
 
   it('should test for its functionalities', () => {
     expect(wrapper.find('.caret-left-arrow-disabled')).toHaveLength(1);
-    expect(wrapper.find('.caret-right-arrow-disabled')).toBeUndefined;
+    expect(wrapper.find('.caret-right-arrow-disabled')).toHaveLength(0);
     wrapper.setProps({ currentPage: 4 });
-    expect(wrapper.find('.caret-left-arrow-disabled')).toBeUndefined;
+    expect(wrapper.find('.caret-left-arrow-disabled')).toHaveLength(0);
     wrapper.setProps({ currentPage: 10 });
     expect(wrapper.find('.caret-right-arrow-disabled')).toHaveLength(1);
     wrapper
@@ -39,6 +39,6 @@ describe('Pagination test', () => {
 
     wrapper.setProps({ numberOfPages: 4 });
     wrapper.setProps({ currentPage: 1 });
-    expect(wrapper.find('.caret-right-arrow-disabled')).toBeUndefined;
+    expect(wrapper.find('.caret-right-arrow-disabled')).toHaveLength(0);
   });
 });
