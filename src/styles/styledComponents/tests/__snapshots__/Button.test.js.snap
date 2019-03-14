@@ -19,7 +19,7 @@ exports[`testing the button element should mount custom button 1`] = `
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   width: auto;
-  padding: .8rem 1.5rem;
+  padding: .8rem 1.3rem;
   display: block;
 }
 
@@ -28,6 +28,14 @@ exports[`testing the button element should mount custom button 1`] = `
     width: auto;
     line-height: 2rem;
     font-size: 1.7rem;
+  }
+}
+
+@media (max-width:355px) {
+  .c0 {
+    width: auto;
+    line-height: 1.5rem;
+    padding: .8rem 1.1rem;
   }
 }
 

@@ -2,7 +2,6 @@
 
 exports[`Custom Input styled-component renders correctly 1`] = `
 <input
-  className="sc-bdVaJa dwgQNw"
-  className="sc-bdVaJa iIuqWF"
+  className="sc-bdVaJa iyVdpk"
 />
 `;

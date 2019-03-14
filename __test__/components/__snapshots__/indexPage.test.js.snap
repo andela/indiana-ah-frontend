@@ -25,7 +25,7 @@ Array [
             There is no limit to what you can achieve with a pen.. Write, the world is ready to read.
           </p>
           <button
-            className="index-button sc-bwzfXH eFohTB"
+            className="index-button sc-bwzfXH kauVWk"
           >
             Get Started
           </button>
@@ -34,8 +34,8 @@ Array [
       <div
         className="d-none d-sm-block col"
       >
-        <span
-          className="isvg loading"
+        <img
+          src="test-file-stub"
         />
       </div>
     </div>
@@ -73,8 +73,8 @@ Array [
         <div
           className="quotes"
         >
-          <span
-            className="isvg loading"
+          <img
+            src="test-file-stub"
           />
         </div>
         <p
@@ -100,8 +100,8 @@ Array [
         <div
           className="quotes"
         >
-          <span
-            className="isvg loading"
+          <img
+            src="test-file-stub"
           />
         </div>
         <p
@@ -127,8 +127,8 @@ Array [
         <div
           className="quotes"
         >
-          <span
-            className="isvg loading"
+          <img
+            src="test-file-stub"
           />
         </div>
         <p
@@ -3455,8 +3455,8 @@ Array [
       <div
         className="col"
       >
-        <span
-          className="isvg loading"
+        <img
+          src="test-file-stub"
         />
       </div>
       <div
@@ -3472,7 +3472,7 @@ Array [
             Get Started for free today.
           </p>
           <button
-            className="sc-bwzfXH jBjhrc"
+            className="sc-bwzfXH catjVP"
           >
             Get Started
           </button>
@@ -3511,7 +3511,7 @@ Array [
             className="input-div"
           >
             <input
-              className="sc-bdVaJa fQEJju"
+              className="sc-bdVaJa iulanq"
               id="email"
               name="email"
               onChange={[Function]}
@@ -3525,7 +3525,7 @@ Array [
             />
           </div>
           <button
-            className="sc-bwzfXH jRBpQN"
+            className="sc-bwzfXH iXaPDg"
           >
             Subscribe
           </button>
@@ -3536,7 +3536,7 @@ Array [
       >
         <img
           className="banner-img"
-          src="../src/assets/images/index_img.jpg"
+          src="test-file-stub"
         />
       </div>
     </div>

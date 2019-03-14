@@ -10,7 +10,7 @@ const App = () => (
   <Provider store={store}>
     <BrowserRouter>
       <Fragment>
-        <NavBar />
+        <NavBar isAuthenticated={false}/>
         <Switch>
           <Route path="/" component={IndexPage} exact />
         </Switch>

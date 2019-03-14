@@ -15,12 +15,17 @@ const Button = styled.button`
   text-transform: capitalize;
   transition: all 0.3s;
   width: auto;
-  padding: .8rem 1.5rem;
+  padding: ${props => (props.sm ? '.4rem 2.5rem' : '.8rem 1.3rem')};
   display: ${props => (props.inlineButton ? 'inline-block' : 'block')};
   @media (max-width: 830px) {
     width: auto;
     line-height: 2rem;
     font-size: 1.7rem
+  }
+  @media (max-width: 355px) {
+    width: auto;
+    line-height: 1.5rem;
+    padding: ${props => (props.sm ? '.4rem 1.5rem' : '.8rem 1.1rem')};
   }
 `;
 
