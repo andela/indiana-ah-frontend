@@ -1788,6 +1788,15 @@ Array [
           >
             <span
               data-area="Next"
+            <img
+              alt="facebook logo"
+              className="feather"
+              src="test-file-stub"
+            />
+            <img
+              alt="facebook logo"
+              className="d-block app-logo"
+              src="test-file-stub"
             />
           </p>
         </div>
@@ -3507,6 +3516,27 @@ Array [
         <div
           className="sub-form"
         >
+            <a
+              href="/"
+              onClick={[Function]}
+            >
+              <img
+                alt="facebook logo"
+                className="d-block logo2"
+                src="test-file-stub"
+              />
+            </a>
+            <a
+              href="/"
+              onClick={[Function]}
+            >
+              <img
+                alt="twitter logo"
+                className="d-block logo2"
+                src="test-file-stub"
+              />
+            </a>
+          </div>
           <div
             className="input-div"
           >

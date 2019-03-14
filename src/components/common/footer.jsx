@@ -1,55 +1,56 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Row, Col } from 'react-bootstrap';
-import SVG from 'react-inlinesvg';
+import {
+  facebook, twitter, logo, logo2
+} from '../../assets/images/svg';
 
 const Footer = () => (
-  <div className='footer'>
-    <div className='container'>
+  <div className="footer">
+    <div className="container">
       <Row>
-        <Col className='col-lg-4 col-md-5 col-sm-4 col-3
-          d-none d-sm-block pl-0 align-self-center'>
-          <div className='d-flex'>
-            <SVG src='../src/assets/images/svg/logo2.svg' className='feather'></SVG>
-            <SVG src='../src/assets/images/svg/logo.svg'
-              className='d-block app-logo'></SVG>
+        <Col
+          className="col-lg-4 col-md-5 col-sm-4 col-3
+          d-none d-sm-block pl-0 align-self-center"
+        >
+          <div className="d-flex">
+            <img src={logo2} alt="facebook logo" className="feather" />
+            <img src={logo} alt="facebook logo" className="d-block app-logo" />
           </div>
         </Col>
-        <Col className='d-flex align-items-center flex-column'>
-          <h2 className='mb-5'>Help</h2>
-          <Link to='#'>
-            <h4 className='mb-4'>Profile</h4>
+        <Col className="d-flex align-items-center flex-column">
+          <h2 className="mb-5">Help</h2>
+          <Link to="#">
+            <h4 className="mb-4">Profile</h4>
           </Link>
-          <Link to='#'>
+          <Link to="#">
             <h4>Blog</h4>
           </Link>
         </Col>
-        <Col className='d-flex align-items-center flex-column'>
-          <h2 className='mb-5'>Contact Us</h2>
-          <Link to='#'>
-            <h4 className='mb-4'>Faqs</h4>
+        <Col className="d-flex align-items-center flex-column">
+          <h2 className="mb-5">Contact Us</h2>
+          <Link to="#">
+            <h4 className="mb-4">Faqs</h4>
           </Link>
-          <Link to='#'>
+          <Link to="#">
             <h4>Contact us</h4>
           </Link>
         </Col>
-        <Col className='d-flex align-items-center flex-column'>
-          <h2 className='mb-4'>Social Media</h2>
-          <div className='d-flex justify-evenly w-75 mb-4'>
-            <Link to='#'>
-              <SVG src='../src/assets/images/svg/facebook.svg'
-                className='mr-6 d-block logo2'></SVG>
+        <Col className="d-flex align-items-center flex-column">
+          <h2 className="mb-4">Social Media</h2>
+          <div className="d-flex justify-evenly w-75 mb-4">
+            <Link to="#">
+              <img src={facebook} alt="facebook logo" className="mr-6 d-block logo2" />
             </Link>
-            <Link to='#'>
-              <SVG src='../src/assets/images/svg/twitter.svg'
-                className='d-block logo3'></SVG>
+            <Link to="#">
+              <img src={twitter} alt="twitter logo" className="d-block logo3" />
             </Link>
           </div>
-          <div className='d-flex justify-content-between w-75'>
-            <Link to='#'>
+          <div className="d-flex justify-content-between w-75">
+            <Link to="#">
               <h4>Facebook</h4>
             </Link>
-            <Link to='#'>
+            <Link to="#">
               <h4>Twitter</h4>
             </Link>
           </div>

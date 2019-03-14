@@ -1,4 +1,4 @@
-import { handlePageClick, setCurrentPage } from '../../src/utils';
+import { handlePageClick, setCurrentPage } from '../../../src/utils/index';
 
 describe('Pagination utils test', () => {
   const component = {

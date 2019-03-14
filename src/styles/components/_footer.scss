@@ -38,15 +38,13 @@
     color: $opaque-black;
     font-weight: $medium;
   }
-
 }
-
 
 @media (max-width: 1199px) {
   .footer {
     padding: $l-pd-size 0;
     .w-75 {
-      width: 100%!important;
+      width: 100% !important;
     }
   }
 }
@@ -79,15 +77,23 @@
       display: none;
     }
     .app-logo {
-      width: 21rem;
+      width: 17rem;
       height: auto;
     }
     .logo2 {
       width: 3.4rem;
       height: auto;
     }
+    .align-items-center {
+      -ms-flex-align: center !important;
+      align-items: unset !important;
+    }
+    .justify-content-between {
+      -ms-flex-pack: justify !important;
+      justify-content: space-evenly !important;
+    }
     .pl-0 {
-      padding-left: 1.5rem!important;
+      padding-left: 1.5rem !important;
     }
     a {
       h4 {
