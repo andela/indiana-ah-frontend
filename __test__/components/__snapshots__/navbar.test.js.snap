@@ -16,8 +16,9 @@ Array [
           href="/"
           onClick={[Function]}
         >
-          <span
-            className="isvg loading feather"
+          <img
+            className="feather"
+            src="test-file-stub"
           />
         </a>
       </div>
@@ -66,21 +67,23 @@ Array [
             className="text-danger ml-3 form-text"
           />
         </div>
-        <span
-          className="isvg loading search-logo"
+        <img
+          className="search-logo"
+          src="test-file-stub"
         />
       </div>
       <div
         className="navbar-nav"
         onKeyDown={[Function]}
       >
-        <span
-          className="isvg loading ml-auto d-none d-md-none d-xs-none d-lg-block"
+        <img
+          className="ml-auto d-none d-md-none d-xs-none d-lg-block"
+          src="test-file-stub"
         />
         <img
           alt="logo"
           className="ml-5 mt-2 d-none d-md-none d-xs-none d-lg-block sc-htpNat gbUdnV"
-          src="../src/assets/images/profile.jpg"
+          src="test-file-stub"
         />
         <a
           className="d-flex ft-size-2 ml-5 nav-link"

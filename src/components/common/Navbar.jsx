@@ -3,6 +3,13 @@ import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import SVG from 'react-inlinesvg';
 import { ProfileImg, ImageLogo } from '../../styles/styledComponents/Navigation.jsx';
+import {
+  customLogo,
+  searchIcon,
+  notificationIcon,
+  profile,
+  dropDownIcon
+} from '../../assets/images/svg';
 import InputField from './input/InputComponent.jsx';
 
 const NavBar = () => (
@@ -11,7 +18,7 @@ const NavBar = () => (
       <Navbar.Brand href="#home">
         <ImageLogo>
           <Link to="/">
-            <SVG src="../src/assets/images/svg/customLogo.svg" className="feather" />
+            <img src={customLogo} className="feather" />
           </Link>
         </ImageLogo>
       </Navbar.Brand>
@@ -29,23 +36,23 @@ const NavBar = () => (
             handleChange={() => {}}
             width="38rem"
           />
-          <SVG className="search-logo" src="../src/assets/images/svg/searchIcon.svg" />
+          <img className="search-logo" src={searchIcon} />
         </Nav>
         <Nav>
-          <SVG
+          <img
             className="ml-auto d-none d-md-none d-xs-none d-lg-block"
-            src="../src/assets/images/svg/notificationIcon.svg"
+            src={notificationIcon}
           />
           <ProfileImg
-            src="../src/assets/images/profile.jpg"
+            src={profile}
             className="ml-5 mt-2 d-none d-md-none d-xs-none d-lg-block"
             alt="logo"
           />
           <Nav.Link to="/signup" className="d-flex ft-size-2 ml-5">
             Samantha
-            <SVG
+            <img
               className="mx-3 d-none d-md-none d-lg-block d-xs-none"
-              src="../src/assets/images/svg/dropDownIcon.svg"
+              src={dropDownIcon}
             />
           </Nav.Link>
         </Nav>
