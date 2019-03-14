@@ -12,8 +12,8 @@ app.use(express.static(path.resolve(__dirname, 'dist')));
 
 // handling react router, for request to react app
 // join = /dist/index.html
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/index.html'));
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.listen(port, () => console.log('server running at port', port));

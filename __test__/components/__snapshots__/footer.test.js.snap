@@ -16,15 +16,11 @@ exports[`Custom Footer component renders correctly 1`] = `
         <div
           className="d-flex"
         >
-          <img
-            alt="facebook logo"
-            className="feather"
-            src="test-file-stub"
+          <span
+            className="isvg loading feather"
           />
-          <img
-            alt="facebook logo"
-            className="d-block app-logo"
-            src="test-file-stub"
+          <span
+            className="isvg loading d-block app-logo"
           />
         </div>
       </div>

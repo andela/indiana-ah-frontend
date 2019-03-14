@@ -28,15 +28,6 @@ module.exports = {
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   transformIgnorePatterns: ['<rootDir>/node_modules/'],
-  transform: {
-    '^.+\\.jsx?$': 'babel-jest',
-    '^.+\\.svg$': 'jest-svg-transformer'
-  },
-
-  moduleNameMapper: {
-    '\\.(jpg|jpeg|png|gif|svg)$': '<rootDir>/__mocks__/fileMock.js',
-    '\\.(css|scss)$': '<rootDir>/__mocks__/styleMock.js'
-  },
 
   // Indicates whether each individual test should be reported during the run
   verbose: false,

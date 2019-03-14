@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test the login container form should match snap shot 1`] = `ReactWrapper {}`;

@@ -6,8 +6,8 @@
 }
 
 .footer {
-  padding: 10rem 0 5rem 0 ;
-  border-top: .25px solid $opaque-black;
+  padding: 10rem 0 5rem 0;
+  border-top: 0.25px solid $opaque-black;
   .app-logo {
     margin-top: auto;
     margin-bottom: auto;
@@ -23,7 +23,7 @@
   .logo3 {
     width: 5rem;
     height: auto;
-    margin-top: .3rem;
+    margin-top: 0.3rem;
     margin-right: -0.7rem;
   }
   a {
@@ -70,7 +70,7 @@
 @media (max-width: 767px) {
   .footer {
     padding: 7rem 0;
-    
+
     h2 {
       font-size: 1.9rem;
     }
@@ -81,20 +81,12 @@
       display: none;
     }
     .app-logo {
-      width: 17rem;
+      width: 21rem;
       height: auto;
     }
     .logo2 {
       width: 3.4rem;
       height: auto;
-    }
-    .align-items-center {
-      -ms-flex-align: center !important;
-      align-items: unset !important;
-    }
-    .justify-content-between {
-      -ms-flex-pack: justify !important;
-      justify-content: space-evenly !important;
     }
     .pl-0 {
       padding-left: 1.5rem !important;
@@ -108,22 +100,12 @@
 }
 
 @media (max-width: 430px) {
-  .mr-6 {
-    margin-right: .4rem;
-  }
   .footer {
     h2 {
       font-size: 1.6rem;
     }
     h4 {
       font-size: 1.3rem;
-    }
-    .logo2 {
-      width: 2.5rem;
-    }
-    .logo3 {
-      width: 3rem;
-      margin-top: .1rem;
     }
   }
 }

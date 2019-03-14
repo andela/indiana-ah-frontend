@@ -46,12 +46,14 @@ export const setCurrentPage = (component) => {
 
 export const filterArticlesByLikes = (articles) => {
   const topArticles = articles
-    .sort((a, b) => (a.likes > b.likes) ? 1 : ((b.likes < a.likes) ? -1 : 0)).slice(0, 7);
+    .sort((a, b) => (a.likes > b.likes ? 1 : b.likes < a.likes ? -1 : 0))
+    .slice(0, 7);
   return topArticles;
 };
 
 export const filterArticlesByDate = (articles) => {
   const newArticles = articles
-    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 6);
+    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+    .slice(0, 6);
   return newArticles;
 };
