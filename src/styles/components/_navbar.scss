@@ -37,9 +37,19 @@ nav a {
   .d-xs-block {
     display: block !important;
   }
-}
-@media (max-width: 400px) {
   .d-xs-none {
     display: none !important;
+  }
+  .px-5, .pl-5 {
+    padding-right: 1.2rem!important;
+    padding-left: .8rem!important;
+  }
+}
+
+@media (max-width: 355px) {
+  .navbar.navbar-expand-lg {
+    .feather {
+      width: 19rem;
+    }
   }
 }
