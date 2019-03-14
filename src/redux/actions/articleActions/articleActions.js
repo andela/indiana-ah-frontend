@@ -13,10 +13,10 @@ const getAllArticles = () => async (dispatch) => {
       return dispatch({ type: NO_ARTICLES, payload: [] });
     }
     return dispatch({ type: GET_ALL_ARTICLES, payload: response.articles });
-  } catch (res) {
+  } catch ({ response }) {
     Swal.fire({
       title: 'Error!',
-      text: res,
+      text: response,
       type: 'error',
       timer: 3000,
       showConfirmButton: false,

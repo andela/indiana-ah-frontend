@@ -10,6 +10,8 @@ import reducer from '../../src/redux/reducers/articleReducer';
 import IndexPage from '../../src/components/IndexPage.jsx';
 import IndexCarousel from '../../src/components/carousels/indexCarousel.jsx';
 import initialState from '../../__fixtures__/indexPage';
+import { GET_ALL_ARTICLES, NO_ARTICLES, GET_ALL_ARTICLES_LOADING }
+  from '../../src/redux/actions/actionTypes';
 
 const mockStore = configureStore([thunk]);
 const store = mockStore(initialState);
@@ -46,15 +48,32 @@ describe('articles reducer', () => {
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual({
       allArticles: [],
-      error: ''
+      error: '',
+      isLoading: false
     });
   });
   it('should return all articles', () => {
     const successAction = {
-      type: 'GET_ALL_ARTICLES',
+      type: GET_ALL_ARTICLES,
       payload: articles,
     };
-    expect(reducer({}, successAction)).toEqual({ allArticles: articles });
+    expect(reducer({}, successAction))
+      .toEqual({ allArticles: articles, isLoading: false });
+  });
+  it('should return loading', () => {
+    const successAction = {
+      type: GET_ALL_ARTICLES_LOADING,
+    };
+    expect(reducer({}, successAction))
+      .toEqual({ isLoading: true });
+  });
+  it('should return no articles', () => {
+    const successAction = {
+      type: NO_ARTICLES,
+      payload: [],
+    };
+    expect(reducer({}, successAction))
+      .toEqual({ allArticles: [], isLoading: false });
   });
 });
 
