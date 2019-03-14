@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 // Create an Input component that'll render an <input> tag with some styles
 const Input = styled.input`
-  display:flex;
+  display: flex;
   padding: 0.8rem;
   margin: ${props => props.margin || '0.8rem auto'};
   height: 4.3rem;
@@ -11,6 +11,8 @@ const Input = styled.input`
   width: ${props => props.inputWidth || '94%'};
   box-sizing: border-box;
   @media (max-width: 76.8rem) {
+    width: 100%;
+    padding: 0.8rem;
     flex-direction: column;
     height: 3.5rem;
     font-size: 1.5rem

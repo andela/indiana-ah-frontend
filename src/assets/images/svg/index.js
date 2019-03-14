@@ -6,3 +6,8 @@ export { default as BannerImage } from './banner_image.svg';
 export { default as BannerImage2 } from './banner_image2.svg';
 export { default as quotes } from './quotes.svg';
 export { default as indexImage } from '../index_img.jpg';
+export { default as customLogo } from './customLogo.svg';
+export { default as searchIcon } from './searchIcon.svg';
+export { default as notificationIcon } from './notificationIcon.svg';
+export { default as profile } from '../profile.jpg';
+export { default as dropDownIcon } from './dropDownIcon.svg';
