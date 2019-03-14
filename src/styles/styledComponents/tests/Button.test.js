@@ -15,7 +15,7 @@ describe('testing the button element', () => {
     expect(tree).toHaveStyleRule('color', expect.stringContaining('#CD160B'));
     expect(tree).toHaveStyleRule(
       'border',
-      expect.stringContaining('0.12rem solid #CD160B')
+      expect.stringContaining('0.2rem solid #CD160B')
     );
     expect(tree).toHaveStyleRule('display', expect.stringContaining('inline-block'));
   });

@@ -1,6 +1,21 @@
-/* eslint-disable no-restricted-globals */
-/* eslint-disable radix */
 /* eslint-disable no-plusplus */
+/* eslint-disable radix */
+/* eslint-disable no-confusing-arrow */
+/* eslint-disable no-restricted-globals */
+import axios from 'axios';
+
+export const apiInstance = axios.create({
+  baseURL: 'https://indiana-ah-staging.herokuapp.com/api/v1/',
+  headers: {
+    'x-auth-token': localStorage.getItem('token')
+  }
+});
+
+export const sendHttpRequest = async (url, method, data) => {
+  const response = await apiInstance({ url, method, data });
+  return response.data;
+};
+
 export const handlePageClick = (component, page) => {
   component.setState({ currentPage: page });
 };
@@ -27,4 +42,16 @@ export const setCurrentPage = (component) => {
   let page = parseInt(urlSearchParams.get('page'));
   if (isNaN(page)) page = 1;
   component.setState({ currentPage: page });
+};
+
+export const filterArticlesByLikes = (articles) => {
+  const topArticles = articles
+    .sort((a, b) => (a.likes > b.likes) ? 1 : ((b.likes < a.likes) ? -1 : 0)).slice(0, 7);
+  return topArticles;
+};
+
+export const filterArticlesByDate = (articles) => {
+  const newArticles = articles
+    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 6);
+  return newArticles;
 };
