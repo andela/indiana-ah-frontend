@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Tag from '../../src/components/common/Tag.jsx';
+import Tag from '../../src/components/Tag.jsx';
 
 const mockFn = jest.fn();
 
