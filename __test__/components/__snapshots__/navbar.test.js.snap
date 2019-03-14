@@ -95,8 +95,9 @@ Array [
           to="/signup"
         >
           Samantha
-          <span
-            className="isvg loading mx-3 d-none d-md-none d-lg-block d-xs-none"
+          <img
+            className="mx-3 d-none d-md-none d-lg-block d-xs-none"
+            src="test-file-stub"
           />
         </a>
       </div>
