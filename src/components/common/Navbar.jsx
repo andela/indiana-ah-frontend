@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import SVG from 'react-inlinesvg';
 import { ProfileImg, ImageLogo } from '../../styles/styledComponents/Navigation.jsx';
 import {
   customLogo,
@@ -17,9 +16,7 @@ const NavBar = () => (
     <Navbar bg="white shadow-sm px-5" expand="lg">
       <Navbar.Brand href="#home">
         <ImageLogo>
-          <Link to="/">
-            <img src={customLogo} className="feather" />
-          </Link>
+          <img src={customLogo} className="feather" />
         </ImageLogo>
       </Navbar.Brand>
       <Nav.Link to="/signup" className="mr-3 d-none d-sm-block d-lg-none d-md-none">

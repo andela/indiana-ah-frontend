@@ -12,15 +12,10 @@ Array [
       <div
         className="sc-bxivhb hgkJjS"
       >
-        <a
-          href="/"
-          onClick={[Function]}
-        >
-          <img
-            className="feather"
-            src="test-file-stub"
-          />
-        </a>
+        <img
+          className="feather"
+          src="test-file-stub"
+        />
       </div>
     </a>
     <a
