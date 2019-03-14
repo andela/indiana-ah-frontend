@@ -38,11 +38,11 @@ const Footer = () => (
           <div className='d-flex justify-evenly w-75 mb-4'>
             <Link to='#'>
               <SVG src='../src/assets/images/svg/facebook.svg'
-                className='mr-5 d-block logo2'></SVG>
+                className='mr-6 d-block logo2'></SVG>
             </Link>
             <Link to='#'>
               <SVG src='../src/assets/images/svg/twitter.svg'
-                className='d-block logo2'></SVG>
+                className='d-block logo3'></SVG>
             </Link>
           </div>
           <div className='d-flex justify-content-between w-75'>
