@@ -1,36 +1,76 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Custom Navbar component renders correctly 1`] = `
-<nav
-  className="navbar navbar-expand-lg navbar-light bg-white shadow-sm px-5"
->
-  <a
-    className="navbar-brand"
-    href="#home"
+exports[`Custom Navbar component test renders correctly 1`] = `
+Array [
+  <nav
+    className="navbar navbar-expand-lg navbar-light bg-white shadow-sm px-5"
   >
-    <div
-      className="sc-bxivhb hgkJjS"
+    <span
+      className="navbar-brand"
     >
-      <img
-        className="feather"
-        src="test-file-stub"
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        <div
+          className="sc-bZQynM hVJJCu"
+        >
+          <img
+            className="feather"
+            src="test-file-stub"
+          />
+        </div>
+      </a>
+    </span>
+    <button
+      aria-controls="basic-navbar-nav"
+      aria-label="Toggle navigation"
+      className="navbar-toggler"
+      onClick={[Function]}
+      type="button"
+    >
+      <span
+        className="navbar-toggler-icon"
       />
+    </button>
+    <div
+      aria-expanded={null}
+      className="navbar-collapse collapse"
+      id="basic-navbar-nav"
+    >
+      <div
+        className="mr-auto ml-5 navbar-nav"
+        onKeyDown={[Function]}
+      >
+        <div
+          className="input-field"
+        >
+          <input
+            className="sc-bdVaJa bYOnv"
+            id="search"
+            onChange={[Function]}
+            placeholder="search"
+            required={true}
+            type="text"
+            value=""
+          />
+          <small
+            className="text-danger ml-3 form-text"
+          />
+        </div>
+        <img
+          className="search-logo"
+          src="test-file-stub"
+        />
+      </div>
+      <button
+        className="ml-auto sc-htpNat ekXFCd"
+        onClick={[Function]}
+      >
+        Login
+      </button>
     </div>
-  </a>
-  <a
-    className="mr-3 d-none d-sm-block d-lg-none d-md-none nav-link"
-    href="#"
-    onClick={[Function]}
-    onKeyDown={[Function]}
-    role="button"
-    to="/signup"
-  >
-    Samantha
-  </a>
-  <button
-    className="ml-auto sc-bZQynM jeoEJJ"
-  >
-    Login
-  </button>
-</nav>
+  </nav>,
+  <div />,
+]
 `;

@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { Circle } from 'better-react-spinkit';
 import { signUpFormSchema, validationMessages } from '../utils/validationSchemas';
 import { registerWithEmail } from '../redux/actions/authActions';
-import InputField from '../components/common/input/InputComponent.jsx';
+import InputField from './common/input/InputComponent.jsx';
 import Button from '../styles/styledComponents/Button.jsx';
 import { facebook, twitter, google } from '../assets/images/svg';
 

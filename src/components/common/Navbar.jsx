@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap';
 import SignupContainer from '../SignupFormContainer.jsx';
-import LoginContainer from '../LoginFormContainer.jsx';
 import Modal from './Modal.jsx';
 import { ProfileImg, ImageLogo } from '../../styles/styledComponents/Navigation.jsx';
 import {
@@ -129,10 +128,9 @@ export class NavBar extends Component {
           closeModal={this.closeModal}
           body={
             this.state.modalContent === 'login' ? (
-              <LoginContainer
-                displayForm={this.displayForm}
-                closeModal={this.closeModal}
-              />
+              <div>
+                <h2>Login Form</h2>
+              </div>
             ) : (
               <SignupContainer
                 displayForm={this.displayForm}
@@ -151,6 +149,7 @@ NavBar.contextTypes = {
 };
 NavBar.propTypes = {
   user: PropTypes.object,
+  signOutUser: PropTypes.func,
   auth: PropTypes.object
 };
 

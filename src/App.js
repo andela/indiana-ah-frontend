@@ -1,24 +1,40 @@
+/* eslint-disable import/no-named-as-default */
 import React, { Fragment } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import Footer from './components/common/footer.jsx';
-import store from './redux/store';
+import { ToastContainer } from 'react-toastify';
+import {
+  BrowserRouter, Route, Switch, Redirect
+} from 'react-router-dom';
 import IndexPage from './components/IndexPage.jsx';
+import Footer from './components/common/footer.jsx';
+import UserVerificationPage from './components/UserVerificationPage.jsx';
+import { SET_CURRENT_USER } from './redux/actions/actionTypes';
+import 'react-toastify/dist/ReactToastify.min.css';
+import { validateToken } from './utils';
 import NavBar from './components/common/Navbar.jsx';
+import store from './redux/store';
 
+const user = validateToken(window.localStorage.getItem('token'));
+if (user) {
+  store.dispatch({
+    type: SET_CURRENT_USER,
+    user
+  });
+}
 
 const App = () => (
-  <Provider store={store}>
-    <BrowserRouter>
-      <Fragment>
-        <NavBar isAuthenticated={false}/>
-        <Switch>
-          <Route path="/" component={IndexPage} exact />
-        </Switch>
+  <BrowserRouter>
+    <Fragment>
+      <NavBar />
+      <ToastContainer autoClose={3000} position="top-right" />
+      <Switch>
+        <Route path="/verifyUser" component={UserVerificationPage} />
+        <Route path="/" component={IndexPage} exact />
+        <Redirect to="not-found" exact />
         <Footer />
-      </Fragment>
-    </BrowserRouter>
-  </Provider>
+      </Switch>
+      <Footer />
+    </Fragment>
+  </BrowserRouter>
 );
 
 export default App;
