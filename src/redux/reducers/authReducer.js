@@ -7,7 +7,8 @@ import {
   VERIFY_USER_SUCCESS,
   NETWORK_FAILURE,
   SET_CURRENT_USER,
-  SIGN_OUT_USER
+  SIGN_OUT_USER,
+  REGISTER_WITH_SM
 } from '../actions/actionTypes';
 
 const initialState = {
@@ -57,6 +58,11 @@ const authReducer = (state = initialState, action) => {
       };
     case SIGN_OUT_USER:
       return initialState;
+    case REGISTER_WITH_SM:
+      return {
+        ...state,
+        isAuthenticated: true
+      };
     default:
       return state;
   }
