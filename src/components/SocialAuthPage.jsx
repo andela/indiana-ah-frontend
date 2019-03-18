@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import registerWithSm from '../redux/actions/authActions';
 
-class SocialAuthPage extends Component {
+export class SocialAuthPage extends Component {
   componentDidMount() {
     const { search } = window.location;
     const token = new URLSearchParams(search).get('token');
