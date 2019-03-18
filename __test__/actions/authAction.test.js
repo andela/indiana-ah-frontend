@@ -9,9 +9,14 @@ import {
   VERIFY_USER_SUCCESS,
   LOGIN_WITH_EMAIL_REQUEST,
   LOGIN_WITH_EMAIL_FAILURE,
-  LOGIN_WITH_EMAIL_SUCCESS
+  LOGIN_WITH_EMAIL_SUCCESS,
+  SIGN_OUT_USER
 } from '../../src/redux/actions/actionTypes';
-import { verifyUser, loginWithEmail } from '../../src/redux/actions/authActions';
+import {
+  verifyUser,
+  loginWithEmail,
+  signOutUser
+} from '../../src/redux/actions/authActions';
 
 const mock = new MockAdapter(apiInstance);
 const mockStore = configureMockStore([thunk]);
@@ -102,6 +107,11 @@ describe('Auth action creators test', () => {
     ];
 
     await store.dispatch(verifyUser(history, token));
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+  it('should create the SIGN_OUT_USER action when the user signs out', () => {
+    const expectedActions = [{ type: SIGN_OUT_USER }];
+    store.dispatch(signOutUser());
     expect(store.getActions()).toEqual(expectedActions);
   });
 });

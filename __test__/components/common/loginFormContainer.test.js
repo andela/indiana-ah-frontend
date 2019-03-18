@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import axios from 'axios';
 import { LoginFormContainer } from '../../../src/components/LoginFormContainer.jsx';
 
@@ -28,7 +28,6 @@ describe('test the login container form', () => {
     expect(loginWithEmail).toHaveBeenCalled();
   });
   it('should simulate the failure of handleSubmit', () => {
-    axios.post.mockRejectedValue({ response: { data: { message: 'error logging in' } } });
     const loginWithEmail = jest.fn();
     const wrapper = mount(
       <LoginFormContainer {...props} loginWithEmail={loginWithEmail} />
@@ -37,9 +36,11 @@ describe('test the login container form', () => {
     wrapper.find('form').simulate('submit');
     const input1 = wrapper.find('input').at(0);
     const input2 = wrapper.find('input').at(1);
+    wrapper.setState({ error: 'error logging in' });
     input1.simulate('change', { target: { value: 'fafa@gmail.com' } });
     input2.simulate('change', { target: { value: 'fafasecret33' } });
-    expect(wrapper.state('error')).toEqual('');
+    expect(wrapper.state('error')).toEqual('error logging in');
+    expect(wrapper.find('.text-danger')).toHaveLength(7);
   });
   it('should simulate the click of the button', () => {
     const displayForm = jest.fn();

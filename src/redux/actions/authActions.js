@@ -6,7 +6,8 @@ import {
   VERIFY_USER_SUCCESS,
   LOGIN_WITH_EMAIL_REQUEST,
   LOGIN_WITH_EMAIL_FAILURE,
-  LOGIN_WITH_EMAIL_SUCCESS
+  LOGIN_WITH_EMAIL_SUCCESS,
+  SIGN_OUT_USER
 } from './actionTypes';
 import { sendHttpRequest } from '../../utils';
 
@@ -37,4 +38,9 @@ export const verifyUser = (history, query) => async (dispatch) => {
   } catch ({ response }) {
     dispatch({ type: VERIFY_USER_FAILURE, payload: response.data.message });
   }
+};
+
+export const signOutUser = () => (dispatch) => {
+  window.localStorage.clear();
+  dispatch({ type: SIGN_OUT_USER });
 };

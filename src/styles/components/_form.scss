@@ -1,6 +1,17 @@
 a {
   text-decoration: none !important;
 }
+.twitter {
+  width: 34px;
+}
+.mx-5.google {
+  width: 26px;
+  margin-right: 3.9rem !important;
+}
+.mx-5.facebook {
+  margin-left: 2.2rem !important;
+  margin-right: 3.2rem !important;
+}
 .formIcon {
   height: 55px;
   width: 55px;
@@ -17,7 +28,7 @@ a {
   box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.4);
   transition: 0.3s ease-in-out;
   cursor: pointer;
-  border: 0.06rem solid rgba(0, 0, 0, 0.4);
+  border: 0.01rem solid rgba(0, 0, 0, 0.4);
 
   span {
     color: #fff;
@@ -51,7 +62,7 @@ a {
   box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.4);
   transition: 0.3s ease-in-out;
   cursor: pointer;
-  border: 0.04rem solid rgba(0, 0, 0, 0.4);
+  border: 0.01rem solid rgba(0, 0, 0, 0.4);
 
   svg {
     height: 35px;
@@ -80,7 +91,7 @@ a {
   box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.4);
   transition: 0.3s ease-in-out;
   cursor: pointer;
-  border: 0.05rem solid rgba(0, 0, 0, 0.1);
+  border: 0.06rem solid rgba(0, 0, 0, 0.1);
 
   svg {
     height: 35px;

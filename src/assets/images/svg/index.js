@@ -11,3 +11,4 @@ export { default as searchIcon } from './searchIcon.svg';
 export { default as notificationIcon } from './notificationIcon.svg';
 export { default as profile } from '../profile.jpg';
 export { default as dropDownIcon } from './dropDownIcon.svg';
+export { default as google } from './google.svg';

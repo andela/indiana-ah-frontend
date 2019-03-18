@@ -1,26 +1,26 @@
 import React, { Fragment } from 'react';
 import { ToastContainer } from 'react-toastify';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import Footer from './components/common/footer.jsx';
-import store from './redux/store';
-import VerifyUser from './views/UserVerificationPage';
+import {
+  BrowserRouter, Route, Switch, Redirect
+} from 'react-router-dom';
 import IndexPage from './components/IndexPage.jsx';
+import Footer from './components/common/footer.jsx';
 import 'react-toastify/dist/ReactToastify.min.css';
+import Navbar from './components/common/Navbar.jsx';
 
 const App = () => (
-  <Provider store={store}>
-    <BrowserRouter>
-      <Fragment>
-        <ToastContainer autoClose={false} position="top-right" />
-        <Switch>
-          <Route path="/verifyUser" component={VerifyUser} />
-          <Route path="/" component={IndexPage} exact />
-        </Switch>
+  <BrowserRouter>
+    <Fragment>
+      <Navbar />
+      <ToastContainer autoClose={3000} position="top-right" />
+      <Switch>
+        <Route path="/" component={IndexPage} exact />
+        <Redirect to="not-found" exact />
         <Footer />
-      </Fragment>
-    </BrowserRouter>
-  </Provider>
+      </Switch>
+      <Footer />
+    </Fragment>
+  </BrowserRouter>
 );
 
 export default App;

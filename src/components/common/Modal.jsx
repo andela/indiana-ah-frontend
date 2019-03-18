@@ -11,8 +11,11 @@ const CustomModal = props => (
 );
 
 CustomModal.propTypes = {
-  body: PropTypes.string,
-  modalIsOpen: PropTypes.func.isRequired,
+  body: PropTypes.oneOfType([PropTypes.string, PropTypes.object.isRequired]),
+  modalIsOpen: PropTypes.oneOfType([
+    PropTypes.bool.isRequired,
+    PropTypes.func.isRequired
+  ]),
   closeModal: PropTypes.func.isRequired
 };
 export default CustomModal;

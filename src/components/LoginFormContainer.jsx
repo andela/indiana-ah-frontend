@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import SVG from 'react-inlinesvg';
 import PropTypes from 'prop-types';
 import { Circle } from 'better-react-spinkit';
+import { withRouter } from 'react-router-dom';
 import { loginWithEmail } from '../redux/actions/authActions';
 import InputField from './common/input/InputComponent.jsx';
 import Button from '../styles/styledComponents/Button.jsx';
+import { facebook, twitter, google } from '../assets/images/svg';
 
 export class LoginFormContainer extends Component {
   state = {
@@ -46,22 +47,23 @@ export class LoginFormContainer extends Component {
         <div className="signup-form">
           <div className="fbButton align-button">
             <a href="https://indiana-ah-staging.herokuapp.com/auth/facebook">
-              <SVG src="../src/assets/images/svg/facebook.svg" className="mx-5" />
-              <span>Signup with facebook</span>
+              <img src={facebook} className="mx-5 facebook" />
+              <span>Login with facebook</span>
             </a>
           </div>
           <div className="ggButton align-button">
             <a href="https://indiana-ah-staging.herokuapp.com/auth/google">
-              <SVG src="../src/assets/images/svg/google.svg" className="mx-5" />
-              <span>Signup with google </span>
+              <img src={google} className="mx-5 google" />
+              <span>Login with google </span>
             </a>
           </div>
           <div className="ttButton align-button">
             <a href="https://indiana-ah-staging.herokuapp.com/auth/twitter">
-              <SVG src="../src/assets/images/svg/twitter.svg" className="mx-5" />
-              <span>Signup with twitter</span>
+              <img src={twitter} className="mx-5 twitter" />
+              <span>Login with twitter</span>
             </a>
           </div>
+          <h3 className="text-center mt-5">OR</h3>
           <form onSubmit={this.handleSubmit}>
             <InputField
               placeholder="Email"
@@ -108,9 +110,10 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { loginWithEmail }
-)(LoginFormContainer);
+)(withRouter(LoginFormContainer));
 
 LoginFormContainer.propTypes = {
   auth: PropTypes.object,
-  displayForm: PropTypes.object
+  displayForm: PropTypes.func,
+  loginWithEmail: PropTypes.func
 };

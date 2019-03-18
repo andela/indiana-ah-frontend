@@ -1,19 +1,18 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment, Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import SVG from 'react-inlinesvg';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import LoginContainer from './LoginFormContainer.jsx';
-import Modal from './common/Modal.jsx';
 import Button from '../styles/styledComponents/Button.jsx';
 import IndexForm from './forms/indexForm.jsx';
-import getAllArticles from '../redux/actions/articleActions';
+import getAllArticles from '../redux/actions/articleActions/articleActions';
 import { filterArticlesByLikes, filterArticlesByDate } from '../utils/index';
 import IndexCarousel from './carousels/indexCarousel.jsx';
+import {
+  BannerImage, BannerImage2, quotes, indexImage
+} from '../assets/images/svg';
 
 class IndexPage extends Component {
   state = {
-    modalIsOpen: false,
     reviews: [
       {
         name: 'Tiku Okoye',
@@ -52,25 +51,9 @@ class IndexPage extends Component {
     this.props.getAllArticles();
   }
 
-  openModal = () => {
-    this.setState(() => ({ modalIsOpen: true }));
-  };
-
-  closeModal = () => {
-    const {
-      auth: { isLoading }
-    } = this.props;
-    if (!isLoading) this.setState(() => ({ modalIsOpen: false }));
-  };
-
-  displayForm = (form) => {
-    this.setState({ modalIsOpen: true, modalContent: form });
-  };
-
   render() {
-    const { modalContent, reviews } = this.state;
-
-    const articles = this.props.articles.allArticles;
+    const { reviews } = this.state;
+    const { allArticles: articles, isLoading } = this.props.articles;
     const topArticles = filterArticlesByLikes(articles);
     const newArticles = filterArticlesByDate(articles);
     return (
@@ -84,16 +67,13 @@ class IndexPage extends Component {
                   There is no limit to what you can achieve with a pen.. Write, the world
                   is ready to read.
                 </p>
-                <Button
-                  bgColor
-                  className="index-button"
-                  onClick={() => this.displayForm('register')}>
+                <Button bgColor className="index-button">
                   Get Started
                 </Button>
               </div>
             </Col>
             <Col className="d-none d-sm-block">
-              <SVG src="../src/assets/images/svg/banner_image.svg" />
+              <img src={BannerImage} />
             </Col>
           </Row>
         </div>
@@ -111,7 +91,7 @@ class IndexPage extends Component {
               <Col key={index}>
                 <p>{item.review}</p>
                 <div className="quotes">
-                  <SVG src="../src/assets/images/svg/quotes.svg" />
+                  <img src={quotes} />
                 </div>
                 <p className="reviews-name">{item.name}</p>
                 <p>{item.location}</p>
@@ -121,22 +101,22 @@ class IndexPage extends Component {
         </section>
         <section className="top-articles container-fluid">
           <h1>Top articles</h1>
-          <IndexCarousel articles={topArticles} />
+          <IndexCarousel articles={topArticles} isLoading={isLoading} />
         </section>
         <section className="new-articles container-fluid">
           <h1>New articles</h1>
-          <IndexCarousel articles={newArticles} />
+          <IndexCarousel articles={newArticles} isLoading={isLoading} />
         </section>
         <section className="container">
           <Row className="banner">
             <Col>
-              <SVG src="../src/assets/images/svg/banner_image2.svg" />
+              <img src={BannerImage2} />
             </Col>
             <Col className="d-flex align-items-center">
               <div>
                 <h2>Are you ready to put down those wonderful ideas?</h2>
                 <p className="banner-p2">Get Started for free today.</p>
-                <Button onClick={() => this.displayForm('register')}>Get Started</Button>
+                <Button>Get Started</Button>
               </div>
             </Col>
           </Row>
@@ -155,24 +135,10 @@ class IndexPage extends Component {
               <IndexForm />
             </Col>
             <Col md={7} className="img-div p-0 d-none d-md-block">
-              <img src="../src/assets/images/index_img.jpg" className="banner-img" />
+              <img src={indexImage} className="banner-img" />
             </Col>
           </Row>
         </section>
-        <Modal
-          modalIsOpen={this.state.modalIsOpen}
-          closeModal={this.closeModal}
-          body={
-            modalContent === 'login' ? (
-              <LoginContainer
-                displayForm={this.displayForm}
-                closeModal={this.closeModal}
-              />
-            ) : (
-              <div />
-            )
-          }
-        />
       </Fragment>
     );
   }
@@ -184,8 +150,7 @@ IndexPage.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  articles: state.articles,
-  auth: state.auth
+  articles: state.articles
 });
 
 export default connect(
