@@ -1,5 +1,4 @@
-import jwt from 'jsonwebtoken';
-import { handlePageClick, setCurrentPage, validateToken } from '../../src/utils';
+import { handlePageClick, setCurrentPage } from '../../src/utils';
 
 describe('Pagination utils test', () => {
   const component = {

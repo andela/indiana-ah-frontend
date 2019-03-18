@@ -144,9 +144,6 @@ export class NavBar extends Component {
   }
 }
 
-NavBar.contextTypes = {
-  router: PropTypes.object.isRequired
-};
 NavBar.propTypes = {
   user: PropTypes.object,
   signOutUser: PropTypes.func,
