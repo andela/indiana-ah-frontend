@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import registerWithSm from '../redux/actions/authActions';
+import socialMediaLogin from '../redux/actions/authActions';
 
 export class SocialAuthPage extends Component {
   componentDidMount() {
     const { search } = window.location;
     const token = new URLSearchParams(search).get('token');
-    this.props.registerWithSm(token);
+    this.props.socialMediaLogin(token);
     this.props.history.push('/');
   }
 
@@ -23,8 +23,8 @@ export class SocialAuthPage extends Component {
 }
 
 SocialAuthPage.propTypes = {
-  registerWithSm: PropTypes.func.isRequired,
+  socialMediaLogin: PropTypes.func.isRequired,
   history: PropTypes.oneOfType([PropTypes.object]).isRequired
 };
 
-export default connect(null, { registerWithSm })(withRouter(SocialAuthPage));
+export default connect(null, { socialMediaLogin })(withRouter(SocialAuthPage));

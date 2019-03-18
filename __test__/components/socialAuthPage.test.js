@@ -8,7 +8,7 @@ import jwt from 'jsonwebtoken';
 import ConnectedSocialAuthPage from '../../src/components/SocialAuthPage.jsx';
 import reducer from '../../src/redux/reducers/authReducer';
 import { REGISTER_WITH_SM, SET_CURRENT_USER } from '../../src/redux/actions/actionTypes';
-import registerWithSm from '../../src/redux/actions/authActions';
+import socialMediaLogin from '../../src/redux/actions/authActions';
 
 const mockStore = configureStore([thunk]);
 const store = mockStore();
@@ -54,7 +54,7 @@ describe('Auth action creators test', () => {
   });
 
   it('should create the REGISTER_WITH_SM and SET_CURRENT_USER actions', async () => {
-    await store.dispatch(registerWithSm(token));
+    await store.dispatch(socialMediaLogin(token));
     expect(store.getActions()).toEqual([{
       type: SET_CURRENT_USER,
       user: {
