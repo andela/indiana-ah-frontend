@@ -7,5 +7,13 @@ import {
 
 export const getAllUserArticles = (username, query) => async (dispatch) => {
   dispatch({ type: GET_ALL_USER_ARTICLES_REQUEST });
-  const { articles } = await sendHttpRequest(`/user/${username}`);
+  try {
+    const response = await sendHttpRequest(`/user/${username}`);
+    dispatch({ type: GET_ALL_USER_ARTICLES_SUCCESS, payload: response });
+  } catch ({ response }) {
+    dispatch({
+      type: GET_ALL_USER_ARTICLES_FAILURE,
+      payload: response.data.errorMessage
+    });
+  }
 };
