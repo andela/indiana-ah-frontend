@@ -4,9 +4,11 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { MemoryRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
+import jwt from 'jsonwebtoken';
 import ConnectedSocialAuthPage from '../../src/components/SocialAuthPage.jsx';
 import reducer from '../../src/redux/reducers/authReducer';
-import { REGISTER_WITH_SM } from '../../src/redux/actions/actionTypes';
+import { REGISTER_WITH_SM, SET_CURRENT_USER } from '../../src/redux/actions/actionTypes';
+import registerWithSm from '../../src/redux/actions/authActions';
 
 const mockStore = configureStore([thunk]);
 const store = mockStore();
@@ -42,5 +44,24 @@ describe('social auth reducer', () => {
     expect(reducer({}, successAction)).toEqual({
       isAuthenticated: true,
     });
+  });
+});
+
+describe('Auth action creators test', () => {
+  const token = jwt.sign({ name: 'omenkish' }, 'yeeeeeeeeeeee');
+  beforeEach(() => {
+    store.clearActions();
+  });
+
+  it('should create the REGISTER_WITH_SM and SET_CURRENT_USER actions', async () => {
+    await store.dispatch(registerWithSm(token));
+    expect(store.getActions()).toEqual([{
+      type: SET_CURRENT_USER,
+      user: {
+        name: 'omenkish',
+      }
+    },
+    { type: REGISTER_WITH_SM }
+    ]);
   });
 });
