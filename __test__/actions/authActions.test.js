@@ -135,7 +135,7 @@ describe('Auth action creators test', () => {
     expect(store.getActions()).toEqual(expectedActions);
   });
 
-  it('shoild create the SIGN_OUT_USER action when the user signs out', () => {
+  it('should create the SIGN_OUT_USER action when the user signs out', () => {
     const expectedActions = [{ type: SIGN_OUT_USER }];
     store.dispatch(signOutUser());
     expect(store.getActions()).toEqual(expectedActions);
