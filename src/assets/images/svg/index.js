@@ -11,3 +11,6 @@ export { default as searchIcon } from './searchIcon.svg';
 export { default as notificationIcon } from './notificationIcon.svg';
 export { default as profile } from '../profile.jpg';
 export { default as dropDownIcon } from './dropDownIcon.svg';
+export { default as sideNavArticlesLogo } from './sideNavArticles.svg';
+export { default as sideNavProfileLogo } from './sideNavProfile.svg';
+export { default as sideNavStatisticsLogo } from './sideNavStatistics.svg';
