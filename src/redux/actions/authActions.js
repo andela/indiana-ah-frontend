@@ -12,7 +12,8 @@ import {
   VERIFY_USER_SUCCESS,
   NETWORK_FAILURE,
   SET_CURRENT_USER,
-  SIGN_OUT_USER
+  SIGN_OUT_USER,
+  REGISTER_WITH_SM,
 } from './actionTypes';
 import { sendHttpRequest, validateToken } from '../../utils';
 
@@ -83,4 +84,17 @@ export const verifyUser = (query, { history }) => async (dispatch) => {
 export const signOutUser = () => (dispatch) => {
   window.localStorage.clear();
   dispatch({ type: SIGN_OUT_USER });
+};
+
+export const loginWithSocialMedia = token => (dispatch) => {
+  try {
+    const user = validateToken(token);
+    if (user) {
+      localStorage.setItem('token', token);
+      dispatch({ type: SET_CURRENT_USER, user });
+      dispatch({ type: REGISTER_WITH_SM });
+    }
+  } catch (error) {
+    toast.error(<div>We cannot log you in by this time. Please try again later.</div>);
+  }
 };
