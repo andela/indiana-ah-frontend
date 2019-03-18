@@ -1,8 +1,6 @@
 /* eslint-disable consistent-return */
 import Swal from 'sweetalert2';
-import {
-  GET_ALL_ARTICLES, NO_ARTICLES, GET_ALL_ARTICLES_LOADING
-} from '../actionTypes';
+import { GET_ALL_ARTICLES, NO_ARTICLES, GET_ALL_ARTICLES_LOADING } from '../actionTypes';
 import { sendHttpRequest } from '../../../utils';
 
 const getAllArticles = () => async (dispatch) => {
@@ -12,6 +10,7 @@ const getAllArticles = () => async (dispatch) => {
     if ('message' in response) {
       return dispatch({ type: NO_ARTICLES, payload: [] });
     }
+    localStorage.setItem('all articles', JSON.stringify(response.articles));
     return dispatch({ type: GET_ALL_ARTICLES, payload: response.articles });
   } catch ({ response }) {
     Swal.fire({
@@ -20,7 +19,7 @@ const getAllArticles = () => async (dispatch) => {
       type: 'error',
       timer: 3000,
       showConfirmButton: false,
-      width: 400,
+      width: 400
     });
   }
 };

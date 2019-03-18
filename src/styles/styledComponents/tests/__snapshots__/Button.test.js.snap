@@ -6,6 +6,7 @@ exports[`testing the button element should mount custom button 1`] = `
   font-size: 2rem;
   line-height: 2.7rem;
   align: Center;
+  outline: none;
   -webkit-letterspacing: 5%;
   -moz-letterspacing: 5%;
   -ms-letterspacing: 5%;
@@ -19,7 +20,7 @@ exports[`testing the button element should mount custom button 1`] = `
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   width: auto;
-  padding: .8rem 1.3rem;
+  padding: 0.8rem 1.5rem;
   display: block;
 }
 

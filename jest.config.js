@@ -37,11 +37,6 @@ module.exports = {
     '\\.(jpg|jpeg|png|gif|svg)$': '<rootDir>/__mocks__/fileMock.js',
     '\\.(css|scss)$': '<rootDir>/__mocks__/styleMock.js'
   },
-
   // Indicates whether each individual test should be reported during the run
-  verbose: false,
-  moduleNameMapper: {
-    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': '<rootDir>/__mocks__/fileMock.js',
-    '\\.(css|less)$': 'identity-obj-proxy'
-  }
+  verbose: false
 };

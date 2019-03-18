@@ -1,0 +1,192 @@
+import MockAdapter from 'axios-mock-adapter';
+import thunk from 'redux-thunk';
+import jwt from 'jsonwebtoken';
+import configureMockStore from 'redux-mock-store';
+import { apiInstance } from '../../src/utils';
+
+import {
+  VERIFY_USER_REQUEST,
+  VERIFY_USER_FAILURE,
+  VERIFY_USER_SUCCESS,
+  LOGIN_WITH_EMAIL_REQUEST,
+  LOGIN_WITH_EMAIL_FAILURE,
+  LOGIN_WITH_EMAIL_SUCCESS,
+  NETWORK_FAILURE,
+  REGISTER_WITH_EMAIL_FAILURE,
+  REGISTER_WITH_EMAIL_SUCCESS,
+  REGISTER_WITH_EMAIL_REQUEST,
+  SET_CURRENT_USER,
+  SIGN_OUT_USER,
+  REGISTER_WITH_SM
+} from '../../src/redux/actions/actionTypes';
+import {
+  verifyUser,
+  loginWithEmail,
+  registerWithEmail,
+  signOutUser,
+  registerWithSm
+} from '../../src/redux/actions/authActions';
+
+const mock = new MockAdapter(apiInstance);
+const mockStore = configureMockStore([thunk]);
+const store = mockStore();
+
+const badUserRegData = {
+  username: '334',
+  email: 'ozone4life@gmail.com',
+  password: 'jjd'
+};
+
+const rightUserRegData = {
+  username: 'akeembalo',
+  email: 'akeembalo@gmail.com',
+  password: 'jdjjjjd99'
+};
+
+const badUserLoginData = {
+  email: 'ozone4life@gmail.com',
+  password: 'jjd'
+};
+
+const rightUserLoginData = {
+  email: 'akeembalo@gmail.com',
+  password: 'jdjjjjd99'
+};
+
+const expectedResponseDataReg = {
+  message:
+    'Successfully registered to Authors haven. Kindly check your email to verify your account',
+  token:
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI3ZmU5ZTRmLTg4MzMtNGYwZC05NmI1LWM2MTYwMzBiNjU3ZiIsInVzZXJuYW1lIjoiYWtwb2JpIiwiZW1haWwiOiJjaGluYXNhQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNTUyMzk0NzI1LCJleHAiOjE1NTI0ODExMjV9.T86wbM-V_IO64gBphxIyXuTrzUIafj1Pj1SroDgUBM4'
+};
+const expectedLoginResponseDataReg = {
+  message:
+    'Successfully registered to Authors haven. Kindly check your email to verify your account',
+  token:
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI3ZmU5ZTRmLTg4MzMtNGYwZC05NmI1LWM2MTYwMzBiNjU3ZiIsInVzZXJuYW1lIjoiYWtwb2JpIiwiZW1haWwiOiJjaGluYXNhQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNTUyMzk0NzI1LCJleHAiOjE1NTI0ODExMjV9.T86wbM-V_IO64gBphxIyXuTrzUIafj1Pj1SroDgUBM4'
+};
+
+const { token } = expectedResponseDataReg;
+
+const history = { push: jest.fn() };
+const closeModal = jest.fn();
+
+describe('Auth action creators test', () => {
+  beforeEach(() => {
+    store.clearActions();
+  });
+  afterEach(() => {
+    mock.reset();
+  });
+  it('should create the LOGIN_WITH_EMAIL_FAILURE action if the api request was not successful', async () => {
+    mock.onPost('/login').reply(401, { message: 'error logging in' });
+
+    const expectedActions = [
+      { type: LOGIN_WITH_EMAIL_REQUEST },
+      { type: LOGIN_WITH_EMAIL_FAILURE, payload: 'error logging in' }
+    ];
+
+    await store.dispatch(loginWithEmail(badUserLoginData, { closeModal, history }));
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('should create the LOGIN_WITH_EMAIL_SUCCESS action if the api request was successful', async () => {
+    mock.onPost('/login').reply(200, expectedLoginResponseDataReg);
+
+    const expectedActions = [
+      { type: LOGIN_WITH_EMAIL_REQUEST },
+      { type: LOGIN_WITH_EMAIL_SUCCESS },
+      { type: SET_CURRENT_USER, user: false }
+    ];
+
+    await store.dispatch(loginWithEmail(rightUserLoginData, { closeModal, history }));
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('should create the REGISTER_WITH_EMAIL_FAILURE action if the api request was not successful', async () => {
+    mock.onPost('/register').reply(400, { message: 'Invalid registeration data' });
+
+    const expectedActions = [
+      { type: REGISTER_WITH_EMAIL_REQUEST },
+      { type: REGISTER_WITH_EMAIL_FAILURE, payload: 'Invalid registeration data' }
+    ];
+
+    await store.dispatch(registerWithEmail(badUserRegData, { closeModal, history }));
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('should create NETWORK_FAILURE action if there was a network error', async () => {
+    mock.onPost('/register').timeout(0);
+
+    const expectedActions = [
+      { type: REGISTER_WITH_EMAIL_REQUEST },
+      { type: NETWORK_FAILURE, payload: 'Connection error.' }
+    ];
+    await store.dispatch(registerWithEmail(badUserRegData, { closeModal, history }));
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('should create the REGISTER_WITH_EMAIL_SUCCESS action if the api request was successful', async () => {
+    mock.onPost('/register').reply(201, expectedResponseDataReg);
+
+    const expectedActions = [
+      { type: REGISTER_WITH_EMAIL_REQUEST },
+      { type: REGISTER_WITH_EMAIL_SUCCESS },
+      { type: SET_CURRENT_USER, user: false }
+    ];
+
+    await store.dispatch(registerWithEmail(rightUserRegData, { closeModal, history }));
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('should create VERIFY_USER_FAILURE action if the api request was not successful', async () => {
+    mock.onPatch(`/users/verify?query=${token}`).reply(401, {
+      message: 'Access denied, you are not authorized to access this route'
+    });
+
+    const expectedActions = [
+      { type: VERIFY_USER_REQUEST },
+      {
+        type: VERIFY_USER_FAILURE,
+        payload: 'Access denied, you are not authorized to access this route'
+      }
+    ];
+
+    await store.dispatch(verifyUser(token, { history }));
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('should create VERIFY_USER_FAILURE action if there was a network error', async () => {
+    mock.onPatch(`/users/verify?query=${token}`).timeout(0);
+
+    const expectedActions = [
+      { type: VERIFY_USER_REQUEST },
+      { type: NETWORK_FAILURE, payload: 'Connection error.' }
+    ];
+    await store.dispatch(verifyUser(token, { history }));
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('should create VERIFY_USER_SUCCESS action if the api request was successful', async () => {
+    mock.onPatch(`/users/verify?query=${token}`).reply(200, expectedResponseDataReg);
+
+    const expectedActions = [
+      { type: VERIFY_USER_REQUEST },
+      { type: VERIFY_USER_SUCCESS }
+    ];
+
+    await store.dispatch(verifyUser(token, { history }));
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('should create the REGISTER_WITH_SM action when the user gets registered via social media', () => {
+    store.dispatch(registerWithSm(''));
+    expect(store.getActions()).toEqual([]);
+  });
+
+  it('shoild create the SIGN_OUT_USER action when the user signs out', () => {
+    const expectedActions = [{ type: SIGN_OUT_USER }];
+    store.dispatch(signOutUser());
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+});

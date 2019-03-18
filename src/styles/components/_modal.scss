@@ -1,24 +1,21 @@
-
-.Modal{
+.Modal {
   background: transparent;
-  width: 34%;
+  width: 30%;
   margin: 4% auto 0 auto;
   outline: none;
-  padding: 0.4rem;
   border-radius: 0.4rem;
   flex-wrap: wrap;
-
 }
 .modal-title {
   text-align: center;
 }
-.close{
+.close {
   font-size: $l-size;
 }
- 
- @media (max-width: 76.8rem){
-  .Modal{
+
+@media (max-width: 76.8rem) {
+  .Modal {
     width: 80%;
     margin: 10% auto 0 auto;
   }
- }
+}

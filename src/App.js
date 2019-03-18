@@ -1,27 +1,45 @@
+/* eslint-disable no-restricted-globals */
+/* eslint-disable import/no-named-as-default */
 import React, { Fragment } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { Provider } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
+import {
+  BrowserRouter, Route, Switch, Redirect
+} from 'react-router-dom';
 import Footer from './components/common/footer.jsx';
-import store from './redux/store';
-import IndexPage from './components/IndexPage.jsx';
-import PersonalisedViewComponent from './components/personalised/Index.jsx';
+import UserVerificationPage from './components/UserVerificationPage.jsx';
+import Home from './components/Home.jsx';
 import NotFoundPage from './components/NotFoundPage.jsx';
+import { SET_CURRENT_USER } from './redux/actions/actionTypes';
+import SocialAuthPAge from './components/SocialAuthPage.jsx';
+import 'react-toastify/dist/ReactToastify.min.css';
+import { validateToken } from './utils';
 import NavBar from './components/common/Navbar.jsx';
+import store from './redux/store';
+
+const user = validateToken(localStorage.getItem('token'));
+if (user) {
+  store.dispatch({
+    type: SET_CURRENT_USER,
+    user
+  });
+}
 
 const App = () => (
-  <Provider store={store}>
-    <BrowserRouter>
-      <Fragment>
-        <NavBar isAuthenticated={false}/>
-        <Switch>
-          <Route path="/" component={IndexPage} exact />
-          <Route path="/personalisedView" component={PersonalisedViewComponent} exact />
-         <Route component={NotFoundPage} />
-        </Switch>
+  <BrowserRouter>
+    <Fragment>
+      <NavBar />
+      <ToastContainer autoClose={3000} position="top-right" />
+      <Switch>
+        <Route path="/verifyUser" component={UserVerificationPage} />
+        <Route path="/social-auth" component={SocialAuthPAge} />
+        <Route path="/not-found" component={NotFoundPage} />
+        <Route path="/" component={Home} exact />
+        <Redirect to="not-found" exact />
         <Footer />
-      </Fragment>
-    </BrowserRouter>
-  </Provider>
+      </Switch>
+      <Footer />
+    </Fragment>
+  </BrowserRouter>
 );
 
 export default App;

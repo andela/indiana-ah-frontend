@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 import Footer from '../../src/components/common/footer.jsx';
 
-describe('Custom Footer component', () => {
+describe('Index page component', () => {
   it('renders correctly', () => {
     const tree = renderer.create(
       <MemoryRouter>
