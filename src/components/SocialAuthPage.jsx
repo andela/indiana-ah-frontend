@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { registerWithSm } from '../redux/actions/authActions';
+import registerWithSm from '../redux/actions/authActions';
 
 class SocialAuthPage extends Component {
   componentDidMount() {
