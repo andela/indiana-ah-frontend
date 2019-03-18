@@ -9,7 +9,7 @@
 }
 
 .is-active {
-  border-right: 3px solid blue;
+  border-right: 3px solid #0B41CD;
 }
 
 .sidenav__logo-box {
@@ -34,6 +34,6 @@
   color: grey;
 }
 
-// .sidenav__logo-label .is-active {
-//   color: white;
-// }
+.sideNavLogos {
+  height: 5.5rem;
+}

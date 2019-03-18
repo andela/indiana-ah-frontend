@@ -1,103 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Custom Navbar component renders correctly 1`] = `
-Array [
-  <nav
-    className="navbar navbar-expand-lg navbar-light bg-white shadow-sm px-5"
+<nav
+  className="navbar navbar-expand-lg navbar-light bg-white shadow-sm px-5"
+>
+  <a
+    className="navbar-brand"
+    href="#home"
   >
-    <a
-      className="navbar-brand"
-      href="#home"
-    >
-      <div
-        className="sc-bxivhb hgkJjS"
-      >
-        <img
-          className="feather"
-          src="test-file-stub"
-        />
-      </div>
-    </a>
-    <a
-      className="mr-3 d-none d-sm-block d-lg-none d-md-none nav-link"
-      href="#"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      role="button"
-      to="/signup"
-    >
-      Samantha
-    </a>
-    <button
-      aria-controls="basic-navbar-nav"
-      aria-label="Toggle navigation"
-      className="navbar-toggler"
-      onClick={[Function]}
-      type="button"
-    >
-      <span
-        className="navbar-toggler-icon"
-      />
-    </button>
     <div
-      aria-expanded={null}
-      className="navbar-collapse collapse"
-      id="basic-navbar-nav"
+      className="sc-bxivhb hgkJjS"
     >
-      <div
-        className="mr-auto ml-5 navbar-nav"
-        onKeyDown={[Function]}
-      >
-        <div>
-          <input
-            className="sc-bZQynM bJkSrf"
-            id="search"
-            onChange={[Function]}
-            placeholder="search"
-            required={true}
-            type="text"
-            value=""
-          />
-          <small
-            className="text-danger ml-3 form-text"
-          />
-        </div>
-        <img
-          className="search-logo"
-          src="test-file-stub"
-        />
-      </div>
-      <div
-        className="navbar-nav"
-        onKeyDown={[Function]}
-      >
-        <img
-          className="ml-auto d-none d-md-none d-xs-none d-lg-block"
-          src="test-file-stub"
-        />
-        <img
-          alt="logo"
-          className="ml-5 mt-2 d-none d-md-none d-xs-none d-lg-block sc-htpNat gbUdnV"
-          src="test-file-stub"
-        />
-        <a
-          className="d-flex ft-size-2 ml-5 nav-link"
-          data-rb-event-key={null}
-          href="#"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          role="button"
-          to="/signup"
-        >
-          Samantha
-          <img
-            className="mx-3 d-none d-md-none d-lg-block d-xs-none"
-            src="test-file-stub"
-          />
-        </a>
-      </div>
+      <img
+        className="feather"
+        src="test-file-stub"
+      />
     </div>
-  </nav>,
-  ";",
-]
+  </a>
+  <a
+    className="mr-3 d-none d-sm-block d-lg-none d-md-none nav-link"
+    href="#"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="button"
+    to="/signup"
+  >
+    Samantha
+  </a>
+  <button
+    className="ml-auto sc-bZQynM jeoEJJ"
+  >
+    Login
+  </button>
+</nav>
 `;
