@@ -1,8 +1,6 @@
-/* eslint-disable no-plusplus */
-/* eslint-disable radix */
 /* eslint-disable no-confusing-arrow */
-/* eslint-disable no-restricted-globals */
 import axios from 'axios';
+import jwtDecode from 'jwt-decode';
 
 export const apiInstance = axios.create({
   baseURL: 'https://indiana-ah-staging.herokuapp.com/api/v1/',
@@ -10,6 +8,15 @@ export const apiInstance = axios.create({
     'x-auth-token': localStorage.getItem('token')
   }
 });
+
+export const validateToken = (token) => {
+  let isValid = false;
+  if (token) {
+    const decoded = jwtDecode(token);
+    isValid = decoded.exp > Date.now() / 1000 && decoded.exp && decoded;
+  }
+  return isValid;
+};
 
 export const sendHttpRequest = async (url, method, data) => {
   const response = await apiInstance({ url, method, data });
@@ -22,7 +29,7 @@ export const handlePageClick = (component, page) => {
 
 export const renderPageLinks = (currentPage, numberOfPages) => {
   const pages = [];
-  for (let i = 1; i <= numberOfPages; i++) {
+  for (let i = 1; i <= numberOfPages; i += 1) {
     pages.push(i);
   }
 
@@ -38,20 +45,22 @@ export const renderPageLinks = (currentPage, numberOfPages) => {
 
 // call this function in 'componentDidMount' of any 'page component' (that renders paginated data) and pass 'this' as the argument
 export const setCurrentPage = (component) => {
-  const urlSearchParams = new URLSearchParams(location.search);
-  let page = parseInt(urlSearchParams.get('page'));
-  if (isNaN(page)) page = 1;
+  const urlSearchParams = new URLSearchParams(window.location.search);
+  let page = parseInt(urlSearchParams.get('page'), 10);
+  if (Number.isNaN(page)) page = 1;
   component.setState({ currentPage: page });
 };
 
 export const filterArticlesByLikes = (articles) => {
   const topArticles = articles
-    .sort((a, b) => (a.likes > b.likes) ? 1 : ((b.likes < a.likes) ? -1 : 0)).slice(0, 7);
+    .sort((a, b) => (a.likes > b.likes ? 1 : b.likes < a.likes ? -1 : 0))
+    .slice(0, 7);
   return topArticles;
 };
 
 export const filterArticlesByDate = (articles) => {
   const newArticles = articles
-    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 6);
+    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+    .slice(0, 6);
   return newArticles;
 };
