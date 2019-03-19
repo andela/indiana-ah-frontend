@@ -12,12 +12,16 @@ import {
   REGISTER_WITH_EMAIL_FAILURE,
   REGISTER_WITH_EMAIL_SUCCESS,
   REGISTER_WITH_EMAIL_REQUEST,
+  LOGIN_WITH_EMAIL_REQUEST,
+  LOGIN_WITH_EMAIL_FAILURE,
+  LOGIN_WITH_EMAIL_SUCCESS,
   SET_CURRENT_USER,
   SIGN_OUT_USER
 } from '../../src/redux/actions/actionTypes';
 import {
   verifyUser,
   registerWithEmail,
+  loginWithEmail,
   signOutUser
 } from '../../src/redux/actions/authActions';
 
@@ -37,6 +41,20 @@ const rightUserRegData = {
   password: 'jdjjjjd99'
 };
 
+const badUserLoginData = {
+  email: 'ozone4life@gmail.com',
+  password: 'jjd'
+};
+
+const rightUserLoginData = {
+  email: 'akeembalo@gmail.com',
+  password: 'jdjjjjd99'
+};
+const expectedLoginResponseDataReg = {
+  message: 'successfully logged in',
+  token:
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI3ZmU5ZTRmLTg4MzMtNGYwZC05NmI1LWM2MTYwMzBiNjU3ZiIsInVzZXJuYW1lIjoiYWtwb2JpIiwiZW1haWwiOiJjaGluYXNhQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNTUyMzk0NzI1LCJleHAiOjE1NTI0ODExMjV9.T86wbM-V_IO64gBphxIyXuTrzUIafj1Pj1SroDgUBM4'
+};
 const expectedResponseDataReg = {
   message:
     'Successfully registered to Authors haven. Kindly check your email to verify your account',
@@ -89,6 +107,29 @@ describe('Auth action creators test', () => {
     ];
 
     await store.dispatch(registerWithEmail(rightUserRegData, { closeModal, history }));
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+  it('should create the LOGIN_WITH_EMAIL_FAILURE action if the api request was not successful', async () => {
+    mock.onPost('/login').reply(401, { message: 'error logging in' });
+
+    const expectedActions = [
+      { type: LOGIN_WITH_EMAIL_REQUEST },
+      { type: LOGIN_WITH_EMAIL_FAILURE, payload: 'error logging in' }
+    ];
+
+    await store.dispatch(loginWithEmail(badUserLoginData, { closeModal }));
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('should create the LOGIN_WITH_EMAIL_SUCCESS action if the api request was successful', async () => {
+    mock.onPost('/login').reply(200, expectedLoginResponseDataReg);
+
+    const expectedActions = [
+      { type: LOGIN_WITH_EMAIL_REQUEST },
+      { type: LOGIN_WITH_EMAIL_SUCCESS }
+    ];
+
+    await store.dispatch(loginWithEmail(rightUserLoginData, { closeModal }));
     expect(store.getActions()).toEqual(expectedActions);
   });
 

@@ -3,6 +3,7 @@ import { Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import SignupContainer from './SignupFormContainer.jsx';
+import LoginContainer from './LoginFormContainer.jsx';
 import Modal from './common/Modal.jsx';
 import Button from '../styles/styledComponents/Button.jsx';
 import IndexForm from './forms/indexForm.jsx';
@@ -88,8 +89,7 @@ export class IndexPage extends Component {
                 <Button
                   bgColor
                   className="index-button"
-                  onClick={() => this.displayForm('register')}
-                >
+                  onClick={() => this.displayForm('register')}>
                   Get Started
                 </Button>
               </div>
@@ -166,9 +166,10 @@ export class IndexPage extends Component {
           closeModal={this.closeModal}
           body={
             modalContent === 'login' ? (
-              <div>
-                <h2>Login Form</h2>
-              </div>
+              <LoginContainer
+                displayForm={this.displayForm}
+                closeModal={this.closeModal}
+              />
             ) : (
               <SignupContainer
                 displayForm={this.displayForm}
