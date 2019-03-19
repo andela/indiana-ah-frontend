@@ -1,7 +1,8 @@
 export { default as facebook } from './facebook.svg';
+export { default as google } from './google.svg';
 export { default as logo } from './logo.svg';
 export { default as twitter } from './twitter.svg';
-export { default as logo2 } from './Logo2.svg';
+export { default as logo2 } from './logo2.svg';
 export { default as BannerImage } from './banner_image.svg';
 export { default as BannerImage2 } from './banner_image2.svg';
 export { default as quotes } from './quotes.svg';

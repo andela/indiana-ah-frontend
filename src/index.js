@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import App from './App';
 import './styles/styles.scss';
-
+import store from './redux/store';
 
 ReactDOM.render(
-  <React.Fragment>
+  <Provider store={store}>
     <App />
-  </React.Fragment>,
+  </Provider>,
   document.getElementById('root')
 );
-ReactDOM.render(<App />, document.getElementById('root'));

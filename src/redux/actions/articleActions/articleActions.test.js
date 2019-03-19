@@ -10,10 +10,12 @@ const mock = new MockAdapter(apiInstance);
 const mockStore = configureStore([thunk]);
 const store = mockStore({});
 const mockData = {
-  articles: [{
-    title: 'How I got into andela',
-    slug: 'How I got into andela'
-  }]
+  articles: [
+    {
+      title: 'How I got into andela',
+      slug: 'How I got into andela'
+    }
+  ]
 };
 const noData = {
   message: 'No articles found'
@@ -27,16 +29,16 @@ const error = {
 
 describe('get all parcels action', () => {
   it('handles getting all parcels', async () => {
-    mock.onGet('/articles?page=1&limit=10')
-      .reply(200, mockData);
+    mock.onGet('/articles?page=1&limit=10').reply(200, mockData);
 
     const expectedActions = [
       {
         type: GET_ALL_ARTICLES_LOADING
       },
       {
-        type: GET_ALL_ARTICLES, payload: mockData.articles
-      },
+        type: GET_ALL_ARTICLES,
+        payload: mockData.articles
+      }
     ];
 
     await store.dispatch(getAllArticles());
@@ -45,22 +47,23 @@ describe('get all parcels action', () => {
   });
 
   it('handles getting all parcels when there is no parcel returned', async () => {
-    mock.onGet('/articles?page=1&limit=10')
-      .reply(200, noData);
+    mock.onGet('/articles?page=1&limit=10').reply(200, noData);
 
     const expectedActions = [
       {
         type: GET_ALL_ARTICLES_LOADING
       },
       {
-        type: GET_ALL_ARTICLES, payload: mockData.articles
+        type: GET_ALL_ARTICLES,
+        payload: mockData.articles
       },
       {
         type: GET_ALL_ARTICLES_LOADING
       },
       {
-        type: NO_ARTICLES, payload: [],
-      },
+        type: NO_ARTICLES,
+        payload: []
+      }
     ];
 
     await store.dispatch(getAllArticles());
@@ -69,21 +72,22 @@ describe('get all parcels action', () => {
   });
 
   it('handles error events', async () => {
-    mock.onGet('/articles?page=1&limit=10')
-      .reply(500, error);
+    mock.onGet('/articles?page=1&limit=10').reply(500, error);
 
     const expectedActions = [
       {
         type: GET_ALL_ARTICLES_LOADING
       },
       {
-        type: GET_ALL_ARTICLES, payload: mockData.articles
+        type: GET_ALL_ARTICLES,
+        payload: mockData.articles
       },
       {
         type: GET_ALL_ARTICLES_LOADING
       },
       {
-        type: NO_ARTICLES, payload: [],
+        type: NO_ARTICLES,
+        payload: []
       },
       {
         type: GET_ALL_ARTICLES_LOADING
