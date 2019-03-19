@@ -14,6 +14,7 @@ import Navbar from './components/common/Navbar.jsx';
 import createArticle from './components/CreateArticle.jsx';
 import store from './redux/store';
 import UserDashboard from './components/UserDashboard.jsx';
+import SingleArticle from './components/containers/SingleArticle.jsx';
 
 const user = validateToken(window.localStorage.getItem('token'));
 if (user) {
@@ -31,6 +32,7 @@ const App = () => (
       <Navbar />
       <ToastContainer autoClose={3000} position="top-right" />
       <Switch>
+        <Route path="/articles/:slug" component={SingleArticle} />
         <Route path="/verifyUser" component={UserVerificationpage} />
         <Route path="/" component={homePage} exact />
         <Route path="/article/create" component={createArticle} exact />

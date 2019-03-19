@@ -25,6 +25,8 @@ const IndexCarousel = ({ articles, isLoading }) => {
     <CardComponent
       img={article.imageUrl}
       commentCount={article.commentCount}
+      slug={article.slug}
+      commentCount={20}
       likeCount={article.likes}
       dislikeCount={article.dislikes}
       title={article.articleTitle}
