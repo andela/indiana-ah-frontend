@@ -87,14 +87,12 @@ export const signOutUser = () => (dispatch) => {
 };
 
 export const loginWithSocialMedia = token => (dispatch) => {
-  try {
-    const user = validateToken(token);
-    if (user) {
-      localStorage.setItem('token', token);
-      dispatch({ type: SET_CURRENT_USER, user });
-      dispatch({ type: REGISTER_WITH_SM });
-    }
-  } catch (error) {
+  const user = validateToken(token);
+  if (user) {
+    localStorage.setItem('token', token);
+    dispatch({ type: SET_CURRENT_USER, user });
+    dispatch({ type: REGISTER_WITH_SM });
+  } else {
     toast.error(<div>We cannot log you in by this time. Please try again later.</div>);
   }
 };
