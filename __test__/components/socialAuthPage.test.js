@@ -53,8 +53,8 @@ describe('Auth action creators test', () => {
     store.clearActions();
   });
 
-  it('should create the REGISTER_WITH_SM and SET_CURRENT_USER actions', async () => {
-    await store.dispatch(loginWithSocialMedia(token));
+  it('should create the REGISTER_WITH_SM and SET_CURRENT_USER actions', () => {
+    store.dispatch(loginWithSocialMedia(token));
     expect(store.getActions()).toEqual([{
       type: SET_CURRENT_USER,
       user: {
@@ -65,8 +65,8 @@ describe('Auth action creators test', () => {
     ]);
   });
 
-  it('should fail if token is not provided', async () => {
-    await store.dispatch(loginWithSocialMedia());
+  it('should fail if token is not provided', () => {
+    store.dispatch(loginWithSocialMedia());
     expect(store.getActions()).toEqual([]);
   });
 });
