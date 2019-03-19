@@ -4,11 +4,12 @@ import {
 } from '../actions/actionTypes';
 
 const initialArticleState = {
-  article: {},
+  article: '',
   isLoading: false,
-  response: {},
   authorImage: null,
-  userName: null
+  articleTitle: '',
+  userName: null,
+  createdAt: ''
 };
 
 const getSingleArticleReducer = (state = initialArticleState, { type, payload }) => {

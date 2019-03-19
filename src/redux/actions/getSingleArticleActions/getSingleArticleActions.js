@@ -12,7 +12,7 @@ const getSingleArticle = slug => async (dispatch) => {
   dispatch({
     type: GET_SINGLE_ARTICLE_LOADING,
     payload: {
-      isLoading: false
+      isLoading: true
     }
   });
   try {
@@ -22,8 +22,10 @@ const getSingleArticle = slug => async (dispatch) => {
       payload: {
         isLoading: false,
         article: response.article.articleBody,
+        articleTitle: response.article.articleTitle,
         authorImage: response.article.author.imageUrl,
-        userName: response.article.author.username
+        userName: response.article.author.username,
+        createdAt: response.article.createdAt
       }
     });
   } catch ({ response }) {
