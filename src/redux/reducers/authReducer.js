@@ -53,7 +53,7 @@ const authReducer = (state = initialState, action) => {
         isLoading: false,
         error: '',
         isAuthenticated: true,
-        isVerified: action.user.isVerified
+        isVerified: action.user.isVerified || false
       };
     case SIGN_OUT_USER:
       return initialState;

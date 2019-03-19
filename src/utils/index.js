@@ -10,12 +10,13 @@ export const apiInstance = axios.create({
 });
 
 export const validateToken = (token) => {
-  let isValid = false;
-  if (token) {
+  try {
     const decoded = jwtDecode(token);
-    isValid = decoded.exp > Date.now() / 1000 && decoded.exp && decoded;
+    delete decoded.iat;
+    return decoded;
+  } catch (error) {
+    return false;
   }
-  return isValid;
 };
 
 export const sendHttpRequest = async (url, method, data) => {
@@ -53,7 +54,7 @@ export const setCurrentPage = (component) => {
 
 export const filterArticlesByLikes = (articles) => {
   const topArticles = articles
-    .sort((a, b) => (a.likes > b.likes ? 1 : b.likes < a.likes ? -1 : 0))
+    .sort((a, b) => (a.likes > b.likes ? 1 : a.likes < b.likes ? -1 : 0))
     .slice(0, 7);
   return topArticles;
 };

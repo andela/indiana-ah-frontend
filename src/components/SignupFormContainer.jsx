@@ -141,7 +141,7 @@ export class SignupFormContainer extends Component {
             <p>By signing up, you agree to our terms and condition</p>
             <div className="d-flex justify-content-center bg-light w-100 p-4 mt-3">
               Have an account?
-              <a onClick={() => displayForm('login')} href="javascript:void(0)">
+              <a onClick={() => displayForm('login')} href="#">
                 Login
               </a>
             </div>

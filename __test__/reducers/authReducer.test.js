@@ -89,7 +89,9 @@ describe('authReducer test', () => {
         type: SET_CURRENT_USER,
         user: { username: 'ozone', email: 'ozone@gmail.com' }
       })
-    ).toEqual({ isLoading: false, isAuthenticated: true, error: '' });
+    ).toEqual({
+      isLoading: false, isAuthenticated: true, error: '', isVerified: false
+    });
   });
 
   it('should handle the SIGN_OUT_USER action', () => {

@@ -1,7 +1,7 @@
 export const signUpFormSchema = {
-  email: /[-.\w]+@([\w-]+\.)+[\w-]{2,20}/,
+  email: /[-.\w]{3,}@([\w-]+\.)+[\w-]{2,20}/,
   username: /^(?=.*[a-zA-Z])\S{3,}$/,
-  password: /^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]{8,})$/
+  password: /^(?=.*[0-9])(?=.*[a-zA-Z])([\S]{8,})$/
 };
 
 export const validationMessages = {

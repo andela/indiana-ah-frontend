@@ -1,6 +1,7 @@
 import MockAdapter from 'axios-mock-adapter';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
+import jwt from 'jsonwebtoken';
 import { apiInstance } from '../../src/utils';
 
 import {
@@ -39,11 +40,7 @@ const rightUserRegData = {
 const expectedResponseDataReg = {
   message:
     'Successfully registered to Authors haven. Kindly check your email to verify your account',
-  token: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI
-    3ZmU5ZTRmLTg4MzMtNGYwZC05NmI1LWM2MTYwMzBiNjU3ZiIs
-    InVzZXJuYW1lIjoiYWtwb2JpIiwiZW1haWwiOiJjaGluYXNhQG
-    dtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNTUyMzk0
-    NzI1LCJleHAiOjE1NTI0ODExMjV9.T86wbM-V_IO64gBphxIyXuTrzUIafj1Pj1SroDgUBM4`
+  token: jwt.sign(rightUserRegData, 'dkdkkdkkd')
 };
 
 const { token } = expectedResponseDataReg;
@@ -88,7 +85,7 @@ describe('Auth action creators test', () => {
     const expectedActions = [
       { type: REGISTER_WITH_EMAIL_REQUEST },
       { type: REGISTER_WITH_EMAIL_SUCCESS },
-      { type: SET_CURRENT_USER, user: false }
+      { type: SET_CURRENT_USER, user: rightUserRegData }
     ];
 
     await store.dispatch(registerWithEmail(rightUserRegData, { closeModal, history }));
