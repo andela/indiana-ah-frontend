@@ -4,6 +4,9 @@ import {
   REGISTER_WITH_EMAIL_REQUEST,
   REGISTER_WITH_EMAIL_FAILURE,
   REGISTER_WITH_EMAIL_SUCCESS,
+  LOGIN_WITH_EMAIL_REQUEST,
+  LOGIN_WITH_EMAIL_FAILURE,
+  LOGIN_WITH_EMAIL_SUCCESS,
   VERIFY_USER_REQUEST,
   VERIFY_USER_FAILURE,
   VERIFY_USER_SUCCESS,
@@ -35,6 +38,23 @@ export const registerWithEmail = (data, { closeModal, history }) => async (dispa
       type: REGISTER_WITH_EMAIL_FAILURE,
       payload: response.data.message
     });
+  }
+};
+
+export const loginWithEmail = (data, { closeModal }) => async (dispatch) => {
+  dispatch({ type: LOGIN_WITH_EMAIL_REQUEST });
+  try {
+    const { message, token } = await sendHttpRequest('/login', 'POST', data);
+    localStorage.setItem('token', token);
+    dispatch({ type: LOGIN_WITH_EMAIL_SUCCESS });
+    closeModal();
+    toast.success(<div>{message}</div>);
+  } catch ({ response }) {
+    dispatch({
+      type: LOGIN_WITH_EMAIL_FAILURE,
+      payload: response.data.message
+    });
+    return response.data.message;
   }
 };
 

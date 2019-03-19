@@ -42,6 +42,8 @@ describe('Custom Navbar component test', () => {
     expect(navbar.find('.navbar')).toBeDefined();
     const inputField = navbar.find('input');
     const button = navbar.find('button');
+    const button2 = navbar.find('button').at(1);
+    button2.simulate('click');
     expect(inputField.length).toEqual(1);
     expect(button.length).toEqual(2);
   });
