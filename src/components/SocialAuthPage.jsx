@@ -27,7 +27,7 @@ export class SocialAuthPage extends Component {
 
 SocialAuthPage.propTypes = {
   loginWithSocialMedia: PropTypes.func.isRequired,
-  history: PropTypes.oneOfType([PropTypes.object]).isRequired
+  history: PropTypes.object.isRequired
 };
 
 export default connect(null, { loginWithSocialMedia })(withRouter(SocialAuthPage));
