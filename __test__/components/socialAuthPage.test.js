@@ -37,7 +37,7 @@ describe('social auth reducer', () => {
       error: ''
     });
   });
-  it('should authenticate the user', () => {
+  it('should setup reducer to login with social media', () => {
     const successAction = {
       type: REGISTER_WITH_SM,
     };
@@ -63,5 +63,10 @@ describe('Auth action creators test', () => {
     },
     { type: REGISTER_WITH_SM }
     ]);
+  });
+
+  it('should fail if token is not provided', async () => {
+    await store.dispatch(socialMediaLogin());
+    expect(store.getActions()).toEqual([]);
   });
 });

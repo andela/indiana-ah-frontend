@@ -15,7 +15,7 @@ import {
   SIGN_OUT_USER,
   REGISTER_WITH_SM,
 } from './actionTypes';
-import { sendHttpRequest, validateToken } from '../../utils';
+import { sendHttpRequest, validateToken } from '../../utils/index';
 
 export const registerWithEmail = (data, { closeModal, history }) => async (dispatch) => {
   dispatch({ type: REGISTER_WITH_EMAIL_REQUEST });
