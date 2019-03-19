@@ -60,13 +60,13 @@ describe('Sign up form container test', () => {
     wrapper.setState({
       errors: {
         username:
-          'Username must start and end with an alphabet and must be at least 3 characters long. Special characters are not allowed'
+          'Username must start and end with an alphaNumeric character, may contain "-" or "_" and must be at least 3 characters long.'
       },
       data: { username: 'dk' }
     });
     wrapper.instance().handleBlur(usernameEvent);
     expect(wrapper.state().errors.username).toEqual(
-      'Username must start and end with an alphabet and must be at least 3 characters long. Special characters are not allowed'
+      'Username must start and end with an alphaNumeric character, may contain "-" or "_" and must be at least 3 characters long.'
     );
 
     wrapper.setState({

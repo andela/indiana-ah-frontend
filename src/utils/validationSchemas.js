@@ -7,7 +7,7 @@ export const signUpFormSchema = {
 export const validationMessages = {
   email: 'Please enter a valid email address',
   username:
-    'Username must start and end with an alphabet and must be at least 3 characters long. Special characters are not allowed',
+    'Username must start and end with an alphaNumeric character, may contain "-" or "_" and must be at least 3 characters long.',
   password:
     'Password must contain alphabets and numbers and must be at least 8 characters long'
 };
