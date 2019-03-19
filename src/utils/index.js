@@ -9,6 +9,7 @@ export const apiInstance = axios.create({
   }
 });
 
+// fuction to check if token is valid
 export const validateToken = (token) => {
   try {
     const decoded = jwtDecode(token);
