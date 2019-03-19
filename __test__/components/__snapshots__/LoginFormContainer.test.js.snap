@@ -1,0 +1,378 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test the login container form should match snap shot 1`] = `
+<LoginFormContainer
+  auth={
+    Object {
+      "isLoading": false,
+    }
+  }
+  error=""
+>
+  <div
+    className="signup-form-container"
+  >
+    <div
+      className="signup-form"
+    >
+      <div
+        className="fbButton align-button"
+      >
+        <a
+          href="https://indiana-ah-staging.herokuapp.com/auth/facebook"
+        >
+          <img
+            className="mx-5 facebook"
+            src="test-file-stub"
+          />
+          <span>
+            Login with facebook
+          </span>
+        </a>
+      </div>
+      <div
+        className="ggButton align-button"
+      >
+        <a
+          href="https://indiana-ah-staging.herokuapp.com/auth/google"
+        >
+          <img
+            className="mx-5 google"
+            src="test-file-stub"
+          />
+          <span>
+            Login with google 
+          </span>
+        </a>
+      </div>
+      <div
+        className="ttButton align-button"
+      >
+        <a
+          href="https://indiana-ah-staging.herokuapp.com/auth/twitter"
+        >
+          <img
+            className="mx-5 twitter"
+            src="test-file-stub"
+          />
+          <span>
+            Login with twitter
+          </span>
+        </a>
+      </div>
+      <h3
+        className="text-center mt-5"
+      >
+        OR
+      </h3>
+      <form
+        onSubmit={[Function]}
+      >
+        <InputField
+          handleChange={[Function]}
+          id="email"
+          placeholder="Email"
+          type="email"
+          value=""
+        >
+          <div
+            className="input-field"
+          >
+            <styled.input
+              id="email"
+              onChange={[Function]}
+              placeholder="Email"
+              required={true}
+              type="email"
+              value=""
+            >
+              <StyledComponent
+                forwardedComponent={
+                  Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "attrs": Array [],
+                    "componentStyle": ComponentStyle {
+                      "componentId": "sc-bdVaJa",
+                      "isStatic": false,
+                      "lastClassName": "SMGVi",
+                      "rules": Array [
+                        "
+  display: flex;
+  padding: 0.8rem;
+  margin: ",
+                        [Function],
+                        ";
+  height: 4.3rem;
+  fill: #fbfcff;
+  border: 0.05rem solid rgba(0, 0, 0, 0.4);
+  border-radius: 0.4rem;
+  width: ",
+                        [Function],
+                        ";
+  box-sizing: border-box;
+  padding: 0.8rem 1.9rem;
+  height: 4.3rem;
+  background: #ffffff;
+  border: 0.05rem solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.2rem;
+  @media (max-width: 76.8rem) {
+    width: 100%;
+    padding: 0.8rem;
+    flex-direction: column;
+    height: 3.5rem;
+    font-size: 1.5rem;
+  }
+",
+                      ],
+                    },
+                    "displayName": "styled.input",
+                    "foldedComponentIds": Array [],
+                    "render": [Function],
+                    "styledComponentId": "sc-bdVaJa",
+                    "target": "input",
+                    "toString": [Function],
+                    "warnTooManyClasses": [Function],
+                    "withComponent": [Function],
+                  }
+                }
+                forwardedRef={null}
+                id="email"
+                onChange={[Function]}
+                placeholder="Email"
+                required={true}
+                type="email"
+                value=""
+              >
+                <input
+                  className="sc-bdVaJa SMGVi"
+                  id="email"
+                  onChange={[Function]}
+                  placeholder="Email"
+                  required={true}
+                  type="email"
+                  value=""
+                />
+              </StyledComponent>
+            </styled.input>
+            <ForwardRef(Bootstrap(FormText))
+              className="text-danger ml-3"
+            >
+              <FormText
+                as="small"
+                bsPrefix="form-text"
+                className="text-danger ml-3"
+                innerRef={null}
+              >
+                <small
+                  className="text-danger ml-3 form-text"
+                />
+              </FormText>
+            </ForwardRef(Bootstrap(FormText))>
+          </div>
+        </InputField>
+        <InputField
+          handleChange={[Function]}
+          id="password"
+          placeholder="Password"
+          type="password"
+          value=""
+        >
+          <div
+            className="input-field"
+          >
+            <styled.input
+              id="password"
+              onChange={[Function]}
+              placeholder="Password"
+              required={true}
+              type="password"
+              value=""
+            >
+              <StyledComponent
+                forwardedComponent={
+                  Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "attrs": Array [],
+                    "componentStyle": ComponentStyle {
+                      "componentId": "sc-bdVaJa",
+                      "isStatic": false,
+                      "lastClassName": "SMGVi",
+                      "rules": Array [
+                        "
+  display: flex;
+  padding: 0.8rem;
+  margin: ",
+                        [Function],
+                        ";
+  height: 4.3rem;
+  fill: #fbfcff;
+  border: 0.05rem solid rgba(0, 0, 0, 0.4);
+  border-radius: 0.4rem;
+  width: ",
+                        [Function],
+                        ";
+  box-sizing: border-box;
+  padding: 0.8rem 1.9rem;
+  height: 4.3rem;
+  background: #ffffff;
+  border: 0.05rem solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.2rem;
+  @media (max-width: 76.8rem) {
+    width: 100%;
+    padding: 0.8rem;
+    flex-direction: column;
+    height: 3.5rem;
+    font-size: 1.5rem;
+  }
+",
+                      ],
+                    },
+                    "displayName": "styled.input",
+                    "foldedComponentIds": Array [],
+                    "render": [Function],
+                    "styledComponentId": "sc-bdVaJa",
+                    "target": "input",
+                    "toString": [Function],
+                    "warnTooManyClasses": [Function],
+                    "withComponent": [Function],
+                  }
+                }
+                forwardedRef={null}
+                id="password"
+                onChange={[Function]}
+                placeholder="Password"
+                required={true}
+                type="password"
+                value=""
+              >
+                <input
+                  className="sc-bdVaJa SMGVi"
+                  id="password"
+                  onChange={[Function]}
+                  placeholder="Password"
+                  required={true}
+                  type="password"
+                  value=""
+                />
+              </StyledComponent>
+            </styled.input>
+            <ForwardRef(Bootstrap(FormText))
+              className="text-danger ml-3"
+            >
+              <FormText
+                as="small"
+                bsPrefix="form-text"
+                className="text-danger ml-3"
+                innerRef={null}
+              >
+                <small
+                  className="text-danger ml-3 form-text"
+                />
+              </FormText>
+            </ForwardRef(Bootstrap(FormText))>
+          </div>
+        </InputField>
+        <styled.button
+          disabled={false}
+          type="submit"
+        >
+          <StyledComponent
+            disabled={false}
+            forwardedComponent={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": Array [],
+                "componentStyle": ComponentStyle {
+                  "componentId": "sc-htpNat",
+                  "isStatic": false,
+                  "lastClassName": "bimmNg",
+                  "rules": Array [
+                    "
+  background: ",
+                    [Function],
+                    ";
+  font-size: 2rem;
+  line-height: 2.7rem;
+  align: Center;
+  letterspacing: 5%;
+  border-radius: 0.4rem;
+  text-align: center;
+  color: ",
+                    [Function],
+                    ";
+  cursor: pointer;
+  border: ",
+                    [Function],
+                    ";
+  text-transform: capitalize;
+  transition: all 0.3s;
+  width: auto;
+  padding: ",
+                    [Function],
+                    ";
+  display: ",
+                    [Function],
+                    ";
+  @media (max-width: 830px) {
+    width: auto;
+    line-height: 2rem;
+    font-size: 1.7rem
+  }
+  @media (max-width: 355px) {
+    width: auto;
+    line-height: 1.5rem;
+    padding: ",
+                    [Function],
+                    ";
+  }
+",
+                  ],
+                },
+                "displayName": "styled.button",
+                "foldedComponentIds": Array [],
+                "render": [Function],
+                "styledComponentId": "sc-htpNat",
+                "target": "button",
+                "toString": [Function],
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              }
+            }
+            forwardedRef={null}
+            type="submit"
+          >
+            <button
+              className="sc-htpNat bimmNg"
+              disabled={false}
+              type="submit"
+            >
+              login
+            </button>
+          </StyledComponent>
+        </styled.button>
+        <p
+          className="d-flex justify-content-center"
+        >
+          Dont have an account?
+           
+          <a
+            href="#"
+            onClick={[Function]}
+          >
+            Create one
+          </a>
+        </p>
+        <div
+          className="d-flex justify-content-center bg-light w-100 p-4 mt-3"
+        >
+          <a
+            href="#"
+          >
+            Forgot password?
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</LoginFormContainer>
+`;

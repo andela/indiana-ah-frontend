@@ -1,13 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
-import Input from './Input.jsx';
+import { Input } from './Input.jsx';
 
 const InputField = ({
-  placeholder, width, type, id, value, errorMessage, handleChange, onBlur, margin,
-  wrapper, name
+  placeholder,
+  width,
+  type,
+  id,
+  value,
+  errorMessage,
+  handleChange,
+  onBlur,
+  margin,
+  wrapper,
+  name
 }) => (
-  <div className={wrapper}>
+  <div className={wrapper || 'input-field'}>
     <Input
       inputWidth={width}
       id={id}
@@ -17,14 +26,10 @@ const InputField = ({
       margin={margin}
       placeholder={placeholder}
       onChange={handleChange}
-      onBlur = {onBlur}
+      onBlur={onBlur}
       required
     />
-    {
-      <Form.Text className="text-danger ml-3">
-      {errorMessage}
-      </Form.Text>
-    }
+    {<Form.Text className="text-danger ml-3">{errorMessage}</Form.Text>}
   </div>
 );
 

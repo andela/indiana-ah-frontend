@@ -1,8 +1,8 @@
 /* eslint-disable consistent-return */
-import Swal from 'sweetalert2';
-import {
-  GET_ALL_ARTICLES, NO_ARTICLES, GET_ALL_ARTICLES_LOADING
-} from '../actionTypes';
+import React from 'react';
+import { toast } from 'react-toastify';
+
+import { GET_ALL_ARTICLES, NO_ARTICLES, GET_ALL_ARTICLES_LOADING } from '../actionTypes';
 import { sendHttpRequest } from '../../../utils';
 
 const getAllArticles = () => async (dispatch) => {
@@ -14,14 +14,9 @@ const getAllArticles = () => async (dispatch) => {
     }
     return dispatch({ type: GET_ALL_ARTICLES, payload: response.articles });
   } catch ({ response }) {
-    Swal.fire({
-      title: 'Error!',
-      text: response,
-      type: 'error',
-      timer: 3000,
-      showConfirmButton: false,
-      width: 400,
-    });
+    return toast.error(
+      <div>Request was not successful at the moment. Try again later</div>
+    );
   }
 };
 
