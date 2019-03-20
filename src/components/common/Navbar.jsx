@@ -2,21 +2,18 @@ import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Navbar, Nav } from 'react-bootstrap';
+import {
+  Navbar, Nav, InputGroup, FormControl
+} from 'react-bootstrap';
 import SignupContainer from '../SignupFormContainer.jsx';
 import LoginContainer from '../LoginFormContainer.jsx';
 import Modal from './Modal.jsx';
 import { ProfileImg, ImageLogo } from '../../styles/styledComponents/Navigation.jsx';
-import {
-  customLogo,
-  searchIcon,
-  notificationIcon,
-  profile,
-  dropDownIcon
-} from '../../assets/images/svg';
+import { customLogo, notificationIcon, profile } from '../../assets/images/svg';
 import Button from '../../styles/styledComponents/Button.jsx';
-import InputField from './input/InputComponent.jsx';
 import { signOutUser } from '../../redux/actions/authActions';
+import LoginConatainer from '../LoginFormContainer.jsx';
+import Dropdown from '../Dropdown.jsx';
 
 export class NavBar extends Component {
   state = {
@@ -106,15 +103,14 @@ export class NavBar extends Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto ml-5">
-              <InputField
-                type="text"
-                id="search"
-                value=""
-                placeholder="search"
-                handleChange={() => {}}
-                width="38rem"
-              />
-              <img className="search-logo" src={searchIcon} />
+              <InputGroup className="mb-3">
+                <FormControl placeholder="Search" aria-describedby="basic-addon2" />
+                <InputGroup.Append>
+                  <InputGroup.Text id="basic-addon2">
+                    <i className="fas fa-search" />
+                  </InputGroup.Text>
+                </InputGroup.Append>
+              </InputGroup>
             </Nav>
             {auth.isAuthenticated ? (
               userLInk

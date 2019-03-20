@@ -170,7 +170,6 @@ CreateArticle.modules = {
 };
 /*
  * Quill CreateArticle formats
- * See http://quilljs.com/docs/formats/
  */
 CreateArticle.formats = [
   'header',

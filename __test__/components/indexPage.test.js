@@ -7,7 +7,7 @@ import { MemoryRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import IndexForm from '../../src/components/forms/indexForm.jsx';
 import reducer from '../../src/redux/reducers/articleReducer';
-import IndexPage from '../../src/components/IndexPage.jsx';
+import ConnectedIndexPage, { IndexPage } from '../../src/components/IndexPage.jsx';
 import IndexCarousel from '../../src/components/carousels/indexCarousel.jsx';
 import initialState from '../../__fixtures__/indexPage';
 import {
@@ -21,7 +21,8 @@ import {
 const mockStore = configureStore([thunk]);
 const store = mockStore(initialState);
 const onChange = jest.fn();
-let indexPage;
+const getAllArticles = jest.fn();
+let connectedIndexPage;
 let articles;
 
 describe('Index page component', () => {
@@ -30,7 +31,7 @@ describe('Index page component', () => {
       .create(
         <MemoryRouter>
           <Provider store={store}>
-            <IndexPage />
+            <ConnectedIndexPage />
           </Provider>
         </MemoryRouter>
       )
@@ -41,19 +42,33 @@ describe('Index page component', () => {
 
 describe('Index page', () => {
   beforeEach(() => {
-    indexPage = shallow(
+    connectedIndexPage = shallow(
       <Provider store={store}>
-        <IndexPage />
+        <ConnectedIndexPage />
       </Provider>
     );
   });
+
+  const wrapper = shallow(
+    <IndexPage
+      articles={{ allArticles: [], isLoading: false }}
+      getAllArticles={getAllArticles}
+      auth={{ isLoading: true }}
+    />
+  );
+
   it('renders the Index Page', () => {
-    expect(indexPage.find('.container')).toBeDefined();
-    expect(indexPage.find(<IndexCarousel />)).toBeDefined();
+    expect(connectedIndexPage.find('.container')).toBeDefined();
+    expect(connectedIndexPage.find(<IndexCarousel />)).toBeDefined();
   });
   it('passes articles from state', () => {
-    const props = indexPage.props().value.storeState;
+    const props = connectedIndexPage.props().value.storeState;
     expect(props.articles).toEqual(initialState.articles);
+  });
+  it('has modal functionalities', () => {
+    wrapper.instance().openModal();
+    wrapper.instance().closeModal();
+    wrapper.instance().displayForm('login');
   });
 });
 

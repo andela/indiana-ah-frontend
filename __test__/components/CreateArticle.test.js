@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { CreateArticle, mapStateToProps } from '../../src/components/CreateArticle.jsx';
-import Button from '../../src/styles/styledComponents/Button.jsx';
 
 let wrapper;
 const mockFn = jest.fn();
@@ -13,7 +12,7 @@ const initialState = {
 };
 
 global.URL.createObjectURL = jest.fn();
-describe('Test HoverMenu Component', () => {
+describe('Test CreateArticle Component', () => {
   it('Should render Properly', () => {
     wrapper = shallow(<CreateArticle articles={initialState} />);
     expect(wrapper.exists()).toBe(true);
@@ -28,7 +27,7 @@ describe('Test HoverMenu Component', () => {
     expect(mapStateToProps(initialState).isLoading).toEqual(undefined);
   });
 
-  it('set state', () => {
+  it('set state and find element', () => {
     expect(wrapper.state().articleBody).toEqual(event);
     expect(wrapper.state().imageUrl).toEqual('');
     expect(wrapper.find('div').length).toEqual(5);

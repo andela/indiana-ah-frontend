@@ -2,6 +2,7 @@ import MockAdapter from 'axios-mock-adapter';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import { apiInstance } from '../../../utils/index';
+import articleReducer from '../../reducers/articleReducer';
 
 import {
   CREATE_ARTICLE,
@@ -20,6 +21,11 @@ const wrongArticle = {
   tags: 'noyhimg',
   imageUrl: ''
 };
+const initialState = {
+  isLoading: false,
+  allArticles: [],
+  error: ''
+};
 
 const rightArticle = {
   article: {
@@ -30,7 +36,7 @@ const rightArticle = {
   }
 };
 
-describe('Auth action creators test', () => {
+describe('Action for creating article', () => {
   beforeEach(() => {
     store.clearActions();
   });
@@ -61,5 +67,12 @@ describe('Auth action creators test', () => {
 
     await store.dispatch(createUserArticle(wrongArticle, { history }));
     expect(store.getActions()).toEqual(expectedAction);
+  });
+  it('should call CREATE_ARTICLE_LOADING action', () => {
+    expect(
+      articleReducer(initialState, {
+        type: CREATE_ARTICLE_LOADING
+      })
+    ).toEqual({ ...initialState, isLoading: true });
   });
 });
