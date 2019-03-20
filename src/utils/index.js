@@ -2,8 +2,15 @@
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 
+export const getUrl = (hostName) => {
+  if (hostName.includes('master')) {
+    return 'https://indiana-ah-master.herokuapp.com/api/v1/';
+  }
+  return 'https://indiana-ah-staging.herokuapp.com/api/v1/';
+};
+
 export const apiInstance = axios.create({
-  baseURL: 'https://indiana-ah-staging.herokuapp.com/api/v1/',
+  baseURL: getUrl(window.location.hostname),
   headers: {
     'x-auth-token': localStorage.getItem('token')
   }
