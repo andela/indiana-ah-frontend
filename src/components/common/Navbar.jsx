@@ -69,7 +69,8 @@ export class NavBar extends Component {
           className="ml-5 mt-2 d-none d-md-none d-xs-none d-lg-block"
           alt="logo"
         />
-        <div to="/signup" className="d-flex ft-size-2 ml-5">
+        <div to="/signup" className="d-flex ft-size-2 ml-5
+          align-items-center text-capitalize">
           {user.userData.username || user.userData.email}
           <img
             className="mx-3 d-none d-md-none d-lg-block d-xs-none"
