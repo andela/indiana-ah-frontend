@@ -1,6 +1,16 @@
 .signup-form-container {
   width: 100%;
-  padding: 20px 0 20px 0;
+  padding: 20px 0 0 0;
+  .input-field {
+    margin-bottom: 2rem;
+  }
+  h3 {
+    font-size: 2.2rem;
+  }
+  a {
+    color: $brand-color;
+    letter-spacing: .15rem;
+  }
 }
 
 .signup-form {
@@ -23,8 +33,10 @@
 }
 
 .align-button {
+  display: flex;
+  align-items: center;
   width: 95%;
-  margin: 15px auto;
+  margin: 1.5rem auto 2rem auto;
 }
 .mx-5 {
   margin-right: 3rem !important;
