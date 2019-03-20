@@ -1,0 +1,223 @@
+div.ReactTags__tags {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Styles for the input */
+div.ReactTags__tagInput {
+  width: 20rem;
+  border-radius: 0.2rem;
+  display: inline-block;
+}
+.quill {
+  margin-top: 0.5rem;
+}
+.text-editor {
+  margin-top: 5%;
+  margin-left: 20%;
+  margin-right: 20%;
+  max-width: 60%;
+  justify-content: center;
+}
+.article-submit {
+  padding: 15px;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  margin-left: auto;
+  outline: none !important;
+  justify-content: flex-end;
+  border: 1px solid blue;
+  background-color: blue;
+  margin-bottom: 100px;
+}
+.fas {
+  margin-right: 10px;
+}
+.fa {
+  font-size: 24px;
+}
+
+.ReactTags__tagInputField {
+  -webkit-appearance: none;
+  width: 100%;
+  border: 0;
+  outline: none;
+  font-family: inherit;
+  padding: 12px 0;
+  height: 30px;
+  font-size: 15px;
+  border-bottom: 2px solid #c8ccd4;
+  background: none;
+  border-radius: 0;
+  color: #223254;
+  transition: all 0.15s ease;
+}
+.image-button {
+  border-radius: 3px;
+  color: rgb(22, 21, 21);
+  margin: 3px 0;
+  padding: 10px;
+  text-align: center;
+}
+.image-delete {
+  border-radius: 3px;
+  color: rgb(22, 21, 21);
+  display: block;
+  margin: 30px 0;
+  padding: 10px;
+  text-align: center;
+}
+[type='file'] {
+  display: none;
+}
+
+.upload-image {
+  display: block;
+  margin: 0 auto;
+}
+.article-button {
+  display: flex;
+  margin: 0;
+  justify-content: space-between;
+}
+.article-title {
+  border: unset;
+  font-family: Lato, sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  border-bottom: 1px solid black;
+  height: 2em;
+  margin: 2rem 0 0;
+  max-height: 5em;
+  min-height: 2em;
+  padding: 0;
+  width: 100%;
+  vertical-align: top;
+  outline: none;
+}
+.image-button span {
+  color: #ddd;
+}
+
+/* Styles for selected tags */
+div.ReactTags__selected span.ReactTags__tag {
+  border: 0.1rem solid #bbc5df;
+  background: #ffff;
+  display: inline-block;
+  padding: 0.3rem;
+  margin: 0.4rem;
+  font-family: Alegreya;
+  border-radius: 0.5rem;
+}
+div.ReactTags__selected a.ReactTags__remove {
+  color: black;
+  margin-left: 0.5rem;
+  cursor: pointer !important;
+}
+.ql-container.ql-snow {
+  border: unset;
+}
+
+.ql-toolbar.ql-snow {
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  padding: 8px;
+}
+
+.ql-editor {
+  min-height: 20em;
+  width: 100%;
+  font-size: 20px;
+}
+
+.editor {
+  outline: none;
+  margin: 20px;
+  height: 400px;
+  font-size: 20px !important;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  -webkit-user-modify: read-write-plaintext-only;
+}
+.ql-container p {
+  color: black;
+}
+.ql-toolbar.ql-snow {
+  box-sizing: border-box;
+  padding: 8px;
+  outline: none;
+}
+.ql-toolbar.ql-snow,
+.ql-picker.ql-expanded,
+.ql-picker-label:focus {
+  border-color: #ccc;
+  outline: none !important;
+}
+.ql-snow .ql-picker-options .ql-picker-item:focus {
+  outline: none !important;
+}
+.ql-snow .ql-formats {
+  outline: none;
+}
+/* Snow Theme */
+.ql-snow.ql-toolbar {
+  display: block;
+  background: white;
+}
+
+/* Bubble Theme */
+.ql-bubble .ql-editor {
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+}
+
+.ql-editor {
+  min-height: 20em;
+  width: 100%;
+  font-size: 20px;
+}
+
+textarea {
+  border: unset;
+  outline: none;
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 30px;
+  resize: none;
+  border-bottom: 1px solid rgb(230, 223, 223);
+  width: 100%;
+}
+.image-div img {
+  object-fit: contain;
+  max-width: 100%;
+}
+.section-preview {
+  margin-top: 20px;
+  padding: 1.5rem;
+}
+
+@media screen and (max-width: 500px) {
+  .text-editor {
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    max-width: 80%;
+    justify-content: center;
+  }
+  .article-button {
+    display: inline-block;
+    margin: 0;
+    justify-content: flex-start;
+  }
+  .article-submit {
+    padding: 15px;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    margin-left: auto;
+    margin-top: 20px;
+  }
+}

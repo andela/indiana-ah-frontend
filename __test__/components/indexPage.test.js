@@ -7,21 +7,21 @@ import { MemoryRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import IndexForm from '../../src/components/forms/indexForm.jsx';
 import reducer from '../../src/redux/reducers/articleReducer';
-import ConnectedIndexPage, { IndexPage } from '../../src/components/IndexPage.jsx';
+import IndexPage from '../../src/components/IndexPage.jsx';
 import IndexCarousel from '../../src/components/carousels/indexCarousel.jsx';
 import initialState from '../../__fixtures__/indexPage';
 import {
   GET_ALL_ARTICLES,
   NO_ARTICLES,
   GET_ALL_ARTICLES_LOADING,
-  GET_ALL_ARTICLES_ERROR
+  GET_ALL_ARTICLES_ERROR,
+  CREATE_ARTICLE
 } from '../../src/redux/actions/actionTypes';
 
 const mockStore = configureStore([thunk]);
 const store = mockStore(initialState);
 const onChange = jest.fn();
-const getAllArticles = jest.fn();
-let connectedIndexPage;
+let indexPage;
 let articles;
 
 describe('Index page component', () => {
@@ -30,7 +30,7 @@ describe('Index page component', () => {
       .create(
         <MemoryRouter>
           <Provider store={store}>
-            <ConnectedIndexPage />
+            <IndexPage />
           </Provider>
         </MemoryRouter>
       )
@@ -41,33 +41,19 @@ describe('Index page component', () => {
 
 describe('Index page', () => {
   beforeEach(() => {
-    connectedIndexPage = shallow(
+    indexPage = shallow(
       <Provider store={store}>
-        <ConnectedIndexPage />
+        <IndexPage />
       </Provider>
     );
   });
-
-  const wrapper = shallow(
-    <IndexPage
-      articles={{ allArticles: [], isLoading: false }}
-      getAllArticles={getAllArticles}
-      auth={{ isLoading: true }}
-    />
-  );
-
   it('renders the Index Page', () => {
-    expect(connectedIndexPage.find('.container')).toBeDefined();
-    expect(connectedIndexPage.find(<IndexCarousel />)).toBeDefined();
+    expect(indexPage.find('.container')).toBeDefined();
+    expect(indexPage.find(<IndexCarousel />)).toBeDefined();
   });
   it('passes articles from state', () => {
-    const props = connectedIndexPage.props().value.storeState;
+    const props = indexPage.props().value.storeState;
     expect(props.articles).toEqual(initialState.articles);
-  });
-  it('has modal functionalities', () => {
-    wrapper.instance().openModal();
-    wrapper.instance().closeModal();
-    wrapper.instance().displayForm('login');
   });
 });
 
@@ -101,7 +87,11 @@ describe('articles reducer', () => {
       type: NO_ARTICLES,
       payload: []
     };
-    expect(reducer({}, successAction)).toEqual({ allArticles: [], isLoading: false, error: false });
+    expect(reducer({}, successAction)).toEqual({
+      allArticles: [],
+      isLoading: false,
+      error: false
+    });
   });
   it('should handle error in fetching articles', () => {
     const failureAction = {
@@ -110,6 +100,13 @@ describe('articles reducer', () => {
       error: true
     };
     expect(reducer({}, failureAction)).toEqual({ isLoading: false, error: true });
+  });
+  it('should return no articles', () => {
+    const successAction = {
+      type: CREATE_ARTICLE,
+      article: []
+    };
+    expect(reducer({}, successAction)).toEqual({ allArticles: [], isLoading: false });
   });
 });
 

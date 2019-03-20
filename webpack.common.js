@@ -17,7 +17,8 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         use: {
-          loader: 'babel-loader'
+          loader: 'babel-loader',
+          query: { compact: false }
         }
       },
       {
@@ -29,7 +30,6 @@ module.exports = {
       {
         test: /\.s?css$/,
         use: [
-
           { loader: 'style-loader' },
           {
             loader: 'css-loader'
@@ -41,9 +41,9 @@ module.exports = {
         test: /\.(png|jpg|gif|svg)$/,
         use: [
           {
-            loader: 'url-loader',
-          },
-        ],
+            loader: 'url-loader'
+          }
+        ]
       }
     ]
   },

@@ -28,6 +28,7 @@ const App = () => (
       <Switch>
         <Route path="/verifyUser" component={UserVerificationpage} />
         <Route path="/" component={homePage} exact />
+        <Route path="/article" component={CreateArticle} exact />
         <Redirect to="not-found" exact />
       </Switch>
     </Fragment>
