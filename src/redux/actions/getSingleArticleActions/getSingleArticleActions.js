@@ -7,26 +7,16 @@ import {
 } from '../actionTypes';
 import { sendHttpRequest } from '../../../utils';
 
-
 const getSingleArticle = slug => async (dispatch) => {
   dispatch({
-    type: GET_SINGLE_ARTICLE_LOADING,
-    payload: {
-      isLoading: true
-    }
+    type: GET_SINGLE_ARTICLE_LOADING
   });
   try {
-    const response = await sendHttpRequest(`/articles/${slug}`, 'GET');
+    const { article, timeToRead } = await sendHttpRequest(`/articles/${slug}`, 'GET');
+    article.timeToRead = timeToRead;
     return dispatch({
       type: GET_SINGLE_ARTICLE_SUCCESS,
-      payload: {
-        isLoading: false,
-        article: response.article.articleBody,
-        articleTitle: response.article.articleTitle,
-        authorImage: response.article.author.imageUrl,
-        userName: response.article.author.username,
-        createdAt: response.article.createdAt
-      }
+      payload: article
     });
   } catch ({ response }) {
     Swal.fire({

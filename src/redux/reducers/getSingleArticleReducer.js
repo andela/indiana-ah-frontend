@@ -4,12 +4,8 @@ import {
 } from '../actions/actionTypes';
 
 const initialArticleState = {
-  article: '',
   isLoading: false,
-  authorImage: null,
-  articleTitle: '',
-  userName: null,
-  createdAt: ''
+  article: {}
 };
 
 const getSingleArticleReducer = (state = initialArticleState, { type, payload }) => {
@@ -17,12 +13,13 @@ const getSingleArticleReducer = (state = initialArticleState, { type, payload })
     case GET_SINGLE_ARTICLE_LOADING:
       return {
         ...state,
-        ...payload
+        isLoading: true
       };
     case GET_SINGLE_ARTICLE_SUCCESS:
       return {
         ...state,
-        ...payload
+        isLoading: false,
+        article: payload
       };
     default:
       return state;

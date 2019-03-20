@@ -1,5 +1,6 @@
 .SingleArticle {
   font-size: 1rem;
+  background-color: #FFFFFF;
 
   .heading-section {
     display: flex;
@@ -10,7 +11,13 @@
     .heading-primary {
       font-family: 'Alegreya Sans SC', sans-serif;
       text-transform: capitalize;
-      font-size: 8rem;
+      font-size: 6rem;
+    }
+
+    .heading-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .article-info {
@@ -18,15 +25,18 @@
       flex-direction: row;
       justify-content: space-evenly;
       align-items: center;
-      margin-top: 3rem;
+      margin: 3rem 0;
     }
+
     .article-info > * {
       margin-left: 4rem;
     }
+
     .user-image {
       border-radius: 50%;
       border: 1px solid #eee;
     }
+
     .author {
       font-family: 'Alegreya Sans SC', sans-serif;
       font-size: 20px;
@@ -34,6 +44,7 @@
       font-weight: 300;
       letter-spacing: .3rem;
     }
+
     .follow-btn {
       padding: .1rem 2rem;
       font-size: 2rem;
@@ -41,8 +52,104 @@
       border-radius: 5px;
       color: #0B41CD;
     }
+
     .bookmarkLogo {
       height: 3.5rem;
     }
+
+    .date-created {
+      font-family: 'Alegreya Sans SC', sans-serif;
+      font-size: 20px;
+      color: #222;
+      font-weight: 300;
+    }
+
+    .time-to-read {
+      font-family: 'Alegreya Sans SC', sans-serif;
+      font-size: 20px;
+      color: #222;
+      font-weight: 300;
+    }
+  }
+
+  .article-image-container {
+    display: flex;
+    justify-content: center;
+    margin: 6rem 0;
+  }
+
+  .article-image {
+    width: 80%;
+    height: 50rem;
+    object-fit: cover;
+  }
+
+  .article-body-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .article-body {
+    width: 70%;
+    font-size: 2.2rem;
+    font-family: 'Zilla Slab', serif;
+    line-height: 1.7;
+    color: #555;
+  }
+
+  .tags-container {
+    // background-color: red;
+    display: flex;
+    // margin-right: 2rem;
+    width: 70%;
+    font-size: 2rem;
+    margin: 12rem 0 0 0;
+  }
+
+  .article-tags {
+    margin-right: 2rem;
+    background-color: #EFEFEF;
+    padding: 0 4rem;
+    border-radius: 4px;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 20px;
+    color: #222;
+    font-weight: 300;
+  }
+
+  .reaction-share-section {
+    display: flex;
+    // align-self: flex-start;
+    // background-color: red;
+    width: 70%;
+    margin: 4rem 0 5rem 0;
+    justify-content: space-between;
+  }
+  .reaction-container {
+    display: flex;
+    align-items: center;
+    align-content: center;
+  }
+  .reaction-container > * {
+    display: inline-block;
+    margin-right: 4rem;
+  }
+  .share-container {
+    display: flex;
+    align-items: center;
+    // align-content: center;
+    
+  }
+  .share-text {
+    font-size: 20px;
+    font-family: 'Alegreya', sans-serif;
+    font-weight: 400;
+    color: #0B41CD;
+  }
+  .social {
+    height: 3rem;
+    margin-right: 2rem;
+    
   }
 }

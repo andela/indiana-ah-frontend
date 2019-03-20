@@ -10,7 +10,13 @@ import CommentIconComponent from './CommentIconComponent';
 const defaultImage = 'https://images.unsplash.com/photo-1521120413309-42e7eada0334?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80';
 
 const CardComponent = ({
-  img, title, text, slug, likeCount, dislikeCount, commentCount
+  img,
+  title,
+  text,
+  slug,
+  likeCount,
+  dislikeCount,
+  commentCount
 }) => (
 <Fragment>
   <Card className='carousel-card card-style'>
@@ -20,22 +26,22 @@ const CardComponent = ({
   <Card.Body className='pb-0 card-body'>
   <div className='title-height'><b>{title}</b></div>
 
-        <div className="container">
-          <div className="row mt-4 mb-5">
-            <div className="col pl-0">
-              <LikeComponent likeCount={likeCount} color="rgba(0,0,0,.5)" />
+          <div className="container">
+            <div className="row mt-4 mb-5">
+              <div className="col pl-0">
+                <LikeComponent likeCount={likeCount} color="rgba(0,0,0,.5)" />
+              </div>
+              <div className="col">
+                <DislikeComponent dislikeCount={dislikeCount} color="rgba(0,0,0,.5)" />
+              </div>
+              <div className="col">
+                <CommentIconComponent commentCount={commentCount} />
+              </div>
+              <div className="col" />
             </div>
-            <div className="col">
-              <DislikeComponent dislikeCount={dislikeCount} color="rgba(0,0,0,.5)" />
-            </div>
-            <div className="col">
-              <CommentIconComponent commentCount={commentCount} />
-            </div>
-            <div className="col" />
           </div>
-        </div>
-      </Card.Body>
-    </Card>
+        </Card.Body>
+      </Card>
   </Fragment>
 );
 
