@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 import { loginWithEmail } from '../redux/actions/authActions';
 import InputField from './common/input/InputComponent.jsx';
 import Button from '../styles/styledComponents/Button.jsx';
-import { facebook, twitter, google } from '../assets/images/svg';
+import { logo } from '../assets/images/svg';
 
 export class LoginFormContainer extends Component {
   state = {
@@ -42,60 +42,75 @@ export class LoginFormContainer extends Component {
     } = this.props;
     return (
       <div className="signup-form-container">
-        {error && <div className="text-danger text-center">{error}</div>}
+       <h3 className="text-center mt-5">
+      <img src={logo} alt='facebook logo' className="signup-title" />
+      <hr/>
+      </h3>
+        <form onSubmit={this.handleSubmit} className="signup-form">
+          <InputField
+            placeholder="Email"
+            type="email"
+            id="email1"
+            value={email}
+            handleChange={this.handleChange}
+          />
+          <InputField
+            placeholder="Password"
+            type="password"
+            id="password"
+            value={password}
+            handleChange={this.handleChange}
+          />
+          {error && <div className="text-danger text-center">{error}</div>}
+          <Button
+            type="submit"
+            disabled={isLoading}
+            bgColor
+            width={'95%'}
+            margin={'auto'}
+            height={'4.8rem'}
+            sm
+          >
+            login
+            {isLoading && (
+              <span style={{ float: 'right', padding: '3px 3px 0 10px' }}>
+                <Circle color={'rgba(255,255,255,1)'} />
+              </span>
+            )}
+          </Button>
+        </form>
         <div className="signup-form">
-          <div className="fbButton align-button">
-            <a href="https://indiana-ah-staging.herokuapp.com/auth/facebook">
-              <img src={facebook} className="mx-5 facebook" />
-              <span>Login with facebook</span>
-            </a>
+          <div className="social">
+            <ul>
+            <li className="social-auth">
+              Or Login Using:
+              </li>
+              <li>
+              <a href="https://indiana-ah-staging.herokuapp.com/auth/facebook">
+                  <i className="fa fa-lg fa-facebook" />
+                </a>
+              </li>
+              <li>
+              <a href="https://indiana-ah-staging.herokuapp.com/auth/twitter">
+                  <i className="fa fa-lg fa-twitter" />
+                </a>
+              </li>
+              <li>
+              <a href="https://indiana-ah-staging.herokuapp.com/auth/google">
+                  <i className="fa fa-lg fa-google-plus" />
+                </a>
+              </li>
+            </ul>
           </div>
-          <div className="ggButton align-button">
-            <a href="https://indiana-ah-staging.herokuapp.com/auth/google">
-              <img src={google} className="mx-5 google" />
-              <span>Login with google </span>
-            </a>
-          </div>
-          <div className="ttButton align-button">
-            <a href="https://indiana-ah-staging.herokuapp.com/auth/twitter">
-              <img src={twitter} className="mx-5 twitter" />
-              <span>Login with twitter</span>
-            </a>
-          </div>
-          <h3 className="text-center mt-5">OR</h3>
-          <form onSubmit={this.handleSubmit}>
-            <InputField
-              placeholder="Email"
-              type="email"
-              id="email"
-              value={email}
-              handleChange={this.handleChange}
-            />
-            <InputField
-              placeholder="Password"
-              type="password"
-              id="password"
-              value={password}
-              handleChange={this.handleChange}
-            />
-            <Button type="submit" disabled={isLoading}>
-              login
-              {isLoading && (
-                <span style={{ float: 'right', padding: '3px 3px 0 10px' }}>
-                  <Circle color={'#0b41cd'} />
-                </span>
-              )}
-            </Button>
-            <p className="d-flex justify-content-center">
-              Dont have an account?{' '}
-              <a href="#" onClick={() => displayForm('register')}>
-                Create one
-              </a>
-            </p>
-            <div className="d-flex justify-content-center bg-light w-100 p-4 mt-3">
-              <a href="#">Forgot password?</a>
-            </div>
-          </form>
+        </div>
+        <p className="d-flex justify-content-center">
+          Dont have an account?{' '}
+          <a href="#" onClick={() => displayForm('register')} className="ml-2">
+            Create one
+          </a>
+        </p>
+        <div className="d-flex justify-content-center bg-light w-100 p-4 mt-3">
+          <a href="#">Forgot password?</a>
         </div>
       </div>
     );

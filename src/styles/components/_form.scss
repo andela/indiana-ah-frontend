@@ -1,109 +1,98 @@
 a {
   text-decoration: none !important;
 }
-.twitter {
-  width: 34px;
+
+.social {
+  margin: 0;
+  padding: 0;
 }
-.mx-5.google {
-  width: 26px;
-  margin-right: 3.9rem !important;
-}
-.mx-5.facebook {
-  margin-left: 2.2rem !important;
-  margin-right: 3.2rem !important;
-}
-.formIcon {
-  height: 55px;
-  width: 55px;
-  display: inline-block;
-}
-.fbButton {
+
+.social ul {
+  margin: 0;
+  padding: .5rem;
   display: flex;
-  flex-wrap: wrap;
-  background: #3b5997;
-  padding: 0.3rem auto;
-  width: 100%;
-  border-radius: 0.4rem;
-  margin-bottom: 1rem;
-  box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.4);
-  transition: 0.3s ease-in-out;
-  cursor: pointer;
-  border: 0.06rem solid rgba(0, 0, 0, 0.4);
-
-  span {
-    color: #fff;
-    text-decoration: none;
-  }
-
-  svg {
-    height: 35px;
-    width: 35px;
-    padding: 0 10px 0 0;
-  }
-
-  @media (max-width: 40rem) {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-.fbButton:hover {
-  box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.4);
+  flex-flow: row wrap;
+  justify-content: space-evenly;
 }
 
-.ggButton {
+.social ul li {
+  margin: .5rem;
+  list-style: none outside none;
   display: flex;
-  flex-wrap: wrap;
-  background: #f2f3f5;
-  padding: 0.3rem auto;
-  width: 100%;
-  border-radius: 0.4rem;
-  color: #365c67;
-  margin-bottom: 1rem;
-  box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.4);
-  transition: 0.3s ease-in-out;
-  cursor: pointer;
-  border: 0.04rem solid rgba(0, 0, 0, 0.4);
-
-  svg {
-    height: 35px;
-    width: 35px;
-    padding: 0 10px 0 0;
-  }
-  @media (max-width: 40rem) {
-    flex-direction: column;
-    align-items: center;
-  }
 }
 
-.ggButton:hover {
-  box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.4);
-}
-
-.ttButton {
+.social i {
   display: flex;
-  flex-wrap: wrap;
-  background: #ffffff;
-  padding: 0.3rem auto;
-  width: 100%;
-  border-radius: 0.4rem;
-  color: #365c67;
-  margin-bottom: 1rem;
-  box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.4);
-  transition: 0.3s ease-in-out;
-  cursor: pointer;
-  border: 0.05rem solid rgba(0, 0, 0, 0.1);
-
-  svg {
-    height: 35px;
-    width: 35px;
-    padding: 0 10px 0 0;
-  }
-  @media (max-width: 40rem) {
-    flex-direction: column;
-    align-items: center;
-  }
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  color: #fff;
+  background-color: #909aa0;
+  font-size: 2.2rem;
+  text-align: center;
+  // padding-top: 1.2rem;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -o-border-radius: 50%;
+  transition: all ease 0.3s;
+  -moz-transition: all ease 0.3s;
+  -webkit-transition: all ease 0.3s;
+  -o-transition: all ease 0.3s;
+  -ms-transition: all ease 0.3s;
 }
 
-.ttButton:hover {
-  box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.4);
+.social i:hover {
+  color: #fff;
+  text-decoration: none;
+  transition: all ease 0.3s;
+  -moz-transition: all ease 0.3s;
+  -webkit-transition: all ease 0.3s;
+  -o-transition: all ease 0.3s;
+  -ms-transition: all ease 0.3s;
+}
+
+.social .fa-facebook:hover {
+  background: #4060a5;
+}
+.social .fa-facebook {
+  background: #4060a5;
+}
+
+.social .fa-twitter:hover {
+  background: #00abe3;
+}
+.social .fa-twitter {
+  background: #00abe3;
+}
+
+.social .fa-google-plus:hover {
+  background: #e64522;
+}
+.social .fa-google-plus {
+  background: #e64522;
+}
+
+li.social-auth {
+  padding: 1rem 0;
+  color: rgba(0, 0, 0, 0.4);
+}
+button.sc-htpNat.fvbqhb {
+  width: 100% !important;
+}
+
+.mt-5,
+.my-5 {
+  margin-top: 3rem !important;
+}
+
+
+@media (max-width: 380px) {
+  .social {
+    i {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
 }

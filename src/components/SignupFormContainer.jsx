@@ -7,7 +7,7 @@ import { signUpFormSchema, validationMessages } from '../utils/validationSchemas
 import { registerWithEmail } from '../redux/actions/authActions';
 import InputField from './common/input/InputComponent.jsx';
 import Button from '../styles/styledComponents/Button.jsx';
-import { facebook, twitter, google } from '../assets/images/svg';
+import { logo } from '../assets/images/svg';
 
 export class SignupFormContainer extends Component {
   state = {
@@ -82,70 +82,78 @@ export class SignupFormContainer extends Component {
     } = this.props;
     return (
       <div className="signup-form-container">
-        <div className="signup-form">
-          <div className="fbButton align-button">
-            <a href="https://indiana-ah-staging.herokuapp.com/auth/facebook">
-              <img src={facebook} className="mx-5 facebook" />
-              <span>Signup with facebook</span>
-            </a>
-          </div>
-          <div className="ggButton align-button">
-            <a href="https://indiana-ah-staging.herokuapp.com/auth/google">
-              <img src={google} className="mx-5 google" />
-              <span>Signup with google </span>
-            </a>
-          </div>
-          <div className="ttButton align-button">
-            <a href="https://indiana-ah-staging.herokuapp.com/auth/twitter">
-              <img src={twitter} className="mx-5 twitter" />
-              <span>Signup with twitter</span>
-            </a>
-          </div>
-          <h3 className="text-center mt-5">OR</h3>
-          <form onSubmit={this.handleSubmit}>
-            <InputField
-              placeholder="Username"
-              type="text"
-              id="username"
-              value={username}
-              errorMessage={errors.username}
-              handleChange={this.handleChange}
-              onBlur={this.handleBlur}
-            />
-            <InputField
-              placeholder="Email"
-              type="email"
-              id="email"
-              value={email}
-              errorMessage={errors.email}
-              handleChange={this.handleChange}
-              onBlur={this.handleBlur}
-            />
-            <InputField
-              placeholder="Password"
-              type="password"
-              id="password"
-              value={password}
-              errorMessage={errors.password}
-              handleChange={this.handleChange}
-              onBlur={this.handleBlur}
-            />
-            <Button type="submit" disabled={isLoading}>
-              sign up
+      <h3 className="text-center mt-5">
+      <img src={logo} alt='facebook logo' className="signup-title" />
+      <hr/>
+      </h3>
+        <form onSubmit={this.handleSubmit} className='signup-form'>
+          <InputField
+            placeholder="Username"
+            type="text"
+            id="username"
+            value={username}
+            errorMessage={errors.username}
+            handleChange={this.handleChange}
+            onBlur={this.handleBlur}
+          />
+          <InputField
+            placeholder="Email"
+            type="email"
+            id="email2"
+            value={email}
+            errorMessage={errors.email}
+            handleChange={this.handleChange}
+            onBlur={this.handleBlur}
+          />
+          <InputField
+            placeholder="Password"
+            type="password"
+            id="password"
+            value={password}
+            errorMessage={errors.password}
+            handleChange={this.handleChange}
+            onBlur={this.handleBlur}
+          />
+          <Button type="submit" disabled={isLoading} bgColor width={'95%'}
+            margin={'auto'} height={'4.8rem'} sm>
+            Sign up
               {isLoading && (
-                <span style={{ float: 'right', padding: '3px 3px 0 10px' }}>
-                  <Circle color={'#0b41cd'} />
-                </span>
+              <span style={{ float: 'right', padding: '3px 3px 0 10px' }}>
+                <Circle color={'rgba(255,255,255,1)'} />
+              </span>
               )}
-            </Button>
-            <p>By signing up, you agree to our terms and condition</p>
-            <div className="d-flex justify-content-center bg-light w-100 p-4 mt-3">
-              Have an account?
-              <a onClick={() => displayForm('login')} href="#">
-                Login
+          </Button>
+        </form>
+        <div className="signup-form">
+        <div className="social">
+            <ul>
+            <li className="social-auth">
+              Or Signup Using:
+              </li>
+              <li>
+              <a href="https://indiana-ah-staging.herokuapp.com/auth/facebook">
+                  <i className="fa fa-lg fa-facebook" />
+                </a>
+              </li>
+              <li>
+              <a href="https://indiana-ah-staging.herokuapp.com/auth/twitter">
+                  <i className="fa fa-lg fa-twitter" />
+                </a>
+              </li>
+              <li>
+              <a href="https://indiana-ah-staging.herokuapp.com/auth/google">
+                  <i className="fa fa-lg fa-google-plus" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <p className='text-center'>By signing up, you agree to our terms and condition</p>
+        <div className="d-flex justify-content-center bg-light w-100 p-4 mt-3">
+          Have an account?
+              <a onClick={() => displayForm('login')} href="#" className='ml-2'>
+            Login
               </a>
-            </div>
-          </form>
         </div>
       </div>
     );
