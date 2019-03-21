@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap';
 import SignupContainer from '../SignupFormContainer.jsx';
+import LoginContainer from '../LoginFormContainer.jsx';
 import Modal from './Modal.jsx';
 import { ProfileImg, ImageLogo } from '../../styles/styledComponents/Navigation.jsx';
 import {
@@ -71,7 +72,7 @@ export class NavBar extends Component {
         />
         <div to="/signup" className="d-flex ft-size-2 ml-5
           align-items-center text-capitalize">
-          {user.userData.username || user.userData.email}
+          {user.userData.name || user.userData.username}
           <img
             className="mx-3 d-none d-md-none d-lg-block d-xs-none"
             src={dropDownIcon}
@@ -129,9 +130,10 @@ export class NavBar extends Component {
           closeModal={this.closeModal}
           body={
             this.state.modalContent === 'login' ? (
-              <div>
-                <h2>Login Form</h2>
-              </div>
+              <LoginContainer
+                displayForm={this.displayForm}
+                closeModal={this.closeModal}
+              />
             ) : (
               <SignupContainer
                 displayForm={this.displayForm}

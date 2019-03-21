@@ -12,6 +12,16 @@ exports[`test the login container form should match snap shot 1`] = `
   <div
     className="signup-form-container"
   >
+    <h3
+      className="text-center mt-5"
+    >
+      <img
+        alt="facebook logo"
+        className="signup-title"
+        src="test-file-stub"
+      />
+      <hr />
+    </h3>
     <form
       className="signup-form"
       onSubmit={[Function]}
@@ -319,58 +329,46 @@ exports[`test the login container form should match snap shot 1`] = `
         </StyledComponent>
       </styled.button>
     </form>
-    <h3
-      className="text-center mt-5"
-    >
-      OR
-    </h3>
     <div
       className="signup-form"
     >
       <div
-        className="fbButton align-button"
+        className="social"
       >
-        <a
-          href="https://indiana-ah-staging.herokuapp.com/auth/facebook"
-        >
-          <img
-            className="mx-5 facebook"
-            src="test-file-stub"
-          />
-          <span>
-            Login with Facebook
-          </span>
-        </a>
-      </div>
-      <div
-        className="ggButton align-button"
-      >
-        <a
-          href="https://indiana-ah-staging.herokuapp.com/auth/google"
-        >
-          <img
-            className="mx-5 google"
-            src="test-file-stub"
-          />
-          <span>
-            Login with Google 
-          </span>
-        </a>
-      </div>
-      <div
-        className="ttButton align-button"
-      >
-        <a
-          href="https://indiana-ah-staging.herokuapp.com/auth/twitter"
-        >
-          <img
-            className="mx-5 twitter"
-            src="test-file-stub"
-          />
-          <span>
-            Login with Twitter
-          </span>
-        </a>
+        <ul>
+          <li
+            className="social-auth"
+          >
+            Or Login Using:
+          </li>
+          <li>
+            <a
+              href="https://indiana-ah-staging.herokuapp.com/auth/facebook"
+            >
+              <i
+                className="fa fa-lg fa-facebook"
+              />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://indiana-ah-staging.herokuapp.com/auth/twitter"
+            >
+              <i
+                className="fa fa-lg fa-twitter"
+              />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://indiana-ah-staging.herokuapp.com/auth/google"
+            >
+              <i
+                className="fa fa-lg fa-google-plus"
+              />
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
     <p
