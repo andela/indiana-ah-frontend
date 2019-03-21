@@ -40,33 +40,10 @@
   width: 95%;
   margin: 1.5rem auto 2rem auto;
 }
-.mx-5 {
-  margin-right: 3rem !important;
-  height: 4rem;
-}
 
 a.ml-2 {
   color: #0b41cd !important;
   font-weight: bold;
-}
-.Modal {
-  background: transparent;
-  outline: none;
-  border-radius: 0.4rem;
-  flex-wrap: wrap;
-}
-.modal-dialog.Modal {
-  max-width: 40rem;
-}
-.modal-body {
-  max-width: 40rem !important;
-  position: relative;
-  z-index: 999;
-  padding: 3em 2em 0 2em;
-  background: rgba(255, 255, 255, 0.04);
-  -webkit-box-shadow: -1px 4px 28px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: -1px 4px 28px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: -1px 4px 28px 0px rgba(0, 0, 0, 0.75);
 }
 
 .fade.modal.show {
@@ -85,7 +62,4 @@ a.ml-2 {
 }
 .SMGVi::placeholder {
   color: rgba(0, 0, 0, 0.4);
-}
-h3.text-center.mt-5 {
-  margin-top: 0 !important;
 }

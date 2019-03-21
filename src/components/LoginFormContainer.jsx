@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 import { loginWithEmail } from '../redux/actions/authActions';
 import InputField from './common/input/InputComponent.jsx';
 import Button from '../styles/styledComponents/Button.jsx';
-import {logo } from '../assets/images/svg';
+import { logo } from '../assets/images/svg';
 
 export class LoginFormContainer extends Component {
   state = {
