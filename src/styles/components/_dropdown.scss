@@ -8,15 +8,15 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
-    top: 45px;
-    right: 0px;
-    width: 200px;
+    top: 4.5rem;
+    right: 0rem;
+    width: 20rem;
     text-align: center;
     background-color: white;
     font-weight: bold;
     position: absolute;
     font-weight: unset;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0rem 0.8rem 1.6rem 0rem rgba(0, 0, 0, 0.2);
     z-index: 1;
   }
   li a {
@@ -24,8 +24,8 @@
     text-decoration: none;
   }
   li {
-    padding: 8px 16px;
-    border-bottom: 1px solid #e5e5e5;
+    padding: 0.8rem 1.6rem;
+    border-bottom: 0.1rem solid #e5e5e5;
   }
   li:last-child {
     border-bottom: none;
@@ -37,7 +37,7 @@
 
   .fa-caret-down {
     color: blue;
-    font-size: 30px;
+    font-size: 3rem;
   }
   .ml-5 {
     margin-left: 2rem !important;

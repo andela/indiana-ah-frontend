@@ -108,11 +108,12 @@ export class CreateArticle extends Component {
             modules={CreateArticle.modules}
             formats={CreateArticle.formats}
             placeholder={'Tell your Story....'}
+            className="react-quil"
           />
           <div className="section-preview chips">
             <ReactTags
               tags={tags}
-              placeholder="Tag your story"
+              placeholder="Add Tags"
               handleDelete={this.handleDelete}
               handleAddition={this.handleAddition}
               handleDrag={this.handleDrag}

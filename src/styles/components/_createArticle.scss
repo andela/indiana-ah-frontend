@@ -20,57 +20,71 @@ div.ReactTags__tagInput {
   justify-content: center;
 }
 .article-submit {
-  padding: 15px;
-  border-radius: 3px;
+  padding: 1.5rem;
+  border-radius: 0.3rem;
   color: white;
   cursor: pointer;
   text-align: center;
   margin-left: auto;
   outline: none !important;
   justify-content: flex-end;
-  border: 1px solid blue;
+  border: 0.1rem solid blue;
   background-color: blue;
-  margin-bottom: 100px;
+  margin-bottom: 10rem;
 }
 i.fas.fa-pen {
   color: white !important;
-  margin-right: 10px;
+  margin-right: 1rem;
 }
 .fas {
-  margin-right: 10px;
+  margin-right: 1rem;
 }
 .fa {
-  font-size: 24px;
+  font-size: 2.4rem;
 }
-
+.ql-editor.ql-blank::before {
+  color: #ddd;
+  font-family: 'Alegreya', sans-serif, Helvetica;
+  font-style: normal;
+}
+.ql-picker-label:focus {
+  outline: none;
+}
+.ql-toolbar.ql-snow {
+  border: .04rem solid rgba(0,0,0,0.1) !important;
+  box-shadow: 0.1rem 0.1rem 0.3rem rgba(0,0,0,0.1);
+}
 .ReactTags__tagInputField {
   -webkit-appearance: none;
   width: 100%;
   border: 0;
   outline: none;
   font-family: inherit;
-  padding: 12px 0;
-  height: 30px;
-  font-size: 15px;
-  border-bottom: 2px solid #c8ccd4;
+  padding: 1.2rem 0;
+  height: 3rem;
+  font-size: 1.5rem;
+  border-bottom: 0.2rem solid #c8ccd4;
   background: none;
   border-radius: 0;
   color: #223254;
   transition: all 0.15s ease;
 }
+div.ql-editor[data-placeholder] {
+  color: #ddd;
+}
 .image-button {
-  border-radius: 3px;
+  border-radius: 0.3rem;
   color: rgb(22, 21, 21);
-  margin: 3px 0;
-  padding: 10px;
+  margin: 0.3rem 0;
+  padding: 1rem;
   text-align: center;
 }
 .image-delete {
-  border-radius: 3px;
+  border-radius: 0.3rem;
   color: rgb(22, 21, 21);
   display: block;
-  margin: 30px 0;
-  padding: 10px;
+  margin: 3rem 0;
+  padding: 1rem;
   text-align: center;
 }
 [type='file'] {
@@ -89,9 +103,9 @@ i.fas.fa-pen {
 .article-title {
   border: unset;
   font-family: Lato, sans-serif;
-  font-size: 30px;
+  font-size: 3rem;
   font-weight: bold;
-  border-bottom: 1px solid black;
+  border-bottom: 0.1rem solid black;
   height: 2em;
   margin: 2rem 0 0;
   max-height: 5em;
@@ -127,20 +141,20 @@ div.ReactTags__selected a.ReactTags__remove {
 .ql-toolbar.ql-snow {
   box-sizing: border-box;
   font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-  padding: 8px;
+  padding: 0.8rem;
 }
 
 .ql-editor {
   min-height: 20em;
   width: 100%;
-  font-size: 20px;
+  font-size: 2rem;
 }
 
 .editor {
   outline: none;
-  margin: 20px;
-  height: 400px;
-  font-size: 20px !important;
+  margin: 2rem;
+  height: 40rem;
+  font-size: 2rem !important;
   white-space: pre-wrap;
   overflow-wrap: break-word;
   -webkit-user-modify: read-write-plaintext-only;
@@ -150,7 +164,7 @@ div.ReactTags__selected a.ReactTags__remove {
 }
 .ql-toolbar.ql-snow {
   box-sizing: border-box;
-  padding: 8px;
+  padding: 0.8rem;
   outline: none;
 }
 .ql-toolbar.ql-snow,
@@ -173,24 +187,35 @@ div.ReactTags__selected a.ReactTags__remove {
 
 /* Bubble Theme */
 .ql-bubble .ql-editor {
-  border: 1px solid #ccc;
+  border: 0.1rem solid #ccc;
   border-radius: 0.5em;
 }
 
 .ql-editor {
   min-height: 20em;
   width: 100%;
-  font-size: 20px;
+  font-size: 2rem;
 }
-
+textarea::placeholder {
+  color: #ddd;
+  font-family: 'Alegreya', sans-serif, Helvetica;
+}
+.ql-snow.ql-toolbar {
+  display: block;
+  color: #ddd;
+}
+input.ReactTags__tagInputField::placeholder {
+  color: #ddd;
+  font-family: 'Alegreya', sans-serif, Helvetica;
+}
 textarea {
   border: unset;
   outline: none;
   font-weight: bold;
-  margin-top: 10px;
-  font-size: 30px;
+  margin-top: 1rem;
+  font-size: 3rem;
   resize: none;
-  border-bottom: 1px solid rgb(230, 223, 223);
+  border-bottom: 0.1rem solid rgb(230, 223, 223);
   width: 100%;
 }
 .image-div img {
@@ -198,11 +223,11 @@ textarea {
   max-width: 100%;
 }
 .section-preview {
-  margin-top: 20px;
+  margin-top: 2rem;
   padding: 1.5rem;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 50rem) {
   .text-editor {
     margin-top: 5%;
     margin-left: 10%;
@@ -216,12 +241,12 @@ textarea {
     justify-content: flex-start;
   }
   .article-submit {
-    padding: 15px;
-    border-radius: 3px;
+    padding: 1.5rem;
+    border-radius: 3rem;
     color: white;
     cursor: pointer;
     text-align: center;
     margin-left: auto;
-    margin-top: 20px;
+    margin-top: 2rem;
   }
 }

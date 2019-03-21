@@ -84,4 +84,4 @@ export const filterArticlesByDate = (articles) => {
     .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
     .slice(0, 6);
   return newArticles;
-};
+ };
