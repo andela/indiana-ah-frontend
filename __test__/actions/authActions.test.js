@@ -52,12 +52,11 @@ const rightUserLoginData = {
 };
 const expectedLoginResponseDataReg = {
   message: 'successfully logged in',
-  token:
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI3ZmU5ZTRmLTg4MzMtNGYwZC05NmI1LWM2MTYwMzBiNjU3ZiIsInVzZXJuYW1lIjoiYWtwb2JpIiwiZW1haWwiOiJjaGluYXNhQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNTUyMzk0NzI1LCJleHAiOjE1NTI0ODExMjV9.T86wbM-V_IO64gBphxIyXuTrzUIafj1Pj1SroDgUBM4'
+  token: jwt.sign(rightUserLoginData, 'ejrjrroor')
 };
 const expectedResponseDataReg = {
-  message:
-    'Successfully registered to Authors haven. Kindly check your email to verify your account',
+  message: `Successfully registered to Authors haven.
+     Kindly check your email to verify your account`,
   token: jwt.sign(rightUserRegData, 'dkdkkdkkd')
 };
 
@@ -126,7 +125,8 @@ describe('Auth action creators test', () => {
 
     const expectedActions = [
       { type: LOGIN_WITH_EMAIL_REQUEST },
-      { type: LOGIN_WITH_EMAIL_SUCCESS }
+      { type: LOGIN_WITH_EMAIL_SUCCESS },
+      { type: SET_CURRENT_USER, user: rightUserLoginData }
     ];
 
     await store.dispatch(loginWithEmail(rightUserLoginData, { closeModal }));

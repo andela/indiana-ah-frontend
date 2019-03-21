@@ -36,7 +36,7 @@ const DislikeComponent = ({ dislikeCount, color }) => (
 <Fragment>
 <span className = 'icon-holder'>
 {DislikeSvg(color)}
-<sub className='count'>{dislikeCount}</sub>
+<sub className='count'>{dislikeCount === 0 ? '' : dislikeCount}</sub>
 </span>
 </Fragment>
 );

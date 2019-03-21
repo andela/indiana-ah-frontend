@@ -47,7 +47,9 @@ export const loginWithEmail = (data, { closeModal }) => async (dispatch) => {
   try {
     const { message, token } = await sendHttpRequest('/login', 'POST', data);
     localStorage.setItem('token', token);
+    const user = validateToken(token);
     dispatch({ type: LOGIN_WITH_EMAIL_SUCCESS });
+    dispatch({ type: SET_CURRENT_USER, user });
     closeModal();
     toast.success(<div>{message}</div>);
   } catch ({ response }) {

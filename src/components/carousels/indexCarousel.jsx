@@ -23,7 +23,7 @@ const IndexCarousel = ({ articles, isLoading }) => {
     return articles.map((article, index) => <CardComponent
       key={index}
       img={article.imageUrl}
-      commentCount={20}
+      commentCount={article.commentCount}
       likeCount={article.likes}
       dislikeCount={article.dislikes}
       title={article.articleTitle}

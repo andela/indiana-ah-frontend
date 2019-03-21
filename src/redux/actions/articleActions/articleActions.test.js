@@ -3,7 +3,7 @@ import MockAdapter from 'axios-mock-adapter';
 import thunk from 'redux-thunk';
 import swal from 'sweetalert2';
 import { apiInstance } from '../../../utils/index';
-import getAllArticles from './articleActions';
+import { getAllArticles } from './articleActions';
 import { GET_ALL_ARTICLES, NO_ARTICLES, GET_ALL_ARTICLES_LOADING } from '../actionTypes';
 
 const mock = new MockAdapter(apiInstance);
@@ -29,7 +29,7 @@ const error = {
 
 describe('get all parcels action', () => {
   it('handles getting all parcels', async () => {
-    mock.onGet('/articles?page=1&limit=10').reply(200, mockData);
+    mock.onGet('/articles').reply(200, mockData);
 
     const expectedActions = [
       {
@@ -37,7 +37,8 @@ describe('get all parcels action', () => {
       },
       {
         type: GET_ALL_ARTICLES,
-        payload: mockData.articles
+        payload: mockData.articles,
+
       }
     ];
 
@@ -47,7 +48,7 @@ describe('get all parcels action', () => {
   });
 
   it('handles getting all parcels when there is no parcel returned', async () => {
-    mock.onGet('/articles?page=1&limit=10').reply(200, noData);
+    mock.onGet('/articles').reply(200, noData);
 
     const expectedActions = [
       {
@@ -72,7 +73,7 @@ describe('get all parcels action', () => {
   });
 
   it('handles error events', async () => {
-    mock.onGet('/articles?page=1&limit=10').reply(500, error);
+    mock.onGet('/articles').reply(500, error);
 
     const expectedActions = [
       {
