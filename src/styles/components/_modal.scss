@@ -27,3 +27,9 @@
 h3.text-center.mt-5 {
   margin-top: 0 !important;
 }
+
+@media (max-width: 380px) {
+  .modal-body {
+    padding: 3em 1em 0 1em;
+  }
+}

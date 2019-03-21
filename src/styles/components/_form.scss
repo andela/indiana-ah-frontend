@@ -9,26 +9,29 @@ a {
 
 .social ul {
   margin: 0;
-  padding: 5px;
+  padding: .5rem;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
 }
 
 .social ul li {
-  margin: 5px;
+  margin: .5rem;
   list-style: none outside none;
   display: flex;
 }
 
 .social i {
-  width: 40px;
-  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
   color: #fff;
   background-color: #909aa0;
-  font-size: 22px;
+  font-size: 2.2rem;
   text-align: center;
-  padding-top: 12px;
+  // padding-top: 1.2rem;
   border-radius: 50%;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -82,4 +85,14 @@ button.sc-htpNat.fvbqhb {
 .mt-5,
 .my-5 {
   margin-top: 3rem !important;
+}
+
+
+@media (max-width: 380px) {
+  .social {
+    i {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
 }
