@@ -1,0 +1,16 @@
+.dashboard-nav {
+  margin-bottom: 3rem;
+  a {
+    padding: 2rem 3rem 2rem 0;
+    font-weight: 500;
+    font-size: 2rem;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  a:hover {
+    color: black;
+  }
+  .active-link {
+    color: black;
+  }
+}

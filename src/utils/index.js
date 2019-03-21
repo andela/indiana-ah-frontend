@@ -33,10 +33,6 @@ export const sendHttpRequest = async (url, method, data, headers) => {
   return response.data;
 };
 
-export const handlePageClick = (component, page) => {
-  component.setState({ currentPage: page });
-};
-
 export const renderPageLinks = (currentPage, numberOfPages) => {
   const pages = [];
   for (let i = 1; i <= numberOfPages; i += 1) {
@@ -54,11 +50,12 @@ export const renderPageLinks = (currentPage, numberOfPages) => {
 };
 
 // call this function in 'componentDidMount' of any 'page component' (that renders paginated data) and pass 'this' as the argument
-export const setCurrentPage = (component) => {
+export const setAndGetCurrentPage = (component) => {
   const urlSearchParams = new URLSearchParams(window.location.search);
   let page = parseInt(urlSearchParams.get('page'), 10);
   if (Number.isNaN(page)) page = 1;
   component.setState({ currentPage: page });
+  return page;
 };
 
 const sortLikes = (current, next) => {

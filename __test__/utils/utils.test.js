@@ -1,4 +1,4 @@
-import { handlePageClick, setCurrentPage, getUrl } from '../../src/utils';
+import { setAndGetCurrentPage, getUrl } from '../../src/utils';
 
 describe('Pagination utils test', () => {
   const component = {
@@ -8,13 +8,8 @@ describe('Pagination utils test', () => {
     }
   };
   it('should test that the current page is set in a component\'s state when the \'setCurrentPage\' method is called', () => {
-    setCurrentPage(component);
+    setAndGetCurrentPage(component);
     expect(component.state.currentPage).toBeDefined();
-  });
-
-  it('should test that the handle page click function sets the current page in a component\'s state', () => {
-    handlePageClick(component, 2);
-    expect(component.state.currentPage).toEqual(2);
   });
 });
 
