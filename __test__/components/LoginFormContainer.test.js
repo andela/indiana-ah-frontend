@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import renderer from 'react-test-renderer';
 import { LoginFormContainer } from '../../src/components/LoginFormContainer.jsx';
 
 jest.mock('axios');
@@ -8,6 +9,15 @@ const props = {
   auth: { isLoading: false },
   error: ''
 };
+
+describe('Login Form', () => {
+  it('should match snapshot', () => {
+    const tree = renderer
+      .create(<LoginFormContainer {...props} />)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+});
 
 describe('test the login container form', () => {
   let wrapper;
@@ -23,10 +33,10 @@ describe('test the login container form', () => {
       />
     );
   });
-  it('should match snap shot', () => {
-    const tree = mount(<LoginFormContainer {...props} />);
-    expect(tree).toMatchSnapshot();
-  });
+  // it('should match snapshot', () => {
+  //   const tree = mount(<LoginFormContainer {...props} />);
+  //   expect(tree).toMatchSnapshot();
+  // });
   it('should simulate the handleSubmit', () => {
     wrapper.find('form').simulate('submit');
     const input1 = wrapper.find('input').at(0);
