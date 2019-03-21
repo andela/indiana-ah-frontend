@@ -7,7 +7,7 @@ import { signUpFormSchema, validationMessages } from '../utils/validationSchemas
 import { registerWithEmail } from '../redux/actions/authActions';
 import InputField from './common/input/InputComponent.jsx';
 import Button from '../styles/styledComponents/Button.jsx';
-import { facebook, twitter, google } from '../assets/images/svg';
+import { logo } from '../assets/images/svg';
 
 export class SignupFormContainer extends Component {
   state = {
@@ -81,7 +81,11 @@ export class SignupFormContainer extends Component {
       displayForm
     } = this.props;
     return (
-      <div className="signup-form-container">
+      <div className="signup-form-container"> 
+      <h3 className="text-center mt-5">
+      <img src={logo} alt='facebook logo' className="signup-title" />
+      <hr/>
+      </h3>
         <form onSubmit={this.handleSubmit} className='signup-form'>
           <InputField
             placeholder="Username"
@@ -120,25 +124,28 @@ export class SignupFormContainer extends Component {
               )}
           </Button>
         </form>
-        <h3 className="text-center mt-5">OR</h3>
         <div className="signup-form">
-          <div className="fbButton align-button">
-            <a href="https://indiana-ah-staging.herokuapp.com/auth/facebook">
-              <img src={facebook} className="mx-5 facebook" />
-              <span>Signup with Facebook</span>
-            </a>
-          </div>
-          <div className="ggButton align-button">
-            <a href="https://indiana-ah-staging.herokuapp.com/auth/google">
-              <img src={google} className="mx-5 google" />
-              <span>Signup with Google </span>
-            </a>
-          </div>
-          <div className="ttButton align-button">
-            <a href="https://indiana-ah-staging.herokuapp.com/auth/twitter">
-              <img src={twitter} className="mx-5 twitter" />
-              <span>Signup with Twitter</span>
-            </a>
+        <div className="social">
+            <ul>
+            <li className="social-auth">
+              Or Signup Using:
+              </li>
+              <li>
+              <a href="https://indiana-ah-staging.herokuapp.com/auth/facebook">
+                  <i className="fa fa-lg fa-facebook" />
+                </a>
+              </li>
+              <li>
+              <a href="https://indiana-ah-staging.herokuapp.com/auth/twitter">
+                  <i className="fa fa-lg fa-twitter" />
+                </a>
+              </li>
+              <li>
+              <a href="https://indiana-ah-staging.herokuapp.com/auth/google">
+                  <i className="fa fa-lg fa-google-plus" />
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
         <p className='text-center'>By signing up, you agree to our terms and condition</p>

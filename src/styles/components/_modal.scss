@@ -1,13 +1,21 @@
 .Modal {
   background: transparent;
-  width: 30%;
-  margin: 4% auto 0 auto;
   outline: none;
   border-radius: 0.4rem;
   flex-wrap: wrap;
 }
+.modal-dialog.Modal {
+  max-width: 40rem;
+}
 .modal-body {
-  padding: 1rem 1rem 0 1rem!important;
+  position: relative;
+  z-index: 999;
+  margin: unset;
+  padding: 3em 2em;
+  background: rgba(255, 255, 255, 0.04);
+  -webkit-box-shadow: -1px 4px 28px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 4px 28px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px 4px 28px 0px rgba(0, 0, 0, 0.75);
 }
 .modal-title {
   text-align: center;
@@ -15,10 +23,6 @@
 .close {
   font-size: $l-size;
 }
-
-@media (max-width: 76.8rem) {
-  .Modal {
-    width: 80%;
-    margin: 10% auto 0 auto;
-  }
+h3.text-center.mt-5 {
+  margin-top: 0 !important;
 }
