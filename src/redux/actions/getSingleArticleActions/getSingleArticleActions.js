@@ -1,13 +1,11 @@
 /* eslint-disable consistent-return */
-import Swal from 'sweetalert2';
 import {
   GET_SINGLE_ARTICLE_LOADING,
-  GET_SINGLE_ARTICLE_FAILURE,
   GET_SINGLE_ARTICLE_SUCCESS
 } from '../actionTypes';
 import { sendHttpRequest } from '../../../utils';
 
-const getSingleArticle = slug => async (dispatch) => {
+const getSingleArticle = (slug, history) => async (dispatch) => {
   dispatch({
     type: GET_SINGLE_ARTICLE_LOADING
   });
@@ -19,14 +17,7 @@ const getSingleArticle = slug => async (dispatch) => {
       payload: article
     });
   } catch ({ response }) {
-    Swal.fire({
-      title: 'Error!',
-      text: response,
-      type: 'error',
-      timer: 3000,
-      showConfirmButton: false,
-      width: 400
-    });
+    return history.push('/not-found');
   }
 };
 

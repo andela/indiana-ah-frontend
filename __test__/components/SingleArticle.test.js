@@ -1,20 +1,113 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import MockAdapter from 'axios-mock-adapter';
+import thunk from 'redux-thunk';
+import configureMockStore from 'redux-mock-store';
 
-import SingleArticle from '../../src/components/containers/SingleArticle.jsx';
+import { SingleArticle } from '../../src/components/containers/SingleArticle.jsx';
+import reducer from '../../src/redux/reducers/getSingleArticleReducer';
+import articleAction from '../../src/redux/actions/getSingleArticleActions/getSingleArticleActions';
+import { apiInstance } from '../../src/utils/index';
+import {
+  GET_SINGLE_ARTICLE_LOADING,
+  GET_SINGLE_ARTICLE_SUCCESS
+} from '../../src/redux/actions/actionTypes';
 
-describe('<SideNav/>', () => {
+const mock = new MockAdapter(apiInstance);
+const mockStore = configureMockStore([thunk]);
+const store = mockStore();
+
+const article = {
+  article: {
+    articleBody: '',
+    articleTitle: '',
+    tags: '',
+    imageUrl: '',
+    Comments: '',
+    likes: '',
+    dislikes: '',
+    author: '',
+    createdAt: ''
+  }
+};
+const expectedResponseData = {
+  article: {},
+  timeToRead: '1 min read'
+};
+const articles = {};
+const history = { push: jest.fn() };
+const mockFn = jest.fn();
+const match = {
+  params: {
+    slug: 'i-love-coding'
+  }
+};
+describe('<SingleArticle/>', () => {
   it('should render the SingleArticle component with 9 divs', () => {
-    const wrapper = shallow(<SingleArticle />);
-    expect(wrapper.find('div')).toHaveLength(9);
-    expect(wrapper.find('h1')).toHaveLength(2);
+    const wrapper = shallow(
+      <SingleArticle singleArticle={article} match={match} getSingleArticle={mockFn} />
+    );
+    expect(wrapper.find('div.carousel-spinner').length).toEqual(1);
+    article.article.tags = 'hey, hoo, hi';
+    article.article.imageUrl = 'http://i3i3i3ii3je';
+    article.article.articleBody = 'I am going home';
+    wrapper.setProps({ article });
+    expect(wrapper.find('div.carousel-spinner').length).toEqual(0);
+    expect(wrapper.find('div.SingleArticle').length).toEqual(1);
   });
 });
 
-describe('<SideNav/>', () => {
-  it('should render the SingleArticle component with 9 divs', () => {
-    const wrapper = shallow(<SingleArticle />);
-    expect(wrapper.find('div')).toHaveLength(9);
-    expect(wrapper.find('h1')).toHaveLength(2);
+describe('getSingleArticles reducer', () => {
+  it('should return the initial state', () => {
+    expect(reducer(undefined, {})).toEqual({
+      isLoading: false,
+      article: {}
+    });
+  });
+
+  it('should return loading', () => {
+    const successAction = {
+      type: GET_SINGLE_ARTICLE_LOADING
+    };
+    expect(reducer({}, successAction)).toEqual({ isLoading: true });
+  });
+
+  it('should return all articles', () => {
+    const successAction = {
+      type: GET_SINGLE_ARTICLE_SUCCESS,
+      payload: articles
+    };
+    expect(reducer({}, successAction)).toEqual({ isLoading: false, article: articles });
+  });
+});
+
+describe('getSingleArticleActions', () => {
+  beforeEach(() => {
+    store.clearActions();
+  });
+  afterEach(() => {
+    mock.reset();
+  });
+  it('should create the GET_SINGLE_ARTICLE_SUCCESS action if the api request was successful', async () => {
+    mock.onGet('/articles/i-love-coding').reply(200, expectedResponseData);
+    const { timeToRead } = expectedResponseData;
+
+    const expectedActions = [
+      { type: GET_SINGLE_ARTICLE_LOADING },
+      { type: GET_SINGLE_ARTICLE_SUCCESS, payload: { timeToRead } }
+    ];
+
+    await store.dispatch(articleAction('i-love-coding', history));
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('should redirect to a not-found page if the api request was not successful', async () => {
+    mock.onGet('/articles/i-love-coding').reply(404);
+
+    const expectedActions = [{ type: GET_SINGLE_ARTICLE_LOADING }];
+
+    await store.dispatch(articleAction('i-love-coding', history));
+    expect(store.getActions()).toEqual(expectedActions);
+    expect(history.push).toHaveBeenCalled();
   });
 });
