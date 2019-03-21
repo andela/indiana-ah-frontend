@@ -1,6 +1,8 @@
 .SingleArticle {
   font-size: 1rem;
   background-color: #FFFFFF;
+  // max-width: 100%;
+  overflow-x: hidden;
 
   .heading-section {
     display: flex;
@@ -9,9 +11,17 @@
     margin-top: 5rem;
 
     .heading-primary {
-      font-family: 'Alegreya Sans SC', sans-serif;
+      font-family: 'Open Sans', sans-serif;
       text-transform: capitalize;
       font-size: 6rem;
+      text-align: center;
+      margin: 0 2rem;
+      @media only screen and (max-width: 700px) {
+        font-size: 4rem;
+      }
+      @media only screen and (max-width: 500px) {
+        font-size: 3rem;
+      }
     }
 
     .heading-info {
@@ -23,13 +33,15 @@
     .article-info {
       display: flex;
       flex-direction: row;
-      justify-content: space-evenly;
-      align-items: center;
-      margin: 3rem 0;
+      margin: 2rem 2rem 1rem;
+      @media only screen and (max-width: 555px) {
+        flex-direction: column;
+      }
     }
 
-    .article-info > * {
-      margin-left: 4rem;
+    .author-image-box {
+      display: flex;
+      align-items: center;
     }
 
     .user-image {
@@ -43,6 +55,22 @@
       color: #222;
       font-weight: 300;
       letter-spacing: .3rem;
+      margin-right: 3rem;
+
+      @media only screen and (max-width: 335px) {
+        margin-right: 1rem;
+        font-size: 15px;
+        letter-spacing: .1rem;
+      }
+    }
+
+    .follow-bookmark-box {
+      display: flex;
+      align-items: center;
+      @media only screen and (max-width: 555px) {
+        margin-top: 2rem;
+        justify-content: center;
+      }
     }
 
     .follow-btn {
@@ -51,6 +79,8 @@
       border: 2px solid #0B41CD;
       border-radius: 5px;
       color: #0B41CD;
+      margin: 0 3rem;
+      background-color: #FFFFFF;
     }
 
     .bookmarkLogo {
@@ -82,6 +112,15 @@
     width: 80%;
     height: 50rem;
     object-fit: cover;
+    @media only screen and (max-width: 1100px) {
+      height: 30rem;
+    }
+    @media only screen and (max-width: 700px) {
+      height: 20rem;
+    }
+    @media only screen and (max-width: 400px) {
+      height: 12rem;
+    }
   }
 
   .article-body-container {
@@ -99,16 +138,15 @@
   }
 
   .tags-container {
-    // background-color: red;
     display: flex;
-    // margin-right: 2rem;
     width: 70%;
     font-size: 2rem;
-    margin: 12rem 0 0 0;
+    margin: 5rem 2rem 0;
+    flex-wrap: wrap;
   }
 
   .article-tags {
-    margin-right: 2rem;
+    margin: 1rem 2rem 0 0;
     background-color: #EFEFEF;
     padding: 0 4rem;
     border-radius: 4px;
@@ -120,36 +158,58 @@
 
   .reaction-share-section {
     display: flex;
-    // align-self: flex-start;
-    // background-color: red;
     width: 70%;
-    margin: 4rem 0 5rem 0;
+    margin: 4rem 0 5rem;
     justify-content: space-between;
+    @media only screen and (max-width: 500px) {
+      flex-direction: column;
+    }
   }
+
   .reaction-container {
     display: flex;
     align-items: center;
     align-content: center;
+    @media only screen and (max-width: 500px) {
+      justify-content: space-evenly;
+    }
   }
+
+  .reaction-logo {
+    width: 3rem;
+  }
+
   .reaction-container > * {
     display: inline-block;
     margin-right: 4rem;
+    @media only screen and (max-width: 630px) {
+      margin-right: 1rem;
+    }
   }
+
   .share-container {
     display: flex;
     align-items: center;
-    // align-content: center;
-    
+    @media only screen and (max-width: 500px) {
+      justify-content: space-evenly;
+      margin: 4rem 0 0;
+    }
+
   }
+
   .share-text {
     font-size: 20px;
     font-family: 'Alegreya', sans-serif;
     font-weight: 400;
     color: #0B41CD;
   }
+
   .social {
     height: 3rem;
     margin-right: 2rem;
-    
+    @media only screen and (max-width: 630px) {
+      margin-right: 1rem;
+    }
+
   }
 }

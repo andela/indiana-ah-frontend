@@ -17,22 +17,37 @@ class SingleArticle extends Component {
 
   render() {
     if (!Object.keys(this.props.singleArticle.article).length) {
-      return <h1>Fetching Articles</h1>;
+      return (
+        <div
+          className="carousel-spinner
+      spinner-grow spinner-grow-lg text-primary"
+        />
+      );
     }
+    console.log(this.props.singleArticle.article);
     const {
       articleTitle,
       timeToRead,
-      imageUrl,
+      Comments,
+      likes,
+      dislikes,
       tags,
       author,
       createdAt,
       articleBody
     } = this.props.singleArticle.article;
-    const articleTags = tags.split(',').map((tag, index) => (
-      <span className="article-tags" key={index}>
-        {tag}
-      </span>
-    ));
+    let { imageUrl } = this.props.singleArticle.article;
+    let articleTags = null;
+    if (tags) {
+      articleTags = tags.split(',').map((tag, index) => (
+        <span className="article-tags" key={index}>
+          {tag}
+        </span>
+      ));
+    }
+    if (imageUrl === null) {
+      imageUrl = 'https://images.unsplash.com/photo-1521120413309-42e7eada0334?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80';
+    }
     const dateCreated = new Date(createdAt);
     const displayedDate = `${dateCreated.getDate()}/${dateCreated.getMonth()}/${dateCreated.getFullYear()}`;
     return (
@@ -41,16 +56,20 @@ class SingleArticle extends Component {
           <h1 className="heading-primary">{articleTitle}</h1>
           <div className="heading-info">
             <div className="article-info">
-              <p className="author"> written by {author.username}</p>
-              <img
-                src={author.imageUrl}
-                alt="user-image"
-                width="50"
-                height="50"
-                className="user-image"
-              />
-              <button className="follow-btn">Follow</button>
-              <img src={bookmarkLogo} className="bookmarkLogo" />
+              <div className="author-image-box">
+                <p className="author"> written by {author.username}</p>
+                <img
+                  src={author.imageUrl}
+                  alt="user-image"
+                  width="50"
+                  height="50"
+                  className="user-image"
+                />
+              </div>
+              <div className="follow-bookmark-box">
+                <button className="follow-btn">Follow</button>
+                <img src={bookmarkLogo} className="bookmarkLogo" />
+              </div>
             </div>
             <p className="date-created">{displayedDate}</p>
             <p className="time-to-read">{timeToRead}</p>
@@ -64,9 +83,17 @@ class SingleArticle extends Component {
           <div className="tags-container">{articleTags}</div>
           <section className="reaction-share-section">
             <div className="reaction-container">
-              <LikeComponent className="reaction-logo" likeCount="5" color="rgba(0,0,0,.5)" />
-              <DislikeComponent className="reaction-logo" dislikeCount="5" color="rgba(0,0,0,.5)" />
-              <CommentIconComponent className="reaction-logo" commentCount="5" />
+              <LikeComponent
+                className="reaction-logo"
+                likeCount={likes}
+                color="rgba(0,0,0,.5)"
+              />
+              <DislikeComponent
+                className="reaction-logo"
+                dislikeCount={dislikes}
+                color="rgba(0,0,0,.5)"
+              />
+              <CommentIconComponent className="reaction-logo" commentCount={Comments} />
             </div>
             <div className="share-container">
               <span className="social share-text">Share on</span>
