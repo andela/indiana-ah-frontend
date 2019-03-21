@@ -81,7 +81,7 @@ export class SignupFormContainer extends Component {
       displayForm
     } = this.props;
     return (
-      <div className="signup-form-container"> 
+      <div className="signup-form-container">
       <h3 className="text-center mt-5">
       <img src={logo} alt='facebook logo' className="signup-title" />
       <hr/>
