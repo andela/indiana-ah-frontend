@@ -1,7 +1,6 @@
 import {
   GET_ALL_BOOKMARKS,
   GET_ALL_BOOKMARKS_LOADING,
-
 } from '../actions/actionTypes';
 
 const initialState = {
