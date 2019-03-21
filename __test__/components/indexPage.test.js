@@ -24,6 +24,15 @@ const onChange = jest.fn();
 const getAllArticles = jest.fn();
 let connectedIndexPage;
 let articles;
+const all = {
+  articles: [
+    {
+      article: {
+        good: ''
+      }
+    }
+  ]
+};
 
 describe('Index page component', () => {
   it('renders correctly', () => {
@@ -132,5 +141,11 @@ describe('Index subscribe form', () => {
     input.instance().value = 'yinks@gmail.com';
     input.simulate('change');
     expect(indexForm.state().email).toEqual('yinks@gmail.com');
+  });
+});
+describe('Index subscribe form', () => {
+  it('should change state', () => {
+    const tree = shallow(<IndexCarousel articles={all} />);
+    expect(tree.exists()).toBe(true);
   });
 });

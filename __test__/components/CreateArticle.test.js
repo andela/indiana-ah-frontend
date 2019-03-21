@@ -30,9 +30,11 @@ describe('Test CreateArticle Component', () => {
   it('set state and find element', () => {
     expect(wrapper.state().articleBody).toEqual(event);
     expect(wrapper.state().imageUrl).toEqual('');
+    wrapper.setState({ imageUrl: 'svvsjrgbksgadgfhbakjbgjf`vkjfs' });
+
+    expect(wrapper.find('span i').length).toEqual(1);
     expect(wrapper.find('div').length).toEqual(5);
     expect(wrapper.find('textarea').length).toEqual(1);
     expect(wrapper.find('img').length).toEqual(1);
-    expect(wrapper.find('span').length).toEqual(1);
   });
 });
