@@ -28,7 +28,7 @@ exports[`test the login container form should match snap shot 1`] = `
     >
       <InputField
         handleChange={[Function]}
-        id="email"
+        id="email1"
         placeholder="Email"
         type="email"
         value=""
@@ -37,7 +37,7 @@ exports[`test the login container form should match snap shot 1`] = `
           className="input-field"
         >
           <styled.input
-            id="email"
+            id="email1"
             onChange={[Function]}
             placeholder="Email"
             required={true}
@@ -94,7 +94,7 @@ exports[`test the login container form should match snap shot 1`] = `
                 }
               }
               forwardedRef={null}
-              id="email"
+              id="email1"
               onChange={[Function]}
               placeholder="Email"
               required={true}
@@ -103,7 +103,7 @@ exports[`test the login container form should match snap shot 1`] = `
             >
               <input
                 className="sc-bdVaJa SMGVi"
-                id="email"
+                id="email1"
                 onChange={[Function]}
                 placeholder="Email"
                 required={true}
