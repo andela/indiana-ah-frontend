@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import TopBarProgress from 'react-topbar-progress-indicator';
 import PropTypes from 'prop-types';
@@ -74,6 +73,13 @@ const mapStateToProps = state => ({
   allUserArticles: state.allUserArticles,
   userData: state.user.userData
 });
+
+UserArticles.propTypes = {
+  userData: PropTypes.object,
+  allUserArticles: PropTypes.array,
+  getAllUserArticles: PropTypes.func,
+  location: PropTypes.object
+};
 
 export default connect(
   mapStateToProps,

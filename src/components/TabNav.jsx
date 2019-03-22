@@ -7,9 +7,9 @@ const TabNavBar = ({ allUserArticles: { articleData } }) => (
     <NavLink to="/dashboard/posts" activeClassName="active-link">
       POSTS (
       {articleData.message ? 0 : articleData.articles ? articleData.totalCount : ''})
-    </NavLink>{' '}
-    <NavLink to="/bookmarked" activeClassName="active-link">
-      BOOKMARKED (45)
+    </NavLink>
+    <NavLink to="/dashboard/bookmarks" activeClassName="active-link">
+      BOOKMARKED (0)
     </NavLink>
   </nav>
 );

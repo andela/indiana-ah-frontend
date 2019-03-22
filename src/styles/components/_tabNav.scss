@@ -7,14 +7,14 @@
     padding: 2rem 3rem 2rem 0;
     font-weight: 500;
     font-size: 2rem;
-    color: rgba(0, 0, 0, 0.5);
+    color: gray !important;
   }
 
   a:hover {
     color: black;
   }
   .active-link {
-    color: black;
+    color: black !important;
   }
 
   @media screen and (max-width: 600px) {
