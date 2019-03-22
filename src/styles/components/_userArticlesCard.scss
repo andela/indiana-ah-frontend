@@ -84,6 +84,7 @@
         width: 100%;
       }
     }
+
     .article-card-body {
       width: 100%;
       padding: 2rem;
@@ -98,9 +99,28 @@
       margin-right: 2.2rem;
     }
   }
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 600px) {
+    height: 40rem;
     .icon-holder {
-      margin-right: 1rem;
+      margin-right: 1.4rem;
+    }
+    .article-title {
+      font-size: 1.7rem;
+    }
+
+    .article-body {
+      font-size: 1.3rem;
+    }
+
+    svg,
+    .icon-height {
+      height: 2rem;
+    }
+    .action-button {
+      display: none;
+    }
+    .badge {
+      padding: 1rem;
     }
   }
 }

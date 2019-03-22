@@ -1,19 +1,10 @@
-// .user-dashboard .side-nav {
-//   float: left;
-// }
 
-// .dashboard-column {
-//   width: 80%;
-//   float: right;
-// }
 .user-dashboard {
   display: flex;
   background: #f8f9ff;
   height: 100%;
   .user-articles-section {
     margin: 0.5rem 0.5rem 2rem 0.5rem;
-    @media screen and (max-width: 900px) {
-    }
   }
   .dashboard-column {
     display: flex;
@@ -31,6 +22,12 @@
     .dashboard-column {
       width: 90%;
       margin: auto;
+    }
+    .count {
+      left: 0;
+    }
+    .user-articles-section {
+      margin-top: 0;
     }
   }
 }
