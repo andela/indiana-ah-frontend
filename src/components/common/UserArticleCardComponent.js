@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import BadgeComponent from './BadgeComponent';
@@ -14,52 +15,54 @@ const UserArticleCard = ({
   articleTitle,
   articleBody,
   tags,
+  slug,
   likeCount,
   dislikeCount,
   commentCount,
   timeCount
 }) => (
   <Fragment>
-    <Card className="mb-3 article-card user-article-card">
-      <div className="Article-image-wrapper pb-0">
+    <Card className="user-article-card">
+      <div className="article-image-wrapper">
         <img src={img} className="img-fluid" />
       </div>
-      <Card.Body className="pb-0 ml-5 card-body">
-        <div className="article-title">
-          <b className="text-body">{articleTitle}</b>
-        </div>
-        <div className="article-body">
-          <b className="text-body">{articleBody}</b>
-        </div>
-        <div className="tags-wrapper mt-2">
+
+      <Card.Body className="article-card-body">
+        <NavLink to={`/articles/${slug}`}>
+          <div className="article-title">
+            <b className="text-body">{articleTitle}</b>
+          </div>
+          <div className="article-body">{articleBody}</div>
+        </NavLink>
+        <div className="tags-wrapper">
           {tags.split(',').map((eachTag, index) => (
             <BadgeComponent key={index} eachTagDetail={eachTag} />
           ))}
         </div>
 
-        <div className="container px-0">
+        <div className="container">
           <div className="row no-gutters">
-            <div className="col-9 pt-3">
+            <div className="icons">
               <div className="row">
                 {timeCount === 'false' ? (
                   ''
                 ) : (
-                  <span className="col-3">
+                  <span className="icon-item timer">
                     <TimerComponent timeCount={timeCount} />
                   </span>
                 )}
-                <span className="col-2">
+                <span className="icon-item">
                   <LikeComponent likeCount={likeCount} color="black" />
                 </span>
-                <span className="col-2">
+                <span className="icon-item">
                   <DislikeComponent dislikeCount={dislikeCount} color="black" />
                 </span>
-                <span className="col-2">
+                <span className="icon-item">
                   <CommentIconComponent commentCount={commentCount} />
                 </span>
               </div>
             </div>
-            <div>
+            <div className='action-button'>
               {timeCount === 'false' ? (
                 <BookmarkComponent color="#FCC133" />
               ) : (
@@ -90,6 +93,7 @@ UserArticleCard.propTypes = {
   tags: PropTypes.string.isRequired,
   likeCount: PropTypes.number.isRequired,
   dislikeCount: PropTypes.number.isRequired,
+  slug: PropTypes.string.isRequired,
   commentCount: PropTypes.number.isRequired
 };
 

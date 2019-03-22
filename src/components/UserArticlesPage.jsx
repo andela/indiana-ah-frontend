@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import TopBarProgress from 'react-topbar-progress-indicator';
 import PropTypes from 'prop-types';
@@ -49,6 +50,7 @@ class UserArticles extends Component {
             likeCount={article.likes}
             dislikeCount={article.dislikes}
             commentCount={article.Comments.length}
+            slug={article.slug}
             timeCount={moment(article.createdAt).fromNow()}
           />
         ))}

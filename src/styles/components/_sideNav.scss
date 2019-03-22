@@ -1,11 +1,13 @@
 .sidenav {
-  background-color: whitesmoke;
+  background-color: white;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  height: 65rem;
   width: 15%;
+  @media screen and (max-width: 700px) {
+    display: none;
+  }
 }
 
 .is-active {
@@ -36,4 +38,5 @@
 
 .sideNavLogos {
   height: 5.5rem;
+  margin-top: 12rem;
 }

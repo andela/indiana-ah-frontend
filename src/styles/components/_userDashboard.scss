@@ -9,18 +9,28 @@
 .user-dashboard {
   display: flex;
   background: #f8f9ff;
+  height: 100%;
   .user-articles-section {
     margin: 0.5rem 0.5rem 2rem 0.5rem;
+    @media screen and (max-width: 900px) {
+    }
   }
   .dashboard-column {
     display: flex;
     flex-direction: column;
     margin: 5rem 15rem 5rem 5rem;
     width: 80%;
+    @media only screen and (max-width: 1160px) {
+      margin: 2rem 4rem 4rem 4rem;
+    }
   }
-
-  .user-article-card {
+  @media screen and (max-width: 600px) {
+    margin: 0;
     width: 100%;
-    margin-bottom: 4rem !important;
+    display: block;
+    .dashboard-column {
+      width: 90%;
+      margin: auto;
+    }
   }
 }

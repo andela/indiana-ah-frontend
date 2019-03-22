@@ -1,5 +1,8 @@
 .dashboard-nav {
   margin-bottom: 3rem;
+  @media screen and (max-width: 1000px) {
+    margin-bottom: 1rem;
+  }
   a {
     padding: 2rem 3rem 2rem 0;
     font-weight: 500;
