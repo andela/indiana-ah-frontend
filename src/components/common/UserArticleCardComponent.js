@@ -63,12 +63,18 @@ const UserArticleCard = ({
 </Fragment>
 );
 
+UserArticleCard.defaultProps = {
+  tags: '',
+  likeCount: 0,
+  dislikeCount: 0,
+  commentCount: 0,
+};
 
 UserArticleCard.propTypes = {
   img: PropTypes.string.isRequired,
   timeCount: PropTypes.string.isRequired,
   articleTitle: PropTypes.string.isRequired,
-  tags: PropTypes.string.isRequired,
+  tags: PropTypes.string,
   likeCount: PropTypes.number.isRequired,
   dislikeCount: PropTypes.number.isRequired,
   commentCount: PropTypes.number.isRequired,

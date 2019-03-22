@@ -29,7 +29,7 @@ justify-content: space-between;
   text-overflow:ellipsis;
 }
 .text-height{
-  height:80px;
+  height:85px;
   text-align: justify;
   word-wrap: break-word;
   overflow: hidden;
@@ -37,8 +37,8 @@ justify-content: space-between;
 
 }
 
-.card-container .card:not(:last-child){
-  margin-right: 1.5rem  
+.card-container .card:not(:last-child), .card-container a:not(:last-child){
+  margin-right: 1rem  
 }
 
 .top-content{

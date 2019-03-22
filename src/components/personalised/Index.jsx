@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import IndexCarousel from '../carousels/indexCarousel.jsx';
 import CardComponent from '../common/CardComponent';
 import Footer from '../common/footer.jsx';
-
 import {
   getAllArticles,
   getAllUsersBookMarkedArticles
@@ -16,19 +15,27 @@ class PersonalisedViewComponent extends Component {
     mostPopularArticles: [
       {
         img: 'https://images.unsplash.com/photo-1505262744895-ac5705911f6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1280&q=80',
-        title: 'lkjhljugyghjh',
+        title: 'National day',
         text: 'Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-        likeCount: 2,
-        dislikeCount: 2,
-        commentCount: 2
+        likeCount: 0,
+        dislikeCount: 62,
+        commentCount: 150
       },
       {
         img: 'https://images.unsplash.com/photo-1527427337751-fdca2f128ce5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
-        title: 'lkjhljugyghjh',
+        title: 'How to build a world class feature',
         text: 'If you are going to use a passage of Lorem Ipsum, you need to be sure there isnt anything embarrassing hidden in the middle of text.',
+        likeCount: 200,
+        dislikeCount: 2,
+        commentCount: 100
+      },
+      {
+        img: 'https://images.unsplash.com/photo-1521716250348-c4ae4ff1df43?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=564&q=80',
+        text: 'If you are going to use a passage of Lorem Ipsum, you need to be sure there isnt anything embarrassing hidden in the middle of text.',
+        title: 'Read like a pro',
         likeCount: 2,
         dislikeCount: 2,
-        commentCount: 2
+        commentCount: 25
       }]
   }
 
@@ -65,38 +72,43 @@ class PersonalisedViewComponent extends Component {
       featuresView = <p>There Are No Featured Articles</p>;
     }
     if (!isLoading && allArticles.length > 0) {
-      const threeRandomArticles = allArticles.sort(() => 0.5 - Math.random()).slice(0, 3);
-      featuresView = threeRandomArticles.map((eachCard, index) => <CardComponent
-    key= {index}
+      const threeRandomArticles = allArticles.sort(() => 0.5 - Math.random()).slice(0, 4);
+      featuresView = threeRandomArticles.map((eachCard, index) => <Link to ={`/articles/${eachCard.slug}`} key= {index}>
+       <CardComponent
     img={eachCard.imageUrl}
     color={eachCard.color}
     commentCount={0}
     likeCount={eachCard.likes}
     dislikeCount={eachCard.dislikes}
-    title={`${eachCard.articleTitle.slice(0, 30)}`}
-    text={`${eachCard.articleBody.slice(0, 160)}...`}
-     />);
+    title={eachCard.articleTitle}
+    text={eachCard.articleBody}
+     />
+      </Link>);
     }
 
     if (!isBookMarkedArticlesLoading && userBookmarks.length > 0) {
       const bookmarkedAticleResults = userBookmarks.map(eachCard => eachCard.Article);
 
-      const listedBookmarkedItems = bookmarkedAticleResults
+      // showing a maximum list of 4 bookmarked items due to space
+      const bookmarkedlists = bookmarkedAticleResults.slice(0, 5);
+
+      const listedBookmarkedItems = bookmarkedlists
         .map((eachCard, index) => <li key = {index} className='list-group-item'><Link to ={`/articles/${eachCard.slug}`}>{eachCard.articleTitle}</Link></li>);
 
       bookmarkListView = <ul className="list-group list-group-flush">{listedBookmarkedItems}</ul>;
 
       if (bookmarkedAticleResults.length === 1) {
-        bookmarkView = bookmarkedAticleResults.map((eachCard, index) => <CardComponent
-      key= {index}
+        bookmarkView = bookmarkedAticleResults.map((eachCard, index) => <Link to ={`/articles/${eachCard.slug}`} key= {index}>
+      <CardComponent
       img={eachCard.imageUrl}
       color={eachCard.color}
       commentCount={40}
       likeCount={430}
       dislikeCount={40}
-      title={`${eachCard.articleTitle.slice(0, 30)}`}
-      text={`${eachCard.articleBody.slice(0, 160)}...`}
-       />);
+      title={eachCard.articleTitle}
+      text={eachCard.articleBody}
+       />
+       </Link>);
       }
       bookmarkView = <IndexCarousel articles={bookmarkedAticleResults} isLoading={false} />;
     }
