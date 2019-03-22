@@ -13,7 +13,7 @@ import {
   NETWORK_FAILURE,
   SET_CURRENT_USER,
   SIGN_OUT_USER,
-  REGISTER_WITH_SM,
+  REGISTER_WITH_SM
 } from './actionTypes';
 import { sendHttpRequest, validateToken } from '../../utils/index';
 
@@ -46,6 +46,7 @@ export const loginWithEmail = (data, { closeModal }) => async (dispatch) => {
   dispatch({ type: LOGIN_WITH_EMAIL_REQUEST });
   try {
     const { message, token } = await sendHttpRequest('/login', 'POST', data);
+    localStorage.clear();
     localStorage.setItem('token', token);
     const user = validateToken(token);
     dispatch({ type: SET_CURRENT_USER, user });

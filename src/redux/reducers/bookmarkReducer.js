@@ -1,11 +1,13 @@
 import {
   GET_ALL_BOOKMARKS,
   GET_ALL_BOOKMARKS_LOADING,
+  GET_ALL_BOOKMARKS_FAILURE
 } from '../actions/actionTypes';
 
 const initialState = {
   isLoading: false,
   userBookmarks: [],
+  error: false
 };
 
 const bookmarkReducer = (state = initialState, action) => {
@@ -19,7 +21,14 @@ const bookmarkReducer = (state = initialState, action) => {
       return {
         ...state,
         userBookmarks: action.payload,
-        isLoading: false
+        isLoading: false,
+        error: false
+      };
+    case GET_ALL_BOOKMARKS_FAILURE:
+      return {
+        ...state,
+        error: true,
+        isLoading: false,
       };
     default:
       return state;

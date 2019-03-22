@@ -33,9 +33,12 @@ class PersonalisedViewComponent extends Component {
   }
 
   componentDidMount() {
-    this.props.getAllArticles();
     const { auth: { isVerified } } = this.props;
-    if (isVerified) this.props.getAllUsersBookMarkedArticles();
+    if (isVerified) {
+      console.log('user is veried and bookmark about to be fetch in')
+      this.props.getAllUsersBookMarkedArticles();
+    }
+    this.props.getAllArticles();
   }
 
   render() {
@@ -62,7 +65,7 @@ class PersonalisedViewComponent extends Component {
     }
 
     if (!isLoading && allArticles.length === 0) {
-      featuresView = <h3>There Are No Featured Articles</h3>;
+      featuresView = <p>There Are No Featured Articles</p>;
     }
     if (!isLoading && allArticles.length > 0) {
       const threeRandomArticles = allArticles.sort(() => 0.5 - Math.random()).slice(0, 3);

@@ -6,7 +6,9 @@ import {
   NO_ARTICLES,
   GET_ALL_ARTICLES_LOADING,
   GET_ALL_BOOKMARKS_LOADING,
-  GET_ALL_BOOKMARKS
+  GET_ALL_BOOKMARKS,
+  GET_ALL_BOOKMARKS_FAILURE,
+  GET_ALL_ARTICLES_ERROR
 } from '../actionTypes';
 import { sendHttpRequest } from '../../../utils';
 
@@ -20,6 +22,7 @@ export const getAllArticles = () => async (dispatch) => {
     }
     return dispatch({ type: GET_ALL_ARTICLES, payload: response.articles });
   } catch ({ response }) {
+    dispatch({ type: GET_ALL_ARTICLES_ERROR, payload: [] });
     return toast.error(
       <div>Request was not successful at the moment. Try again later</div>
     );
@@ -29,12 +32,14 @@ export const getAllArticles = () => async (dispatch) => {
 export const getAllUsersBookMarkedArticles = () => async (dispatch) => {
   dispatch({ type: GET_ALL_BOOKMARKS_LOADING });
   try {
+    console.log('i am being called');
     const response = await sendHttpRequest('/users/bookmarks', 'GET');
     if (response.message === 'You do not have any bookmarked article') {
       return dispatch({ type: GET_ALL_BOOKMARKS, payload: [] });
     }
     return dispatch({ type: GET_ALL_BOOKMARKS, payload: response.userBookmarks });
   } catch ({ response }) {
+    dispatch({ type: GET_ALL_BOOKMARKS_FAILURE });
     return toast.error(
       <div>Request was not successful at the moment. Try again later</div>
     );
