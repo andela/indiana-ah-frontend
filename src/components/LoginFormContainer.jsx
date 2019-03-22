@@ -50,8 +50,8 @@ export class LoginFormContainer extends Component {
           <InputField
             placeholder="Email"
             type="email"
-            id="email1"
             name="email"
+            id="email"
             value={email}
             handleChange={this.handleChange}
           />

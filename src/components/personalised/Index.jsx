@@ -34,10 +34,7 @@ class PersonalisedViewComponent extends Component {
 
   componentDidMount() {
     const { auth: { isVerified } } = this.props;
-    if (isVerified) {
-      console.log('user is veried and bookmark about to be fetch in')
-      this.props.getAllUsersBookMarkedArticles();
-    }
+    if (isVerified) this.props.getAllUsersBookMarkedArticles();
     this.props.getAllArticles();
   }
 
