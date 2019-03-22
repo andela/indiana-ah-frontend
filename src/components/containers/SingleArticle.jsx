@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import getSingleArticle
-  from '../../redux/actions/getSingleArticleActions/getSingleArticleActions';
+import getSingleArticle from '../../redux/actions/getSingleArticleActions/getSingleArticleActions';
 import { bookmarkLogo, twitter, facebook } from '../../assets/images/svg';
 import LikeComponent from '../common/LikeComponent';
 import DislikeComponent from '../common/DislikeComponent';
@@ -22,6 +21,7 @@ export class SingleArticle extends Component {
       spinner-grow spinner-grow-lg text-primary"
       />
     );
+    console.log(this.props.auth);
     const {
       articleTitle,
       timeToRead,
@@ -69,10 +69,10 @@ export class SingleArticle extends Component {
                       className="user-image"
                     />
                   </div>
-                  <div className="follow-bookmark-box">
+                  { this.props.auth.isVerified && <div className="follow-bookmark-box">
                     <button className="follow-btn">Follow</button>
                     <img src={bookmarkLogo} className="bookmarkLogo" />
-                  </div>
+                  </div> }
                 </div>
                 <p className="date-created">{displayedDate}</p>
                 <p className="time-to-read">{timeToRead}</p>
@@ -120,10 +120,12 @@ SingleArticle.propTypes = {
   singleArticle: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
+  auth: PropTypes.object
 };
 
 const mapStateToProps = state => ({
-  singleArticle: state.singleArticle
+  singleArticle: state.singleArticle,
+  auth: state.auth
 });
 
 export default connect(

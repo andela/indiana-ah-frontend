@@ -57,11 +57,17 @@
       letter-spacing: .3rem;
       margin-right: 3rem;
 
+      @media only screen and (max-width: 363px) {
+        width: 120px;
+      }
+
       @media only screen and (max-width: 335px) {
         margin-right: 1rem;
         font-size: 15px;
         letter-spacing: .1rem;
+        width: initial;
       }
+     
     }
 
     .follow-bookmark-box {

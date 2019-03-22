@@ -26,18 +26,19 @@ const CardComponent = ({
   <Card.Body className='pb-0 card-body'>
   <div className='title-height'><b>{title}</b></div>
 
-          <div className="container">
-            <div className="row mt-4 mb-5">
-              <div className="col pl-0">
-                <LikeComponent likeCount={likeCount} color="rgba(0,0,0,.5)" />
+            <div className="container">
+              <div className="row mt-4 mb-5">
+                <div className="col pl-0">
+                  <LikeComponent likeCount={likeCount} color="rgba(0,0,0,.5)" />
+                </div>
+                <div className="col">
+                  <DislikeComponent dislikeCount={dislikeCount} color="rgba(0,0,0,.5)" />
+                </div>
+                <div className="col">
+                  <CommentIconComponent commentCount={commentCount} />
+                </div>
+                <div className="col" />
               </div>
-              <div className="col">
-                <DislikeComponent dislikeCount={dislikeCount} color="rgba(0,0,0,.5)" />
-              </div>
-              <div className="col">
-                <CommentIconComponent commentCount={commentCount} />
-              </div>
-              <div className="col" />
             </div>
           </div>
         </Card.Body>
