@@ -4,7 +4,12 @@ import thunk from 'redux-thunk';
 import swal from 'sweetalert2';
 import { apiInstance } from '../../../utils/index';
 import { getAllArticles } from './articleActions';
-import { GET_ALL_ARTICLES, NO_ARTICLES, GET_ALL_ARTICLES_LOADING } from '../actionTypes';
+import {
+  GET_ALL_ARTICLES,
+  NO_ARTICLES,
+  GET_ALL_ARTICLES_LOADING,
+  GET_ALL_ARTICLES_ERROR
+} from '../actionTypes';
 
 const mock = new MockAdapter(apiInstance);
 const mockStore = configureStore([thunk]);
@@ -92,7 +97,11 @@ describe('get all parcels action', () => {
       },
       {
         type: GET_ALL_ARTICLES_LOADING
-      }
+      },
+      {
+        payload: [],
+        type: GET_ALL_ARTICLES_ERROR,
+      },
     ];
 
     await store.dispatch(getAllArticles());

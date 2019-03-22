@@ -32,7 +32,6 @@ export const getAllArticles = () => async (dispatch) => {
 export const getAllUsersBookMarkedArticles = () => async (dispatch) => {
   dispatch({ type: GET_ALL_BOOKMARKS_LOADING });
   try {
-    console.log('i am being called');
     const response = await sendHttpRequest('/users/bookmarks', 'GET');
     if (response.message === 'You do not have any bookmarked article') {
       return dispatch({ type: GET_ALL_BOOKMARKS, payload: [] });

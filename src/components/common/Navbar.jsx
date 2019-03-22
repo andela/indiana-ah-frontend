@@ -17,7 +17,6 @@ import {
 import Button from '../../styles/styledComponents/Button.jsx';
 import InputField from './input/InputComponent.jsx';
 import { signOutUser } from '../../redux/actions/authActions';
-import LoginConatainer from '../LoginFormContainer.jsx';
 
 export class NavBar extends Component {
   state = {

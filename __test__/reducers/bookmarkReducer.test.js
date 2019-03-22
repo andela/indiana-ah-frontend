@@ -2,12 +2,14 @@ import bookmarkReducer from '../../src/redux/reducers/bookmarkReducer';
 import {
   GET_ALL_BOOKMARKS,
   GET_ALL_BOOKMARKS_LOADING,
+  GET_ALL_BOOKMARKS_FAILURE
 
 } from '../../src/redux/actions/actionTypes';
 
 const initialState = {
   isLoading: false,
   userBookmarks: [],
+  error: false
 };
 
 const payload = [
@@ -72,7 +74,20 @@ describe('User reducer test', () => {
         { type: GET_ALL_BOOKMARKS, payload })
     ).toEqual({
       ...initialState,
-      userBookmarks: payload
+      userBookmarks: payload,
+      isLoading: false,
+      error: false
+    });
+  });
+  it('should create the GET_ALL_BOOKMARKS_FAILURE action', async () => {
+    expect(
+      bookmarkReducer(initialState,
+        { type: GET_ALL_BOOKMARKS_FAILURE })
+    ).toEqual({
+      ...initialState,
+      userBookmarks: [],
+      isLoading: false,
+      error: true
     });
   });
 });

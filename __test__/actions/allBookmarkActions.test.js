@@ -15,7 +15,7 @@ jest.mock('react-toastify');
 const mockStore = configureMockStore([thunk]);
 const store = mockStore();
 
-describe('Auth action creators test', () => {
+describe('Bookmark action creators test', () => {
   beforeEach(() => {
     store.clearActions();
   });
@@ -93,6 +93,19 @@ describe('Auth action creators test', () => {
     await store.dispatch(getAllUsersBookMarkedArticles());
     expect(store.getActions()[0]).toEqual(expectedActions[0]);
     expect(store.getActions()[1]).toEqual(expectedActions2[0]);
+  });
+
+  it('should create the GET_ALL_BOOKMARKS action when user has no bookmarked article', async () => {
+    sendHttpRequest.mockResolvedValue({
+      message: 'You do not have any bookmarked article',
+    });
+    const expectedActions = [
+      { type: GET_ALL_BOOKMARKS_LOADING },
+      { type: GET_ALL_BOOKMARKS, payload: [] }
+    ];
+
+    await store.dispatch(getAllUsersBookMarkedArticles());
+    expect(store.getActions()[0]).toEqual(expectedActions[0]);
   });
   it('should show an error with toast', async () => {
     sendHttpRequest.mockRejectedValue(getError(401));

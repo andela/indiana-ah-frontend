@@ -13,7 +13,8 @@ import initialState from '../../__fixtures__/indexPage';
 import {
   GET_ALL_ARTICLES,
   NO_ARTICLES,
-  GET_ALL_ARTICLES_LOADING
+  GET_ALL_ARTICLES_LOADING,
+  GET_ALL_ARTICLES_ERROR
 } from '../../src/redux/actions/actionTypes';
 
 const mockStore = configureStore([thunk]);
@@ -74,7 +75,7 @@ describe('articles reducer', () => {
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual({
       allArticles: [],
-      error: '',
+      error: false,
       isLoading: false
     });
   });
@@ -85,7 +86,8 @@ describe('articles reducer', () => {
     };
     expect(reducer({}, successAction)).toEqual({
       allArticles: articles,
-      isLoading: false
+      isLoading: false,
+      error: false
     });
   });
   it('should return loading', () => {
@@ -99,7 +101,15 @@ describe('articles reducer', () => {
       type: NO_ARTICLES,
       payload: []
     };
-    expect(reducer({}, successAction)).toEqual({ allArticles: [], isLoading: false });
+    expect(reducer({}, successAction)).toEqual({ allArticles: [], isLoading: false, error: false });
+  });
+  it('should handle error in fetching articles', () => {
+    const failureAction = {
+      type: GET_ALL_ARTICLES_ERROR,
+      isLoading: false,
+      error: true
+    };
+    expect(reducer({}, failureAction)).toEqual({ isLoading: false, error: true });
   });
 });
 
