@@ -26,14 +26,9 @@ export const validateToken = (token) => {
   }
 };
 
-export const sendHttpRequest = async (url, method, data) => {
+export const sendHttpRequest = async (url, method, data, headers) => {
   const response = await apiInstance({
-    url,
-    method,
-    data,
-    headers: {
-      'x-auth-token': localStorage.getItem('token')
-    }
+    url, method, data, headers
   });
   return response.data;
 };
@@ -84,4 +79,4 @@ export const filterArticlesByDate = (articles) => {
     .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
     .slice(0, 6);
   return newArticles;
- };
+};

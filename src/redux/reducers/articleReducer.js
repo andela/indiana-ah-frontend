@@ -4,7 +4,8 @@ import {
   GET_ALL_ARTICLES_LOADING,
   GET_ALL_ARTICLES_ERROR,
   CREATE_ARTICLE,
-  CREATE_ARTICLE_LOADING
+  CREATE_ARTICLE_LOADING,
+  CREATE_ARTICLE_FAILURE
 } from '../actions/actionTypes';
 
 const initialState = {
@@ -48,6 +49,8 @@ const articleReducer = (state = initialState, action) => {
       };
     case CREATE_ARTICLE:
       return { ...state, isLoading: false, allArticles: action.article };
+    case CREATE_ARTICLE_FAILURE:
+      return { ...state, isLoading: false };
     default:
       return state;
   }

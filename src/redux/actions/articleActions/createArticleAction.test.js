@@ -74,5 +74,10 @@ describe('Action for creating article', () => {
         type: CREATE_ARTICLE_LOADING
       })
     ).toEqual({ ...initialState, isLoading: true });
+    expect(
+      articleReducer(initialState, {
+        type: CREATE_ARTICLE_FAILURE
+      })
+    ).toEqual({ ...initialState, isLoading: false });
   });
 });

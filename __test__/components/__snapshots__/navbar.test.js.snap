@@ -58,7 +58,7 @@ Array [
               id="basic-addon2"
             >
               <i
-                className="fas fa-search"
+                className="fa fa-search"
               />
             </span>
           </div>

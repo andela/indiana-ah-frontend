@@ -12,7 +12,6 @@ import { ProfileImg, ImageLogo } from '../../styles/styledComponents/Navigation.
 import { customLogo, notificationIcon, profile } from '../../assets/images/svg';
 import Button from '../../styles/styledComponents/Button.jsx';
 import { signOutUser } from '../../redux/actions/authActions';
-import LoginConatainer from '../LoginFormContainer.jsx';
 import Dropdown from '../Dropdown.jsx';
 
 export class NavBar extends Component {
@@ -67,26 +66,13 @@ export class NavBar extends Component {
           className="ml-5 mt-2 d-none d-md-none d-xs-none d-lg-block"
           alt="logo"
         />
-        <div to="/signup" className="d-flex ft-size-2 ml-5
-          align-items-center text-capitalize">
-          {user.userData.name || user.userData.username}
-          <img
-            className="mx-3 d-none d-md-none d-lg-block d-xs-none"
-            src={dropDownIcon}
-            onClick={this.dropDown}
-          />
-          {this.state.dropDown && (
-            <div className="dropDown-menu">
-              <Link
-                to="/"
-                onClick={() => {
-                  this.props.signOutUser();
-                }}
-              >
-                Logout
-              </Link>
-            </div>
-          )}
+        <div to="/signup" className="d-flex ft-size-2 ml-5">
+          <span className="username">
+            {' '}
+            {user.userData.name || user.userData.username}
+          </span>
+          <span style={{ padding: '0 0.3em' }} />
+          <Dropdown signOutUser={this.props.signOutUser} />
         </div>
       </Nav>
     );
@@ -107,7 +93,7 @@ export class NavBar extends Component {
                 <FormControl placeholder="Search" aria-describedby="basic-addon2" />
                 <InputGroup.Append>
                   <InputGroup.Text id="basic-addon2">
-                    <i className="fas fa-search" />
+                    <i className="fa fa-search" />
                   </InputGroup.Text>
                 </InputGroup.Append>
               </InputGroup>

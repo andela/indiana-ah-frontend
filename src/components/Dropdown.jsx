@@ -24,7 +24,7 @@ class Dropdown extends React.Component {
     const { signOutUser } = this.props;
     return (
       <div className="dropdown">
-        <i className="fas fa-caret-down" onClick={this.showDropdownMenu} />
+        <i className="fa fa-caret-down" onClick={this.showDropdownMenu} />
         {this.state.displayMenu ? (
           <ul>
             <Link to="/">

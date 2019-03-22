@@ -38,7 +38,7 @@ input.form-control:focus {
 .input-group-text {
   background-color: unset;
 }
-.fas {
+.fa {
   margin-right: unset;
   color: gray;
   font-size: 2rem;
@@ -68,6 +68,13 @@ input.form-control:focus {
 @media (max-width: 60rem) {
   .input-group {
     width: 10rem;
+  }
+  .show {
+    padding: 0 0 !important;
+  }
+  .ml-5,
+  .mx-5 {
+    margin-left: 0rem !important;
   }
   span.username {
     display: none !important;
@@ -102,4 +109,19 @@ input.form-control:focus {
       width: 19rem;
     }
   }
+  .show .input-group {
+    width: 18rem;
+  }
+  .show {
+    padding: 0 0 !important;
+  }
+  .subscription .sub-form {
+    width: 27rem;
+  }
+  .modal-body {
+    position: relative;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1rem;
+}
 }

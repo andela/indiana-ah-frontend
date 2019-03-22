@@ -18,7 +18,9 @@ const createArticleFailure = () => ({
 const createUserArticle = (data, { history }) => async (dispatch) => {
   dispatch({ type: CREATE_ARTICLE_LOADING });
   try {
-    const { article } = await sendHttpRequest('/articles', 'POST', data);
+    const { article } = await sendHttpRequest('/articles', 'POST', data, {
+      'content-type': 'multipart/form-data'
+    });
     dispatch(createArticle(article));
     toast.success(<div>Article successfully created</div>);
     history.push(`/articles/${article.slug}`);

@@ -13,7 +13,8 @@ export class CreateArticle extends Component {
     articleBody: '',
     tags: [],
     articleTitle: '',
-    imageUrl: null
+    image: null,
+    displayImage: null
   };
 
   onChange = (value) => {
@@ -22,7 +23,8 @@ export class CreateArticle extends Component {
 
   handleImageUpload = (event) => {
     this.setState({
-      imageUrl: URL.createObjectURL(event.target.files[0])
+      image: event.target.files[0],
+      displayImage: URL.createObjectURL(event.target.files[0])
     });
   };
 
@@ -47,9 +49,11 @@ export class CreateArticle extends Component {
   handleImageDelete = (event) => {
     event.preventDefault();
     this.setState({
-      imageUrl: ''
+      image: null,
+      displayImage: null
     });
   };
+
 
   onSubmit = async (event) => {
     event.preventDefault();
@@ -57,21 +61,23 @@ export class CreateArticle extends Component {
     const { tags } = data;
     const joinedTags = tags.map(e => e.text).join(',');
     data.tags = joinedTags;
-    const article = {
-      articleBody: data.articleBody,
-      tags: data.tags,
-      articleTitle: data.articleTitle,
-      imageUrl: data.imageUrl
-    };
-    this.props.createUserArticle(article, this.props);
+
+    const formData = new FormData();
+
+    if (data.image) formData.append('image', data.image);
+    formData.append('articleTitle', data.articleTitle);
+    if (!data.tags === '') formData.append('tags', data.tags);
+    formData.append('articleBody', data.articleBody);
+
+    this.props.createUserArticle(formData, this.props);
   };
 
   render() {
-    const { imageUrl, articleTitle, tags } = this.state;
+    const { articleTitle, tags, displayImage } = this.state;
     const { isLoading } = this.props.articles;
     return (
       <div className="text-editor">
-        <form>
+        <form onSubmit={this.onSubmit}>
           <textarea
             rows="1"
             cols="50"
@@ -88,20 +94,22 @@ export class CreateArticle extends Component {
                 <input
                   id="image"
                   type="file"
+                  image=''
+                  name="image"
                   className="input"
                   onChange={this.handleImageUpload}
                   accept="image/*"
                 />
               </label>
             </div>
-            {imageUrl ? (
+            {displayImage ? (
               <span>
                 <i className="fa fa-remove" onClick={this.handleImageDelete} />
               </span>
             ) : null}
           </div>
           <div className="image-div">
-            <img className="upload-image" src={this.state.imageUrl} />
+            <img className="upload-image" src={displayImage} />
           </div>
           <ReactQuill
             onChange={this.onChange}
@@ -113,7 +121,7 @@ export class CreateArticle extends Component {
           <div className="section-preview chips">
             <ReactTags
               tags={tags}
-              placeholder="Add Tags"
+              placeholder="Add Tags [at least 2 character]"
               handleDelete={this.handleDelete}
               handleAddition={this.handleAddition}
               handleDrag={this.handleDrag}
@@ -123,10 +131,9 @@ export class CreateArticle extends Component {
           <Button
             bgColor
             className="article-submit"
-            onClick={this.onSubmit}
             disabled={isLoading}
           >
-            <i className="fas fa-pen" />
+            <i className="fa fa-pen" />
             Publish
             {isLoading && (
               <span style={{ float: 'right', padding: '3px 3px 0 10px' }}>

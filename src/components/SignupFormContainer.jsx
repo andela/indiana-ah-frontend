@@ -142,7 +142,7 @@ export class SignupFormContainer extends Component {
               </li>
               <li>
               <a href="https://indiana-ah-staging.herokuapp.com/auth/google">
-                  <i className="fa fa-lg fa-google-plus" />
+                  <i className="fa fa-lg fa-google" />
                 </a>
               </li>
             </ul>

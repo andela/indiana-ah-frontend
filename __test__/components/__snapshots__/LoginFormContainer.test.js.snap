@@ -98,7 +98,11 @@ exports[`Login Form should match snapshot 1`] = `
             href="https://indiana-ah-staging.herokuapp.com/auth/google"
           >
             <i
+<<<<<<< HEAD
               className="fa fa-lg fa-google-plus"
+=======
+              className="fa fa-lg fa-google"
+>>>>>>> fix: fix test failing
             />
           </a>
         </li>
