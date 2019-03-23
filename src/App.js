@@ -10,7 +10,7 @@ import { SET_CURRENT_USER } from './redux/actions/actionTypes';
 import 'react-toastify/dist/ReactToastify.min.css';
 import { validateToken } from './utils';
 import Navbar from './components/common/Navbar.jsx';
-import Createarticle from './components/CreateArticle.jsx';
+import createArticle from './components/CreateArticle.jsx';
 import store from './redux/store';
 
 const user = validateToken(window.localStorage.getItem('token'));
@@ -29,7 +29,7 @@ const App = () => (
       <Switch>
         <Route path="/verifyUser" component={UserVerificationpage} />
         <Route path="/" component={homePage} exact />
-        <Route path="/article/create" component={Createarticle} exact />
+        <Route path="/article/create" component={createArticle} exact />
         <Redirect to="not-found" exact />
       </Switch>
     </Fragment>

@@ -19,5 +19,14 @@ describe('Test Dropdown Component', () => {
     expect(wrapper.state().displayMenu).toEqual(false);
     expect(wrapper.find('div').length).toEqual(1);
     expect(wrapper.find('i').length).toEqual(1);
+    wrapper.setState({ displayMenu: true });
+    expect(wrapper.find('Link').length).toEqual(4);
+    expect(wrapper.find('ul').length).toEqual(1);
+    expect(wrapper.find('li').length).toEqual(4);
+
+    wrapper
+      .find('Link')
+      .at(3)
+      .simulate('click');
   });
 });

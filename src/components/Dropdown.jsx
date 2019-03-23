@@ -27,26 +27,27 @@ class Dropdown extends React.Component {
         <i className="fa fa-caret-down" onClick={this.showDropdownMenu} />
         {this.state.displayMenu ? (
           <ul>
-            <Link to="/">
-              <li>Profile</li>
-            </Link>
-            <hr />
-            <Link to="/article/create">
-              <li>Create Article</li>
-            </Link>
-            <hr />
-            <Link to="/">
-              <li>My Article</li>
-            </Link>
-            <hr />
-            <Link
-              to="/"
-              onClick={() => {
-                signOutUser();
-              }}
-            >
-              <li>Logout</li>
-            </Link>
+            <li>
+              <Link to="/">Profile</Link>
+            </li>
+            <li>
+              <Link to="/article/create">Create Article</Link>
+            </li>
+            <li>
+              <Link to="/">My Article </Link>
+            </li>
+
+            <li>
+              {' '}
+              <Link
+                to="/"
+                onClick={() => {
+                  signOutUser();
+                }}
+              >
+                Logout
+              </Link>
+            </li>
           </ul>
         ) : null}
       </div>

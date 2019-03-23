@@ -11,8 +11,9 @@ const createArticle = article => ({
   type: CREATE_ARTICLE,
   article
 });
-const createArticleFailure = () => ({
-  type: CREATE_ARTICLE_FAILURE
+const createArticleFailure = error => ({
+  type: CREATE_ARTICLE_FAILURE,
+  error
 });
 
 const createUserArticle = (data, { history }) => async (dispatch) => {
@@ -26,7 +27,6 @@ const createUserArticle = (data, { history }) => async (dispatch) => {
     history.push(`/articles/${article.slug}`);
   } catch ({ response }) {
     dispatch(createArticleFailure(response.data.message));
-    toast.error(<div>{response.data.message}</div>);
   }
 };
 

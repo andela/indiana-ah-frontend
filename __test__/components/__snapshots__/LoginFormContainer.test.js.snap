@@ -23,8 +23,12 @@ exports[`Login Form should match snapshot 1`] = `
     >
       <input
         className="sc-bdVaJa SMGVi"
+<<<<<<< HEAD
         id="email1"
         name="email"
+=======
+        id="email"
+>>>>>>> feat: change tag input field
         onChange={[Function]}
         placeholder="Email"
         required={true}
@@ -98,11 +102,7 @@ exports[`Login Form should match snapshot 1`] = `
             href="https://indiana-ah-staging.herokuapp.com/auth/google"
           >
             <i
-<<<<<<< HEAD
-              className="fa fa-lg fa-google-plus"
-=======
               className="fa fa-lg fa-google"
->>>>>>> fix: fix test failing
             />
           </a>
         </li>

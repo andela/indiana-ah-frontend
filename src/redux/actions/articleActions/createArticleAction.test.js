@@ -26,7 +26,9 @@ const initialState = {
   allArticles: [],
   error: ''
 };
-
+const error = {
+  message: '"articleTitle" is not allowed to be empty'
+};
 const rightArticle = {
   article: {
     articleTitle: 'This is Life, so sweet ggog hjut ',
@@ -58,7 +60,7 @@ describe('Action for creating article', () => {
   it('should call CREATE_ARTICLE_FAILURE action', async () => {
     mock
       .onPost('/articles')
-      .reply(400, { message: '"articleTitle" is not allowed to be empty' });
+      .reply(400, error.message);
 
     const expectedAction = [
       { type: CREATE_ARTICLE_LOADING },
