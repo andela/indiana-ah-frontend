@@ -162,7 +162,7 @@ is supported by 1.2 million members in the United States and close to 5 million 
 </div>
 <div className='h-50'>
 <h3 className='mb-4'>Bookmark Articles</h3>
-{ isVerified ? bookmarkListView : <p> You currently do not have any bookmarked Article </p>}
+{isVerified ? bookmarkListView : <p> You currently do not have any bookmarked Article </p>}
 </div>
 
 </div>
@@ -170,7 +170,7 @@ is supported by 1.2 million members in the United States and close to 5 million 
 </section>
 
 <section className='featured-articles-section'>
-<h1 className='mb-4 card-title-size'> Featured  articles </h1>
+<h1 className='mb-4 card-title-size'>Featured  articles</h1>
 <div className = 'card-container mb-5 mt-2'>
 {featuresView}
 </div>
@@ -183,7 +183,7 @@ is supported by 1.2 million members in the United States and close to 5 million 
 </div>
 </section>
 </main>
-<Footer />
+<Footer/>
 </Fragment>
     );
   }
