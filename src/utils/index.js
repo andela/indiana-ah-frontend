@@ -9,17 +9,29 @@ export const getUrl = (hostName) => {
 };
 
 export const apiInstance = axios.create({
-  baseURL: 'https://indiana-ah-staging.herokuapp.com/api/v1/',
+  baseURL: getUrl(window.location.hostname)
 });
 
-apiInstance.defaults.headers.common['x-auth-token'] = localStorage.getItem('token');
+// intercept api requests and add auth token to the request headers
+apiInstance.interceptors.request.use((apiConfig) => {
+  const token = localStorage.getItem('token');
+  const config = apiConfig;
+
+  if (token) config.headers['x-auth-token'] = token;
+  return config;
+});
 
 // fuction to check if token is valid
 export const validateToken = (token) => {
   try {
     const decoded = jwtDecode(token);
-    delete decoded.iat;
-    return decoded;
+
+    if (Date.now() / 1000 < decoded.exp) {
+      delete decoded.exp;
+      delete decoded.iat;
+      return decoded;
+    }
+    return false;
   } catch (error) {
     return false;
   }

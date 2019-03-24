@@ -102,7 +102,7 @@ describe('Auth action creators test', () => {
     const expectedActions = [
       { type: REGISTER_WITH_EMAIL_REQUEST },
       { type: REGISTER_WITH_EMAIL_SUCCESS },
-      { type: SET_CURRENT_USER, user: rightUserRegData }
+      { type: SET_CURRENT_USER, user: false }
     ];
 
     await store.dispatch(registerWithEmail(rightUserRegData, { closeModal, history }));
