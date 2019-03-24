@@ -9,11 +9,10 @@ export const getUrl = (hostName) => {
 };
 
 export const apiInstance = axios.create({
-  baseURL: getUrl(window.location.hostname),
-  headers: {
-    'x-auth-token': localStorage.getItem('token')
-  }
+  baseURL: 'https://indiana-ah-staging.herokuapp.com/api/v1/',
 });
+
+apiInstance.defaults.headers.common['x-auth-token'] = localStorage.getItem('token');
 
 // fuction to check if token is valid
 export const validateToken = (token) => {
