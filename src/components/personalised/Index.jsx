@@ -7,7 +7,7 @@ import CardComponent from '../common/CardComponent';
 import Footer from '../common/footer.jsx';
 import {
   getAllArticles,
-  getAllUsersBookMarkedArticles
+  getAllUsersBookMarkedArticles,
 } from '../../redux/actions/articleActions/articleActions';
 
 class PersonalisedViewComponent extends Component {
