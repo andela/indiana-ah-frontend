@@ -6,7 +6,7 @@ const CommentIconComponent = ({ commentCount }) => (
 <Fragment>
 <span className = 'icon-holder'>
 <img src = {CommentIcon} alt = 'CommentIcon' className= 'icon-color icon-height icon_margin'/>
-<sub className='count'>{commentCount === 0 ? '' : commentCount}</sub>
+<sub className='count'>{commentCount || ''}</sub>
 </span>
 </Fragment>
 );

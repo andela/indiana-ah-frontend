@@ -14,7 +14,7 @@ const CardComponent = ({
 <Fragment>
   <Card className='carousel-card card-style'>
   <div className='image-wrapper-card'>
-    <Card.Img variant='top' className='image-card-style' src= {img === null ? defaultImage : img}/>
+    <Card.Img variant='top' className='image-card-style' src= {img || defaultImage}/>
   </div>
   <Card.Body className='pb-0 card-body'>
   <div className='title-height'><b>{title}</b></div>

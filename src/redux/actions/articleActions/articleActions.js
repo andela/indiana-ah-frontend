@@ -33,10 +33,7 @@ export const getAllUsersBookMarkedArticles = () => async (dispatch) => {
   dispatch({ type: GET_ALL_BOOKMARKS_LOADING });
   try {
     const response = await sendHttpRequest('/users/bookmarks', 'GET');
-    if (response.message === 'You do not have any bookmarked article') {
-      return dispatch({ type: GET_ALL_BOOKMARKS, payload: [] });
-    }
-    return dispatch({ type: GET_ALL_BOOKMARKS, payload: response.userBookmarks });
+    return dispatch({ type: GET_ALL_BOOKMARKS, payload: response.userBookmarks || [] });
   } catch ({ response }) {
     dispatch({ type: GET_ALL_BOOKMARKS_FAILURE });
     return toast.error(
