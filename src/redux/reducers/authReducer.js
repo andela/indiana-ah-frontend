@@ -8,7 +8,10 @@ import {
   NETWORK_FAILURE,
   SET_CURRENT_USER,
   SIGN_OUT_USER,
-  REGISTER_WITH_SM
+  REGISTER_WITH_SM,
+  SEND_EMAIL_FAILURE,
+  SEND_EMAIL_LOADING,
+  SEND_EMAIL_SUCCESS
 } from '../actions/actionTypes';
 
 const initialState = {
@@ -63,6 +66,17 @@ const authReducer = (state = initialState, action) => {
         ...state,
         isAuthenticated: true
       };
+    case SEND_EMAIL_LOADING:
+      return { ...state, isLoading: true, error: '' };
+    case SEND_EMAIL_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        error: '',
+        isAuthenticated: true
+      };
+    case SEND_EMAIL_FAILURE:
+      return { ...state, isLoading: false, error: action.payload };
     default:
       return state;
   }

@@ -8,7 +8,10 @@ import {
   VERIFY_USER_SUCCESS,
   SET_CURRENT_USER,
   SIGN_OUT_USER,
-  NETWORK_FAILURE
+  NETWORK_FAILURE,
+  SEND_EMAIL_FAILURE,
+  SEND_EMAIL_LOADING,
+  SEND_EMAIL_SUCCESS
 } from '../../src/redux/actions/actionTypes';
 
 const initialState = {
@@ -90,7 +93,10 @@ describe('authReducer test', () => {
         user: { username: 'ozone', email: 'ozone@gmail.com' }
       })
     ).toEqual({
-      isLoading: false, isAuthenticated: true, error: '', isVerified: false
+      isLoading: false,
+      isAuthenticated: true,
+      error: '',
+      isVerified: false
     });
   });
 
@@ -109,5 +115,38 @@ describe('authReducer test', () => {
         payload: 'Network error'
       })
     ).toEqual({ ...initialState, error: 'Network error' });
+  });
+
+  it('should handle the SEND_EMAIL_LOADING action', () => {
+    expect(authReducer(initialState, { type: SEND_EMAIL_LOADING })).toEqual({
+      ...initialState,
+      isLoading: true
+    });
+  });
+
+  it('should handle the SEND_EMAIL_SUCCESS action', () => {
+    expect(
+      authReducer(initialState, {
+        type: SEND_EMAIL_SUCCESS
+      })
+    ).toEqual({
+      ...initialState,
+      isLoading: false,
+      error: '',
+      isAuthenticated: true
+    });
+  });
+
+  it('should handle the SEND_EMAIL_FAILURE action', () => {
+    expect(
+      authReducer(initialState, {
+        type: SEND_EMAIL_FAILURE,
+        payload: 'Email already taken'
+      })
+    ).toEqual({
+      ...initialState,
+      isLoading: false,
+      error: 'Access denied. You are not authorized to access this route'
+    });
   });
 });

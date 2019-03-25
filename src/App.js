@@ -17,6 +17,8 @@ import UserDashboard from './components/UserDashboard.jsx';
 import NotFound from './components/NotFound.jsx';
 import SingleArticlePage from './components/containers/SingleArticle.jsx';
 
+// import requireAuth from './utils/authenticate';
+import sendEmail from './components/SendVerificationEmail.jsx';
 
 const user = validateToken(window.localStorage.getItem('token'));
 if (user) {
@@ -43,6 +45,9 @@ const App = () => (
         <Route path="/articles/:id" component={SingleArticlePage} exact/>
         <Route path="/" component={homePage} exact />
         <Redirect to="/not-found" exact />
+        {/* <Route path="/" component={requireAuth(Indexpage)} exact /> */}
+        <Route path="/user/verify" component={sendEmail} />
+        <Redirect to="not-found" exact />
       </Switch>
     </Fragment>
   </BrowserRouter>
