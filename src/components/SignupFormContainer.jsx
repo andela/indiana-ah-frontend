@@ -99,7 +99,7 @@ export class SignupFormContainer extends Component {
           <InputField
             placeholder="Email"
             type="email"
-            id="email"
+            id="email2"
             value={email}
             errorMessage={errors.email}
             handleChange={this.handleChange}

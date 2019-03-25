@@ -23,7 +23,7 @@ exports[`Login Form should match snapshot 1`] = `
     >
       <input
         className="sc-bdVaJa SMGVi"
-        id="email"
+        id="email1"
         name="email"
         onChange={[Function]}
         placeholder="Email"
