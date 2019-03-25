@@ -6,7 +6,7 @@ const BookmarkComponent = ({ color }) => (
 <Fragment>
 <svg
      width='40'
-     height='40'
+     height='40'vg
      viewBox='0 0 40 40'
      xmlns='http://www.w3.org/2000/svg'>
      <g clipPath='url(#clip0)'>

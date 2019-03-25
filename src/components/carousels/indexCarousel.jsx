@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 import React from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import PropTypes from 'prop-types';
@@ -16,10 +15,10 @@ const IndexCarousel = ({ articles, isLoading }) => {
   const galleryItems = () => {
     if (isLoading) {
       return [<div className='carousel-spinner
-      spinner-grow spinner-grow-lg text-primary'></div>];
+      spinner-grow spinner-grow-lg text-primary' key='carousel'></div>];
     }
     if (!articles.length) {
-      return [<h1 className='text-center'>No Articles</h1>];
+      return [<h1 className='text-center' key='no articles'>No Articles</h1>];
     }
     return articles.map((article, index) => <CardComponent
       key={index}

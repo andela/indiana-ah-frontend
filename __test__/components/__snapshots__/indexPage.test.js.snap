@@ -3514,7 +3514,7 @@ Array [
           >
             <input
               className="sc-bdVaJa cUynHz"
-              id="email"
+              id="email2"
               name="email"
               onChange={[Function]}
               placeholder="Email"
