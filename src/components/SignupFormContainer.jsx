@@ -101,6 +101,7 @@ export class SignupFormContainer extends Component {
             placeholder="Email"
             type="email"
             id="email"
+            name="email"
             value={email}
             errorMessage={errors.email}
             handleChange={this.handleChange}
