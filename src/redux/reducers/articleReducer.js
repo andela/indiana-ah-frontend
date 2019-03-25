@@ -1,11 +1,14 @@
 import {
-  GET_ALL_ARTICLES, NO_ARTICLES, GET_ALL_ARTICLES_LOADING
+  GET_ALL_ARTICLES,
+  NO_ARTICLES,
+  GET_ALL_ARTICLES_LOADING,
+  GET_ALL_ARTICLES_ERROR
 } from '../actions/actionTypes';
 
 const initialState = {
   isLoading: false,
   allArticles: [],
-  error: ''
+  error: false
 };
 
 const articleReducer = (state = initialState, action) => {
@@ -14,7 +17,8 @@ const articleReducer = (state = initialState, action) => {
       return {
         ...state,
         allArticles: action.payload,
-        isLoading: false
+        isLoading: false,
+        error: false
       };
     case GET_ALL_ARTICLES_LOADING:
       return {
@@ -26,6 +30,14 @@ const articleReducer = (state = initialState, action) => {
         ...state,
         allArticles: action.payload,
         isLoading: false,
+        error: false
+      };
+    case GET_ALL_ARTICLES_ERROR:
+      return {
+        ...state,
+        allArticles: action.payload,
+        isLoading: false,
+        error: true
       };
     default:
       return state;

@@ -5,13 +5,16 @@ import LikeComponent from './LikeComponent';
 import DislikeComponent from './DislikeComponent';
 import CommentIconComponent from './CommentIconComponent';
 
+
+const defaultImage = 'https://images.unsplash.com/photo-1521120413309-42e7eada0334?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80';
+
 const CardComponent = ({
   img, title, text, likeCount, dislikeCount, commentCount
 }) => (
 <Fragment>
   <Card className='carousel-card card-style'>
   <div className='image-wrapper-card'>
-    <Card.Img variant='top' className='image-card-style' src= {img}/>
+    <Card.Img variant='top' className='image-card-style' src= {img === null ? defaultImage : img}/>
   </div>
   <Card.Body className='pb-0 card-body'>
   <div className='title-height'><b>{title}</b></div>
@@ -41,6 +44,12 @@ const CardComponent = ({
 </Card>
 </Fragment>
 );
+
+CardComponent.defaultProps = {
+  likeCount: 0,
+  dislikeCount: 0,
+  commentCount: 0,
+};
 
 CardComponent.propTypes = {
   img: PropTypes.string,
