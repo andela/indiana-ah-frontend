@@ -62,13 +62,6 @@ class UserArticles extends Component {
   }
 }
 
-UserArticles.propTypes = {
-  userData: PropTypes.object,
-  location: PropTypes.object,
-  getAllUserArticles: PropTypes.func,
-  allUserArticles: PropTypes.object
-};
-
 const mapStateToProps = state => ({
   allUserArticles: state.allUserArticles,
   userData: state.user.userData
@@ -76,10 +69,12 @@ const mapStateToProps = state => ({
 
 UserArticles.propTypes = {
   userData: PropTypes.object,
-  allUserArticles: PropTypes.array,
+  allUserArticles: PropTypes.object,
   getAllUserArticles: PropTypes.func,
   location: PropTypes.object
 };
+
+export { UserArticles };
 
 export default connect(
   mapStateToProps,

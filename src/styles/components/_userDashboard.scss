@@ -1,6 +1,7 @@
-
 .user-dashboard {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(12rem, 16.3rem) 1fr;
+  // display: flex;
   background: #f8f9ff;
   height: 100%;
   .user-articles-section {

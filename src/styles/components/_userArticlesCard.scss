@@ -3,7 +3,7 @@
   margin-bottom: 4rem !important;
   display: flex;
   flex-direction: row;
-  height: 25rem;
+  max-height: 25rem;
   .article-image-wrapper {
     width: 25%;
     .img-fluid {
@@ -16,7 +16,7 @@
     width: 75%;
     padding: 2rem 4rem 2rem 4rem;
   }
-  .article-title {
+  .article-title-div {
     height: 25%;
     font-style: normal;
     font-weight: 500;
@@ -27,7 +27,7 @@
     overflow: hidden;
   }
   .article-body {
-    height: 25%;
+    height: 30%;
     text-overflow: ellipsis;
     white-space: wrap;
     overflow: hidden;
@@ -36,7 +36,7 @@
   }
 
   .article-body:hover,
-  .article-title:hover {
+  .article-title-div:hover {
     color: gray;
   }
 
@@ -91,7 +91,7 @@
       height: 50%;
     }
 
-    .article-title {
+    .article-title-div {
       font-size: 2.5rem;
       height: 20%;
     }
@@ -104,7 +104,7 @@
     .icon-holder {
       margin-right: 1.4rem;
     }
-    .article-title {
+    .article-title-div {
       font-size: 1.7rem;
     }
 

@@ -8,7 +8,7 @@ export const getUrl = (hostName) => {
   return 'https://indiana-ah-staging.herokuapp.com/api/v1/';
 };
 
-export const apiInstance = axios.create({
+const apiInstance = axios.create({
   baseURL: getUrl(window.location.hostname)
 });
 
@@ -20,6 +20,8 @@ apiInstance.interceptors.request.use((apiConfig) => {
   if (token) config.headers['x-auth-token'] = token;
   return config;
 });
+
+export { apiInstance };
 
 // fuction to check if token is valid
 export const validateToken = (token) => {
