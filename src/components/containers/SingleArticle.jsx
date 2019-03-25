@@ -8,7 +8,7 @@ import LikeComponent from '../common/LikeComponent';
 import DislikeComponent from '../common/DislikeComponent';
 import CommentIconComponent from '../common/CommentIconComponent';
 
-export class SingleArticle extends Component {
+class SingleArticle extends Component {
   componentDidMount() {
     const { match, history } = this.props;
     const { slug } = match.params;
@@ -137,6 +137,8 @@ const mapStateToProps = state => ({
   auth: state.auth,
   user: state.user
 });
+
+export { SingleArticle };
 
 export default connect(
   mapStateToProps,
