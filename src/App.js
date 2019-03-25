@@ -15,6 +15,7 @@ import createArticle from './components/CreateArticle.jsx';
 import store from './redux/store';
 import UserDashboard from './components/UserDashboard.jsx';
 import SingleArticle from './components/containers/SingleArticle.jsx';
+import NotFound from './components/NotFound.jsx';
 
 const user = validateToken(window.localStorage.getItem('token'));
 if (user) {
@@ -38,6 +39,10 @@ const App = () => (
         <Route path="/article/create" component={createArticle} exact />
         <Route path="/dashboard" component={UserDashboard} />
         <Redirect to="not-found" exact />
+        {/* <Route path="not-found" component={NotFound} exact /> */}
+        <Route path="/" component={Indexpage} exact />
+        <Redirect to="not-found" />
+        <Footer />
       </Switch>
     </Fragment>
   </BrowserRouter>

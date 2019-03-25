@@ -13,7 +13,8 @@ const getSingleArticleReducer = (state = initialArticleState, { type, payload })
     case GET_SINGLE_ARTICLE_LOADING:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
+        article: {}
       };
     case GET_SINGLE_ARTICLE_SUCCESS:
       return {

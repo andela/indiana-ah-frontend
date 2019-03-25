@@ -16,16 +16,23 @@ import {
 const mock = new MockAdapter(apiInstance);
 const mockStore = configureMockStore([thunk]);
 const store = mockStore();
-
+const auth = {
+  isVerified: true
+};
+const user = {
+  userData: {
+    username: 'chuks'
+  }
+};
 const article = {
   article: {
     articleBody: '',
     articleTitle: '',
     tags: '',
     imageUrl: '',
-    Comments: '',
-    likes: '',
-    dislikes: '',
+    Comments: 5,
+    likes: 6,
+    dislikes: 3,
     author: '',
     createdAt: ''
   }
@@ -43,9 +50,16 @@ const match = {
   }
 };
 describe('<SingleArticle/>', () => {
-  it('should render the SingleArticle component with 9 divs', () => {
+  it('should render the SingleArticle component with 1 div', () => {
     const wrapper = shallow(
-      <SingleArticle singleArticle={article} match={match} getSingleArticle={mockFn} />
+      <SingleArticle
+        singleArticle={article}
+        user={user}
+        auth={auth}
+        match={match}
+        getSingleArticle={mockFn}
+        history = { history }
+      />
     );
     expect(wrapper.find('div.carousel-spinner').length).toEqual(1);
     article.article.tags = 'hey, hoo, hi';
@@ -69,7 +83,7 @@ describe('getSingleArticles reducer', () => {
     const successAction = {
       type: GET_SINGLE_ARTICLE_LOADING
     };
-    expect(reducer({}, successAction)).toEqual({ isLoading: true });
+    expect(reducer({}, successAction)).toEqual({ isLoading: true, article: {} });
   });
 
   it('should return all articles', () => {
