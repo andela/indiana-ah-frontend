@@ -103,7 +103,7 @@ UserArticleCard.propTypes = {
   tags: PropTypes.string.isRequired,
   likeCount: PropTypes.number.isRequired,
   dislikeCount: PropTypes.number.isRequired,
-  slug: PropTypes.string.isRequired,
+  slug: PropTypes.string,
   commentCount: PropTypes.number.isRequired
 };
 

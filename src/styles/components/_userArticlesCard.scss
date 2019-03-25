@@ -72,7 +72,7 @@
     }
   }
 
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 960px) {
     flex-direction: column;
     max-height: 50rem;
     .article-image-wrapper {
@@ -99,7 +99,7 @@
       margin-right: 2.2rem;
     }
   }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 800px) {
     height: 40rem;
     .icon-holder {
       margin-right: 1.4rem;
