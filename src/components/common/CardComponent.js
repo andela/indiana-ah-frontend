@@ -43,7 +43,7 @@ const CardComponent = ({
 );
 
 CardComponent.propTypes = {
-  img: PropTypes.string.isRequired,
+  img: PropTypes.string,
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   likeCount: PropTypes.number.isRequired,

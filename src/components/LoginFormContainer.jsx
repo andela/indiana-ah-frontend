@@ -26,7 +26,7 @@ export class LoginFormContainer extends Component {
 
   handleChange = ({ target: input }) => {
     const data = { ...this.state.data };
-    const field = input.id;
+    const field = input.name;
     data[field] = input.value;
     this.setState({ data });
   };
@@ -51,6 +51,7 @@ export class LoginFormContainer extends Component {
             placeholder="Email"
             type="email"
             id="email1"
+            name="email"
             value={email}
             handleChange={this.handleChange}
           />
@@ -58,6 +59,7 @@ export class LoginFormContainer extends Component {
             placeholder="Password"
             type="password"
             id="password"
+            name="password"
             value={password}
             handleChange={this.handleChange}
           />

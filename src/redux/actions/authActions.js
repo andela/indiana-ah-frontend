@@ -55,7 +55,6 @@ export const loginWithEmail = (data, { closeModal }) => async (dispatch) => {
       type: LOGIN_WITH_EMAIL_FAILURE,
       payload: response.data.message
     });
-    return response.data.message;
   }
 };
 

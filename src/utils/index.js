@@ -1,4 +1,3 @@
-/* eslint-disable no-confusing-arrow */
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 
@@ -60,9 +59,15 @@ export const setCurrentPage = (component) => {
   component.setState({ currentPage: page });
 };
 
+const sortLikes = (current, next) => {
+  if (current.like > next.like) return 1;
+  if (current.like < next.like) return -1;
+  return 0;
+};
+
 export const filterArticlesByLikes = (articles) => {
   const topArticles = articles
-    .sort((a, b) => (a.likes > b.likes ? 1 : a.likes < b.likes ? -1 : 0))
+    .sort(sortLikes)
     .slice(0, 7);
   return topArticles;
 };
