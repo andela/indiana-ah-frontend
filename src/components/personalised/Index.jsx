@@ -150,6 +150,7 @@ is supported by 1.2 million members in the United States and close to 5 million 
   title={eachCard.title}
   text={eachCard.text}
    />)}
+
 <div className='popular-bookmarked'>
 <div className='h-50 mb-5'>
 <h3 className='mb-4'>Popular Articles</h3>
