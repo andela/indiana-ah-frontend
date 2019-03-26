@@ -14,6 +14,7 @@ const initialState = {
 
 const mockStore = configureStore([thunk]);
 const store = mockStore(initialState);
+const mockFn = jest.fn();
 const event = {
   preventDefault: jest.fn()
 };
@@ -52,7 +53,7 @@ describe('Custom Navbar component test', () => {
     const wrapper = shallow(<NavBar {...initialState} signOutUser={jest.fn()} />);
     wrapper.instance().openModal();
     expect(wrapper.state().modalIsOpen).toEqual(true);
-    wrapper.instance().closeModal();
+    wrapper.instance().closeModal(mockFn);
     expect(wrapper.state().modalIsOpen).toEqual(false);
     wrapper.instance().displayForm('login');
     wrapper.instance().dropDown(event);
@@ -60,9 +61,5 @@ describe('Custom Navbar component test', () => {
     wrapper.instance().componentWillUnmount();
     wrapper.setProps({ auth: { isAuthenticated: true } });
     wrapper.setState({ dropDown: true });
-    wrapper
-      .find('Link')
-      .at(1)
-      .simulate('click');
   });
 });

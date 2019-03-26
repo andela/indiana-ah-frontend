@@ -2,7 +2,10 @@ import {
   GET_ALL_ARTICLES,
   NO_ARTICLES,
   GET_ALL_ARTICLES_LOADING,
-  GET_ALL_ARTICLES_ERROR
+  GET_ALL_ARTICLES_ERROR,
+  CREATE_ARTICLE,
+  CREATE_ARTICLE_LOADING,
+  CREATE_ARTICLE_FAILURE
 } from '../actions/actionTypes';
 
 const initialState = {
@@ -23,7 +26,7 @@ const articleReducer = (state = initialState, action) => {
     case GET_ALL_ARTICLES_LOADING:
       return {
         ...state,
-        isLoading: true,
+        isLoading: true
       };
     case NO_ARTICLES:
       return {
@@ -37,8 +40,17 @@ const articleReducer = (state = initialState, action) => {
         ...state,
         allArticles: action.payload,
         isLoading: false,
-        error: true
+        error: true,
       };
+    case CREATE_ARTICLE_LOADING:
+      return {
+        ...state,
+        isLoading: true
+      };
+    case CREATE_ARTICLE:
+      return { ...state, isLoading: false, allArticles: action.article };
+    case CREATE_ARTICLE_FAILURE:
+      return { ...state, isLoading: false };
     default:
       return state;
   }

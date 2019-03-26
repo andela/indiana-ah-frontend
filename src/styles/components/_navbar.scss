@@ -1,6 +1,6 @@
 nav a {
   font-size: 1.5rem;
-  font-family: "Alegreya", serif;
+  font-family: 'Alegreya', serif;
   color: #000000;
 }
 .notification-logo {
@@ -12,20 +12,76 @@ nav a {
   top: 15px;
   left: 340px;
 }
+.d-flex.ft-size-2.ml-5 {
+  margin-top: 1rem;
+}
+.input-group {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  margin: 1rem;
+  width: 40rem;
+}
+
+input.form-control {
+  width: 60rem;
+  height: 4.3rem;
+  border-right: unset;
+}
+input.form-control:focus {
+  outline: none;
+}
+.input-group-text {
+  background-color: unset;
+}
+.fa {
+  margin-right: unset;
+  color: gray;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.input-group > .form-control,
+.input-group > .form-control-plaintext {
+  font-size: 1.6rem;
+}
+
 .collapse {
   .navbar-nav {
     position: relative;
   }
 }
-@media (max-width: 900px) {
+@media (max-width: 90rem) {
   .show {
     display: flex !important;
     flex-direction: row !important;
     justify-content: space-around !important;
     padding: 0 1rem;
+    .input-group {
+      width: 25rem;
+    }
   }
 }
-@media (max-width: 400px) {
+@media (max-width: 60rem) {
+  .input-group {
+    width: 10rem;
+  }
+  .show {
+    padding: 0 0 !important;
+  }
+  .ml-5,
+  .mx-5 {
+    margin-left: 0rem !important;
+  }
+  span.username {
+    display: none !important;
+  }
+  .dropdown {
+    margin-right: 2rem;
+  }
   input {
     width: auto;
   }
@@ -40,16 +96,32 @@ nav a {
   .d-xs-none {
     display: none !important;
   }
-  .px-5, .pl-5 {
-    padding-right: 1.2rem!important;
-    padding-left: .8rem!important;
+  .px-5,
+  .pl-5 {
+    padding-right: 1.2rem !important;
+    padding-left: 0.8rem !important;
   }
 }
 
-@media (max-width: 355px) {
+@media (max-width: 35.5rem) {
   .navbar.navbar-expand-lg {
     .feather {
       width: 19rem;
     }
   }
+  .show .input-group {
+    width: 18rem;
+  }
+  .show {
+    padding: 0 0 !important;
+  }
+  .subscription .sub-form {
+    width: 27rem;
+  }
+  .modal-body {
+    position: relative;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1rem;
+}
 }

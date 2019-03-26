@@ -26,14 +26,9 @@ export const validateToken = (token) => {
   }
 };
 
-export const sendHttpRequest = async (url, method, data) => {
+export const sendHttpRequest = async (url, method, data, headers) => {
   const response = await apiInstance({
-    url,
-    method,
-    data,
-    headers: {
-      'x-auth-token': localStorage.getItem('token')
-    }
+    url, method, data, headers
   });
   return response.data;
 };
