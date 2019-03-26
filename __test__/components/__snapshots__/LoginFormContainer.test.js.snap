@@ -23,12 +23,8 @@ exports[`Login Form should match snapshot 1`] = `
     >
       <input
         className="sc-bdVaJa SMGVi"
-<<<<<<< HEAD
         id="email1"
         name="email"
-=======
-        id="email"
->>>>>>> feat: change tag input field
         onChange={[Function]}
         placeholder="Email"
         required={true}

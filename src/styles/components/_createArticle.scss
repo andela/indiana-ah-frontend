@@ -1,14 +1,3 @@
-// div.ReactTags__tags {
-//   position: relative;
-//   cursor: pointer;
-// }
-
-// /* Styles for the input */
-// div.ReactTags__tagInput {
-//   width: 20rem;
-//   border-radius: 0.2rem;
-//   display: inline-block;
-// }
 .quill {
   margin-top: 0.5rem;
 }
@@ -118,22 +107,6 @@ div.ql-editor[data-placeholder] {
 .image-button span {
   color: rgba(0, 0, 0, 0.34);
 }
-
-/* Styles for selected tags */
-// div.ReactTags__selected span.ReactTags__tag {
-//   border: 0.1rem solid #bbc5df;
-//   background: #ffff;
-//   display: inline-block;
-//   padding: 0.3rem;
-//   margin: 0.4rem;
-//   font-family: Alegreya;
-//   border-radius: 0.5rem;
-// }
-// div.ReactTags__selected a.ReactTags__remove {
-//   color: black;
-//   margin-left: 0.5rem;
-//   cursor: pointer !important;
-// }
 .ql-container.ql-snow {
   border: unset;
 }
@@ -204,10 +177,6 @@ textarea::placeholder {
   display: block;
   color: #ddd;
 }
-// input.ReactTags__tagInputField::placeholder {
-//   color: #ddd;
-//   font-family: 'Alegreya', sans-serif, Helvetica;
-// }
 textarea {
   border: unset;
   outline: none;
@@ -294,8 +263,6 @@ textarea {
 
 .hhMDti {
   background: #0b41cd;
-  /* font-size: 2rem; */
-  /* line-height: 2.7rem; */
   text-align: Center;
   -webkit-letterspacing: 5%;
   -moz-letterspacing: 5%;
@@ -359,8 +326,6 @@ textarea {
   }
   .article-button {
     display: flex;
-    /* margin: 0; */
-    /* justify-content: flex-start; */
   }
   .image-div img {
     width: 250px;

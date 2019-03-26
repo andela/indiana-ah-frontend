@@ -9,9 +9,11 @@ class Dropdown extends React.Component {
 
   showDropdownMenu = (event) => {
     event.preventDefault();
-    this.setState({ displayMenu: true }, () => {
-      document.addEventListener('click', this.hideDropdownMenu);
-    });
+    if (!this.state.displayMenu) {
+      this.setState({ displayMenu: true }, () => {
+        document.addEventListener('click', this.hideDropdownMenu);
+      });
+    }
   };
 
   hideDropdownMenu = () => {
@@ -25,7 +27,7 @@ class Dropdown extends React.Component {
     return (
       <div className="dropdown">
         <i className="fa fa-caret-down" onClick={this.showDropdownMenu} />
-        {this.state.displayMenu ? (
+        {this.state.displayMenu && (
           <ul>
             <li>
               <Link to="/">Profile</Link>
@@ -49,7 +51,7 @@ class Dropdown extends React.Component {
               </Link>
             </li>
           </ul>
-        ) : null}
+        )}
       </div>
     );
   }

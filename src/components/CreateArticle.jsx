@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReactQuill from 'react-quill';
-// import { WithContext as ReactTags } from 'react-tag-input';
 import { Circle } from 'better-react-spinkit';
 import { PropTypes } from 'prop-types';
 import 'react-quill/dist/quill.snow.css';
 import TagsInput from 'react-tagsinput';
-// import AutosizeInput from 'react-input-autosize';
 import createUserArticle from '../redux/actions/articleActions/createArticleAction';
 import Button from '../styles/styledComponents/Button.jsx';
 import 'react-tagsinput/react-tagsinput.css';
 
+const formData = new FormData();
 export class CreateArticle extends Component {
   state = {
     articleBody: '',
@@ -36,12 +35,14 @@ export class CreateArticle extends Component {
   handleArticleValidation = (articleTitle, articleBody, tags) => {
     const errors = {};
     let articleIsValid = true;
-    if (articleTitle.length < 5) {
+    const regexTitle = /[\S]/g;
+    const regexBody = /[\S]/g;
+    if (!regexTitle.test(articleTitle) && articleTitle.length < 5) {
       articleIsValid = false;
       errors.articleTitle = '*Article Title must be at least 5 character long';
     }
 
-    if (articleBody.length < 20) {
+    if (!regexBody.test(articleBody) && articleBody.length < 20) {
       articleIsValid = false;
       errors.articleBody = '*Article body must be of length geater than 20';
     }
@@ -81,17 +82,21 @@ export class CreateArticle extends Component {
     event.preventDefault();
     const data = { ...this.state };
     const { tags } = data;
-    const joinedTags = tags.join();
+    data.tags = tags.join();
 
-    data.tags = joinedTags;
-    const formData = new FormData();
     if (this.handleArticleValidation(data.articleTitle, data.articleBody, data.tags)) {
-      if (data.image) formData.append('image', data.image);
-      formData.append('articleTitle', data.articleTitle);
-      if (!data.tags === '') formData.append('tags', data.tags);
-      formData.append('articleBody', data.articleBody);
-
-      this.props.createUserArticle(formData, this.props);
+      if (!data.tags) {
+        if (data.image) formData.append('image', data.image);
+        formData.append('articleTitle', data.articleTitle);
+        formData.append('articleBody', data.articleBody);
+        this.props.createUserArticle(formData, this.props);
+      } else {
+        if (data.image) formData.append('image', data.image);
+        formData.append('articleTitle', data.articleTitle);
+        formData.append('articleBody', data.articleBody);
+        formData.append('tags', data.tags);
+        this.props.createUserArticle(formData, this.props);
+      }
     }
   };
 
@@ -126,17 +131,17 @@ export class CreateArticle extends Component {
                 />
               </label>
             </div>
-            {displayImage ? (
+            {displayImage && (
               <span>
                 <i className="fa fa-times" onClick={this.handleImageDelete} />
               </span>
-            ) : null}
+            )}
           </div>
-          {displayImage ? (
+          {displayImage && (
             <div className="image-div">
               <img className="upload-image" src={displayImage} />
             </div>
-          ) : null}
+          ) }
           <ReactQuill
             onChange={this.onChange}
             modules={CreateArticle.modules}
@@ -145,13 +150,15 @@ export class CreateArticle extends Component {
             className="react-quil"
           />
           <div className="errorMsg">{this.state.errors.articleBody}</div>
-          <div className="section-preview chips">
-            <span className="tag">Tags</span>
-            <TagsInput
-              value={tags}
-              onChange={this.handleAddition}
-              focusedClassName="tag-input-focus"
-            />
+          <div>
+            <div className="section-preview chips">
+              <span className="tag">Tags</span>
+              <TagsInput
+                value={tags}
+                onChange={this.handleAddition}
+                focusedClassName="tag-input-focus"
+              />
+            </div>
             <div className="errorMsgtag">{this.state.errors.tags}</div>
           </div>
 

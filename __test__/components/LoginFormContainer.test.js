@@ -50,7 +50,7 @@ describe('test the login container form', () => {
     input1.simulate('change', { target: { value: 'fafa@gmail.com' } });
     input2.simulate('change', { target: { value: 'fafasecret33' } });
     expect(wrapper.state('error')).toEqual('error logging in');
-    expect(wrapper.find('.text-danger')).toHaveLength(7);
+    expect(wrapper.find('.text-danger')).toHaveLength(5);
   });
   it('should simulate clicking the link that opens the register form', () => {
     const aTag = wrapper.find('a').at(3);

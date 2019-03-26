@@ -4,13 +4,12 @@ import Dropdown from '../../src/components/Dropdown.jsx';
 
 let wrapper;
 const mockFn = jest.fn();
-const event = { preventDefault() {}, target: { files: [] } };
+const event = { preventDefault() {}, displayMenu: false };
 
 describe('Test Dropdown Component', () => {
   it('Should render Properly', () => {
     wrapper = shallow(<Dropdown signOutUser={mockFn} />);
     expect(wrapper.exists()).toBe(true);
-
     wrapper.instance().showDropdownMenu(event);
     wrapper.instance().hideDropdownMenu(mockFn);
   });
