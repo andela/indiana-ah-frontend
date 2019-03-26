@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import renderer from 'react-test-renderer';
 import { LoginFormContainer } from '../../src/components/LoginFormContainer.jsx';
 
 jest.mock();
@@ -24,7 +25,7 @@ describe('test the login container form', () => {
     );
   });
   it('should match snap shot', () => {
-    const tree = mount(<LoginFormContainer {...props} />);
+    const tree = renderer.create(<LoginFormContainer {...props} />);
     expect(tree).toMatchSnapshot();
   });
   it('should simulate the handleSubmit', () => {
@@ -44,7 +45,7 @@ describe('test the login container form', () => {
     input1.simulate('change', { target: { value: 'fafa@gmail.com' } });
     input2.simulate('change', { target: { value: 'fafasecret33' } });
     expect(wrapper.state('error')).toEqual('error logging in');
-    expect(wrapper.find('.text-danger')).toHaveLength(5);
+    expect(wrapper.find('.text-danger')).toHaveLength(7);
   });
   it('should simulate clicking the link that opens the register form', () => {
     const aTag = wrapper.find('a').at(3);
