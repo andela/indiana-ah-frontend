@@ -125,7 +125,7 @@ describe('Auth action creators test', () => {
 
     const expectedActions = [
       { type: LOGIN_WITH_EMAIL_REQUEST },
-      { type: SET_CURRENT_USER, user: false },
+      { type: SET_CURRENT_USER, user: rightUserLoginData },
       { type: LOGIN_WITH_EMAIL_SUCCESS }
     ];
 
