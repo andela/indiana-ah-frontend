@@ -35,7 +35,7 @@ describe('user articles action creator test', () => {
     expect(store.getActions()).toEqual(expectedActions);
   });
 
-  it('should create the GET_ALL_USER_ARTICLES_FAILURE action id the api request failed', async () => {
+  it('should create the GET_ALL_USER_ARTICLES_FAILURE action if the api request failed', async () => {
     mock
       .onGet('/articles/user/tikuo?page=1&limit=4')
       .reply(404, { message: 'User not found' });
