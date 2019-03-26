@@ -21,7 +21,8 @@ const props = {
           dislikes: 0,
           Comments: [{ id: 'dkdjjdjd' }]
         }
-      ]
+      ],
+      totalNumberOfPages: 3
     }
   },
   getAllUserArticles: jest.fn()

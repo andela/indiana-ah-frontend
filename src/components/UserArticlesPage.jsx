@@ -11,25 +11,26 @@ import { setAndGetCurrentPage } from '../utils/index';
 class UserArticles extends Component {
   state = {};
 
+  username = this.props.userData.username;
+
   async componentDidUpdate(prevProps) {
     if (prevProps.location.search === this.props.location.search) return;
     const currentPage = setAndGetCurrentPage(this);
-    const { username } = this.props.userData;
     const query = `page=${currentPage}&limit=4`;
-    await this.props.getAllUserArticles(username, query);
+    await this.props.getAllUserArticles(this.username, query);
     window.scrollTo(0, 0);
   }
 
   componentDidMount() {
-    const { username } = this.props.userData;
     const currentPage = setAndGetCurrentPage(this);
     const query = `page=${currentPage}&limit=4`;
-    this.props.getAllUserArticles(username, query);
+    this.props.getAllUserArticles(this.username, query);
   }
 
   render() {
     const { currentPage } = this.state;
     const { allUserArticles } = this.props;
+    const numberOfPages = allUserArticles.articleData.totalNumberOfPages;
     if (!Object.keys(allUserArticles.articleData).length) return <TopBarProgress />;
     if (allUserArticles.articleData.message) return <h2>You have no articles</h2>;
     return (
@@ -41,7 +42,7 @@ class UserArticles extends Component {
             key={index}
             img={
               article.imageUrl
-              || 'https://images.unsplash.com/photo-1552926419-96c4628afd8c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'
+              || 'https://images.pexels.com/photos/1438190/pexels-photo-1438190.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
             }
             articleTitle={article.articleTitle}
             articleBody={article.articleBody}
@@ -53,10 +54,9 @@ class UserArticles extends Component {
             timeCount={moment(article.createdAt).fromNow()}
           />
         ))}
-        <Pagination
-          numberOfPages={allUserArticles.articleData.totalNumberOfPages}
-          currentPage={currentPage}
-        />
+        {numberOfPages > 1 && (
+          <Pagination numberOfPages={numberOfPages} currentPage={currentPage} />
+        )}
       </div>
     );
   }
