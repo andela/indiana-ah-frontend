@@ -116,11 +116,14 @@
     .icon-height {
       height: 2rem;
     }
-    .action-button {
-      display: none;
-    }
     .badge {
       padding: 1rem;
+    }
+
+    @media screen and (max-width: 400px) {
+      .action-button {
+        display: none;
+      }
     }
   }
 }

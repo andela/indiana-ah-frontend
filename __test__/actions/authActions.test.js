@@ -52,7 +52,7 @@ const rightUserLoginData = {
 };
 const expectedLoginResponseDataReg = {
   message: 'successfully logged in',
-  token: jwt.sign(rightUserLoginData, 'ejrjrroor')
+  token: jwt.sign(rightUserLoginData, 'ejrjrroor', { expiresIn: '24hrs' })
 };
 const expectedResponseDataReg = {
   message: `Successfully registered to Authors haven.
@@ -125,7 +125,7 @@ describe('Auth action creators test', () => {
 
     const expectedActions = [
       { type: LOGIN_WITH_EMAIL_REQUEST },
-      { type: SET_CURRENT_USER, user: rightUserLoginData },
+      { type: SET_CURRENT_USER, user: false },
       { type: LOGIN_WITH_EMAIL_SUCCESS }
     ];
 
