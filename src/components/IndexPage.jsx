@@ -7,7 +7,7 @@ import LoginContainer from './LoginFormContainer.jsx';
 import Modal from './common/Modal.jsx';
 import Button from '../styles/styledComponents/Button.jsx';
 import IndexForm from './forms/indexForm.jsx';
-import getAllArticles from '../redux/actions/articleActions/articleActions';
+import { getAllArticles } from '../redux/actions/articleActions/articleActions';
 import { filterArticlesByLikes, filterArticlesByDate } from '../utils/index';
 import IndexCarousel from './carousels/indexCarousel.jsx';
 import {

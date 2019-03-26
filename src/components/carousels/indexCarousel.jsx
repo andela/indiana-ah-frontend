@@ -1,5 +1,6 @@
 import React from 'react';
 import AliceCarousel from 'react-alice-carousel';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import CardComponent from '../common/CardComponent';
 import 'react-alice-carousel/lib/alice-carousel.css';
@@ -20,15 +21,16 @@ const IndexCarousel = ({ articles, isLoading }) => {
     if (!articles.length) {
       return [<h1 className='text-center' key='no articles'>No Articles</h1>];
     }
-    return articles.map((article, index) => <CardComponent
-      key={index}
+    return articles.map((article, index) => <Link to ={`/articles/${article.slug}`} key= {index}>
+    <CardComponent
       img={article.imageUrl}
-      commentCount={20}
+      commentCount={article.commentCount}
       likeCount={article.likes}
       dislikeCount={article.dislikes}
       title={article.articleTitle}
       text={`${article.articleBody.slice(0, 150)}...`}
-    />);
+    />
+    </Link>);
   };
 
   return (

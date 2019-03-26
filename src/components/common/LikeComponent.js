@@ -67,7 +67,7 @@ const LikeComponent = ({ likeCount, color }) => (
 <Fragment>
 <span className = 'icon-holder'>
  {likeSvg(color)}
-<sub className='count'>{likeCount}</sub>
+ <sub className='count'>{likeCount || ''}</sub>
 </span>
 </Fragment>
 );

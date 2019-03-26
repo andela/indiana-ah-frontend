@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import ClockIcon from '../../images/icons/clock.png';
+import ClockIcon from '../../assets/images/icons/clock.png';
 
 const TimerComponent = ({ timeCount }) => (
 <Fragment>

@@ -10,7 +10,7 @@
   
 .card-container{
 display: flex;
-justify-content: center;
+justify-content: space-between;
 }
 .card-body {
   padding: 2rem;
@@ -23,21 +23,21 @@ justify-content: center;
 }
 
 .title-height{
-  height:25px
+  height:25px;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow:ellipsis;
 }
 .text-height{
-  height:80px;
-  word-wrap: break-word;
-}
-
-.text-height p{
-  height:60px;
+  height:85px;
   text-align: justify;
-  text-overflow: ellipsis; 
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow:ellipsis;
 }
 
-.card-container .card:not(:last-child){
-  margin-right: 1.5rem  
+.card-container .card:not(:last-child), .card-container a:not(:last-child){
+  margin-right: 1rem  
 }
 
 .top-content{
