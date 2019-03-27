@@ -1,15 +1,14 @@
 .sidenav {
-  background-color: whitesmoke;
+  background-color: rgba(255, 255, 255, 1);
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  height: 65rem;
-  width: 15%;
+  width: 100%;
 }
 
 .is-active {
-  border-right: 3px solid #0B41CD;
+  border-right: 3px solid #0b41cd;
 }
 
 .sidenav__logo-box {
@@ -18,10 +17,11 @@
   align-items: center;
   width: 100%;
   text-decoration: none;
+  margin-top: 12rem;
 }
 
 .sidenav__logo-box:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .is-active > .sidenav__logo-label {
@@ -30,10 +30,21 @@
 }
 
 .sidenav__logo-label {
-  margin: .5rem;
+  margin: 0.5rem;
   color: grey;
 }
 
 .sideNavLogos {
   height: 5.5rem;
+}
+
+@media (max-width: 800px) {
+  .sidenav {
+    visibility: hidden;
+    position: absolute;
+    transition: all 0.3s;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
 }

@@ -13,7 +13,9 @@ import initialState from '../../__fixtures__/indexPage';
 import {
   GET_ALL_ARTICLES,
   NO_ARTICLES,
-  GET_ALL_ARTICLES_LOADING
+  GET_ALL_ARTICLES_LOADING,
+  GET_ALL_ARTICLES_ERROR,
+  CREATE_ARTICLE
 } from '../../src/redux/actions/actionTypes';
 
 const mockStore = configureStore([thunk]);
@@ -22,6 +24,15 @@ const onChange = jest.fn();
 const getAllArticles = jest.fn();
 let connectedIndexPage;
 let articles;
+const all = {
+  articles: [
+    {
+      article: {
+        good: ''
+      }
+    }
+  ]
+};
 
 describe('Index page component', () => {
   it('renders correctly', () => {
@@ -74,7 +85,7 @@ describe('articles reducer', () => {
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual({
       allArticles: [],
-      error: '',
+      error: false,
       isLoading: false
     });
   });
@@ -85,7 +96,8 @@ describe('articles reducer', () => {
     };
     expect(reducer({}, successAction)).toEqual({
       allArticles: articles,
-      isLoading: false
+      isLoading: false,
+      error: false
     });
   });
   it('should return loading', () => {
@@ -99,6 +111,25 @@ describe('articles reducer', () => {
       type: NO_ARTICLES,
       payload: []
     };
+    expect(reducer({}, successAction)).toEqual({
+      allArticles: [],
+      isLoading: false,
+      error: false
+    });
+  });
+  it('should handle error in fetching articles', () => {
+    const failureAction = {
+      type: GET_ALL_ARTICLES_ERROR,
+      isLoading: false,
+      error: true
+    };
+    expect(reducer({}, failureAction)).toEqual({ isLoading: false, error: true });
+  });
+  it('should return no articles', () => {
+    const successAction = {
+      type: CREATE_ARTICLE,
+      article: []
+    };
     expect(reducer({}, successAction)).toEqual({ allArticles: [], isLoading: false });
   });
 });
@@ -110,5 +141,11 @@ describe('Index subscribe form', () => {
     input.instance().value = 'yinks@gmail.com';
     input.simulate('change');
     expect(indexForm.state().email).toEqual('yinks@gmail.com');
+  });
+});
+describe('Index subscribe form', () => {
+  it('should change state', () => {
+    const tree = shallow(<IndexCarousel articles={all} />);
+    expect(tree.exists()).toBe(true);
   });
 });

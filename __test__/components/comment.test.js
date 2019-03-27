@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-expressions */
-/* eslint-disable no-undef */
 import React from 'react';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
@@ -12,6 +10,10 @@ describe('<CommentIconComponent />', () => {
     expect(wrapper.find('span')).toHaveLength(1);
     expect(wrapper.find('img')).toHaveLength(1);
     expect(wrapper.find('sub')).toHaveLength(1);
+  });
+  const commentwrapper = shallow(<CommentIconComponent commentCount={0} />);
+  it('should not render a comment count if it is zero', () => {
+    expect(commentwrapper.find('sub').text()).toEqual('');
   });
   it('renders correctly', () => {
     const tree = renderer.create(<CommentIconComponent commentCount={5} />).toJSON();

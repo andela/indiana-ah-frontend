@@ -39,29 +39,30 @@ describe('social auth reducer', () => {
   });
   it('should setup reducer to login with social media', () => {
     const successAction = {
-      type: REGISTER_WITH_SM,
+      type: REGISTER_WITH_SM
     };
     expect(reducer({}, successAction)).toEqual({
-      isAuthenticated: true,
+      isAuthenticated: true
     });
   });
 });
 
 describe('Auth action creators test', () => {
-  const token = jwt.sign({ name: 'omenkish' }, 'yeeeeeeeeeeee');
+  const token = jwt.sign({ name: 'omenkish' }, 'yeeeeeeeeeeee', { expiresIn: '24hrs' });
   beforeEach(() => {
     store.clearActions();
   });
 
   it('should create the REGISTER_WITH_SM and SET_CURRENT_USER actions', () => {
     store.dispatch(loginWithSocialMedia(token));
-    expect(store.getActions()).toEqual([{
-      type: SET_CURRENT_USER,
-      user: {
-        name: 'omenkish',
-      }
-    },
-    { type: REGISTER_WITH_SM }
+    expect(store.getActions()).toEqual([
+      {
+        type: SET_CURRENT_USER,
+        user: {
+          name: 'omenkish'
+        }
+      },
+      { type: REGISTER_WITH_SM }
     ]);
   });
 

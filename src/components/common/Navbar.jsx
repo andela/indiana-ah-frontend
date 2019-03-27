@@ -2,21 +2,17 @@ import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Navbar, Nav } from 'react-bootstrap';
+import {
+  Navbar, Nav, InputGroup, FormControl
+} from 'react-bootstrap';
 import SignupContainer from '../SignupFormContainer.jsx';
 import LoginContainer from '../LoginFormContainer.jsx';
 import Modal from './Modal.jsx';
 import { ProfileImg, ImageLogo } from '../../styles/styledComponents/Navigation.jsx';
-import {
-  customLogo,
-  searchIcon,
-  notificationIcon,
-  profile,
-  dropDownIcon
-} from '../../assets/images/svg';
+import { customLogo, profile } from '../../assets/images/svg';
 import Button from '../../styles/styledComponents/Button.jsx';
-import InputField from './input/InputComponent.jsx';
 import { signOutUser } from '../../redux/actions/authActions';
+import Dropdown from '../Dropdown.jsx';
 
 export class NavBar extends Component {
   state = {
@@ -60,36 +56,15 @@ export class NavBar extends Component {
   render() {
     const { user, auth } = this.props;
     const userLInk = (
-      <Nav>
-        <img
-          className="ml-auto d-none d-md-none d-xs-none d-lg-block"
-          src={notificationIcon}
-        />
-        <ProfileImg
-          src={profile}
-          className="ml-5 mt-2 d-none d-md-none d-xs-none d-lg-block"
-          alt="logo"
-        />
-        <div to="/signup" className="d-flex ft-size-2 ml-5
-          align-items-center text-capitalize">
-          {user.userData.name || user.userData.username}
-          <img
-            className="mx-3 d-none d-md-none d-lg-block d-xs-none"
-            src={dropDownIcon}
-            onClick={this.dropDown}
-          />
-          {this.state.dropDown && (
-            <div className="dropDown-menu">
-              <Link
-                to="/"
-                onClick={() => {
-                  this.props.signOutUser();
-                }}
-              >
-                Logout
-              </Link>
-            </div>
-          )}
+      <Nav className="d-flex flex-row justify-content-between">
+        <ProfileImg src={profile} className="ml-5 mt-2" alt="logo" />
+        <div to="/signup" className="d-flex ft-size-2 ml-5">
+          <span className="username ml-3">
+            {' '}
+            {user.userData.name || user.userData.username}
+          </span>
+          <span style={{ padding: '0 0.3em' }} />
+          <Dropdown signOutUser={this.props.signOutUser} />
         </div>
       </Nav>
     );
@@ -106,15 +81,14 @@ export class NavBar extends Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto ml-5">
-              <InputField
-                type="text"
-                id="search"
-                value=""
-                placeholder="search"
-                handleChange={() => {}}
-                width="38rem"
-              />
-              <img className="search-logo" src={searchIcon} />
+              <InputGroup className="mb-3">
+                <FormControl placeholder="Search" aria-describedby="basic-addon2" />
+                <InputGroup.Append>
+                  <InputGroup.Text id="basic-addon2">
+                    <i className="fa fa-search" />
+                  </InputGroup.Text>
+                </InputGroup.Append>
+              </InputGroup>
             </Nav>
             {auth.isAuthenticated ? (
               userLInk

@@ -51,7 +51,7 @@ export class SignupFormContainer extends Component {
   handleChange = ({ target: input }) => {
     const data = { ...this.state.data };
     const errors = { ...this.state.errors };
-    const field = input.id;
+    const field = input.name;
     data[field] = input.value;
     errors[field] = '';
     this.setState({ data, errors });
@@ -60,7 +60,7 @@ export class SignupFormContainer extends Component {
   handleBlur = ({ target: input }) => {
     const data = { ...this.state.data };
     const errors = { ...this.state.errors };
-    const field = input.id;
+    const field = input.name;
 
     if (!signUpFormSchema[field].test(data[field])) {
       errors[field] = validationMessages[field];
@@ -82,15 +82,16 @@ export class SignupFormContainer extends Component {
     } = this.props;
     return (
       <div className="signup-form-container">
-      <h3 className="text-center mt-5">
-      <img src={logo} alt='facebook logo' className="signup-title" />
-      <hr/>
-      </h3>
-        <form onSubmit={this.handleSubmit} className='signup-form'>
+        <h3 className="text-center mt-5">
+          <img src={logo} alt="facebook logo" className="signup-title" />
+          <hr />
+        </h3>
+        <form onSubmit={this.handleSubmit} className="signup-form">
           <InputField
             placeholder="Username"
             type="text"
             id="username"
+            name="username"
             value={username}
             errorMessage={errors.username}
             handleChange={this.handleChange}
@@ -99,7 +100,8 @@ export class SignupFormContainer extends Component {
           <InputField
             placeholder="Email"
             type="email"
-            id="email2"
+            id="email"
+            name="email"
             value={email}
             errorMessage={errors.email}
             handleChange={this.handleChange}
@@ -110,50 +112,56 @@ export class SignupFormContainer extends Component {
             type="password"
             id="password"
             value={password}
+            name="password"
             errorMessage={errors.password}
             handleChange={this.handleChange}
             onBlur={this.handleBlur}
           />
-          <Button type="submit" disabled={isLoading} bgColor width={'95%'}
-            margin={'auto'} height={'4.8rem'} sm>
+          <Button
+            type="submit"
+            disabled={isLoading}
+            bgColor
+            width={'95%'}
+            margin={'auto'}
+            height={'4.8rem'}
+            sm
+          >
             Sign up
-              {isLoading && (
+            {isLoading && (
               <span style={{ float: 'right', padding: '3px 3px 0 10px' }}>
                 <Circle color={'rgba(255,255,255,1)'} />
               </span>
-              )}
+            )}
           </Button>
         </form>
         <div className="signup-form">
-        <div className="social">
+          <div className="social">
             <ul>
-            <li className="social-auth">
-              Or Signup Using:
-              </li>
+              <li className="social-auth">Or Signup Using:</li>
               <li>
-              <a href="https://indiana-ah-staging.herokuapp.com/auth/facebook">
+                <a href="https://indiana-ah-staging.herokuapp.com/auth/facebook">
                   <i className="fa fa-lg fa-facebook" />
                 </a>
               </li>
               <li>
-              <a href="https://indiana-ah-staging.herokuapp.com/auth/twitter">
+                <a href="https://indiana-ah-staging.herokuapp.com/auth/twitter">
                   <i className="fa fa-lg fa-twitter" />
                 </a>
               </li>
               <li>
               <a href="https://indiana-ah-staging.herokuapp.com/auth/google">
-                  <i className="fa fa-lg fa-google-plus" />
+                  <i className="fa fa-lg fa-google" />
                 </a>
               </li>
             </ul>
           </div>
         </div>
-        <p className='text-center'>By signing up, you agree to our terms and condition</p>
+        <p className="text-center">By signing up, you agree to our terms and condition</p>
         <div className="d-flex justify-content-center bg-light w-100 p-4 mt-3">
           Have an account?
-              <a onClick={() => displayForm('login')} href="#" className='ml-2'>
+          <a onClick={() => displayForm('login')} href="#" className="ml-2">
             Login
-              </a>
+          </a>
         </div>
       </div>
     );

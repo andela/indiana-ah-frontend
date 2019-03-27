@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Login Form should match snapshot 1`] = `
+exports[`test the login container form should match snap shot 1`] = `
 <div
   className="signup-form-container"
 >
@@ -24,6 +24,7 @@ exports[`Login Form should match snapshot 1`] = `
       <input
         className="sc-bdVaJa SMGVi"
         id="email1"
+        name="email"
         onChange={[Function]}
         placeholder="Email"
         required={true}
@@ -40,6 +41,7 @@ exports[`Login Form should match snapshot 1`] = `
       <input
         className="sc-bdVaJa SMGVi"
         id="password"
+        name="password"
         onChange={[Function]}
         placeholder="Password"
         required={true}
@@ -96,7 +98,7 @@ exports[`Login Form should match snapshot 1`] = `
             href="https://indiana-ah-staging.herokuapp.com/auth/google"
           >
             <i
-              className="fa fa-lg fa-google-plus"
+              className="fa fa-lg fa-google"
             />
           </a>
         </li>

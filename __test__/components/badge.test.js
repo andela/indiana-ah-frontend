@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-expressions */
-/* eslint-disable no-undef */
 import React from 'react';
 import { shallow } from 'enzyme';
 import Badge from 'react-bootstrap/Badge';
@@ -9,6 +7,6 @@ describe('<BadgeComponent />', () => {
   const wrapper = shallow(<BadgeComponent eachTagDetail='abiola' />);
   it('should render a badge component', () => {
     expect(wrapper.length).toEqual(1);
-    expect(wrapper.find(Badge)).toHaveLength;
+    expect(wrapper.find(Badge)).toHaveLength(1);
   });
 });

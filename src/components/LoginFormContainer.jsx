@@ -26,7 +26,7 @@ export class LoginFormContainer extends Component {
 
   handleChange = ({ target: input }) => {
     const data = { ...this.state.data };
-    const field = input.id;
+    const field = input.name;
     data[field] = input.value;
     this.setState({ data });
   };
@@ -42,15 +42,16 @@ export class LoginFormContainer extends Component {
     } = this.props;
     return (
       <div className="signup-form-container">
-       <h3 className="text-center mt-5">
-      <img src={logo} alt='facebook logo' className="signup-title" />
-      <hr/>
-      </h3>
+        <h3 className="text-center mt-5">
+          <img src={logo} alt="facebook logo" className="signup-title" />
+          <hr />
+        </h3>
         <form onSubmit={this.handleSubmit} className="signup-form">
           <InputField
             placeholder="Email"
             type="email"
             id="email1"
+            name="email"
             value={email}
             handleChange={this.handleChange}
           />
@@ -58,6 +59,7 @@ export class LoginFormContainer extends Component {
             placeholder="Password"
             type="password"
             id="password"
+            name="password"
             value={password}
             handleChange={this.handleChange}
           />
@@ -69,8 +71,7 @@ export class LoginFormContainer extends Component {
             width={'95%'}
             margin={'auto'}
             height={'4.8rem'}
-            sm
-          >
+            sm>
             login
             {isLoading && (
               <span style={{ float: 'right', padding: '3px 3px 0 10px' }}>
@@ -82,22 +83,20 @@ export class LoginFormContainer extends Component {
         <div className="signup-form">
           <div className="social">
             <ul>
-            <li className="social-auth">
-              Or Login Using:
-              </li>
+              <li className="social-auth">Or Login Using:</li>
               <li>
-              <a href="https://indiana-ah-staging.herokuapp.com/auth/facebook">
+                <a href="https://indiana-ah-staging.herokuapp.com/auth/facebook">
                   <i className="fa fa-lg fa-facebook" />
                 </a>
               </li>
               <li>
-              <a href="https://indiana-ah-staging.herokuapp.com/auth/twitter">
+                <a href="https://indiana-ah-staging.herokuapp.com/auth/twitter">
                   <i className="fa fa-lg fa-twitter" />
                 </a>
               </li>
               <li>
-              <a href="https://indiana-ah-staging.herokuapp.com/auth/google">
-                  <i className="fa fa-lg fa-google-plus" />
+                <a href="https://indiana-ah-staging.herokuapp.com/auth/google">
+                  <i className="fa fa-lg fa-google" />
                 </a>
               </li>
             </ul>

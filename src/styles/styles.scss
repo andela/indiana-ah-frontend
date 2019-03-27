@@ -2,7 +2,7 @@
 @import './base/base';
 @import './components/container';
 @import './components/footer';
-@import './components/tag';
+@import './components/createArticle';
 @import './components/modal';
 @import './components/indexPage';
 @import './components/pagination';
@@ -12,3 +12,11 @@
 @import './components/navbar';
 @import './components/form';
 @import './components/signupForm';
+@import './components/personalised';
+@import './components/dropdown';
+@import './components/userDashboard';
+@import './components/tabNav';
+@import '/components/userArticlesCard';
+@import '/components/userVerificationPage';
+@import './components/singleArticle';
+@import './components/notFound';

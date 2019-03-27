@@ -15,3 +15,5 @@ export { default as dropDownIcon } from './dropDownIcon.svg';
 export { default as sideNavArticlesLogo } from './sideNavArticles.svg';
 export { default as sideNavProfileLogo } from './sideNavProfile.svg';
 export { default as sideNavStatisticsLogo } from './sideNavStatistics.svg';
+export { default as bookmarkLogo } from './bookmarkLogo.svg';
+export { default as notFoundImage } from './notFoundPage.svg';
