@@ -11,7 +11,10 @@ import {
   REGISTER_WITH_SM,
   SEND_EMAIL_FAILURE,
   SEND_EMAIL_LOADING,
-  SEND_EMAIL_SUCCESS
+  SEND_EMAIL_SUCCESS,
+  LOGIN_WITH_EMAIL_FAILURE,
+  LOGIN_WITH_EMAIL_REQUEST,
+  LOGIN_WITH_EMAIL_SUCCESS
 } from '../actions/actionTypes';
 
 const initialState = {
@@ -76,7 +79,18 @@ const authReducer = (state = initialState, action) => {
         isAuthenticated: true
       };
     case SEND_EMAIL_FAILURE:
+      return { ...state, isLoading: false };
+    case LOGIN_WITH_EMAIL_REQUEST:
+      return { ...state, isLoading: true, error: '' };
+    case LOGIN_WITH_EMAIL_FAILURE:
       return { ...state, isLoading: false, error: action.payload };
+    case LOGIN_WITH_EMAIL_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        error: '',
+        isAuthenticated: true
+      };
     default:
       return state;
   }

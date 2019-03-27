@@ -16,9 +16,9 @@ import store from './redux/store';
 import UserDashboard from './components/UserDashboard.jsx';
 import NotFound from './components/NotFound.jsx';
 import SingleArticlePage from './components/containers/SingleArticle.jsx';
+import requireAuth from './utils/authenticate';
+import emailVerificationPage from './components/EmailVerificationPage.jsx';
 
-// import requireAuth from './utils/authenticate';
-import sendEmail from './components/SendVerificationEmail.jsx';
 
 const user = validateToken(window.localStorage.getItem('token'));
 if (user) {
@@ -39,14 +39,12 @@ const App = () => (
         <Route path="/articles/:slug" component={SingleArticlePage} />
         <Route path="/verifyUser" component={UserVerificationpage} />
         <Route path="/not-found" component={NotFound} exact />
-        <Route path="/article/create" component={createArticle} exact />
-        <Route path="/dashboard" component={UserDashboard} />
         <Route path="/social-auth" component={SocialAuthPage} />
         <Route path="/articles/:id" component={SingleArticlePage} exact/>
         <Route path="/" component={homePage} exact />
-        <Redirect to="/not-found" exact />
-        {/* <Route path="/" component={requireAuth(Indexpage)} exact /> */}
-        <Route path="/user/verify" component={sendEmail} />
+        <Route path="/article/create" component={requireAuth(createArticle)} exact />
+        <Route path="/dashboard" component={requireAuth(UserDashboard)} />
+        <Route path="/user/verify" component={emailVerificationPage} />
         <Redirect to="not-found" exact />
       </Switch>
     </Fragment>

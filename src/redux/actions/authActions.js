@@ -110,8 +110,7 @@ export const sendUserEmail = ({ history }) => async (dispatch) => {
     dispatch({ type: SEND_EMAIL_SUCCESS });
     toast.success(<div>{message}</div>);
     history.push('/');
-  } catch ({ response }) {
+  } catch (res) {
     dispatch({ type: SEND_EMAIL_FAILURE });
-    toast.error(<div>Network Failure</div>);
   }
 };

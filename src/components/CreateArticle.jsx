@@ -9,7 +9,6 @@ import createUserArticle from '../redux/actions/articleActions/createArticleActi
 import Button from '../styles/styledComponents/Button.jsx';
 import 'react-tagsinput/react-tagsinput.css';
 
-const formData = new FormData();
 export class CreateArticle extends Component {
   state = {
     articleBody: '',
@@ -18,8 +17,13 @@ export class CreateArticle extends Component {
     image: null,
     tag: '',
     displayImage: null,
-    errors: {}
+    errors: {},
+    formData: null
   };
+
+  componentDidMount() {
+    this.setState({ formData: new FormData() });
+  }
 
   onChange = (value) => {
     this.setState({ articleBody: value });
@@ -35,21 +39,20 @@ export class CreateArticle extends Component {
   handleArticleValidation = (articleTitle, articleBody, tags) => {
     const errors = {};
     let articleIsValid = true;
-    const regexTitle = /[\S]/g;
-    const regexBody = /[\S]/g;
-    if (!regexTitle.test(articleTitle) && articleTitle.length < 5) {
+
+    if (articleTitle.replace(/\s/g, '').length < 5) {
       articleIsValid = false;
-      errors.articleTitle = '*Article Title must be at least 5 character long';
+      errors.articleTitle = '*Article Title must be at least 5 characters long';
     }
 
-    if (!regexBody.test(articleBody) && articleBody.length < 20) {
+    if (articleBody.replace(/\s/g, '').length < 20) {
       articleIsValid = false;
-      errors.articleBody = '*Article body must be of length geater than 20';
+      errors.articleBody = '*Article body must be at least 20 characters long';
     }
     if (tags !== '') {
       if (tags.length < 2) {
         articleIsValid = false;
-        errors.tags = '*Tag must be of length greater than or equal to 2';
+        errors.tags = '*Tag must be at least 2 characters long';
       }
     }
     this.setState({
@@ -83,6 +86,8 @@ export class CreateArticle extends Component {
     const data = { ...this.state };
     const { tags } = data;
     data.tags = tags.join();
+
+    const { formData } = this.state;
 
     if (this.handleArticleValidation(data.articleTitle, data.articleBody, data.tags)) {
       if (!data.tags) {
@@ -141,7 +146,7 @@ export class CreateArticle extends Component {
             <div className="image-div">
               <img className="upload-image" src={displayImage} />
             </div>
-          ) }
+          )}
           <ReactQuill
             onChange={this.onChange}
             modules={CreateArticle.modules}

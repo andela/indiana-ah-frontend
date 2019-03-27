@@ -9,6 +9,13 @@ const props = {
   error: ''
 };
 
+describe('Login Form', () => {
+  it('should match snapshot', () => {
+    const tree = renderer.create(<LoginFormContainer {...props} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+});
+
 describe('test the login container form', () => {
   let wrapper;
   let loginWithEmail;

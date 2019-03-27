@@ -141,12 +141,10 @@ describe('authReducer test', () => {
     expect(
       authReducer(initialState, {
         type: SEND_EMAIL_FAILURE,
-        payload: 'Email already taken'
       })
     ).toEqual({
       ...initialState,
       isLoading: false,
-      error: 'Access denied. You are not authorized to access this route'
     });
   });
 });
