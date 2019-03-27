@@ -48,9 +48,7 @@ const UserArticleCard = ({
             <div className="row no-gutters">
               <div className="icons">
                 <div className="row">
-                  {timeCount === 'false' ? (
-                    ''
-                  ) : (
+                  {timeCount !== 'false' && (
                     <span className="icon-item timer">
                       <TimerComponent timeCount={timeCount} />
                     </span>
@@ -92,7 +90,7 @@ UserArticleCard.defaultProps = {
   tags: '',
   likeCount: 0,
   dislikeCount: 0,
-  commentCount: 0,
+  commentCount: 0
 };
 
 UserArticleCard.propTypes = {
@@ -103,7 +101,7 @@ UserArticleCard.propTypes = {
   tags: PropTypes.string.isRequired,
   likeCount: PropTypes.number.isRequired,
   dislikeCount: PropTypes.number.isRequired,
-  slug: PropTypes.string,
+  slug: PropTypes.string.isRequired,
   commentCount: PropTypes.number.isRequired
 };
 

@@ -13,7 +13,7 @@ import {
   NETWORK_FAILURE,
   SET_CURRENT_USER,
   SIGN_OUT_USER,
-  REGISTER_WITH_SM
+  REGISTER_WITH_SM,
 } from './actionTypes';
 import { sendHttpRequest, validateToken } from '../../utils/index';
 

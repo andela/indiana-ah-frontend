@@ -98,7 +98,7 @@ exports[`test the login container form should match snap shot 1`] = `
             href="https://indiana-ah-staging.herokuapp.com/auth/google"
           >
             <i
-              className="fa fa-lg fa-google-plus"
+              className="fa fa-lg fa-google"
             />
           </a>
         </li>

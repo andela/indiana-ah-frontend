@@ -41,7 +41,10 @@ export const validateToken = (token) => {
 
 export const sendHttpRequest = async (url, method, data, headers) => {
   const response = await apiInstance({
-    url, method, data, headers
+    url,
+    method,
+    data,
+    headers: { ...headers }
   });
   return response.data;
 };
@@ -78,9 +81,7 @@ const sortLikes = (current, next) => {
 };
 
 export const filterArticlesByLikes = (articles) => {
-  const topArticles = articles
-    .sort(sortLikes)
-    .slice(0, 7);
+  const topArticles = articles.sort(sortLikes).slice(0, 7);
   return topArticles;
 };
 
