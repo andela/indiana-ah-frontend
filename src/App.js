@@ -17,6 +17,7 @@ import UserDashboard from './components/UserDashboard.jsx';
 import SingleArticle from './components/containers/SingleArticle.jsx';
 import NotFound from './components/NotFound.jsx';
 import SingleArticlePage from './components/containers/SingleArticle.jsx';
+import NotFound from './components/NotFound.jsx';
 
 const user = validateToken(window.localStorage.getItem('token'));
 if (user) {

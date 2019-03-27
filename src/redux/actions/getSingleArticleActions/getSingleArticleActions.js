@@ -1,8 +1,6 @@
-/* eslint-disable consistent-return */
-import {
-  GET_SINGLE_ARTICLE_LOADING,
-  GET_SINGLE_ARTICLE_SUCCESS
-} from '../actionTypes';
+import React from 'react';
+import { toast } from 'react-toastify';
+import { GET_SINGLE_ARTICLE_LOADING, GET_SINGLE_ARTICLE_SUCCESS } from '../actionTypes';
 import { sendHttpRequest } from '../../../utils';
 
 const getSingleArticle = (slug, history) => async (dispatch) => {
@@ -12,12 +10,17 @@ const getSingleArticle = (slug, history) => async (dispatch) => {
   try {
     const { article, timeToRead } = await sendHttpRequest(`/articles/${slug}`, 'GET');
     article.timeToRead = timeToRead;
-    return dispatch({
+    dispatch({
       type: GET_SINGLE_ARTICLE_SUCCESS,
       payload: article
     });
   } catch ({ response }) {
-    return history.push('/not-found');
+    if (response.status === 404) {
+      history.push('/not-found');
+    } else {
+      history.push('/');
+      toast.error(<div>Request was not successful at the moment. Try again later</div>);
+    }
   }
 };
 
