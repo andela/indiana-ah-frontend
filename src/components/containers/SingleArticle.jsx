@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Helmet } from 'react-helmet';
 import getSingleArticle
   from '../../redux/actions/getSingleArticleActions/getSingleArticleActions';
 import { twitter, facebook } from '../../assets/images/svg';
@@ -24,6 +25,8 @@ class SingleArticle extends Component {
     const articleId = this.props.singleArticle.article.id;
     this.props.addBookmark(articleId);
   };
+
+  getHost = () => window.location.href
 
   render() {
     let articleTags = null;
@@ -78,6 +81,13 @@ class SingleArticle extends Component {
 
     return (
       <>
+        <Helmet>
+          <meta property="og:title" content={articleTitle} />
+          <meta property="og:description" content={articleBody} />
+          <meta property="og:image" content={imageUrl || ''} />
+          <meta property="og:url" content={this.getHost()} />
+          <meta name="twitter:card" content="summary_large_image" />
+        </Helmet>
         <div className="SingleArticle">
           <div className="heading-section">
             <h1 className="heading-primary">{articleTitle}</h1>
@@ -132,7 +142,7 @@ class SingleArticle extends Component {
               </div>
               <div className="share-container">
                 <span className="social share-text">Share on</span>
-                <a href='#' onClick={() => { this.handleSocialShare(articleTitle, imageUrl); }}>
+                <a href='#' onClick={() => { this.handleSocialShare(); }}>
                   <img src={facebook} alt="facebook logo" className="social" />
                 </a>
                 <img src={twitter} alt="twitter logo" className="social" />
