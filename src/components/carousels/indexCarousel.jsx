@@ -9,28 +9,42 @@ const responsive = {
   0: { items: 1 },
   530: { items: 2 },
   840: { items: 3 },
-  1024: { items: 4 },
+  1024: { items: 4 }
 };
 
 const IndexCarousel = ({ articles, isLoading }) => {
   const galleryItems = () => {
     if (isLoading) {
-      return [<div className='carousel-spinner
-      spinner-grow spinner-grow-lg text-primary' key='carousel'></div>];
+      return [
+        <div
+          className="carousel-spinner
+      spinner-grow spinner-grow-lg text-primary"
+          key="carousel"
+        />
+      ];
     }
     if (!articles.length) {
-      return [<h1 className='text-center' key='no articles'>No Articles</h1>];
+      return [
+        <h1 className="text-center" key="no articles">
+          No Articles
+        </h1>
+      ];
     }
-    return articles.map((article, index) => <Link to ={`/articles/${article.slug}`} key= {index}>
-    <CardComponent
-      img={article.imageUrl}
-      commentCount={article.commentCount}
-      likeCount={article.likes}
-      dislikeCount={article.dislikes}
-      title={article.articleTitle}
-      text={`${article.articleBody.slice(0, 150)}...`}
-    />
-    </Link>);
+    return articles.map((article, index) => (
+      <Link to={`/articles/${article.slug}`} key={index}>
+        <CardComponent
+          img={
+            article.imageUrl
+            || 'https://images.unsplash.com/photo-1505262744895-ac5705911f6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1280&q=80'
+          }
+          commentCount={article.commentCount}
+          likeCount={article.likes}
+          dislikeCount={article.dislikes}
+          title={article.articleTitle}
+          text={`${article.articleBody.slice(0, 150)}...`}
+        />
+      </Link>
+    ));
   };
   return (
     <AliceCarousel

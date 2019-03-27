@@ -71,8 +71,7 @@ export class LoginFormContainer extends Component {
             width={'95%'}
             margin={'auto'}
             height={'4.8rem'}
-            sm
-          >
+            sm>
             login
             {isLoading && (
               <span style={{ float: 'right', padding: '3px 3px 0 10px' }}>
@@ -96,7 +95,7 @@ export class LoginFormContainer extends Component {
                 </a>
               </li>
               <li>
-              <a href="https://indiana-ah-staging.herokuapp.com/auth/google">
+                <a href="https://indiana-ah-staging.herokuapp.com/auth/google">
                   <i className="fa fa-lg fa-google" />
                 </a>
               </li>

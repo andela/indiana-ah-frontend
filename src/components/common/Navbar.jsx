@@ -9,7 +9,7 @@ import SignupContainer from '../SignupFormContainer.jsx';
 import LoginContainer from '../LoginFormContainer.jsx';
 import Modal from './Modal.jsx';
 import { ProfileImg, ImageLogo } from '../../styles/styledComponents/Navigation.jsx';
-import { customLogo, notificationIcon, profile } from '../../assets/images/svg';
+import { customLogo, profile } from '../../assets/images/svg';
 import Button from '../../styles/styledComponents/Button.jsx';
 import { signOutUser } from '../../redux/actions/authActions';
 import Dropdown from '../Dropdown.jsx';
@@ -56,18 +56,10 @@ export class NavBar extends Component {
   render() {
     const { user, auth } = this.props;
     const userLInk = (
-      <Nav>
-        <img
-          className="ml-auto d-none d-md-none d-xs-none d-lg-block"
-          src={notificationIcon}
-        />
-        <ProfileImg
-          src={profile}
-          className="ml-5 mt-2 d-none d-md-none d-xs-none d-lg-block"
-          alt="logo"
-        />
+      <Nav className="d-flex flex-row justify-content-between">
+        <ProfileImg src={profile} className="ml-5 mt-2" alt="logo" />
         <div to="/signup" className="d-flex ft-size-2 ml-5">
-          <span className="username">
+          <span className="username ml-3">
             {' '}
             {user.userData.name || user.userData.username}
           </span>

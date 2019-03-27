@@ -5,11 +5,11 @@
   flex-wrap: wrap;
 }
 .modal-dialog.Modal {
-  max-width: 40rem;
+  width: 40rem;
 }
 .modal-body {
   max-width: 40rem !important;
-  padding: 3em 2em 0 2em;
+  padding: 3rem 4rem 0rem 4rem;
   position: relative;
   z-index: 999;
   margin: unset;
@@ -30,6 +30,6 @@ h3.text-center.mt-5 {
 
 @media (max-width: 380px) {
   .modal-body {
-    padding: 3em 1em 0 1em;
+    padding: 3em 4rem 0 4rem;
   }
 }
