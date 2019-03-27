@@ -14,7 +14,6 @@ const addBookmark = id => async (dispatch) => {
   } catch (error) {
     switch (error.response.status) {
       case 404:
-        return toast.error(error.response.data.message);
       case 401:
         return toast.error(error.response.data.message);
       default:
