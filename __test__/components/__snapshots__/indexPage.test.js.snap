@@ -217,11 +217,14 @@ Array [
                     >
                       <p
                         className="card-text card-text"
-                      >
-                        We practice modular programming- this is a software design
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "We practice modular programming- this is a software design
           technique that emphasizes separating the functionality of a program
-          int...
-                      </p>
+          int...",
+                          }
+                        }
+                      />
                     </div>
                     <div
                       className="container"
@@ -396,11 +399,14 @@ Array [
                     >
                       <p
                         className="card-text card-text"
-                      >
-                        We practice modular programming- this is a software design
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "We practice modular programming- this is a software design
           technique that emphasizes separating the functionality of a program
-          int...
-                      </p>
+          int...",
+                          }
+                        }
+                      />
                     </div>
                     <div
                       className="container"
@@ -575,11 +581,14 @@ Array [
                     >
                       <p
                         className="card-text card-text"
-                      >
-                        We practice modular programming- this is a software design
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "We practice modular programming- this is a software design
           technique that emphasizes separating the functionality of a program
-          int...
-                      </p>
+          int...",
+                          }
+                        }
+                      />
                     </div>
                     <div
                       className="container"
@@ -754,11 +763,14 @@ Array [
                     >
                       <p
                         className="card-text card-text"
-                      >
-                        We practice modular programming- this is a software design
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "We practice modular programming- this is a software design
           technique that emphasizes separating the functionality of a program
-          int...
-                      </p>
+          int...",
+                          }
+                        }
+                      />
                     </div>
                     <div
                       className="container"
@@ -933,11 +945,14 @@ Array [
                     >
                       <p
                         className="card-text card-text"
-                      >
-                        We practice modular programming- this is a software design
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "We practice modular programming- this is a software design
           technique that emphasizes separating the functionality of a program
-          int...
-                      </p>
+          int...",
+                          }
+                        }
+                      />
                     </div>
                     <div
                       className="container"
@@ -1112,11 +1127,14 @@ Array [
                     >
                       <p
                         className="card-text card-text"
-                      >
-                        We practice modular programming- this is a software design
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "We practice modular programming- this is a software design
           technique that emphasizes separating the functionality of a program
-          int...
-                      </p>
+          int...",
+                          }
+                        }
+                      />
                     </div>
                     <div
                       className="container"
@@ -1291,11 +1309,14 @@ Array [
                     >
                       <p
                         className="card-text card-text"
-                      >
-                        We practice modular programming- this is a software design
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "We practice modular programming- this is a software design
           technique that emphasizes separating the functionality of a program
-          int...
-                      </p>
+          int...",
+                          }
+                        }
+                      />
                     </div>
                     <div
                       className="container"
@@ -1470,11 +1491,14 @@ Array [
                     >
                       <p
                         className="card-text card-text"
-                      >
-                        We practice modular programming- this is a software design
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "We practice modular programming- this is a software design
           technique that emphasizes separating the functionality of a program
-          int...
-                      </p>
+          int...",
+                          }
+                        }
+                      />
                     </div>
                     <div
                       className="container"
@@ -1649,11 +1673,14 @@ Array [
                     >
                       <p
                         className="card-text card-text"
-                      >
-                        We practice modular programming- this is a software design
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "We practice modular programming- this is a software design
           technique that emphasizes separating the functionality of a program
-          int...
-                      </p>
+          int...",
+                          }
+                        }
+                      />
                     </div>
                     <div
                       className="container"
@@ -1914,11 +1941,14 @@ Array [
                     >
                       <p
                         className="card-text card-text"
-                      >
-                        We practice modular programming- this is a software design
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "We practice modular programming- this is a software design
           technique that emphasizes separating the functionality of a program
-          int...
-                      </p>
+          int...",
+                          }
+                        }
+                      />
                     </div>
                     <div
                       className="container"
@@ -2093,11 +2123,14 @@ Array [
                     >
                       <p
                         className="card-text card-text"
-                      >
-                        We practice modular programming- this is a software design
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "We practice modular programming- this is a software design
           technique that emphasizes separating the functionality of a program
-          int...
-                      </p>
+          int...",
+                          }
+                        }
+                      />
                     </div>
                     <div
                       className="container"
@@ -2272,11 +2305,14 @@ Array [
                     >
                       <p
                         className="card-text card-text"
-                      >
-                        We practice modular programming- this is a software design
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "We practice modular programming- this is a software design
           technique that emphasizes separating the functionality of a program
-          int...
-                      </p>
+          int...",
+                          }
+                        }
+                      />
                     </div>
                     <div
                       className="container"
@@ -2451,11 +2487,14 @@ Array [
                     >
                       <p
                         className="card-text card-text"
-                      >
-                        We practice modular programming- this is a software design
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "We practice modular programming- this is a software design
           technique that emphasizes separating the functionality of a program
-          int...
-                      </p>
+          int...",
+                          }
+                        }
+                      />
                     </div>
                     <div
                       className="container"
@@ -2630,11 +2669,14 @@ Array [
                     >
                       <p
                         className="card-text card-text"
-                      >
-                        We practice modular programming- this is a software design
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "We practice modular programming- this is a software design
           technique that emphasizes separating the functionality of a program
-          int...
-                      </p>
+          int...",
+                          }
+                        }
+                      />
                     </div>
                     <div
                       className="container"
@@ -2809,11 +2851,14 @@ Array [
                     >
                       <p
                         className="card-text card-text"
-                      >
-                        We practice modular programming- this is a software design
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "We practice modular programming- this is a software design
           technique that emphasizes separating the functionality of a program
-          int...
-                      </p>
+          int...",
+                          }
+                        }
+                      />
                     </div>
                     <div
                       className="container"
@@ -2988,11 +3033,14 @@ Array [
                     >
                       <p
                         className="card-text card-text"
-                      >
-                        We practice modular programming- this is a software design
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "We practice modular programming- this is a software design
           technique that emphasizes separating the functionality of a program
-          int...
-                      </p>
+          int...",
+                          }
+                        }
+                      />
                     </div>
                     <div
                       className="container"
@@ -3167,11 +3215,14 @@ Array [
                     >
                       <p
                         className="card-text card-text"
-                      >
-                        We practice modular programming- this is a software design
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "We practice modular programming- this is a software design
           technique that emphasizes separating the functionality of a program
-          int...
-                      </p>
+          int...",
+                          }
+                        }
+                      />
                     </div>
                     <div
                       className="container"
@@ -3346,11 +3397,14 @@ Array [
                     >
                       <p
                         className="card-text card-text"
-                      >
-                        We practice modular programming- this is a software design
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "We practice modular programming- this is a software design
           technique that emphasizes separating the functionality of a program
-          int...
-                      </p>
+          int...",
+                          }
+                        }
+                      />
                     </div>
                     <div
                       className="container"

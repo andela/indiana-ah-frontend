@@ -7,7 +7,9 @@
   width: 37rem;
   height: 50rem 
 }
-  
+.card-link:link {
+  text-decoration: none;
+}
 .card-container{
 display: flex;
 justify-content: space-between;

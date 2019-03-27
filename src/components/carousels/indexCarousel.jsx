@@ -32,7 +32,6 @@ const IndexCarousel = ({ articles, isLoading }) => {
     />
     </Link>);
   };
-
   return (
     <AliceCarousel
       items={galleryItems()}
@@ -52,10 +51,8 @@ const IndexCarousel = ({ articles, isLoading }) => {
     />
   );
 };
-
 IndexCarousel.propTypes = {
   articles: PropTypes.array,
   isLoading: PropTypes.bool
 };
-
 export default IndexCarousel;

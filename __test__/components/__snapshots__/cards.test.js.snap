@@ -27,9 +27,12 @@ exports[`<CardComponent /> renders correctly 1`] = `
     >
       <p
         className="card-text card-text"
-      >
-        lkjhljugyghjh
-      </p>
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "lkjhljugyghjh",
+          }
+        }
+      />
     </div>
     <div
       className="container"
