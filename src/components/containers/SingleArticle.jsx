@@ -96,21 +96,12 @@ class SingleArticle extends Component {
                 {this.props.auth.isVerified && viewingUser !== author.username && (
                   <div className="follow-bookmark-box">
                     <button className="follow-btn">Follow</button>
-                    {currentBookmark ? (
                       <span>
                         <i
                           onClick={this.handleBookmarkclick}
-                          className="fas fa-bookmark fa-4x bookmarked-icon"
+                          className={currentBookmark ? 'fas fa-bookmark fa-4x bookmarked-icon' : 'far fa-bookmark fa-4x unbookmarked-icon'}
                         />
                       </span>
-                    ) : (
-                      <span>
-                        <i
-                          onClick={this.handleBookmarkclick}
-                          className="far fa-bookmark fa-4x unbookmarked-icon"
-                        />
-                      </span>
-                    )}
                   </div>
                 )}
               </div>
