@@ -132,7 +132,9 @@ class SingleArticle extends Component {
               </div>
               <div className="share-container">
                 <span className="social share-text">Share on</span>
-                <img src={facebook} alt="facebook logo" className="social" />
+                <a href='#' onClick={() => { this.handleSocialShare(articleTitle, imageUrl); }}>
+                  <img src={facebook} alt="facebook logo" className="social" />
+                </a>
                 <img src={twitter} alt="twitter logo" className="social" />
               </div>
             </section>
