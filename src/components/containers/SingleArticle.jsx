@@ -25,8 +25,6 @@ class SingleArticle extends Component {
     this.props.addBookmark(articleId);
   };
 
-  getHost = () => window.location.href
-
   render() {
     let articleTags = null;
     let viewingUser;
