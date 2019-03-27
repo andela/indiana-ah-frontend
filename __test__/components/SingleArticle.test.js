@@ -24,6 +24,15 @@ const user = {
     username: 'chuks'
   }
 };
+const bookmarkedArticles = {
+  userBookmarks: [{
+    article: {
+      id: 1,
+      articleId: 1,
+      userId: 1,
+    }
+  }]
+};
 const article = {
   article: {
     articleBody: '',
@@ -34,7 +43,8 @@ const article = {
     likes: 6,
     dislikes: 3,
     author: '',
-    createdAt: ''
+    createdAt: '',
+    id: 1
   }
 };
 const expectedResponseData = {
@@ -56,8 +66,11 @@ describe('<SingleArticle/>', () => {
         singleArticle={article}
         user={user}
         auth={auth}
+        bookmarkedArticles={bookmarkedArticles}
         match={match}
         getSingleArticle={mockFn}
+        getAllUsersBookMarkedArticles={mockFn}
+        addBookmark={mockFn}
         history = { history }
       />
     );
@@ -68,6 +81,10 @@ describe('<SingleArticle/>', () => {
     wrapper.setProps({ article });
     expect(wrapper.find('div.carousel-spinner').length).toEqual(0);
     expect(wrapper.find('div.SingleArticle').length).toEqual(1);
+    wrapper.find('.fa-bookmark').simulate('click');
+    article.article.id = 2;
+    wrapper.setProps({ ...article });
+    wrapper.find('.fa-bookmark').simulate('click');
   });
 });
 

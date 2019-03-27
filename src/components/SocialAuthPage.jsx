@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { loginWithSocialMedia } from '../redux/actions/authActions';
 
-export class SocialAuthPage extends Component {
+class SocialAuthPage extends Component {
   state = {
     message: 'We are verifying your account.....'
   };
