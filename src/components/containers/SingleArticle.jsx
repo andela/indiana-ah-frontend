@@ -16,6 +16,20 @@ class SingleArticle extends Component {
     this.props.getSingleArticle(slug, history);
   }
 
+  handleSocialShare = (articleTitle, imageUrl) => {
+    const host = window.location.hostname.href;
+    console.log(imageUrl, articleTitle);
+    FB.ui({
+      method: 'feed',
+      link: { host },
+      picture: 'https://unsplash.com/photos/qL7AkIt9yZQ',
+      name: { articleTitle },
+      description: 'The description who will be displayed'
+    }, (response) => {
+      console.log(response);
+    });
+  }
+
   render() {
     let articleTags = null;
     let viewingUser;
@@ -113,7 +127,9 @@ class SingleArticle extends Component {
               </div>
               <div className="share-container">
                 <span className="social share-text">Share on</span>
-                <img src={facebook} alt="facebook logo" className="social" />
+                <a href='#' onClick={() => { this.handleSocialShare(articleTitle, imageUrl); }}>
+                  <img src={facebook} alt="facebook logo" className="social" />
+                </a>
                 <img src={twitter} alt="twitter logo" className="social" />
               </div>
             </section>

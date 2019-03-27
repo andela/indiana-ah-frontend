@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Authors haven </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:title" content="Author's Haven">
+    <meta property="og:description" content="Share your thoughts with the World">
+    <meta property="og:image" content="http://euro-travel-example.com/thumbnail.jpg">
+    <meta property="og:url" content="https://indiana-ah-frontend-staging.herokuapp.com">
+    <meta name="twitter:card" content="summary_large_image">
     <link href="https://fonts.googleapis.com/css?family=Alegreya:400,400i,500,500i,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300,400" rel="stylesheet">
@@ -14,6 +19,17 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   </head>
   <body>
+    <script>
+      window.fbAsyncInit = function () {
+        FB.init({
+          appId: 303894270293006,
+          autoLogAppEvents: true,
+          xfbml: true,
+          version: 'v3.2'
+        });
+      };
+    </script>
+    <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
     <div id="root"></div>
   </body>
 </html>
