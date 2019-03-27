@@ -8,19 +8,32 @@ export const getUrl = (hostName) => {
   return 'https://indiana-ah-staging.herokuapp.com/api/v1/';
 };
 
-export const apiInstance = axios.create({
-  baseURL: getUrl(window.location.hostname),
-  headers: {
-    'x-auth-token': localStorage.getItem('token')
-  }
+const apiInstance = axios.create({
+  baseURL: getUrl(window.location.hostname)
 });
+
+// intercept api requests and add auth token to the request headers
+apiInstance.interceptors.request.use((apiConfig) => {
+  const token = localStorage.getItem('token');
+  const config = apiConfig;
+
+  if (token) config.headers['x-auth-token'] = token;
+  return config;
+});
+
+export { apiInstance };
 
 // fuction to check if token is valid
 export const validateToken = (token) => {
   try {
     const decoded = jwtDecode(token);
-    delete decoded.iat;
-    return decoded;
+
+    if (Date.now() / 1000 < decoded.exp) {
+      delete decoded.exp;
+      delete decoded.iat;
+      return decoded;
+    }
+    return false;
   } catch (error) {
     return false;
   }
@@ -28,13 +41,12 @@ export const validateToken = (token) => {
 
 export const sendHttpRequest = async (url, method, data, headers) => {
   const response = await apiInstance({
-    url, method, data, headers
+    url,
+    method,
+    data,
+    headers: { ...headers }
   });
   return response.data;
-};
-
-export const handlePageClick = (component, page) => {
-  component.setState({ currentPage: page });
 };
 
 export const renderPageLinks = (currentPage, numberOfPages) => {
@@ -54,11 +66,12 @@ export const renderPageLinks = (currentPage, numberOfPages) => {
 };
 
 // call this function in 'componentDidMount' of any 'page component' (that renders paginated data) and pass 'this' as the argument
-export const setCurrentPage = (component) => {
+export const setAndGetCurrentPage = (component) => {
   const urlSearchParams = new URLSearchParams(window.location.search);
   let page = parseInt(urlSearchParams.get('page'), 10);
   if (Number.isNaN(page)) page = 1;
   component.setState({ currentPage: page });
+  return page;
 };
 
 const sortLikes = (current, next) => {
@@ -68,9 +81,7 @@ const sortLikes = (current, next) => {
 };
 
 export const filterArticlesByLikes = (articles) => {
-  const topArticles = articles
-    .sort(sortLikes)
-    .slice(0, 7);
+  const topArticles = articles.sort(sortLikes).slice(0, 7);
   return topArticles;
 };
 

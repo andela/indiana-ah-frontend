@@ -9,12 +9,12 @@ const spyRegisterWithEmail = sinon.spy(() => Promise.resolve({}));
 
 const emailEvent = {
   preventDefault() {},
-  target: { id: 'email', type: 'email', value: 'ezenwaogbonna1@gmail.com' }
+  target: { name: 'email', type: 'email', value: 'ezenwaogbonna1@gmail.com' }
 };
 
 const usernameEvent = {
   preventDefault() {},
-  target: { id: 'username', type: 'text', value: 'o' }
+  target: { name: 'username', type: 'text', value: 'o' }
 };
 
 const prevProps = { auth: { error: '' } };

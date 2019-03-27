@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Login Form should match snapshot 1`] = `
+exports[`test the login container form should match snap shot 1`] = `
 <div
   className="signup-form-container"
 >

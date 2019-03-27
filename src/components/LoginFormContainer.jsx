@@ -42,10 +42,10 @@ export class LoginFormContainer extends Component {
     } = this.props;
     return (
       <div className="signup-form-container">
-       <h3 className="text-center mt-5">
-      <img src={logo} alt='facebook logo' className="signup-title" />
-      <hr/>
-      </h3>
+        <h3 className="text-center mt-5">
+          <img src={logo} alt="facebook logo" className="signup-title" />
+          <hr />
+        </h3>
         <form onSubmit={this.handleSubmit} className="signup-form">
           <InputField
             placeholder="Email"
@@ -84,16 +84,14 @@ export class LoginFormContainer extends Component {
         <div className="signup-form">
           <div className="social">
             <ul>
-            <li className="social-auth">
-              Or Login Using:
-              </li>
+              <li className="social-auth">Or Login Using:</li>
               <li>
-              <a href="https://indiana-ah-staging.herokuapp.com/auth/facebook">
+                <a href="https://indiana-ah-staging.herokuapp.com/auth/facebook">
                   <i className="fa fa-lg fa-facebook" />
                 </a>
               </li>
               <li>
-              <a href="https://indiana-ah-staging.herokuapp.com/auth/twitter">
+                <a href="https://indiana-ah-staging.herokuapp.com/auth/twitter">
                   <i className="fa fa-lg fa-twitter" />
                 </a>
               </li>
