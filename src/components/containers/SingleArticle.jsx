@@ -7,6 +7,7 @@ import { bookmarkLogo, twitter, facebook } from '../../assets/images/svg';
 import LikeComponent from '../common/LikeComponent';
 import DislikeComponent from '../common/DislikeComponent';
 import CommentIconComponent from '../common/CommentIconComponent';
+import Footer from '../common/footer.jsx';
 
 class SingleArticle extends Component {
   componentDidMount() {
@@ -118,6 +119,7 @@ class SingleArticle extends Component {
             </section>
           </section>
         </div>
+        <Footer/>
       </>
     );
   }

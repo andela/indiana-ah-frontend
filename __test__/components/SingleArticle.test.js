@@ -124,4 +124,14 @@ describe('getSingleArticleActions', () => {
     expect(store.getActions()).toEqual(expectedActions);
     expect(history.push).toHaveBeenCalled();
   });
+
+  it('should redirect to the home page if there is any other kind of error', async () => {
+    mock.onGet('/articles/i-love-coding').reply(503);
+
+    const expectedActions = [{ type: GET_SINGLE_ARTICLE_LOADING }];
+
+    await store.dispatch(articleAction('i-love-coding', history));
+    expect(store.getActions()).toEqual(expectedActions);
+    expect(history.push).toHaveBeenCalled();
+  });
 });

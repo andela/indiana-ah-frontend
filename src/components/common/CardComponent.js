@@ -6,7 +6,6 @@ import LikeComponent from './LikeComponent';
 import DislikeComponent from './DislikeComponent';
 import CommentIconComponent from './CommentIconComponent';
 
-
 const defaultImage = 'https://images.unsplash.com/photo-1521120413309-42e7eada0334?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80';
 
 const CardComponent = ({
@@ -17,14 +16,26 @@ const CardComponent = ({
   likeCount,
   dislikeCount,
   commentCount
-}) => (
-<Fragment>
-  <Card className='carousel-card card-style'>
-  <div className='image-wrapper-card'>
-    <Card.Img variant='top' className='image-card-style' src= {img || defaultImage}/>
-  </div>
-  <Card.Body className='pb-0 card-body'>
-  <div className='title-height'><b>{title}</b></div>
+}) => {
+  const createMarkup = () => ({ __html: text });
+  return (
+    <Fragment>
+        <Card className="carousel-card card-style">
+          <div className="image-wrapper-card">
+            <Card.Img
+              variant="top"
+              className="image-card-style"
+              src={img || defaultImage}
+            />
+          </div>
+          <Card.Body className="pb-0 card-body">
+            <div className="title-height">
+              <b>{title}</b>
+            </div>
+
+            <div className="text-height">
+              <Card.Text className="card-text" dangerouslySetInnerHTML={createMarkup()} />
+            </div>
 
             <div className="container">
               <div className="row mt-4 mb-5">
@@ -40,16 +51,16 @@ const CardComponent = ({
                 <div className="col" />
               </div>
             </div>
-          </div>
-        </Card.Body>
-      </Card>
-  </Fragment>
-);
+          </Card.Body>
+        </Card>
+    </Fragment>
+  );
+};
 
 CardComponent.defaultProps = {
   likeCount: 0,
   dislikeCount: 0,
-  commentCount: 0,
+  commentCount: 0
 };
 
 CardComponent.propTypes = {

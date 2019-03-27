@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { notFoundImage } from '../assets/images/svg';
+import Footer from './common/footer.jsx';
 
 
 const NotFound = () => {
@@ -11,6 +12,7 @@ const NotFound = () => {
     backgroundRepeat: 'no-repeat'
   };
   return (
+    <React.Fragment>
     <div className='NotFound'>
       <div className="page-info">
         <p className="NotFound-text"> Oops, we could not find what you are looking for </p>
@@ -18,6 +20,8 @@ const NotFound = () => {
       </div>
       <div className="image-container" style={imageStyle} />
     </div>
+    <Footer/>
+    </React.Fragment>
   );
 };
 

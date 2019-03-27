@@ -187,7 +187,6 @@ Array [
               }
             >
               <a
-                className="card-link"
                 href="/articles/how-i-got-into-andela-7"
                 onClick={[Function]}
               >
@@ -287,7 +286,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -330,7 +329,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -348,7 +347,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              20
+                              
                             </sub>
                           </span>
                         </div>
@@ -370,7 +369,6 @@ Array [
               }
             >
               <a
-                className="card-link"
                 href="/articles/how-i-got-into-andela-7"
                 onClick={[Function]}
               >
@@ -470,7 +468,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -513,7 +511,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -531,7 +529,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              20
+                              
                             </sub>
                           </span>
                         </div>
@@ -553,7 +551,6 @@ Array [
               }
             >
               <a
-                className="card-link"
                 href="/articles/how-i-got-into-andela-7"
                 onClick={[Function]}
               >
@@ -653,7 +650,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -696,7 +693,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -714,7 +711,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              20
+                              
                             </sub>
                           </span>
                         </div>
@@ -736,7 +733,6 @@ Array [
               }
             >
               <a
-                className="card-link"
                 href="/articles/how-i-got-into-andela-7"
                 onClick={[Function]}
               >
@@ -836,7 +832,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -879,7 +875,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -897,7 +893,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              20
+                              
                             </sub>
                           </span>
                         </div>
@@ -919,7 +915,6 @@ Array [
               }
             >
               <a
-                className="card-link"
                 href="/articles/how-i-got-into-andela-7"
                 onClick={[Function]}
               >
@@ -1019,7 +1014,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -1062,7 +1057,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -1080,7 +1075,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              20
+                              
                             </sub>
                           </span>
                         </div>
@@ -1102,7 +1097,6 @@ Array [
               }
             >
               <a
-                className="card-link"
                 href="/articles/how-i-got-into-andela-7"
                 onClick={[Function]}
               >
@@ -1202,7 +1196,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -1245,7 +1239,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -1263,7 +1257,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              20
+                              
                             </sub>
                           </span>
                         </div>
@@ -1285,7 +1279,6 @@ Array [
               }
             >
               <a
-                className="card-link"
                 href="/articles/how-i-got-into-andela-7"
                 onClick={[Function]}
               >
@@ -1385,7 +1378,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -1428,7 +1421,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -1446,7 +1439,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              20
+                              
                             </sub>
                           </span>
                         </div>
@@ -1468,7 +1461,6 @@ Array [
               }
             >
               <a
-                className="card-link"
                 href="/articles/how-i-got-into-andela-7"
                 onClick={[Function]}
               >
@@ -1568,7 +1560,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -1611,7 +1603,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -1629,7 +1621,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              20
+                              
                             </sub>
                           </span>
                         </div>
@@ -1651,7 +1643,6 @@ Array [
               }
             >
               <a
-                className="card-link"
                 href="/articles/how-i-got-into-andela-7"
                 onClick={[Function]}
               >
@@ -1751,7 +1742,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -1794,7 +1785,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -1812,7 +1803,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              20
+                              
                             </sub>
                           </span>
                         </div>
@@ -1920,7 +1911,6 @@ Array [
               }
             >
               <a
-                className="card-link"
                 href="/articles/how-i-got-into-andela-7"
                 onClick={[Function]}
               >
@@ -2020,7 +2010,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -2063,7 +2053,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -2081,7 +2071,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              20
+                              
                             </sub>
                           </span>
                         </div>
@@ -2103,7 +2093,6 @@ Array [
               }
             >
               <a
-                className="card-link"
                 href="/articles/how-i-got-into-andela-7"
                 onClick={[Function]}
               >
@@ -2203,7 +2192,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -2246,7 +2235,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -2264,7 +2253,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              20
+                              
                             </sub>
                           </span>
                         </div>
@@ -2286,7 +2275,6 @@ Array [
               }
             >
               <a
-                className="card-link"
                 href="/articles/how-i-got-into-andela-7"
                 onClick={[Function]}
               >
@@ -2386,7 +2374,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -2429,7 +2417,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -2447,7 +2435,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              20
+                              
                             </sub>
                           </span>
                         </div>
@@ -2469,7 +2457,6 @@ Array [
               }
             >
               <a
-                className="card-link"
                 href="/articles/how-i-got-into-andela-7"
                 onClick={[Function]}
               >
@@ -2569,7 +2556,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -2612,7 +2599,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -2630,7 +2617,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              20
+                              
                             </sub>
                           </span>
                         </div>
@@ -2652,7 +2639,6 @@ Array [
               }
             >
               <a
-                className="card-link"
                 href="/articles/how-i-got-into-andela-7"
                 onClick={[Function]}
               >
@@ -2752,7 +2738,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -2795,7 +2781,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -2813,7 +2799,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              20
+                              
                             </sub>
                           </span>
                         </div>
@@ -2835,7 +2821,6 @@ Array [
               }
             >
               <a
-                className="card-link"
                 href="/articles/how-i-got-into-andela-7"
                 onClick={[Function]}
               >
@@ -2935,7 +2920,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -2978,7 +2963,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -2996,7 +2981,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              20
+                              
                             </sub>
                           </span>
                         </div>
@@ -3018,7 +3003,6 @@ Array [
               }
             >
               <a
-                className="card-link"
                 href="/articles/how-i-got-into-andela-7"
                 onClick={[Function]}
               >
@@ -3118,7 +3102,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -3161,7 +3145,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -3179,7 +3163,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              20
+                              
                             </sub>
                           </span>
                         </div>
@@ -3201,7 +3185,6 @@ Array [
               }
             >
               <a
-                className="card-link"
                 href="/articles/how-i-got-into-andela-7"
                 onClick={[Function]}
               >
@@ -3301,7 +3284,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -3344,7 +3327,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -3362,7 +3345,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              20
+                              
                             </sub>
                           </span>
                         </div>
@@ -3384,7 +3367,6 @@ Array [
               }
             >
               <a
-                className="card-link"
                 href="/articles/how-i-got-into-andela-7"
                 onClick={[Function]}
               >
@@ -3484,7 +3466,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -3527,7 +3509,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              0
+                              
                             </sub>
                           </span>
                         </div>
@@ -3545,7 +3527,7 @@ Array [
                             <sub
                               className="count"
                             >
-                              20
+                              
                             </sub>
                           </span>
                         </div>

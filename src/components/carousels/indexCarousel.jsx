@@ -25,8 +25,6 @@ const IndexCarousel = ({ articles, isLoading }) => {
     <CardComponent
       img={article.imageUrl}
       commentCount={article.commentCount}
-      slug={article.slug}
-      commentCount={20}
       likeCount={article.likes}
       dislikeCount={article.dislikes}
       title={article.articleTitle}
@@ -34,7 +32,6 @@ const IndexCarousel = ({ articles, isLoading }) => {
     />
     </Link>);
   };
-
   return (
     <AliceCarousel
       items={galleryItems()}
@@ -54,10 +51,8 @@ const IndexCarousel = ({ articles, isLoading }) => {
     />
   );
 };
-
 IndexCarousel.propTypes = {
   articles: PropTypes.array,
   isLoading: PropTypes.bool
 };
-
 export default IndexCarousel;
