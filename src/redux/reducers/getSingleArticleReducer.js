@@ -1,7 +1,10 @@
 import {
   GET_SINGLE_ARTICLE_LOADING,
-  GET_SINGLE_ARTICLE_SUCCESS
+  GET_SINGLE_ARTICLE_SUCCESS,
+  LIKE_ARTICLE,
+  DISLIKE_ARTICLE
 } from '../actions/actionTypes';
+import { recordDisLike, recordLike } from '../../utils';
 
 const initialArticleState = {
   isLoading: false,
@@ -22,6 +25,17 @@ const getSingleArticleReducer = (state = initialArticleState, { type, payload })
         isLoading: false,
         article: payload
       };
+    case LIKE_ARTICLE: {
+      const { article } = state;
+      recordLike(article);
+      return { ...state, isLoading: false, article };
+    }
+
+    case DISLIKE_ARTICLE: {
+      const { article } = state;
+      recordDisLike(article);
+      return { ...state, isLoading: false, article };
+    }
     default:
       return state;
   }

@@ -91,3 +91,25 @@ export const filterArticlesByDate = (articles) => {
     .slice(0, 6);
   return newArticles;
 };
+
+export const recordDisLike = (data) => {
+  if (data.dislikedByMe) {
+    data.dislikes -= 1;
+  } else {
+    data.dislikes += 1;
+  }
+  if (data.likedByMe) data.likes -= 1;
+  data.dislikedByMe = !data.dislikedByMe;
+  data.likedByMe = false;
+};
+
+export const recordLike = (data) => {
+  if (data.likedByMe) {
+    data.likes -= 1;
+  } else {
+    data.likes += 1;
+  }
+  if (data.dislikedByMe) data.dislikes -= 1;
+  data.likedByMe = !data.likedByMe;
+  data.dislikedByMe = false;
+};

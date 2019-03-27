@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import getSingleArticle
-  from '../../redux/actions/getSingleArticleActions/getSingleArticleActions';
+import getSingleArticle from '../../redux/actions/getSingleArticleActions/getSingleArticleActions';
+import reactToArticle from '../../redux/actions/reactionActions';
 import { twitter, facebook } from '../../assets/images/svg';
 import addBookmark from '../../redux/actions/bookmarkActions';
-import { getAllUsersBookMarkedArticles }
-  from '../../redux/actions/articleActions/articleActions';
+import { getAllUsersBookMarkedArticles } from '../../redux/actions/articleActions/articleActions';
 import LikeComponent from '../common/LikeComponent';
 import DislikeComponent from '../common/DislikeComponent';
 import CommentIconComponent from '../common/CommentIconComponent';
@@ -45,6 +44,9 @@ class SingleArticle extends Component {
       dislikes,
       imageUrl,
       tags,
+      slug,
+      likedByMe,
+      dislikedByMe,
       author,
       createdAt,
       articleBody
@@ -96,12 +98,16 @@ class SingleArticle extends Component {
                 {this.props.auth.isVerified && viewingUser !== author.username && (
                   <div className="follow-bookmark-box">
                     <button className="follow-btn">Follow</button>
-                      <span>
-                        <i
-                          onClick={this.handleBookmarkclick}
-                          className={currentBookmark ? 'fas fa-bookmark fa-4x bookmarked-icon' : 'far fa-bookmark fa-4x unbookmarked-icon'}
-                        />
-                      </span>
+                    <span>
+                      <i
+                        onClick={this.handleBookmarkclick}
+                        className={
+                          currentBookmark
+                            ? 'fas fa-bookmark fa-4x bookmarked-icon'
+                            : 'far fa-bookmark fa-4x unbookmarked-icon'
+                        }
+                      />
+                    </span>
                   </div>
                 )}
               </div>
@@ -109,10 +115,7 @@ class SingleArticle extends Component {
               <p className="time-to-read">{timeToRead}</p>
             </div>
           </div>
-          {imageUrl && (
-            <section className="article-image-container" style={imageStyle}>
-            </section>
-          )}
+          {imageUrl && <section className="article-image-container" style={imageStyle} />}
           <section className="article-body-container">
             <div className="article-body" dangerouslySetInnerHTML={createMarkup()} />
             <div className="tags-container">{articleTags}</div>
@@ -121,12 +124,17 @@ class SingleArticle extends Component {
                 <LikeComponent
                   className="reaction-logo"
                   likeCount={likes}
-                  color="rgba(0,0,0,.5)"
+                  color={likedByMe ? '#0B41CD' : 'rgba(0,0,0,.5)'}
+                  id={slug}
+                  onClick={this.props.reactToArticle}
+                  likedByMe={likedByMe}
                 />
                 <DislikeComponent
                   className="reaction-logo"
                   dislikeCount={dislikes}
-                  color="rgba(0,0,0,.5)"
+                  color={dislikedByMe ? '#0B41CD' : 'rgba(0,0,0,.5)'}
+                  id={slug}
+                  onClick={this.props.reactToArticle}
                 />
                 <CommentIconComponent className="reaction-logo" commentCount={Comments} />
               </div>
@@ -145,7 +153,7 @@ class SingleArticle extends Component {
             </section>
           </section>
         </div>
-        <Footer/>
+        <Footer />
       </>
     );
   }
@@ -174,5 +182,7 @@ export { SingleArticle };
 
 export default connect(
   mapStateToProps,
-  { getSingleArticle, addBookmark, getAllUsersBookMarkedArticles }
+  {
+    getSingleArticle, addBookmark, getAllUsersBookMarkedArticles, reactToArticle
+  }
 )(SingleArticle);
