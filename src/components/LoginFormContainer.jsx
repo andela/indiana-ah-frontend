@@ -86,17 +86,17 @@ export class LoginFormContainer extends Component {
               <li className="social-auth">Or Login Using:</li>
               <li>
                 <a href="https://indiana-ah-staging.herokuapp.com/auth/facebook">
-                  <i className="fa fa-lg fa-facebook" />
+                  <i className="fab fa-lg fa-facebook-f" />
                 </a>
               </li>
               <li>
                 <a href="https://indiana-ah-staging.herokuapp.com/auth/twitter">
-                  <i className="fa fa-lg fa-twitter" />
+                  <i className="fab fa-lg fa-twitter" />
                 </a>
               </li>
               <li>
-                <a href="https://indiana-ah-staging.herokuapp.com/auth/google">
-                  <i className="fa fa-lg fa-google" />
+              <a href="https://indiana-ah-staging.herokuapp.com/auth/google">
+                  <i className="fab fa-lg fa-google" />
                 </a>
               </li>
             </ul>
