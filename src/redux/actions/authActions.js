@@ -14,6 +14,9 @@ import {
   SET_CURRENT_USER,
   SIGN_OUT_USER,
   REGISTER_WITH_SM,
+  SEND_EMAIL_FAILURE,
+  SEND_EMAIL_LOADING,
+  SEND_EMAIL_SUCCESS
 } from './actionTypes';
 import { sendHttpRequest, validateToken } from '../../utils/index';
 
@@ -96,5 +99,18 @@ export const loginWithSocialMedia = token => (dispatch) => {
     dispatch({ type: REGISTER_WITH_SM });
   } else {
     toast.error(<div>We cannot log you in by this time. Please try again later.</div>);
+  }
+};
+
+export const sendUserEmail = ({ history }) => async (dispatch) => {
+  dispatch({ type: SEND_EMAIL_LOADING });
+  try {
+    const { message, token } = await sendHttpRequest('/verify/email', 'POST');
+    localStorage.setItem('token', token);
+    dispatch({ type: SEND_EMAIL_SUCCESS });
+    toast.success(<div>{message}</div>);
+    history.push('/');
+  } catch (res) {
+    dispatch({ type: SEND_EMAIL_FAILURE });
   }
 };
