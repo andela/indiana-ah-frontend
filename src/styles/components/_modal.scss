@@ -9,7 +9,7 @@
 }
 .modal-body {
   max-width: 40rem !important;
-  padding: 3rem 4rem 0rem 4rem;
+  padding: 3rem 2rem 0rem 2rem;
   position: relative;
   z-index: 999;
   margin: unset;
@@ -30,6 +30,6 @@ h3.text-center.mt-5 {
 
 @media (max-width: 380px) {
   .modal-body {
-    padding: 3em 4rem 0 4rem;
+    padding: 3em 1rem 0 1rem;
   }
 }

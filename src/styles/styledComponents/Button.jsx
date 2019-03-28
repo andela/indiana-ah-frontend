@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Button = styled.button`
-  background: ${props => (props.bgColor ? '#0B41CD' : '#fff')};
+  background: ${props => (props.bgColor ? '#0B41CD' : props.danger ?  '#CD160B' : '#fff')};
   font-size: 2rem;
   line-height: 2.7rem;
   align: Center;
@@ -10,15 +10,7 @@ const Button = styled.button`
   height: ${props => (props.height ? props.height : '')};
   border-radius: 0.4rem;
   text-align: center;
-  color: ${(props) => {
-    if (props.danger) {
-      return '#CD160B';
-    }
-    if (props.bgColor) {
-      return '#fff';
-    }
-    return '#0B41CD';
-  }}
+  color: ${props => (props.danger ? '#fff' : props.bgColor ? '#fff' : '#0B41CD')};
   cursor: pointer;
   border: ${(props) => {
     if (props.danger) {

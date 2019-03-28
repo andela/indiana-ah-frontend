@@ -39,6 +39,20 @@ const bookmarkedArticles = {
 };
 
 const store = mockStore({ user });
+const comments = {
+  comments: [
+    {
+      id: 1,
+      userId: 1,
+      articleId: 1,
+      commenter: {
+        name: 'omenkish',
+        username: 'omenkish',
+        imageUrl: 'qwerty'
+      }
+    }
+  ]
+};
 const article = {
   article: {
     articleBody: '',
@@ -80,9 +94,11 @@ describe('<SingleArticle/>', () => {
         user={user}
         auth={auth}
         bookmarkedArticles={bookmarkedArticles}
+        comments={comments}
         match={match}
         getSingleArticle={mockFn}
         getAllUsersBookMarkedArticles={mockFn}
+        getArticleComments={mockFn}
         addBookmark={mockFn}
         history={history}
         reactToArticle={jest.fn(article.slug, 'login')}

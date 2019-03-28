@@ -1,0 +1,102 @@
+.comment-section {
+  background-color: rgba(252,252,252,1);
+  width: 100%;
+}
+
+.comment-textarea {
+  width: 24.0rem;
+  border: none;
+  border-bottom: 0.05rem solid #ccc;
+  outline: none;
+  font-size: 2rem;
+  font-weight: unset;
+}
+.comment-form {
+  h1 {
+    left: 29.6rem;
+    font-family: Alegreya Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.7rem;
+    line-height: normal;
+    color: rgba(0, 0, 0, 0.7);
+  }
+  img {
+    vertical-align: middle;
+    border-style: none;
+    border-radius: 50%;
+    max-width: 4.5rem;
+    max-height: 4.5rem;
+  }
+  .row {
+    flex-wrap: unset;
+    justify-content: flex-start;
+  }
+  .col-xs-9 {
+    margin-top: 1.0rem;
+  }
+}
+.image {
+  vertical-align: middle;
+  border-style: none;
+  border-radius: 50%;
+  max-width: 4.5rem;
+  max-height: 4.5rem;
+}
+@media (min-width: 576px) { 
+  .comment-textarea {
+    width: 40.0rem;
+  }
+  .comment-form {
+    h1 {
+      font-size: 1.7rem;
+    }
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .comment-textarea {
+    width: 60.0rem;
+  }
+  .comment-form {
+    h1 {
+      font-size: 2.0rem;
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+  .comment-textarea {
+    width: 80.0rem;
+  }
+  .comment-form {
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .comment-textarea {
+    width: 95rem;
+  }
+  .comment-section {
+    h1, h2 {
+      font-size: 2.7rem;
+    }
+    h2 {
+      margin-left: 10.5rem;
+      padding-bottom: 3rem;
+    }
+    button {
+      margin-left: auto;
+    }
+  }
+  .add-comment-box {
+    margin-right: 11rem;
+    margin-left: 9rem
+  }
+}
