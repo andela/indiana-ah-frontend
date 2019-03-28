@@ -21,8 +21,11 @@ exports[`Login Form should match snapshot 1`] = `
     <div
       className="input-field"
     >
+      <label
+        htmlFor="email"
+      />
       <input
-        className="sc-bdVaJa SMGVi"
+        className="sc-bdVaJa doFRbm"
         id="email1"
         name="email"
         onChange={[Function]}
@@ -38,8 +41,11 @@ exports[`Login Form should match snapshot 1`] = `
     <div
       className="input-field"
     >
+      <label
+        htmlFor="password"
+      />
       <input
-        className="sc-bdVaJa SMGVi"
+        className="sc-bdVaJa doFRbm"
         id="password"
         name="password"
         onChange={[Function]}
@@ -54,7 +60,7 @@ exports[`Login Form should match snapshot 1`] = `
     </div>
     
     <button
-      className="sc-htpNat fvbqhb"
+      className="sc-htpNat hIFVTI"
       disabled={false}
       height="4.8rem"
       type="submit"
@@ -151,8 +157,11 @@ exports[`test the login container form should match snap shot 1`] = `
     <div
       className="input-field"
     >
+      <label
+        htmlFor="email"
+      />
       <input
-        className="sc-bdVaJa SMGVi"
+        className="sc-bdVaJa doFRbm"
         id="email1"
         name="email"
         onChange={[Function]}
@@ -168,8 +177,11 @@ exports[`test the login container form should match snap shot 1`] = `
     <div
       className="input-field"
     >
+      <label
+        htmlFor="password"
+      />
       <input
-        className="sc-bdVaJa SMGVi"
+        className="sc-bdVaJa doFRbm"
         id="password"
         name="password"
         onChange={[Function]}
@@ -184,7 +196,7 @@ exports[`test the login container form should match snap shot 1`] = `
     </div>
     
     <button
-      className="sc-htpNat fvbqhb"
+      className="sc-htpNat hIFVTI"
       disabled={false}
       height="4.8rem"
       type="submit"

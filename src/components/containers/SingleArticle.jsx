@@ -66,9 +66,9 @@ class SingleArticle extends Component {
     }
     const imageStyle = {
       backgroundImage: `url(${imageUrl})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center center',
-      backgroundRepeat: 'none'
+      backgroundSize: 'contain',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center center'
     };
     const dateCreated = new Date(createdAt);
     const displayedDate = `${dateCreated.getDate()}
@@ -140,13 +140,19 @@ class SingleArticle extends Component {
               </div>
               <div className="share-container">
                 <span className="social share-text">Share on</span>
-                <a href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`}
-                  rel='noopener noreferrer' target='_blank'>
+                <a
+                  href={`https://www.facebook.com/sharer/sharer.php?u=${
+                    window.location.href
+                  }`}
+                  rel="noopener noreferrer"
+                  target="_blank">
                   <img src={facebook} alt="facebook logo" className="social" />
                 </a>
-                <a href={`https://twitter.com/intent/tweet?url=${window.location.href}`}
-                  className='twitter-share-button'
-                  rel='noopener noreferrer' target='_blank'>
+                <a
+                  href={`https://twitter.com/intent/tweet?url=${window.location.href}`}
+                  className="twitter-share-button"
+                  rel="noopener noreferrer"
+                  target="_blank">
                   <img src={twitter} alt="twitter logo" className="social" />
                 </a>
               </div>
@@ -183,6 +189,9 @@ export { SingleArticle };
 export default connect(
   mapStateToProps,
   {
-    getSingleArticle, addBookmark, getAllUsersBookMarkedArticles, reactToArticle
+    getSingleArticle,
+    addBookmark,
+    getAllUsersBookMarkedArticles,
+    reactToArticle
   }
 )(SingleArticle);
