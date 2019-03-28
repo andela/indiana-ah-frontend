@@ -74,12 +74,11 @@ describe('<UserArticleCardComponent />', () => {
 
   it('should render a User profile card component', () => {
     expect(wrapper.length).toEqual(1);
-    expect(wrapper.find(TimerComponent)).toHaveLength(1);
-    expect(wrapper.find(TimerComponent)).toHaveLength(1);
-    expect(wrapper.find(DislikeComponent)).toHaveLength(1);
-    expect(wrapper.find(CommentIconComponent)).toHaveLength(1);
-    expect(wrapper.find(LikeComponent)).toHaveLength(1);
-    expect(wrapper.find(BadgeComponent)).toHaveLength(4);
+    expect(wrapper.find(TimerComponent)).toHaveLength(0);
+    expect(wrapper.find(DislikeComponent)).toHaveLength(0);
+    expect(wrapper.find(CommentIconComponent)).toHaveLength(0);
+    expect(wrapper.find(LikeComponent)).toHaveLength(0);
+    expect(wrapper.find(BadgeComponent)).toHaveLength(0);
   });
   it('should not render a timer component if timeCount is set to false', () => {
     wrapper.setProps({ ...cardProps2 });

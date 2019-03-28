@@ -8,7 +8,10 @@ import {
   GET_ALL_BOOKMARKS_LOADING,
   GET_ALL_BOOKMARKS,
   GET_ALL_BOOKMARKS_FAILURE,
-  GET_ALL_ARTICLES_ERROR
+  GET_ALL_ARTICLES_ERROR,
+  DELETE_ARTICLE_LOADING,
+  DELETE_ARTICLE_SUCCESS,
+  DELETE_ARTICLE_FAILURE,
 } from '../actionTypes';
 import { sendHttpRequest } from '../../../utils';
 
@@ -36,6 +39,21 @@ export const getAllUsersBookMarkedArticles = () => async (dispatch) => {
     return dispatch({ type: GET_ALL_BOOKMARKS, payload: response.userBookmarks || [] });
   } catch ({ response }) {
     dispatch({ type: GET_ALL_BOOKMARKS_FAILURE });
+    return toast.error(
+      <div>Request was not successful at the moment. Try again later</div>
+    );
+  }
+};
+
+export const deleteArticles = articleSlug => async (dispatch) => {
+  dispatch({ type: DELETE_ARTICLE_LOADING });
+  try {
+    const response = await sendHttpRequest(`/articles/${articleSlug}`, 'DELETE');
+    if ('message' in response) {
+      return dispatch({ type: DELETE_ARTICLE_SUCCESS, payload: articleSlug });
+    }
+  } catch ({ response }) {
+    dispatch({ type: DELETE_ARTICLE_FAILURE, payload: [] });
     return toast.error(
       <div>Request was not successful at the moment. Try again later</div>
     );
