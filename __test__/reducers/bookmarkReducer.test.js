@@ -2,7 +2,8 @@ import bookmarkReducer from '../../src/redux/reducers/bookmarkReducer';
 import {
   GET_ALL_BOOKMARKS,
   GET_ALL_BOOKMARKS_LOADING,
-  GET_ALL_BOOKMARKS_FAILURE
+  GET_ALL_BOOKMARKS_FAILURE,
+  ADD_BOOKMARK, REMOVE_BOOKMARK
 
 } from '../../src/redux/actions/actionTypes';
 
@@ -88,6 +89,46 @@ describe('User reducer test', () => {
       userBookmarks: [],
       isLoading: false,
       error: true
+    });
+  });
+});
+
+const initialState1 = {
+  error: false,
+  isLoading: false,
+  userBookmarks: [{
+    id: 4,
+    articleId: 3,
+    userId: 2
+  }],
+};
+describe('bookmarkReducer test', () => {
+  const action = {
+    payload: 'Bookmark'
+  };
+
+  it('should test for the the initial state', () => {
+    expect(bookmarkReducer(undefined, {})).toEqual({
+      ...initialState1, userBookmarks: []
+    });
+  });
+
+  it('should handle the ADD_BOOKMARK action', () => {
+    expect(
+      bookmarkReducer(initialState1, {
+        type: ADD_BOOKMARK,
+        payload: 'Bookmark'
+      })
+    ).toEqual({
+      ...initialState1,
+      userBookmarks: [...initialState1.userBookmarks, action.payload]
+    });
+  });
+
+  it('should handle the REMOVE_BOOKMARK action', () => {
+    expect(bookmarkReducer(initialState1, { type: REMOVE_BOOKMARK, id: 1 })).toEqual({
+      ...initialState1,
+      userBookmarks: initialState1.userBookmarks.filter(post => post.articleId !== 1)
     });
   });
 });

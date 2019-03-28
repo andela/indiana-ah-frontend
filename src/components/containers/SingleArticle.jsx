@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import getSingleArticle
   from '../../redux/actions/getSingleArticleActions/getSingleArticleActions';
-import { bookmarkLogo, twitter, facebook } from '../../assets/images/svg';
+import { twitter, facebook } from '../../assets/images/svg';
+import addBookmark from '../../redux/actions/bookmarkActions';
+import { getAllUsersBookMarkedArticles }
+  from '../../redux/actions/articleActions/articleActions';
 import LikeComponent from '../common/LikeComponent';
 import DislikeComponent from '../common/DislikeComponent';
 import CommentIconComponent from '../common/CommentIconComponent';
@@ -14,7 +17,13 @@ class SingleArticle extends Component {
     const { match, history } = this.props;
     const { slug } = match.params;
     this.props.getSingleArticle(slug, history);
+    this.props.getAllUsersBookMarkedArticles();
   }
+
+  handleBookmarkclick = () => {
+    const articleId = this.props.singleArticle.article.id;
+    this.props.addBookmark(articleId);
+  };
 
   render() {
     let articleTags = null;
@@ -40,6 +49,11 @@ class SingleArticle extends Component {
       createdAt,
       articleBody
     } = this.props.singleArticle.article;
+
+    const currentBookmark = this.props.bookmarkedArticles.userBookmarks.find(
+      article => article.articleId === this.props.singleArticle.article.id
+    );
+
     const createMarkup = () => ({ __html: articleBody });
     if (tags) {
       articleTags = tags.split(',').map((tag, index) => (
@@ -82,7 +96,12 @@ class SingleArticle extends Component {
                 {this.props.auth.isVerified && viewingUser !== author.username && (
                   <div className="follow-bookmark-box">
                     <button className="follow-btn">Follow</button>
-                    <img src={bookmarkLogo} className="bookmarkLogo" />
+                      <span>
+                        <i
+                          onClick={this.handleBookmarkclick}
+                          className={currentBookmark ? 'fas fa-bookmark fa-4x bookmarked-icon' : 'far fa-bookmark fa-4x unbookmarked-icon'}
+                        />
+                      </span>
                   </div>
                 )}
               </div>
@@ -113,8 +132,15 @@ class SingleArticle extends Component {
               </div>
               <div className="share-container">
                 <span className="social share-text">Share on</span>
-                <img src={facebook} alt="facebook logo" className="social" />
-                <img src={twitter} alt="twitter logo" className="social" />
+                <a href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`}
+                  rel='noopener noreferrer' target='_blank'>
+                  <img src={facebook} alt="facebook logo" className="social" />
+                </a>
+                <a href={`https://twitter.com/intent/tweet?url=${window.location.href}`}
+                  className='twitter-share-button'
+                  rel='noopener noreferrer' target='_blank'>
+                  <img src={twitter} alt="twitter logo" className="social" />
+                </a>
               </div>
             </section>
           </section>
@@ -126,7 +152,10 @@ class SingleArticle extends Component {
 }
 
 SingleArticle.propTypes = {
+  addBookmark: PropTypes.func.isRequired,
   getSingleArticle: PropTypes.func.isRequired,
+  getAllUsersBookMarkedArticles: PropTypes.func.isRequired,
+  bookmarkedArticles: PropTypes.object.isRequired,
   singleArticle: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
@@ -137,12 +166,13 @@ SingleArticle.propTypes = {
 const mapStateToProps = state => ({
   singleArticle: state.singleArticle,
   auth: state.auth,
-  user: state.user
+  user: state.user,
+  bookmarkedArticles: state.bookmarkedArticles
 });
 
 export { SingleArticle };
 
 export default connect(
   mapStateToProps,
-  { getSingleArticle }
+  { getSingleArticle, addBookmark, getAllUsersBookMarkedArticles }
 )(SingleArticle);

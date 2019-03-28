@@ -1,7 +1,8 @@
 import {
   GET_ALL_BOOKMARKS,
   GET_ALL_BOOKMARKS_LOADING,
-  GET_ALL_BOOKMARKS_FAILURE
+  GET_ALL_BOOKMARKS_FAILURE,
+  ADD_BOOKMARK, REMOVE_BOOKMARK
 } from '../actions/actionTypes';
 
 const initialState = {
@@ -29,6 +30,16 @@ const bookmarkReducer = (state = initialState, action) => {
         ...state,
         error: true,
         isLoading: false,
+      };
+    case ADD_BOOKMARK:
+      return {
+        ...state,
+        userBookmarks: [...state.userBookmarks, action.payload]
+      };
+    case REMOVE_BOOKMARK:
+      return {
+        ...state,
+        userBookmarks: state.userBookmarks.filter(post => post.articleId !== action.id)
       };
     default:
       return state;

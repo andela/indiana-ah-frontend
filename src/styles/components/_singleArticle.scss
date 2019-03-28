@@ -217,4 +217,13 @@
     }
 
   }
+
+  .unbookmarked-icon {
+    cursor: pointer;
+  }
+
+  .bookmarked-icon {
+    cursor: pointer;
+    color: $brand-color;
+  }
 }
