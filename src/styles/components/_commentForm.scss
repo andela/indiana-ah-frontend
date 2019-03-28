@@ -1,6 +1,7 @@
 .comment-section {
   background-color: rgba(252,252,252,1);
   width: 100%;
+<<<<<<< HEAD
   h2 {
     margin-left: 2rem;
     font-family: Alegreya Sans;
@@ -23,6 +24,10 @@
   float: right;
   padding: 3px 3px 0 10px;
 }
+=======
+}
+
+>>>>>>> feat: implement CRD functionalities for comment
 .comment-textarea {
   width: 24.0rem;
   border: none;
@@ -31,9 +36,12 @@
   font-size: 2rem;
   font-weight: unset;
 }
+<<<<<<< HEAD
 .mb-5, .my-5 {
   margin-bottom: 1.5rem!important;
 }
+=======
+>>>>>>> feat: implement CRD functionalities for comment
 .comment-form {
   h1 {
     left: 29.6rem;
@@ -48,13 +56,21 @@
     vertical-align: middle;
     border-style: none;
     border-radius: 50%;
+<<<<<<< HEAD
     max-width: 4.0rem;
     max-height: 4.0rem;
+=======
+    max-width: 4.5rem;
+    max-height: 4.5rem;
+>>>>>>> feat: implement CRD functionalities for comment
   }
   .row {
     flex-wrap: unset;
     justify-content: flex-start;
+<<<<<<< HEAD
     padding-left: 2.5rem;
+=======
+>>>>>>> feat: implement CRD functionalities for comment
   }
   .col-xs-9 {
     margin-top: 1.0rem;
@@ -67,6 +83,7 @@
   max-width: 4.5rem;
   max-height: 4.5rem;
 }
+<<<<<<< HEAD
 .cKRIiy {
   margin-left: 5rem;
 }
@@ -74,6 +91,9 @@
   .cKRIiy {
     margin-left: 3rem;
 }
+=======
+@media (min-width: 576px) { 
+>>>>>>> feat: implement CRD functionalities for comment
   .comment-textarea {
     width: 40.0rem;
   }
@@ -82,6 +102,7 @@
       font-size: 1.7rem;
     }
   }
+<<<<<<< HEAD
   .comment-section{
     .h3, h3 {
       font-size: 1.75rem;
@@ -91,6 +112,8 @@
       font-size: 2.7rem;
     }
   }
+=======
+>>>>>>> feat: implement CRD functionalities for comment
 }
 
 // Medium devices (tablets, 768px and up)
@@ -103,6 +126,7 @@
       font-size: 2.0rem;
     }
   }
+<<<<<<< HEAD
   .comment-section{
     .h3, h3 {
       font-size: 1.75rem;
@@ -112,6 +136,8 @@
       font-size: 2.7rem;
     }
   }
+=======
+>>>>>>> feat: implement CRD functionalities for comment
 }
 
 // Large devices (desktops, 992px and up)

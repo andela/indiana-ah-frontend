@@ -107,6 +107,7 @@ class SingleArticle extends Component {
       || !this.props.singleArticle.article.articleBody
     ) return delayDisplay;
 
+
     return (
       <>
         <div className="SingleArticle">
