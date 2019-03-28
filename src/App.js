@@ -40,7 +40,6 @@ const App = () => (
         <Route path="/verifyUser" component={UserVerificationpage} />
         <Route path="/not-found" component={NotFound} exact />
         <Route path="/social-auth" component={SocialAuthPage} />
-        <Route path="/articles/:id" component={SingleArticlePage} exact/>
         <Route path="/" component={homePage} exact />
         <Route path="/article/create" component={requireAuth(createArticle)} exact />
         <Route path="/dashboard" component={requireAuth(UserDashboard)} />

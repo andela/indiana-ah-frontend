@@ -37,7 +37,7 @@ const PaginationComponent = ({ currentPage, numberOfPages, query }) => {
 };
 
 PaginationComponent.propTypes = {
-  currentPage: PropTypes.number.isRequired,
+  currentPage: PropTypes.number,
   numberOfPages: PropTypes.number.isRequired,
   onPageClick: PropTypes.func,
   query: PropTypes.string

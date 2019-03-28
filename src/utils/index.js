@@ -75,8 +75,8 @@ export const setAndGetCurrentPage = (component) => {
 };
 
 const sortLikes = (current, next) => {
-  if (current.like > next.like) return 1;
-  if (current.like < next.like) return -1;
+  if (current.likes < next.likes) return 1;
+  if (current.likes > next.likes) return -1;
   return 0;
 };
 
@@ -90,4 +90,26 @@ export const filterArticlesByDate = (articles) => {
     .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
     .slice(0, 6);
   return newArticles;
+};
+
+export const recordDisLike = (data) => {
+  if (data.dislikedByMe) {
+    data.dislikes -= 1;
+  } else {
+    data.dislikes += 1;
+  }
+  if (data.likedByMe) data.likes -= 1;
+  data.dislikedByMe = !data.dislikedByMe;
+  data.likedByMe = false;
+};
+
+export const recordLike = (data) => {
+  if (data.likedByMe) {
+    data.likes -= 1;
+  } else {
+    data.likes += 1;
+  }
+  if (data.dislikedByMe) data.dislikes -= 1;
+  data.likedByMe = !data.likedByMe;
+  data.dislikedByMe = false;
 };

@@ -84,7 +84,7 @@ exports[`<CardComponent /> renders correctly 1`] = `
                   id="clip0"
                 >
                   <rect
-                    fill="green"
+                    fill="rgba(0,0,0,.5)"
                     height="30"
                     width="30"
                   />
@@ -103,6 +103,7 @@ exports[`<CardComponent /> renders correctly 1`] = `
         >
           <span
             className="icon-holder"
+            onClick={[Function]}
           >
             <svg
               className="icon-height icon_margin"
@@ -135,7 +136,7 @@ exports[`<CardComponent /> renders correctly 1`] = `
               </g>
             </svg>
             <sub
-              className="count"
+              className="count dislike-count"
             >
               2
             </sub>
