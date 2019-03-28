@@ -117,7 +117,7 @@ export class PasswordForm extends Component {
         <Button
           sm
           onClick={this.handleSubmit}
-          disabled={!!(!currentPassword || !newPassword || !confirmPassword)}>
+          disabled={!(currentPassword && newPassword && confirmPassword)}>
           Save
         </Button>
       </div>

@@ -57,29 +57,11 @@ const mock = new MockAdapter(apiInstance);
 const mockStore = configureMockStore([thunk]);
 const store = mockStore(initialState);
 
-const profile = {
-  name: 'in',
-  id: 'f0b66010-3f11-47f7-86e4-077aaeaf5891',
-  username: 'dondon',
-  email: 'ezenwaogbonna1@gmail.com',
-  bio: 'hey there whatz up',
-  imageUrl:
-    'http://res.cloudinary.com/indiana/image/upload/v1553190706/images/nhzfi4ljdymk4i1yepqx.jpg',
-  isVerified: true,
-  role: 'user',
-  subscribed: true,
-  inAppNotification: false,
-  createdAt: '2019-03-20T12:09:08.693Z'
-};
-
 const response = {
   response: {
     data: { message: 'error' }
   }
 };
-
-// const history = { push: jest.fn() };
-// const closeModal = jest.fn();
 
 describe('Profile actions for the user', () => {
   beforeEach(() => {
@@ -148,7 +130,6 @@ describe('Profile actions for the user', () => {
   });
 
   it('should fail to update a user"s profile picture', async () => {
-    // sendHttpRequest.mockRejectedValue(response);
     mock.onPatch('/profiles/dondon/image').reply(400, {});
     const expectedActions = [
       { type: UPDATE_PROFILE_PIC_REQUEST },

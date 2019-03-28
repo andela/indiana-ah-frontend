@@ -99,7 +99,7 @@ export class ProfileForm extends Component {
             />
           </Form.Group>
         </div>
-        <Button sm onClick={this.handleSubmit} disabled={!!(!Name || !Username || !Bio)}>
+        <Button sm onClick={this.handleSubmit} disabled={!(Name && Username && Bio)}>
           Update
         </Button>
       </div>
