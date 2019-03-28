@@ -31,7 +31,7 @@ describe('Backend url', () => {
   });
 });
 
-describe('filterArticlesByLikes likes test', () => {
+describe('filterArticlesByLikes test', () => {
   it('should test the filterArticlesByLikes function', () => {
     const articles = [
       { likes: 26 },
