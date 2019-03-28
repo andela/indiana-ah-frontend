@@ -103,7 +103,6 @@ exports[`<CardComponent /> renders correctly 1`] = `
         >
           <span
             className="icon-holder"
-            onClick={[Function]}
           >
             <svg
               className="icon-height icon_margin"

@@ -17,7 +17,7 @@ import store from './redux/store';
 import UserDashboard from './components/UserDashboard.jsx';
 import NotFound from './components/NotFound.jsx';
 import SingleArticlePage from './components/containers/SingleArticle.jsx';
-import requireAuth from './utils/authenticate';
+import PrivateRoute from './utils/authenticate';
 import emailVerificationPage from './components/EmailVerificationPage.jsx';
 
 const user = validateToken(window.localStorage.getItem('token'));
@@ -40,10 +40,15 @@ const App = () => (
         <Route path="/verifyUser" component={UserVerificationpage} />
         <Route path="/not-found" component={NotFound} exact />
         <Route path="/social-auth" component={SocialAuthPage} />
-        <Route path="/profile" component={Profilepage} exact />
+        <PrivateRoute path="/profile" component={Profilepage} exact />
         <Route path="/" component={homePage} exact />
-        <Route path="/article/create" component={requireAuth(createArticle)} exact />
-        <Route path="/dashboard" component={requireAuth(UserDashboard)} />
+        <PrivateRoute path="/article/create" component={createArticle} exact />
+        <PrivateRoute
+          path="/article/update/:slug"
+          component={createArticle}
+          exact
+        />
+        <PrivateRoute path="/dashboard" component={UserDashboard} />
         <Route path="/user/verify" component={emailVerificationPage} />
         <Redirect to="not-found" exact />
       </Switch>

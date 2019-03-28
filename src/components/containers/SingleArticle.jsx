@@ -10,8 +10,30 @@ import LikeComponent from '../common/LikeComponent';
 import DislikeComponent from '../common/DislikeComponent';
 import CommentIconComponent from '../common/CommentIconComponent';
 import Footer from '../common/footer.jsx';
+import SignupContainer from '../SignupFormContainer.jsx';
+import LoginContainer from '../LoginFormContainer.jsx';
+import Modal from '../common/Modal.jsx';
 
 class SingleArticle extends Component {
+  state = {
+    modalIsOpen: false
+  };
+
+  openModal = () => {
+    this.setState(() => ({ modalIsOpen: true }));
+  };
+
+  closeModal = () => {
+    const {
+      auth: { isLoading }
+    } = this.props;
+    if (!isLoading) this.setState(() => ({ modalIsOpen: false }));
+  };
+
+  displayForm = (form) => {
+    this.setState({ modalIsOpen: true, modalContent: form });
+  };
+
   componentDidMount() {
     const { match, history } = this.props;
     const { slug } = match.params;
@@ -25,6 +47,7 @@ class SingleArticle extends Component {
   };
 
   render() {
+    const { modalContent } = this.state;
     let articleTags = null;
     let viewingUser;
     const delayDisplay = (
@@ -126,15 +149,16 @@ class SingleArticle extends Component {
                   likeCount={likes}
                   color={likedByMe ? '#0B41CD' : 'rgba(0,0,0,.5)'}
                   id={slug}
-                  onClick={this.props.reactToArticle}
+                  onClick={this.props.auth.isVerified ? () => this.props.reactToArticle(slug, 'like'): () => this.displayForm('login')
+                  }
                   likedByMe={likedByMe}
                 />
                 <DislikeComponent
                   className="reaction-logo"
                   dislikeCount={dislikes}
                   color={dislikedByMe ? '#0B41CD' : 'rgba(0,0,0,.5)'}
-                  id={slug}
-                  onClick={this.props.reactToArticle}
+                  onClick={this.props.auth.isVerified ? () => this.props.reactToArticle(slug, 'dislike') : () => this.displayForm('login')
+                  }
                 />
                 <CommentIconComponent className="reaction-logo" commentCount={Comments} />
               </div>
@@ -145,7 +169,8 @@ class SingleArticle extends Component {
                     window.location.href
                   }`}
                   rel="noopener noreferrer"
-                  target="_blank">
+                  target="_blank"
+                >
                   <img src={facebook} alt="facebook logo" className="social" />
                 </a>
                 <a
@@ -158,6 +183,23 @@ class SingleArticle extends Component {
               </div>
             </section>
           </section>
+          <Modal
+            modalIsOpen={this.state.modalIsOpen}
+            closeModal={this.closeModal}
+            body={
+              modalContent === 'login' ? (
+                <LoginContainer
+                  displayForm={this.displayForm}
+                  closeModal={this.closeModal}
+                />
+              ) : (
+                <SignupContainer
+                  displayForm={this.displayForm}
+                  closeModal={this.closeModal}
+                />
+              )
+            }
+          />
         </div>
         <Footer />
       </>
@@ -174,6 +216,7 @@ SingleArticle.propTypes = {
   match: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
   auth: PropTypes.object,
+  reactToArticle: PropTypes.func,
   user: PropTypes.object
 };
 

@@ -82,10 +82,17 @@ const UserArticleCard = ({
                 {timeCount === 'false' ? (
                   <i className="fas fa-bookmark fa-2x brand-color" />
                 ) : (
-									    <ButtonGroup className="user-article-btn">
-											<Button variant="primary">Edit</Button>
-											<Button variant="danger" onClick={() => deleteArticleFunc(slug, deleteBySlug)}>Delete</Button>
-										</ButtonGroup>
+                  <ButtonGroup className="user-article-btn">
+                    <NavLink to={`/article/update/${slug}`}>
+                      <Button variant="primary">Edit</Button>
+                    </NavLink>
+                    <Button
+                      variant="danger"
+                      onClick={() => deleteArticleFunc(slug, deleteBySlug)}
+                    >
+                      Delete
+                    </Button>
+                  </ButtonGroup>
                 )}
               </div>
             </div>

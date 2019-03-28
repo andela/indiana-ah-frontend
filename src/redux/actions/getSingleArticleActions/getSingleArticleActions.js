@@ -22,6 +22,7 @@ const getSingleArticle = (slug, history) => async (dispatch, getState) => {
       type: GET_SINGLE_ARTICLE_SUCCESS,
       payload: article
     });
+    return article;
   } catch ({ response }) {
     if (response.status === 404) {
       history.push('/not-found');

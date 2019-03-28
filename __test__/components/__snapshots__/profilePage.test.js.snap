@@ -26,7 +26,11 @@ exports[`Profile page component renders correctly 1`] = `
     <a
       aria-current={null}
       className="sidenav__logo-box"
+<<<<<<< HEAD
       href="/articles"
+=======
+      href="/dashboard/posts"
+>>>>>>> feat: authenticate profile page
       onClick={[Function]}
     >
       <img
