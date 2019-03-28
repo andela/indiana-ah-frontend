@@ -15,11 +15,12 @@ const mockStore = configureStore([thunk]);
 const articleSlug = 'djherhgvcfryejhkfcurfhjerg';
 const store = mockStore({});
 
-
 const mockData2 = { message: 'Article successfully deleted' };
 
-
 describe('deleting  all parcels action', () => {
+  beforeEach(() => {
+    store.clearActions();
+  });
   it('handles deleting an aticle successfully', async () => {
     mock.onDelete(`/articles/${articleSlug}`).reply(200, mockData2);
     const expectedActions = [
@@ -37,15 +38,17 @@ describe('deleting  all parcels action', () => {
   });
 
   it('handles deleting an aticle unsuccessfully', async () => {
-    mock.onDelete(`/articles/${articleSlug}`).reply(500, { message: 'Internal server error' });
+    mock
+      .onDelete(`/articles/${articleSlug}`)
+      .reply(500, { message: 'Internal server error' });
     const expectedActions = [
       {
         type: DELETE_ARTICLE_LOADING
       },
       {
         type: DELETE_ARTICLE_FAILURE,
-        payload: [],
-      },
+        payload: []
+      }
     ];
     await store.dispatch(deleteArticles('dsdsd'));
     const actualActions = store.getActions();
