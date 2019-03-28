@@ -76,7 +76,9 @@ const LikeComponent = ({
 
 LikeComponent.propTypes = {
   likeCount: PropTypes.number.isRequired,
-  color: PropTypes.string.isRequired
+  color: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+  id: PropTypes.string
 };
 
 export default LikeComponent;
