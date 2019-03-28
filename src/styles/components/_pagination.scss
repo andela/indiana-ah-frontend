@@ -5,14 +5,14 @@
   margin: 0 auto;
 }
 
-.pagination a {
+.pagination a, .pagination li {
   padding: 0.8rem 1.5rem 0.8rem 1.5rem;
   display: table-cell;
   text-decoration: none;
   overflow: hidden;
 }
 
-.pagination a:hover {
+.pagination a:hover, .pagination li:hover {
   background: #f2f2f2;
   text-align: center;
 }
@@ -45,4 +45,15 @@
 .active {
   background: #0b41cd;
   color: white;
+}
+
+.pagination li {
+cursor: pointer;
+}
+.brand-color{
+  color : rgba(11,65,205,1);
+}
+
+.user-article-btn button{
+  padding: 8px
 }

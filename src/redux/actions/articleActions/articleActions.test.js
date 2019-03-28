@@ -1,7 +1,6 @@
 import configureStore from 'redux-mock-store';
 import MockAdapter from 'axios-mock-adapter';
 import thunk from 'redux-thunk';
-import swal from 'sweetalert2';
 import { apiInstance } from '../../../utils/index';
 import { getAllArticles } from './articleActions';
 import {
@@ -106,8 +105,6 @@ describe('get all parcels action', () => {
 
     await store.dispatch(getAllArticles());
     const actualActions = store.getActions();
-
-    expect(swal.isVisible()).toEqual(false);
     expect(actualActions).toEqual(expectedActions);
   });
 });

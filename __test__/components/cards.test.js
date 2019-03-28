@@ -1,12 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
+import Button from 'react-bootstrap/Button';
 import LikeComponent from '../../src/components/common/LikeComponent';
 import DislikeComponent from '../../src/components/common/DislikeComponent';
 import CardComponent from '../../src/components/common/CardComponent';
 import CommentIconComponent from '../../src/components/common/CommentIconComponent';
 import UserProfileCard from '../../src/components/common/UserProfileCardComponent';
-import UserArticleCard from '../../src/components/common/UserArticleCardComponent';
+import {
+  UserArticleCard
+} from '../../src/components/common/UserArticleCardComponent';
 import BadgeComponent from '../../src/components/common/BadgeComponent';
 import TimerComponent from '../../src/components/common/TimerComponent';
 
@@ -39,13 +42,23 @@ describe('<UserProfileCardComponent />', () => {
     postCount: 2,
     bio: 'lkjhljugyghjh',
     followingCount: 2,
-    followersCount: 3,
+    followersCount: 3
   };
   const wrapper = shallow(<UserProfileCard {...cardProps} />);
   it('should render a User profile card component', () => {
     expect(wrapper.length).toEqual(1);
-    expect(wrapper.find('p').at(0).text()).toEqual('Dozie');
-    expect(wrapper.find('p').at(1).text()).toEqual('lkjhljugyghjh');
+    expect(
+      wrapper
+        .find('p')
+        .at(0)
+        .text()
+    ).toEqual('Dozie');
+    expect(
+      wrapper
+        .find('p')
+        .at(1)
+        .text()
+    ).toEqual('lkjhljugyghjh');
   });
   it('renders correctly', () => {
     const tree = renderer.create(<UserProfileCard {...cardProps} />).toJSON();
@@ -63,18 +76,18 @@ describe('<UserArticleCardComponent />', () => {
     likeCount: 2,
     dislikeCount: 3,
     commentCount: 5,
-    timeCount: '2 days Ago'
+    timeCount: '2 days Ago',
+    deleteArticles: jest.fn()
   };
   const cardProps2 = { ...cardProps, timeCount: 'false' };
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<UserArticleCard { ...cardProps } />);
+    wrapper = shallow(<UserArticleCard {...cardProps} />);
   });
 
   it('should render a User profile card component', () => {
     expect(wrapper.length).toEqual(1);
-    expect(wrapper.find(TimerComponent)).toHaveLength(1);
     expect(wrapper.find(TimerComponent)).toHaveLength(1);
     expect(wrapper.find(DislikeComponent)).toHaveLength(1);
     expect(wrapper.find(CommentIconComponent)).toHaveLength(1);
@@ -84,5 +97,11 @@ describe('<UserArticleCardComponent />', () => {
   it('should not render a timer component if timeCount is set to false', () => {
     wrapper.setProps({ ...cardProps2 });
     expect(wrapper.find(TimerComponent)).toHaveLength(0);
+  });
+  it('should show a modal when the delete button is clicked', () => {
+    wrapper
+      .find(Button)
+      .at(1)
+      .simulate('click');
   });
 });
