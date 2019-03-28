@@ -25,7 +25,7 @@ describe('Reaction actions test', () => {
     expect(store.getActions()).toEqual(expectedActions);
   });
 
-  it('should create the LIKE_ARTICLE action if the reaction type is "dislike"', async () => {
+  it('should create the DISLIKE_ARTICLE action if the reaction type is "dislike"', async () => {
     const expectedActions = [{ type: DISLIKE_ARTICLE }];
     store.dispatch(reactToArticle('when-i-get-older', 'dislike'));
     expect(store.getActions()).toEqual(expectedActions);
