@@ -75,8 +75,8 @@ export const setAndGetCurrentPage = (component) => {
 };
 
 const sortLikes = (current, next) => {
-  if (current.like > next.like) return 1;
-  if (current.like < next.like) return -1;
+  if (current.likes < next.likes) return 1;
+  if (current.likes > next.likes) return -1;
   return 0;
 };
 

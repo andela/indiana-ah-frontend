@@ -12,8 +12,8 @@ const reactToArticle = (slug, reactionType) => async (dispatch) => {
     await sendHttpRequest(`/articles/${slug}/reaction`, 'POST', {
       reactionType
     });
-  } catch (e) {
-    // errors
+  } catch (error) {
+    return error;
   }
 };
 

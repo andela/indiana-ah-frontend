@@ -1,4 +1,10 @@
-import { setAndGetCurrentPage, getUrl } from '../../src/utils';
+import {
+  setAndGetCurrentPage,
+  getUrl,
+  recordDisLike,
+  recordLike,
+  filterArticlesByLikes
+} from '../../src/utils';
 
 describe('Pagination utils test', () => {
   const component = {
@@ -22,5 +28,52 @@ describe('Backend url', () => {
     const host = 'https://indiana-ah-frontend-master.herokuapp.com';
     const url = getUrl(host);
     expect(url).toEqual('https://indiana-ah-master.herokuapp.com/api/v1/');
+  });
+});
+
+describe('filterArticlesByLikes likes test', () => {
+  it('should test the filterArticlesByLikes function', () => {
+    const articles = [
+      { likes: 26 },
+      { likes: 20 },
+      { likes: 8 },
+      { likes: 50 },
+      { likes: 100 },
+      { likes: 15 },
+      { likes: 18 },
+      { likes: 98 },
+      { likes: 10 }
+    ];
+    const filteredArticles = filterArticlesByLikes(articles);
+    expect(filteredArticles[0].likes).toEqual(100);
+    expect(filteredArticles.length).toEqual(7);
+  });
+});
+
+describe('reactions utils test', () => {
+  it('should test the recordLike function', () => {
+    let article = {
+      likedByMe: true,
+      dislikedByMe: false,
+      likes: 1
+    };
+    recordLike(article);
+    expect(article.likes).toEqual(0);
+    article = {
+      dislikedByMe: true,
+      likedByMe: false,
+      dislikes: 1
+    };
+    recordLike(article);
+    expect(article.likedByMe).toEqual(true);
+  });
+
+  it('should test the recordDisLike function', () => {
+    const article = {
+      dislikedByMe: true,
+      dislikes: 1
+    };
+    recordDisLike(article);
+    expect(article.dislikes).toEqual(0);
   });
 });
