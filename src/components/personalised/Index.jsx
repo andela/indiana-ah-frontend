@@ -88,7 +88,7 @@ class PersonalisedViewComponent extends Component {
     if (!isBookMarkedArticlesLoading && userBookmarks.length > 0) {
       const bookmarkedAticleResults = userBookmarks.map(eachCard => eachCard.Article);
       // showing a maximum list of 4 bookmarked items due to space
-      const bookmarkedlists = bookmarkedAticleResults.slice(0, 5);
+      const bookmarkedlists = bookmarkedAticleResults.slice(0, 3);
       const listedBookmarkedItems = bookmarkedlists
         .map((eachCard, index) => <li key = {index} className='list-group-item'><Link to ={`/articles/${eachCard.slug}`}>{eachCard.articleTitle}</Link></li>);
       bookmarkListView = <ul className="list-group list-group-flush">{listedBookmarkedItems}</ul>;
