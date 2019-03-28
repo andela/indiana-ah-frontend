@@ -54,18 +54,17 @@ input.form-control:focus {
     position: relative;
   }
 }
-@media (max-width: 90rem) {
+@media (max-width: 900px) {
   .show {
     display: flex !important;
     flex-direction: row !important;
-    justify-content: space-around !important;
     padding: 0 1rem;
     .input-group {
       width: 25rem;
     }
   }
 }
-@media (max-width: 60rem) {
+@media (max-width: 600px) {
   .input-group {
     width: 10rem;
   }
@@ -100,7 +99,7 @@ input.form-control:focus {
   }
 }
 
-@media (max-width: 35.5rem) {
+@media (max-width: 355px) {
   .navbar.navbar-expand-lg {
     .feather {
       width: 19rem;

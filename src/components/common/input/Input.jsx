@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Input = styled.input`
   display: flex;
   padding: 0.8rem;
-  margin: ${props => props.margin || '0.8rem auto'};
+  margin: ${props => props.margin || '0.1rem auto'};
   height: 4.3rem;
   fill: #fbfcff;
   border: 0.05rem solid rgba(0, 0, 0, 0.4);

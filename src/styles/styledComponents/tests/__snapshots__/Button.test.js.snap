@@ -23,6 +23,11 @@ exports[`testing the button element should mount custom button 1`] = `
   display: block;
 }
 
+.c0:disabled {
+  color: #dddddd;
+  border: 0.2rem solid #dddddd;
+}
+
 @media (max-width:830px) {
   .c0 {
     width: auto;

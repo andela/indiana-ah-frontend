@@ -14,9 +14,11 @@ const InputField = ({
   onBlur,
   margin,
   wrapper,
-  name
+  name,
+  label
 }) => (
   <div className={wrapper || 'input-field'}>
+    <label htmlFor={name}>{label}</label>
     <Input
       inputWidth={width}
       id={id}

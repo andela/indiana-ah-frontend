@@ -6,7 +6,8 @@ import {
 import homePage from './components/Home.jsx';
 import UserVerificationpage from './components/UserVerificationPage.jsx';
 import { signOutUser } from './redux/actions/authActions';
-import { SET_CURRENT_USER } from './redux/actions/actionTypes';
+import { AUTHENTICATE_USER } from './redux/actions/actionTypes';
+import Profilepage from './components/ProfilePage.jsx';
 import 'react-toastify/dist/ReactToastify.min.css';
 import { validateToken } from './utils';
 import Navbar from './components/common/Navbar.jsx';
@@ -19,11 +20,10 @@ import SingleArticlePage from './components/containers/SingleArticle.jsx';
 import requireAuth from './utils/authenticate';
 import emailVerificationPage from './components/EmailVerificationPage.jsx';
 
-
 const user = validateToken(window.localStorage.getItem('token'));
 if (user) {
   store.dispatch({
-    type: SET_CURRENT_USER,
+    type: AUTHENTICATE_USER,
     user
   });
 } else {
@@ -40,6 +40,7 @@ const App = () => (
         <Route path="/verifyUser" component={UserVerificationpage} />
         <Route path="/not-found" component={NotFound} exact />
         <Route path="/social-auth" component={SocialAuthPage} />
+        <Route path="/profile" component={Profilepage} exact />
         <Route path="/" component={homePage} exact />
         <Route path="/article/create" component={requireAuth(createArticle)} exact />
         <Route path="/dashboard" component={requireAuth(UserDashboard)} />

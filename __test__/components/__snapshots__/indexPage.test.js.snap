@@ -25,7 +25,7 @@ Array [
             There is no limit to what you can achieve with a pen.. Write, the world is ready to read.
           </p>
           <button
-            className="index-button sc-htpNat hhMDti"
+            className="index-button sc-htpNat eoyyVM"
             onClick={[Function]}
           >
             Get Started
@@ -3635,7 +3635,7 @@ Array [
             Get Started for free today.
           </p>
           <button
-            className="sc-htpNat hwbabD"
+            className="sc-htpNat hqolFf"
             onClick={[Function]}
           >
             Get Started
@@ -3674,6 +3674,9 @@ Array [
           <div
             className="input-div"
           >
+            <label
+              htmlFor="email"
+            />
             <input
               className="sc-bdVaJa cUynHz"
               id="email2"
@@ -3689,7 +3692,7 @@ Array [
             />
           </div>
           <button
-            className="sc-htpNat coBlrE"
+            className="sc-htpNat brPGUH"
           >
             Subscribe
           </button>

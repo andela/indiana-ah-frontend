@@ -57,7 +57,7 @@ export class NavBar extends Component {
     const { user, auth } = this.props;
     const userLInk = (
       <Nav className="d-flex flex-row justify-content-between">
-        <ProfileImg src={profile} className="ml-5 mt-2" alt="logo" />
+        <ProfileImg src={user.userData.imageUrl} className="ml-5 mt-2" alt="logo" />
         <div to="/signup" className="d-flex ft-size-2 ml-5">
           <span className="username ml-3">
             {' '}
