@@ -37,69 +37,70 @@ const UserArticleCard = ({
 }) => {
   const createMarkup = () => ({ __html: articleBody });
   return (
-		<Fragment>
-			<Card className="user-article-card">
-				<div className="article-image-wrapper">
-					<img src={img} className="img-fluid" />
-				</div>
+<Fragment>
+<Card className="user-article-card">
+<div className="article-image-wrapper">
+<img src={img} className="img-fluid" />
+</div>
 
-				<Card.Body className="article-card-body">
-					<NavLink to={`/articles/${slug}`}>
-						<div className="article-title-div">
-							<b className="text-body">{articleTitle}</b>
-						</div>
-						<div className="article-body" dangerouslySetInnerHTML={createMarkup()} />
-					</NavLink>
-					{tags && (
-						<div className="tags-wrapper">
-							{tags.split(',').map((eachTag, index) => (
-								<BadgeComponent key={index} eachTagDetail={eachTag} />
-							))}
-						</div>
-					)}
+<Card.Body className="article-card-body">
+<NavLink to={`/articles/${slug}`}>
+<div className="article-title-div">
+<b className="text-body">{articleTitle}</b>
+</div>
+<div className="article-body" dangerouslySetInnerHTML={createMarkup()} />
+</NavLink>
+{tags && (
+<div className="tags-wrapper">
+{tags.split(',').map((eachTag, index) => (
+<BadgeComponent key={index} eachTagDetail={eachTag} />
+))}
+</div>
+)}
 
-					<div className="container">
-						<div className="row no-gutters">
-							<div className="icons">
-								<div className="row">
-									{timeCount !== 'false' && (
-										<span className="icon-item timer">
-											<TimerComponent timeCount={timeCount} />
-										</span>
-									)}
-									<span className="icon-item">
-										<LikeComponent likeCount={likeCount} color="black" />
-									</span>
-									<span className="icon-item">
-										<DislikeComponent dislikeCount={dislikeCount} color="black" />
-									</span>
-									<span className="icon-item">
-										<CommentIconComponent commentCount={commentCount} />
-									</span>
-								</div>
-							</div>
-							<div className="action-button">
-								{timeCount === 'false' ? (
-									<i className="fas fa-bookmark fa-2x brand-color" />
-								) : (
-									<ButtonGroup className="user-article-btn">
-										<Button variant="primary">Edit</Button>
-										<Button
-											variant="danger"
-											onClick={() => deleteArticleFunc(slug, deleteBySlug)}
-										>
-											Delete
-										</Button>
-									</ButtonGroup>
-								)}
-							</div>
-						</div>
-					</div>
-				</Card.Body>
-			</Card>
-		</Fragment>
+<div className="container">
+<div className="row no-gutters">
+<div className="icons">
+<div className="row">
+{timeCount !== 'false' && (
+<span className="icon-item timer">
+<TimerComponent timeCount={timeCount} />
+</span>
+)}
+<span className="icon-item">
+<LikeComponent likeCount={likeCount} color="black" />
+</span>
+<span className="icon-item">
+<DislikeComponent dislikeCount={dislikeCount} color="black" />
+</span>
+<span className="icon-item">
+<CommentIconComponent commentCount={commentCount} />
+</span>
+</div>
+</div>
+<div className="action-button">
+{timeCount === 'false' ? (
+<i className="fas fa-bookmark fa-2x brand-color" />
+) : (
+<ButtonGroup className="user-article-btn">
+<Button variant="primary">Edit</Button>
+<Button
+variant="danger"
+onClick={() => deleteArticleFunc(slug, deleteBySlug)}
+>
+Delete
+</Button>
+</ButtonGroup>
+)}
+</div>
+</div>
+</div>
+</Card.Body>
+</Card>
+</Fragment>
   );
 };
+
 
 UserArticleCard.defaultProps = {
   tags: '',
