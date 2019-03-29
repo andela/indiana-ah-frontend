@@ -1,19 +1,19 @@
 .SingleArticle {
   font-size: 1rem;
-  background-color: #FFFFFF;
-  // max-width: 100%;
+  background-color: #ffffff;
   overflow-x: hidden;
 
   .heading-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 5rem;
+    margin: 5rem auto;
+    width: 80%;
 
     .heading-primary {
       font-family: 'Open Sans', sans-serif;
       text-transform: capitalize;
-      font-size: 6rem;
+      font-size: 5rem;
       text-align: center;
       margin: 0 2rem;
       @media only screen and (max-width: 700px) {
@@ -54,7 +54,7 @@
       font-size: 20px;
       color: #222;
       font-weight: 300;
-      letter-spacing: .3rem;
+      letter-spacing: 0.3rem;
       margin-right: 3rem;
       @media only screen and (max-width: 363px) {
         width: 120px;
@@ -62,10 +62,9 @@
       @media only screen and (max-width: 335px) {
         margin-right: 1rem;
         font-size: 15px;
-        letter-spacing: .1rem;
+        letter-spacing: 0.1rem;
         width: initial;
       }
-
     }
 
     .follow-bookmark-box {
@@ -78,13 +77,13 @@
     }
 
     .follow-btn {
-      padding: .1rem 2rem;
+      padding: 0.1rem 2rem;
       font-size: 2rem;
-      border: 2px solid #0B41CD;
+      border: 2px solid #0b41cd;
       border-radius: 5px;
-      color: #0B41CD;
+      color: #0b41cd;
       margin: 0 3rem;
-      background-color: #FFFFFF;
+      background-color: #ffffff;
     }
 
     .bookmarkLogo {
@@ -112,7 +111,6 @@
     margin: 6rem auto;
     width: 80%;
     height: 50rem;
-
 
     @media only screen and (max-width: 1100px) {
       height: 30rem;
@@ -152,7 +150,7 @@
 
   .article-tags {
     margin: 1rem 2rem 0 0;
-    background-color: #EFEFEF;
+    background-color: #efefef;
     padding: 0 4rem;
     border-radius: 4px;
     font-family: 'Alegreya Sans SC', sans-serif;
@@ -199,14 +197,13 @@
       justify-content: space-evenly;
       margin: 4rem 0 0;
     }
-
   }
 
   .share-text {
     font-size: 20px;
     font-family: 'Alegreya', sans-serif;
     font-weight: 400;
-    color: #0B41CD;
+    color: #0b41cd;
   }
 
   .social {
@@ -215,7 +212,6 @@
     @media only screen and (max-width: 630px) {
       margin-right: 1rem;
     }
-
   }
 
   .unbookmarked-icon {

@@ -14,7 +14,7 @@ const initialState = {
 };
 
 describe('Action for creating article', () => {
-  it('should call CREATE_ARTICLE_LOADING action', () => {
+  it('should call LOGIN action', () => {
     expect(
       authReducer(initialState, {
         type: LOGIN_WITH_EMAIL_REQUEST

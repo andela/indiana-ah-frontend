@@ -12,7 +12,7 @@ const SideNav = () => (
       <img src={sideNavProfileLogo} className="sideNavLogos"/>
       <span className="sidenav__logo-label">Profile</span>
     </NavLink>
-    <NavLink to="/articles" activeClassName="is-active" className="sidenav__logo-box">
+    <NavLink to="/dashboard/posts" activeClassName="is-active" className="sidenav__logo-box">
       <img src={sideNavArticlesLogo} className="sideNavLogos"/>
       <span className="sidenav__logo-label">Articles</span>
     </NavLink>

@@ -25,7 +25,7 @@ Array [
             There is no limit to what you can achieve with a pen.. Write, the world is ready to read.
           </p>
           <button
-            className="index-button sc-htpNat hhMDti"
+            className="index-button sc-htpNat eoyyVM"
             onClick={[Function]}
           >
             Get Started
@@ -276,7 +276,7 @@ Array [
                                   id="clip0"
                                 >
                                   <rect
-                                    fill="green"
+                                    fill="rgba(0,0,0,.5)"
                                     height="30"
                                     width="30"
                                   />
@@ -327,7 +327,7 @@ Array [
                               </g>
                             </svg>
                             <sub
-                              className="count"
+                              className="count dislike-count"
                             >
                               
                             </sub>
@@ -458,7 +458,7 @@ Array [
                                   id="clip0"
                                 >
                                   <rect
-                                    fill="green"
+                                    fill="rgba(0,0,0,.5)"
                                     height="30"
                                     width="30"
                                   />
@@ -509,7 +509,7 @@ Array [
                               </g>
                             </svg>
                             <sub
-                              className="count"
+                              className="count dislike-count"
                             >
                               
                             </sub>
@@ -640,7 +640,7 @@ Array [
                                   id="clip0"
                                 >
                                   <rect
-                                    fill="green"
+                                    fill="rgba(0,0,0,.5)"
                                     height="30"
                                     width="30"
                                   />
@@ -691,7 +691,7 @@ Array [
                               </g>
                             </svg>
                             <sub
-                              className="count"
+                              className="count dislike-count"
                             >
                               
                             </sub>
@@ -822,7 +822,7 @@ Array [
                                   id="clip0"
                                 >
                                   <rect
-                                    fill="green"
+                                    fill="rgba(0,0,0,.5)"
                                     height="30"
                                     width="30"
                                   />
@@ -873,7 +873,7 @@ Array [
                               </g>
                             </svg>
                             <sub
-                              className="count"
+                              className="count dislike-count"
                             >
                               
                             </sub>
@@ -1004,7 +1004,7 @@ Array [
                                   id="clip0"
                                 >
                                   <rect
-                                    fill="green"
+                                    fill="rgba(0,0,0,.5)"
                                     height="30"
                                     width="30"
                                   />
@@ -1055,7 +1055,7 @@ Array [
                               </g>
                             </svg>
                             <sub
-                              className="count"
+                              className="count dislike-count"
                             >
                               
                             </sub>
@@ -1186,7 +1186,7 @@ Array [
                                   id="clip0"
                                 >
                                   <rect
-                                    fill="green"
+                                    fill="rgba(0,0,0,.5)"
                                     height="30"
                                     width="30"
                                   />
@@ -1237,7 +1237,7 @@ Array [
                               </g>
                             </svg>
                             <sub
-                              className="count"
+                              className="count dislike-count"
                             >
                               
                             </sub>
@@ -1368,7 +1368,7 @@ Array [
                                   id="clip0"
                                 >
                                   <rect
-                                    fill="green"
+                                    fill="rgba(0,0,0,.5)"
                                     height="30"
                                     width="30"
                                   />
@@ -1419,7 +1419,7 @@ Array [
                               </g>
                             </svg>
                             <sub
-                              className="count"
+                              className="count dislike-count"
                             >
                               
                             </sub>
@@ -1550,7 +1550,7 @@ Array [
                                   id="clip0"
                                 >
                                   <rect
-                                    fill="green"
+                                    fill="rgba(0,0,0,.5)"
                                     height="30"
                                     width="30"
                                   />
@@ -1601,7 +1601,7 @@ Array [
                               </g>
                             </svg>
                             <sub
-                              className="count"
+                              className="count dislike-count"
                             >
                               
                             </sub>
@@ -1732,7 +1732,7 @@ Array [
                                   id="clip0"
                                 >
                                   <rect
-                                    fill="green"
+                                    fill="rgba(0,0,0,.5)"
                                     height="30"
                                     width="30"
                                   />
@@ -1783,7 +1783,7 @@ Array [
                               </g>
                             </svg>
                             <sub
-                              className="count"
+                              className="count dislike-count"
                             >
                               
                             </sub>
@@ -2000,7 +2000,7 @@ Array [
                                   id="clip0"
                                 >
                                   <rect
-                                    fill="green"
+                                    fill="rgba(0,0,0,.5)"
                                     height="30"
                                     width="30"
                                   />
@@ -2051,7 +2051,7 @@ Array [
                               </g>
                             </svg>
                             <sub
-                              className="count"
+                              className="count dislike-count"
                             >
                               
                             </sub>
@@ -2182,7 +2182,7 @@ Array [
                                   id="clip0"
                                 >
                                   <rect
-                                    fill="green"
+                                    fill="rgba(0,0,0,.5)"
                                     height="30"
                                     width="30"
                                   />
@@ -2233,7 +2233,7 @@ Array [
                               </g>
                             </svg>
                             <sub
-                              className="count"
+                              className="count dislike-count"
                             >
                               
                             </sub>
@@ -2364,7 +2364,7 @@ Array [
                                   id="clip0"
                                 >
                                   <rect
-                                    fill="green"
+                                    fill="rgba(0,0,0,.5)"
                                     height="30"
                                     width="30"
                                   />
@@ -2415,7 +2415,7 @@ Array [
                               </g>
                             </svg>
                             <sub
-                              className="count"
+                              className="count dislike-count"
                             >
                               
                             </sub>
@@ -2546,7 +2546,7 @@ Array [
                                   id="clip0"
                                 >
                                   <rect
-                                    fill="green"
+                                    fill="rgba(0,0,0,.5)"
                                     height="30"
                                     width="30"
                                   />
@@ -2597,7 +2597,7 @@ Array [
                               </g>
                             </svg>
                             <sub
-                              className="count"
+                              className="count dislike-count"
                             >
                               
                             </sub>
@@ -2728,7 +2728,7 @@ Array [
                                   id="clip0"
                                 >
                                   <rect
-                                    fill="green"
+                                    fill="rgba(0,0,0,.5)"
                                     height="30"
                                     width="30"
                                   />
@@ -2779,7 +2779,7 @@ Array [
                               </g>
                             </svg>
                             <sub
-                              className="count"
+                              className="count dislike-count"
                             >
                               
                             </sub>
@@ -2910,7 +2910,7 @@ Array [
                                   id="clip0"
                                 >
                                   <rect
-                                    fill="green"
+                                    fill="rgba(0,0,0,.5)"
                                     height="30"
                                     width="30"
                                   />
@@ -2961,7 +2961,7 @@ Array [
                               </g>
                             </svg>
                             <sub
-                              className="count"
+                              className="count dislike-count"
                             >
                               
                             </sub>
@@ -3092,7 +3092,7 @@ Array [
                                   id="clip0"
                                 >
                                   <rect
-                                    fill="green"
+                                    fill="rgba(0,0,0,.5)"
                                     height="30"
                                     width="30"
                                   />
@@ -3143,7 +3143,7 @@ Array [
                               </g>
                             </svg>
                             <sub
-                              className="count"
+                              className="count dislike-count"
                             >
                               
                             </sub>
@@ -3274,7 +3274,7 @@ Array [
                                   id="clip0"
                                 >
                                   <rect
-                                    fill="green"
+                                    fill="rgba(0,0,0,.5)"
                                     height="30"
                                     width="30"
                                   />
@@ -3325,7 +3325,7 @@ Array [
                               </g>
                             </svg>
                             <sub
-                              className="count"
+                              className="count dislike-count"
                             >
                               
                             </sub>
@@ -3456,7 +3456,7 @@ Array [
                                   id="clip0"
                                 >
                                   <rect
-                                    fill="green"
+                                    fill="rgba(0,0,0,.5)"
                                     height="30"
                                     width="30"
                                   />
@@ -3507,7 +3507,7 @@ Array [
                               </g>
                             </svg>
                             <sub
-                              className="count"
+                              className="count dislike-count"
                             >
                               
                             </sub>
@@ -3617,7 +3617,7 @@ Array [
             Get Started for free today.
           </p>
           <button
-            className="sc-htpNat hwbabD"
+            className="sc-htpNat hqolFf"
             onClick={[Function]}
           >
             Get Started
@@ -3656,6 +3656,9 @@ Array [
           <div
             className="input-div"
           >
+            <label
+              htmlFor="email"
+            />
             <input
               className="sc-bdVaJa cUynHz"
               id="email2"
@@ -3671,7 +3674,7 @@ Array [
             />
           </div>
           <button
-            className="sc-htpNat coBlrE"
+            className="sc-htpNat brPGUH"
           >
             Subscribe
           </button>
@@ -3688,5 +3691,142 @@ Array [
     </div>
   </section>,
   <div />,
+  <div
+    className="footer"
+  >
+    <div
+      className="container"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col-lg-4 col-md-5 col-sm-4 col-3 d-none d-sm-block pl-0 align-self-center col"
+        >
+          <div
+            className="d-flex"
+          >
+            <img
+              alt="facebook logo"
+              className="feather"
+              src="test-file-stub"
+            />
+            <img
+              alt="facebook logo"
+              className="d-block app-logo"
+              src="test-file-stub"
+            />
+          </div>
+        </div>
+        <div
+          className="d-flex align-items-center flex-column col"
+        >
+          <h2
+            className="mb-5"
+          >
+            Help
+          </h2>
+          <a
+            href="/"
+            onClick={[Function]}
+          >
+            <h4
+              className="mb-4"
+            >
+              Profile
+            </h4>
+          </a>
+          <a
+            href="/"
+            onClick={[Function]}
+          >
+            <h4>
+              Blog
+            </h4>
+          </a>
+        </div>
+        <div
+          className="d-flex align-items-center flex-column col"
+        >
+          <h2
+            className="mb-5"
+          >
+            Contact Us
+          </h2>
+          <a
+            href="/"
+            onClick={[Function]}
+          >
+            <h4
+              className="mb-4"
+            >
+              Faqs
+            </h4>
+          </a>
+          <a
+            href="/"
+            onClick={[Function]}
+          >
+            <h4>
+              Contact us
+            </h4>
+          </a>
+        </div>
+        <div
+          className="d-flex align-items-center flex-column col"
+        >
+          <h2
+            className="mb-4"
+          >
+            Social Media
+          </h2>
+          <div
+            className="d-flex justify-evenly w-75 mb-4"
+          >
+            <a
+              href="/"
+              onClick={[Function]}
+            >
+              <img
+                alt="facebook logo"
+                className="mr-6 d-block logo2"
+                src="test-file-stub"
+              />
+            </a>
+            <a
+              href="/"
+              onClick={[Function]}
+            >
+              <img
+                alt="twitter logo"
+                className="d-block logo3"
+                src="test-file-stub"
+              />
+            </a>
+          </div>
+          <div
+            className="d-flex justify-content-between w-75"
+          >
+            <a
+              href="/"
+              onClick={[Function]}
+            >
+              <h4>
+                Facebook
+              </h4>
+            </a>
+            <a
+              href="/"
+              onClick={[Function]}
+            >
+              <h4>
+                Twitter
+              </h4>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
 ]
 `;

@@ -7,7 +7,7 @@ exports[`Custom Input styled-component renders correctly 1`] = `
   display: -ms-flexbox;
   display: flex;
   padding: 0.8rem;
-  margin: 0.8rem auto;
+  margin: 0.1rem auto;
   height: 4.3rem;
   fill: #fbfcff;
   border: 0.05rem solid rgba(0,0,0,0.4);
@@ -45,7 +45,7 @@ exports[`Custom Input styled-component renders dynamic width 1`] = `
   display: -ms-flexbox;
   display: flex;
   padding: 0.8rem;
-  margin: 0.8rem auto;
+  margin: 0.1rem auto;
   height: 4.3rem;
   fill: #fbfcff;
   border: 0.05rem solid rgba(0,0,0,0.4);

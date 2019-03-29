@@ -1,23 +1,46 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import getSingleArticle
-  from '../../redux/actions/getSingleArticleActions/getSingleArticleActions';
+import getSingleArticle from '../../redux/actions/getSingleArticleActions/getSingleArticleActions';
+import reactToArticle from '../../redux/actions/reactionActions';
 import { twitter, facebook } from '../../assets/images/svg';
 import addBookmark from '../../redux/actions/bookmarkActions';
-import { getAllUsersBookMarkedArticles }
-  from '../../redux/actions/articleActions/articleActions';
+import { getAllUsersBookMarkedArticles } from '../../redux/actions/articleActions/articleActions';
 import LikeComponent from '../common/LikeComponent';
 import DislikeComponent from '../common/DislikeComponent';
 import CommentIconComponent from '../common/CommentIconComponent';
 import Footer from '../common/footer.jsx';
+import SignupContainer from '../SignupFormContainer.jsx';
+import LoginContainer from '../LoginFormContainer.jsx';
+import Modal from '../common/Modal.jsx';
 
 class SingleArticle extends Component {
+  state = {
+    modalIsOpen: false
+  };
+
+  openModal = () => {
+    this.setState(() => ({ modalIsOpen: true }));
+  };
+
+  closeModal = () => {
+    const {
+      auth: { isLoading }
+    } = this.props;
+    if (!isLoading) this.setState(() => ({ modalIsOpen: false }));
+  };
+
+  displayForm = (form) => {
+    this.setState({ modalIsOpen: true, modalContent: form });
+  };
+
   componentDidMount() {
     const { match, history } = this.props;
     const { slug } = match.params;
     this.props.getSingleArticle(slug, history);
-    this.props.getAllUsersBookMarkedArticles();
+    if (this.props.auth.isVerified) {
+      this.props.getAllUsersBookMarkedArticles();
+    }
   }
 
   handleBookmarkclick = () => {
@@ -26,6 +49,7 @@ class SingleArticle extends Component {
   };
 
   render() {
+    const { modalContent } = this.state;
     let articleTags = null;
     let viewingUser;
     const delayDisplay = (
@@ -45,6 +69,9 @@ class SingleArticle extends Component {
       dislikes,
       imageUrl,
       tags,
+      slug,
+      likedByMe,
+      dislikedByMe,
       author,
       createdAt,
       articleBody
@@ -64,9 +91,9 @@ class SingleArticle extends Component {
     }
     const imageStyle = {
       backgroundImage: `url(${imageUrl})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center center',
-      backgroundRepeat: 'none'
+      backgroundSize: 'contain',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center center'
     };
     const dateCreated = new Date(createdAt);
     const displayedDate = `${dateCreated.getDate()}
@@ -96,12 +123,16 @@ class SingleArticle extends Component {
                 {this.props.auth.isVerified && viewingUser !== author.username && (
                   <div className="follow-bookmark-box">
                     <button className="follow-btn">Follow</button>
-                      <span>
-                        <i
-                          onClick={this.handleBookmarkclick}
-                          className={currentBookmark ? 'fas fa-bookmark fa-4x bookmarked-icon' : 'far fa-bookmark fa-4x unbookmarked-icon'}
-                        />
-                      </span>
+                    <span>
+                      <i
+                        onClick={this.handleBookmarkclick}
+                        className={
+                          currentBookmark
+                            ? 'fas fa-bookmark fa-4x bookmarked-icon'
+                            : 'far fa-bookmark fa-4x unbookmarked-icon'
+                        }
+                      />
+                    </span>
                   </div>
                 )}
               </div>
@@ -109,10 +140,7 @@ class SingleArticle extends Component {
               <p className="time-to-read">{timeToRead}</p>
             </div>
           </div>
-          {imageUrl && (
-            <section className="article-image-container" style={imageStyle}>
-            </section>
-          )}
+          {imageUrl && <section className="article-image-container" style={imageStyle} />}
           <section className="article-body-container">
             <div className="article-body" dangerouslySetInnerHTML={createMarkup()} />
             <div className="tags-container">{articleTags}</div>
@@ -121,31 +149,67 @@ class SingleArticle extends Component {
                 <LikeComponent
                   className="reaction-logo"
                   likeCount={likes}
-                  color="rgba(0,0,0,.5)"
+                  color={likedByMe ? '#0B41CD' : 'rgba(0,0,0,.5)'}
+                  id={slug}
+                  onClick={
+                    this.props.auth.isVerified
+                      ? () => this.props.reactToArticle(slug, 'like')
+                      : () => this.displayForm('login')
+                  }
+                  likedByMe={likedByMe}
                 />
                 <DislikeComponent
                   className="reaction-logo"
                   dislikeCount={dislikes}
-                  color="rgba(0,0,0,.5)"
+                  color={dislikedByMe ? '#0B41CD' : 'rgba(0,0,0,.5)'}
+                  onClick={
+                    this.props.auth.isVerified
+                      ? () => this.props.reactToArticle(slug, 'dislike')
+                      : () => this.displayForm('login')
+                  }
                 />
-                <CommentIconComponent className="reaction-logo" commentCount={Comments} />
+                <CommentIconComponent className="reaction-logo" commentCount={0} />
               </div>
               <div className="share-container">
                 <span className="social share-text">Share on</span>
-                <a href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`}
-                  rel='noopener noreferrer' target='_blank'>
+                <a
+                  href={`https://www.facebook.com/sharer/sharer.php?u=${
+                    window.location.href
+                  }`}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   <img src={facebook} alt="facebook logo" className="social" />
                 </a>
-                <a href={`https://twitter.com/intent/tweet?url=${window.location.href}`}
-                  className='twitter-share-button'
-                  rel='noopener noreferrer' target='_blank'>
+                <a
+                  href={`https://twitter.com/intent/tweet?url=${window.location.href}`}
+                  className="twitter-share-button"
+                  rel="noopener noreferrer"
+                  target="_blank">
                   <img src={twitter} alt="twitter logo" className="social" />
                 </a>
               </div>
             </section>
           </section>
+          <Modal
+            modalIsOpen={this.state.modalIsOpen}
+            closeModal={this.closeModal}
+            body={
+              modalContent === 'login' ? (
+                <LoginContainer
+                  displayForm={this.displayForm}
+                  closeModal={this.closeModal}
+                />
+              ) : (
+                <SignupContainer
+                  displayForm={this.displayForm}
+                  closeModal={this.closeModal}
+                />
+              )
+            }
+          />
         </div>
-        <Footer/>
+        <Footer />
       </>
     );
   }
@@ -160,6 +224,7 @@ SingleArticle.propTypes = {
   match: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
   auth: PropTypes.object,
+  reactToArticle: PropTypes.func,
   user: PropTypes.object
 };
 
@@ -174,5 +239,10 @@ export { SingleArticle };
 
 export default connect(
   mapStateToProps,
-  { getSingleArticle, addBookmark, getAllUsersBookMarkedArticles }
+  {
+    getSingleArticle,
+    addBookmark,
+    getAllUsersBookMarkedArticles,
+    reactToArticle
+  }
 )(SingleArticle);

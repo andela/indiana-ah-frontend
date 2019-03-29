@@ -1,14 +1,27 @@
 import React, { Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
+import swal from 'sweetalert';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Button from 'react-bootstrap/Button';
+import { connect } from 'react-redux';
 import BadgeComponent from './BadgeComponent';
 import LikeComponent from './LikeComponent';
 import DislikeComponent from './DislikeComponent';
 import CommentIconComponent from './CommentIconComponent';
-import Button from '../../styles/styledComponents/Button.jsx';
 import TimerComponent from './TimerComponent';
-import BookmarkComponent from './BookmarkComponent';
+import { deleteArticles } from '../../redux/actions/articleActions/articleActions';
+
+const deleteArticleFunc = (slug, deleteBySlug) => swal({
+  title: 'Are you sure?',
+  text: 'Once deleted, you will not be able to recover this article',
+  icon: 'warning',
+  buttons: true,
+  dangerMode: true
+}).then((willDelete) => {
+  if (willDelete) deleteBySlug(slug);
+});
 
 const UserArticleCard = ({
   img,
@@ -19,7 +32,8 @@ const UserArticleCard = ({
   likeCount,
   dislikeCount,
   commentCount,
-  timeCount
+  timeCount,
+  deleteArticles: deleteBySlug
 }) => {
   const createMarkup = () => ({ __html: articleBody });
   return (
@@ -66,16 +80,19 @@ const UserArticleCard = ({
               </div>
               <div className="action-button">
                 {timeCount === 'false' ? (
-                  <BookmarkComponent color="#FCC133" />
+                  <i className="fas fa-bookmark fa-2x brand-color" />
                 ) : (
-                  <Button
-                    type="button"
-                    sm
-                    inlineButton
-                    className="btn btn-outline-primary"
-                  >
-                    Edit
-                  </Button>
+                  <ButtonGroup className="user-article-btn">
+                    <NavLink to={`/article/update/${slug}`}>
+                      <Button variant="primary">Edit</Button>
+                    </NavLink>
+                    <Button
+                      variant="danger"
+                      onClick={() => deleteArticleFunc(slug, deleteBySlug)}
+                    >
+                      Delete
+                    </Button>
+                  </ButtonGroup>
                 )}
               </div>
             </div>
@@ -102,7 +119,19 @@ UserArticleCard.propTypes = {
   likeCount: PropTypes.number.isRequired,
   dislikeCount: PropTypes.number.isRequired,
   slug: PropTypes.string.isRequired,
-  commentCount: PropTypes.number.isRequired
+  commentCount: PropTypes.number.isRequired,
+  deleteArticles: PropTypes.func.isRequired
 };
 
-export default UserArticleCard;
+const mapStateToProps = state => ({
+  auth: state.auth,
+  articles: state.articles,
+  bookmarkedArticles: state.bookmarkedArticles
+});
+
+export { UserArticleCard };
+
+export default connect(
+  mapStateToProps,
+  { deleteArticles }
+)(UserArticleCard);

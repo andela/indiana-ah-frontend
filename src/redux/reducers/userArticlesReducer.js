@@ -1,7 +1,8 @@
 import {
   GET_ALL_USER_ARTICLES_REQUEST,
   GET_ALL_USER_ARTICLES_FAILURE,
-  GET_ALL_USER_ARTICLES_SUCCESS
+  GET_ALL_USER_ARTICLES_SUCCESS,
+  DELETE_ARTICLE_SUCCESS
 } from '../actions/actionTypes';
 
 const initialState = {
@@ -29,6 +30,14 @@ const userArticlesReducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         error: action.payload
+      };
+    case DELETE_ARTICLE_SUCCESS:
+      return {
+        ...state,
+        articleData: {
+          ...state.articleData,
+          articles: state.articleData.articles.filter(article => article.slug !== action.payload)
+        }
       };
     default:
       return state;

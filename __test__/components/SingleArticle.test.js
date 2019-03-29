@@ -10,42 +10,55 @@ import articleAction from '../../src/redux/actions/getSingleArticleActions/getSi
 import { apiInstance } from '../../src/utils/index';
 import {
   GET_SINGLE_ARTICLE_LOADING,
-  GET_SINGLE_ARTICLE_SUCCESS
+  GET_SINGLE_ARTICLE_SUCCESS,
+  LIKE_ARTICLE,
+  DISLIKE_ARTICLE
 } from '../../src/redux/actions/actionTypes';
 
 const mock = new MockAdapter(apiInstance);
 const mockStore = configureMockStore([thunk]);
-const store = mockStore();
 const auth = {
   isVerified: true
 };
 const user = {
   userData: {
-    username: 'chuks'
+    username: 'chuks',
+    id: 'dkdkkdkkdk'
   }
 };
 const bookmarkedArticles = {
-  userBookmarks: [{
-    article: {
-      id: 1,
-      articleId: 1,
-      userId: 1,
+  userBookmarks: [
+    {
+      article: {
+        id: 1,
+        articleId: 1,
+        userId: 1
+      }
     }
-  }]
+  ]
 };
+
+const store = mockStore({ user });
 const article = {
   article: {
     articleBody: '',
     articleTitle: '',
     tags: '',
+    slug: 'i-am-so-good',
     imageUrl: '',
     Comments: 5,
     likes: 6,
     dislikes: 3,
+    likedByMe: false,
+    dislikedByMe: true,
+    Reactions: [
+      { userId: 'dldlld', reactionType: 'like' },
+      { userId: 'dkdkkdkkdk', reactionType: 'dislike' }
+    ],
     author: '',
-    createdAt: '',
-    id: 1
-  }
+    createdAt: ''
+  },
+  timeToRead: '1 min read'
 };
 const expectedResponseData = {
   article: {},
@@ -71,7 +84,8 @@ describe('<SingleArticle/>', () => {
         getSingleArticle={mockFn}
         getAllUsersBookMarkedArticles={mockFn}
         addBookmark={mockFn}
-        history = { history }
+        history={history}
+        reactToArticle={jest.fn(article.slug, 'login')}
       />
     );
     expect(wrapper.find('div.carousel-spinner').length).toEqual(1);
@@ -85,6 +99,16 @@ describe('<SingleArticle/>', () => {
     article.article.id = 2;
     wrapper.setProps({ ...article });
     wrapper.find('.fa-bookmark').simulate('click');
+    wrapper.setProps({ auth: { isVerified: false } });
+
+    wrapper.setProps({
+      singleArticle: {
+        article: { ...article.article, likedByMe: true, dislikedByMe: false }
+      }
+    });
+    wrapper.instance().openModal();
+    wrapper.instance().closeModal();
+    wrapper.instance().displayForm('like');
   });
 });
 
@@ -110,6 +134,22 @@ describe('getSingleArticles reducer', () => {
     };
     expect(reducer({}, successAction)).toEqual({ isLoading: false, article: articles });
   });
+
+  it('should handle the LIKE_ARTICLE action', () => {
+    const action = { type: LIKE_ARTICLE };
+    expect(reducer({ isLoading: false, article }, action)).toEqual({
+      isLoading: false,
+      article
+    });
+  });
+
+  it('should handle the DISLIKE_ARTICLE action', () => {
+    const action = { type: DISLIKE_ARTICLE };
+    expect(reducer({ isLoading: false, article }, action)).toEqual({
+      isLoading: false,
+      article
+    });
+  });
 });
 
 describe('getSingleArticleActions', () => {
@@ -120,12 +160,31 @@ describe('getSingleArticleActions', () => {
     mock.reset();
   });
   it('should create the GET_SINGLE_ARTICLE_SUCCESS action if the api request was successful', async () => {
-    mock.onGet('/articles/i-love-coding').reply(200, expectedResponseData);
+    mock.onGet('/articles/i-love-coding').reply(200, article);
     const { timeToRead } = expectedResponseData;
+    article.article.timeToRead = timeToRead;
 
     const expectedActions = [
       { type: GET_SINGLE_ARTICLE_LOADING },
-      { type: GET_SINGLE_ARTICLE_SUCCESS, payload: { timeToRead } }
+      { type: GET_SINGLE_ARTICLE_SUCCESS, payload: article.article }
+    ];
+
+    await store.dispatch(articleAction('i-love-coding', history));
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('should create the GET_SINGLE_ARTICLE_SUCCESS action if the api request was successful', async () => {
+    article.Reactions = [
+      { userId: 'dldlld', reactionType: 'like' },
+      { userId: 'dkdkkdkkdk', reactionType: 'dislike' }
+    ];
+    mock.onGet('/articles/i-love-coding').reply(200, article);
+    const { timeToRead } = expectedResponseData;
+    article.timeToRead = timeToRead;
+
+    const expectedActions = [
+      { type: GET_SINGLE_ARTICLE_LOADING },
+      { type: GET_SINGLE_ARTICLE_SUCCESS, payload: article.article }
     ];
 
     await store.dispatch(articleAction('i-love-coding', history));

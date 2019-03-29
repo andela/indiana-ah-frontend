@@ -14,7 +14,8 @@ import {
   SEND_EMAIL_SUCCESS,
   LOGIN_WITH_EMAIL_FAILURE,
   LOGIN_WITH_EMAIL_REQUEST,
-  LOGIN_WITH_EMAIL_SUCCESS
+  LOGIN_WITH_EMAIL_SUCCESS,
+  AUTHENTICATE_USER
 } from '../actions/actionTypes';
 
 const initialState = {
@@ -55,6 +56,7 @@ const authReducer = (state = initialState, action) => {
         isLoading: false,
         error: action.payload
       };
+    case AUTHENTICATE_USER:
     case SET_CURRENT_USER:
       return {
         isLoading: false,

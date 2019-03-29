@@ -9,6 +9,7 @@ import Button from '../styles/styledComponents/Button.jsx';
 import IndexForm from './forms/indexForm.jsx';
 import { getAllArticles } from '../redux/actions/articleActions/articleActions';
 import { filterArticlesByLikes, filterArticlesByDate } from '../utils/index';
+import Footer from './common/footer.jsx';
 import IndexCarousel from './carousels/indexCarousel.jsx';
 import {
   BannerImage, BannerImage2, quotes, indexImage
@@ -178,6 +179,7 @@ export class IndexPage extends Component {
             )
           }
         />
+        <Footer />
       </Fragment>
     );
   }

@@ -16,9 +16,23 @@ const createArticleFailure = error => ({
   error
 });
 
-const createUserArticle = (data, { history }) => async (dispatch) => {
+const createUserArticle = (data, { history, match }) => async (dispatch) => {
   dispatch({ type: CREATE_ARTICLE_LOADING });
   try {
+    if (match.params.slug) {
+      const { article } = await sendHttpRequest(
+        `/articles/${match.params.slug}/update`,
+        'PUT',
+        data,
+        {
+          'content-type': 'multipart/form-data'
+        }
+      );
+      dispatch(createArticle(article));
+      toast.success(<div>Article updated successfully</div>);
+      history.push(`/articles/${article.slug}`);
+      return;
+    }
     const { article } = await sendHttpRequest('/articles', 'POST', data, {
       'content-type': 'multipart/form-data'
     });
@@ -26,7 +40,7 @@ const createUserArticle = (data, { history }) => async (dispatch) => {
     toast.success(<div>Article successfully created</div>);
     history.push(`/articles/${article.slug}`);
   } catch ({ response }) {
-    dispatch(createArticleFailure(response.data.message));
+    dispatch(createArticleFailure(response.data));
   }
 };
 
