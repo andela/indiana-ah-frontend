@@ -85,8 +85,7 @@ export class ProfilePage extends Component {
             </div>
             <div className="space-sm col-md-1 col-sm-1" />
             {userData.bio && userData.name ? (
-              <div className="col-md-7 col-sm-6 profile-card finished">
-              </div>
+              <div className="col-md-7 col-sm-6 profile-card finished" />
             ) : (
               <div className="col-md-7 col-sm-6 profile-card verified">
                 <h5 className="d-inline-block mb-30 mr-3 black">
@@ -97,10 +96,7 @@ export class ProfilePage extends Component {
                   alt="Check Mark"
                   className="d-none d-md-inline-block"
                 />
-                <p className="mb-48">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua.
-                </p>
+                <p className="mb-48">Your profile is yet to be completed</p>
                 <img src={verified} alt="verified" className="check-line" />
                 <div className="mt-3">
                   <h6 className="d-inline-block mr-5">Registered</h6>
@@ -151,11 +147,14 @@ ProfilePage.propTypes = {
   user: PropTypes.object,
   getUserProfile: PropTypes.func,
   updateEmailNotification: PropTypes.func,
-  updateProfilePic: PropTypes.func,
+  updateProfilePic: PropTypes.func
 };
 
-export default connect(mapStateToProps, {
-  getUserProfile,
-  updateEmailNotification,
-  updateProfilePic
-})(ProfilePage);
+export default connect(
+  mapStateToProps,
+  {
+    getUserProfile,
+    updateEmailNotification,
+    updateProfilePic
+  }
+)(ProfilePage);

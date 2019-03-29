@@ -38,7 +38,9 @@ class SingleArticle extends Component {
     const { match, history } = this.props;
     const { slug } = match.params;
     this.props.getSingleArticle(slug, history);
-    this.props.getAllUsersBookMarkedArticles();
+    if (this.props.auth.isVerified) {
+      this.props.getAllUsersBookMarkedArticles();
+    }
   }
 
   handleBookmarkclick = () => {
@@ -149,7 +151,10 @@ class SingleArticle extends Component {
                   likeCount={likes}
                   color={likedByMe ? '#0B41CD' : 'rgba(0,0,0,.5)'}
                   id={slug}
-                  onClick={this.props.auth.isVerified ? () => this.props.reactToArticle(slug, 'like'): () => this.displayForm('login')
+                  onClick={
+                    this.props.auth.isVerified
+                      ? () => this.props.reactToArticle(slug, 'like')
+                      : () => this.displayForm('login')
                   }
                   likedByMe={likedByMe}
                 />
@@ -157,10 +162,13 @@ class SingleArticle extends Component {
                   className="reaction-logo"
                   dislikeCount={dislikes}
                   color={dislikedByMe ? '#0B41CD' : 'rgba(0,0,0,.5)'}
-                  onClick={this.props.auth.isVerified ? () => this.props.reactToArticle(slug, 'dislike') : () => this.displayForm('login')
+                  onClick={
+                    this.props.auth.isVerified
+                      ? () => this.props.reactToArticle(slug, 'dislike')
+                      : () => this.displayForm('login')
                   }
                 />
-                <CommentIconComponent className="reaction-logo" commentCount={Comments} />
+                <CommentIconComponent className="reaction-logo" commentCount={0} />
               </div>
               <div className="share-container">
                 <span className="social share-text">Share on</span>

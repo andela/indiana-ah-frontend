@@ -57,11 +57,16 @@ export class NavBar extends Component {
     const { user, auth } = this.props;
     const userLInk = (
       <Nav className="d-flex flex-row justify-content-between">
-        <ProfileImg src={user.userData.imageUrl} className="ml-5 mt-2" alt="logo" />
+        <ProfileImg
+          src={user.userData.profileImage || user.userData.imageUrl}
+          className="ml-5 mt-2"
+          alt="logo"
+        />
         <div to="/signup" className="d-flex ft-size-2 ml-5">
           <span className="username ml-3">
             {' '}
-            {user.userData.name || user.userData.username}
+            {(user.userData.name ? user.userData.name.split(' ')[0] : '')
+              || user.userData.username}
           </span>
           <span style={{ padding: '0 0.3em' }} />
           <Dropdown signOutUser={this.props.signOutUser} />

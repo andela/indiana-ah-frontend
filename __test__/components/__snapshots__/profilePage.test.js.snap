@@ -26,11 +26,7 @@ exports[`Profile page component renders correctly 1`] = `
     <a
       aria-current={null}
       className="sidenav__logo-box"
-<<<<<<< HEAD
-      href="/articles"
-=======
       href="/dashboard/posts"
->>>>>>> feat: authenticate profile page
       onClick={[Function]}
     >
       <img
@@ -256,7 +252,7 @@ exports[`Profile page component renders correctly 1`] = `
                   <h5
                     className="black"
                   >
-                    28/2/2019
+                    29/2/2019
                   </h5>
                 </div>
               </div>
