@@ -60,14 +60,9 @@ const likeSvg = color => (
   </svg>
 );
 
-const LikeComponent = ({
-  likeCount, color, onClick, id
-}) => (
+const LikeComponent = ({ likeCount, color, onClick }) => (
   <Fragment>
-    <span
-      className="icon-holder"
-      onClick={onClick ? () => onClick(id, 'like') : undefined}
-    >
+    <span className="icon-holder" onClick={onClick || undefined}>
       {likeSvg(color)}
       <sub className="count">{likeCount || ''}</sub>
     </span>

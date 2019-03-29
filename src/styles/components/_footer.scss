@@ -6,6 +6,10 @@
 }
 
 .footer {
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+  height: 30rem;
   padding: 5rem 0 5rem 0 ;
   border-top: .25px solid $opaque-black;
   .app-logo {

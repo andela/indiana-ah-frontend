@@ -27,13 +27,15 @@ const user = {
   }
 };
 const bookmarkedArticles = {
-  userBookmarks: [{
-    article: {
-      id: 1,
-      articleId: 1,
-      userId: 1,
+  userBookmarks: [
+    {
+      article: {
+        id: 1,
+        articleId: 1,
+        userId: 1
+      }
     }
-  }]
+  ]
 };
 
 const store = mockStore({ user });
@@ -42,6 +44,7 @@ const article = {
     articleBody: '',
     articleTitle: '',
     tags: '',
+    slug: 'i-am-so-good',
     imageUrl: '',
     Comments: 5,
     likes: 6,
@@ -81,8 +84,8 @@ describe('<SingleArticle/>', () => {
         getSingleArticle={mockFn}
         getAllUsersBookMarkedArticles={mockFn}
         addBookmark={mockFn}
-        history = { history }
         history={history}
+        reactToArticle={jest.fn(article.slug, 'login')}
       />
     );
     expect(wrapper.find('div.carousel-spinner').length).toEqual(1);
@@ -96,6 +99,16 @@ describe('<SingleArticle/>', () => {
     article.article.id = 2;
     wrapper.setProps({ ...article });
     wrapper.find('.fa-bookmark').simulate('click');
+    wrapper.setProps({ auth: { isVerified: false } });
+
+    wrapper.setProps({
+      singleArticle: {
+        article: { ...article.article, likedByMe: true, dislikedByMe: false }
+      }
+    });
+    wrapper.instance().openModal();
+    wrapper.instance().closeModal();
+    wrapper.instance().displayForm('like');
   });
 });
 

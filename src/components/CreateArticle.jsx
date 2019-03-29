@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ReactQuill from 'react-quill';
-import { Circle } from 'better-react-spinkit';
 import { PropTypes } from 'prop-types';
 import 'react-quill/dist/quill.snow.css';
-import TagsInput from 'react-tagsinput';
 import createUserArticle from '../redux/actions/articleActions/createArticleAction';
-import Button from '../styles/styledComponents/Button.jsx';
 import 'react-tagsinput/react-tagsinput.css';
+import CreateArticlePage from './common/CreateArticlePage.jsx';
+import getSingleArticle from '../redux/actions/getSingleArticleActions/getSingleArticleActions';
 
 export class CreateArticle extends Component {
   state = {
@@ -15,18 +13,30 @@ export class CreateArticle extends Component {
     tags: [],
     articleTitle: '',
     image: null,
-    tag: '',
-    displayImage: null,
+    displayImage: '',
     errors: {},
     formData: null
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     this.setState({ formData: new FormData() });
+    const { slug } = this.props.match.params;
+    if (slug) {
+      const article = await this.props.getSingleArticle(slug, this.props);
+      const {
+        articleBody, articleTitle, tags, imageUrl
+      } = article;
+      this.setState({
+        articleBody,
+        articleTitle,
+        displayImage: imageUrl,
+        tags: tags ? tags.split(',') : []
+      });
+    }
   }
 
-  onChange = (value) => {
-    this.setState({ articleBody: value });
+  onChange = (html) => {
+    this.setState({ articleBody: html });
   };
 
   handleImageUpload = (event) => {
@@ -94,7 +104,7 @@ export class CreateArticle extends Component {
         if (data.image) formData.append('image', data.image);
         formData.append('articleTitle', data.articleTitle);
         formData.append('articleBody', data.articleBody);
-        this.props.createUserArticle(formData, this.props);
+        this.props.createUserArticle(formData, this.props, data.slug);
       } else {
         if (data.image) formData.append('image', data.image);
         formData.append('articleTitle', data.articleTitle);
@@ -106,93 +116,47 @@ export class CreateArticle extends Component {
   };
 
   render() {
-    const { articleTitle, tags, displayImage } = this.state;
+    const {
+      articleTitle, tags, displayImage, articleBody
+    } = this.state;
     const { isLoading } = this.props.articles;
     return (
-      <div className="text-editor">
-        <form onSubmit={this.onSubmit}>
-          <textarea
-            rows="1"
-            cols="50"
-            name="articleTitle"
-            value={articleTitle}
-            placeholder="Title"
-            onChange={this.handleChange}
-          />
-          <div className="errorMsg">{this.state.errors.articleTitle}</div>
-          <div className="article-button">
-            <div className="image-button">
-              <label htmlFor="image">
-                <i className="fa fa-upload" />{' '}
-                <span>Attach a cover picture (Optional)</span>
-                <input
-                  id="image"
-                  type="file"
-                  image=""
-                  name="image"
-                  className="input"
-                  onChange={this.handleImageUpload}
-                  accept="image/*"
-                />
-              </label>
-            </div>
-            {displayImage && (
-              <span>
-                <i className="fa fa-times" onClick={this.handleImageDelete} />
-              </span>
-            )}
-          </div>
-          {displayImage && (
-            <div className="image-div">
-              <img className="upload-image" src={displayImage} />
-            </div>
-          )}
-          <ReactQuill
-            onChange={this.onChange}
-            modules={CreateArticle.modules}
-            formats={CreateArticle.formats}
-            placeholder={'Tell your Story....'}
-            className="react-quil"
-          />
-          <div className="errorMsg">{this.state.errors.articleBody}</div>
-          <div>
-            <div className="section-preview chips">
-              <span className="tag">Tags</span>
-              <TagsInput
-                value={tags}
-                onChange={this.handleAddition}
-                focusedClassName="tag-input-focus"
-              />
-            </div>
-            <div className="errorMsgtag">{this.state.errors.tags}</div>
-          </div>
-
-          <Button bgColor className="article-submit" disabled={isLoading}>
-            <i className="fas fa-pen" />
-            Publish
-            {isLoading && (
-              <span style={{ float: 'right', padding: '3px 3px 0 10px' }}>
-                <Circle color={'#FFFFFF'} />
-              </span>
-            )}
-          </Button>
-        </form>
-      </div>
+      <CreateArticlePage
+        articleTitle={articleTitle}
+        tags={tags}
+        articleBody={articleBody}
+        displayImage={displayImage}
+        isLoading={isLoading}
+        modules={CreateArticle.modules}
+        formats={CreateArticle.formats}
+        errors={this.state.errors}
+        onSubmit={this.onSubmit}
+        handleAddition={this.handleAddition}
+        handleImageDelete={this.handleImageDelete}
+        handleImageUpload={this.handleImageUpload}
+        handleChange={this.handleChange}
+        onChange={this.onChange}
+      />
     );
   }
 }
 
 export const mapStateToProps = state => ({
-  articles: state.articles
+  articles: state.articles,
+  singleArticle: state.singleArticle
 });
 CreateArticle.propTypes = {
   isLoading: PropTypes.bool,
+  article: PropTypes.object,
   createUserArticle: PropTypes.func,
-  articles: PropTypes.object
+  getSingleArticle: PropTypes.func,
+  articles: PropTypes.object,
+  match: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired
 };
 export default connect(
   mapStateToProps,
-  { createUserArticle }
+  { createUserArticle, getSingleArticle }
 )(CreateArticle);
 
 CreateArticle.modules = {

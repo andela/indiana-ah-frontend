@@ -1,37 +1,48 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { PropTypes } from 'prop-types';
 import { toast } from 'react-toastify';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { Route, Redirect } from 'react-router-dom';
 
-export default function (ComposedComponent) {
-  class Authenticate extends Component {
-    componentDidMount() {
-      const { isAuthenticated, isVerified } = this.props.auth;
-      if (!isAuthenticated) {
+const PrivateRoute = ({ component: Component, auth, ...rest }) => (
+  <Route
+    {...rest}
+    render={(props) => {
+      if (!auth.isAuthenticated) {
         toast.error('You need to Login/Register to access this page');
-        this.context.router.history.push('/');
-        return;
+        return (
+          <Redirect
+            to={{
+              pathname: '/',
+              state: { from: props.location }
+            }}
+          />
+        );
       }
-      if (!isVerified) {
+      if (!auth.isVerified) {
         toast.error('You need to verify your account to access this page');
-        this.context.router.history.push('/user/verify');
+        return (
+          <Redirect
+            to={{
+              pathname: '/user/verify',
+              state: { from: props.location }
+            }}
+          />
+        );
       }
-    }
+      return <Component {...props} />;
+    }}
+  />
+);
 
-    render() {
-      return <ComposedComponent {...this.props} />;
-    }
-  }
+PrivateRoute.propTypes = {
+  component: PropTypes.func,
+  auth: PropTypes.object,
+  location: PropTypes.object
+};
 
-  Authenticate.propTypes = {
-    auth: PropTypes.object.isRequired
-  };
-  Authenticate.contextTypes = {
-    router: PropTypes.object.isRequired
-  };
+const mapStateToProps = state => ({
+  auth: state.auth
+});
 
-  const mapStateToProps = state => ({
-    auth: state.auth
-  });
-  return connect(mapStateToProps)(Authenticate);
-}
+export default connect(mapStateToProps)(PrivateRoute);

@@ -26,6 +26,9 @@ export class ProfileForm extends Component {
   }
 
   componentDidUpdate(prevProps) {
+    if (prevProps.userProfile.bio !== this.props.userProfile.bio) {
+      this.setState({ bio: this.props.userProfile.bio });
+    }
     if (prevProps.profileData.error === this.props.profileData.error) return;
     if (this.props.profileData.error) {
       const { error } = this.props.profileData;

@@ -31,14 +31,19 @@ const dataTrue = {
   articleTitle: 'Goood this is working this is hoog ang workinh as itb should good',
   articleBody: 'Goood this is working this is hoog ang workinh as itb should good'
 };
-
+const props = {
+  getSingleArticle: mockFn,
+  match: {
+    params: { slug: 'when-to-use-refs' }
+  }
+};
 global.URL.createObjectURL = jest.fn();
 describe('Test CreateArticle Component', () => {
   it('Should render Properly', () => {
-    wrapper = shallow(<CreateArticle articles={initialState} />);
+    wrapper = shallow(<CreateArticle articles={initialState} {...props} />);
     expect(wrapper.exists()).toBe(true);
-
     wrapper.instance().handleChange(event);
+    wrapper.instance().componentDidMount(mockFn);
     wrapper.instance().handleImageUpload(event);
     wrapper.instance().onSubmit(event);
     wrapper
@@ -70,17 +75,5 @@ describe('Test CreateArticle Component', () => {
         errors,
         articleIsValid
       );
-  });
-
-  it('set state and find element', () => {
-    expect(wrapper.state().articleBody).toEqual(event);
-    wrapper.setState({ displayImage: 'svvsjrgbksgadgfhbakjbgjf`vkjfs' });
-
-    expect(wrapper.find('span i').length).toEqual(1);
-    expect(wrapper.find('div').length).toEqual(9);
-    expect(wrapper.find('textarea').length).toEqual(1);
-    expect(wrapper.find('img').length).toEqual(1);
-    expect(wrapper.find('form').length).toEqual(1);
-    wrapper.find('form').simulate('click');
   });
 });

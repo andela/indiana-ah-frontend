@@ -42,11 +42,9 @@ const DislikeSvg = color => (
   </svg>
 );
 
-const DislikeComponent = ({
-  dislikeCount, color, onClick, id
-}) => (
+const DislikeComponent = ({ dislikeCount, color, onClick }) => (
   <Fragment>
-    <span className="icon-holder" onClick={() => onClick(id, 'dislike')}>
+    <span className="icon-holder" onClick={onClick || undefined}>
       {DislikeSvg(color)}
       <sub className="count dislike-count">{dislikeCount || ''}</sub>
     </span>
