@@ -11,6 +11,9 @@
   font-size: 2rem;
   font-weight: unset;
 }
+.mb-5, .my-5 {
+  margin-bottom: 1.5rem!important;
+}
 .comment-form {
   h1 {
     left: 29.6rem;
@@ -25,12 +28,13 @@
     vertical-align: middle;
     border-style: none;
     border-radius: 50%;
-    max-width: 4.5rem;
-    max-height: 4.5rem;
+    max-width: 4.0rem;
+    max-height: 4.0rem;
   }
   .row {
     flex-wrap: unset;
     justify-content: flex-start;
+    padding-left: 2.5rem;
   }
   .col-xs-9 {
     margin-top: 1.0rem;
@@ -43,7 +47,13 @@
   max-width: 4.5rem;
   max-height: 4.5rem;
 }
+.cKRIiy {
+  margin-left: 5rem;
+}
 @media (min-width: 576px) { 
+  .cKRIiy {
+    margin-left: 3rem;
+}
   .comment-textarea {
     width: 40.0rem;
   }

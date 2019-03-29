@@ -6,6 +6,13 @@
   .text-center {
     text-transform: capitalize;
   }
+  @media only screen and (max-width: 500px) {
+    margin-right: 3rem;
+    margin-left: 3rem;
+    padding-bottom: 3rem;
+    font-size: 1.2rem;
+
+  }
 }
 .comment-reaction {
   margin-left: 5rem;
@@ -69,4 +76,25 @@
     text-align: center;
     padding-bottom: 3rem;
   }
+}
+
+@media only screen and (max-width: 500px) {
+  .row {
+    flex-wrap: unset;
+  }
+  .dropdown button, .dropdown button:hover, .dropdown .btn-primary:focus {
+    font-size: 0.7rem;
+  }
+  p {
+    margin-top: 0.4rem;
+}
+.image {
+  max-width: 4.0rem;
+  max-height: 4.0rem;
+  margin-left: 2rem;
+}
+.fa-thumbs-up:before {
+  margin-right: 2rem;
+}
+
 }
