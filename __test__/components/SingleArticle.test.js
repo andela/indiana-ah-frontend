@@ -14,8 +14,10 @@ import {
   DISLIKE_ARTICLE
 } from '../../src/redux/actions/actionTypes';
 import comments from '../../__fixtures__/comments';
+
 const mock = new MockAdapter(apiInstance);
 const mockStore = configureMockStore([thunk]);
+
 const auth = {
   isVerified: true
 };
@@ -25,6 +27,7 @@ const user = {
     id: 'dkdkkdkkdk'
   }
 };
+const store = mockStore({ user });
 const bookmarkedArticles = {
   userBookmarks: [
     {

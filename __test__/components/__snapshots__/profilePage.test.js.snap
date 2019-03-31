@@ -252,7 +252,7 @@ exports[`Profile page component renders correctly 1`] = `
                   <h5
                     className="black"
                   >
-                    29/2/2019
+                    31/2/2019
                   </h5>
                 </div>
               </div>
@@ -364,7 +364,7 @@ exports[`Profile page component renders correctly 1`] = `
                     </div>
                   </div>
                   <button
-                    className="sc-bdVaJa cCAvlF"
+                    className="sc-bdVaJa fxlfaC"
                     disabled={false}
                     onClick={[Function]}
                   >
@@ -455,7 +455,7 @@ exports[`Profile page component renders correctly 1`] = `
                     </div>
                   </div>
                   <button
-                    className="sc-bdVaJa cCAvlF"
+                    className="sc-bdVaJa fxlfaC"
                     disabled={true}
                     onClick={[Function]}
                   >
@@ -657,7 +657,7 @@ exports[`Profile page component renders correctly 1`] = `
                   Once Deactivated, you will not be able to access your account Ever Again
                 </p>
                 <button
-                  className="sc-bdVaJa cxgZGr"
+                  className="sc-bdVaJa kpdJYz"
                 >
                   Deactivate
                 </button>
