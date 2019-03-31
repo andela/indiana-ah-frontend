@@ -3,7 +3,6 @@ import { shallow } from 'enzyme';
 import MockAdapter from 'axios-mock-adapter';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-
 import { SingleArticle } from '../../src/components/containers/SingleArticle.jsx';
 import reducer from '../../src/redux/reducers/getSingleArticleReducer';
 import articleAction from '../../src/redux/actions/getSingleArticleActions/getSingleArticleActions';
@@ -14,7 +13,7 @@ import {
   LIKE_ARTICLE,
   DISLIKE_ARTICLE
 } from '../../src/redux/actions/actionTypes';
-
+import comments from '../../__fixtures__/comments';
 const mock = new MockAdapter(apiInstance);
 const mockStore = configureMockStore([thunk]);
 const auth = {
@@ -38,21 +37,6 @@ const bookmarkedArticles = {
   ]
 };
 
-const store = mockStore({ user });
-const comments = {
-  comments: [
-    {
-      id: 1,
-      userId: 1,
-      articleId: 1,
-      commenter: {
-        name: 'omenkish',
-        username: 'omenkish',
-        imageUrl: 'qwerty'
-      }
-    }
-  ]
-};
 const article = {
   article: {
     articleBody: '',
@@ -125,6 +109,8 @@ describe('<SingleArticle/>', () => {
     wrapper.instance().openModal();
     wrapper.instance().closeModal();
     wrapper.instance().displayForm('like');
+    auth.isVerified = false;
+    wrapper.setProps({ ...auth });
   });
 });
 

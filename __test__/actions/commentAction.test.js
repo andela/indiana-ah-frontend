@@ -2,7 +2,10 @@ import thunk from 'redux-thunk';
 import { toast } from 'react-toastify';
 import configureMockStore from 'redux-mock-store';
 import { sendHttpRequest } from '../../src/utils';
-import { ADD_COMMENT, DELETE_COMMENT, GET_ALL_ARTICLE_COMMENTS } from '../../src/redux/actions/actionTypes';
+import {
+  ADD_COMMENT, DELETE_COMMENT,
+  GET_ALL_ARTICLE_COMMENTS, COMMENTS_LOADING
+} from '../../src/redux/actions/actionTypes';
 import { addComment, deleteComment, getArticleComments }
   from '../../src/redux/actions/commentActions';
 
@@ -51,6 +54,7 @@ describe('Auth action creators test', () => {
       message: 'Comment created successfully'
     });
     const expectedActions = [
+      { type: COMMENTS_LOADING },
       { type: ADD_COMMENT, payload: comment.payload },
     ];
 
@@ -80,7 +84,8 @@ describe('Auth action creators test', () => {
       message: 'Comment deleted successfully'
     });
     const expectedActions = [
-      { type: DELETE_COMMENT, id },
+      { type: COMMENTS_LOADING },
+      { type: DELETE_COMMENT, id }
     ];
 
     await store.dispatch(deleteComment(id));

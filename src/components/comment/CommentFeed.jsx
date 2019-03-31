@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CommentItem from './CommentItem.jsx';
-import { filterArticlesByDate } from '../../utils/index';
 
-const CommentFeed = ({ comments }) => filterArticlesByDate(comments).map(comment => (
+export const CommentFeed = ({ comments }) => comments.map(comment => (
   <CommentItem key={comment.id} comment={comment} />
 ));
 

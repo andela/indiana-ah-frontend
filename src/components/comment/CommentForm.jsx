@@ -7,7 +7,7 @@ import Textarea from 'react-textarea-autosize';
 import Button from '../../styles/styledComponents/Button.jsx';
 import { addComment } from '../../redux/actions/commentActions';
 
-class CommentForm extends Component {
+export class CommentForm extends Component {
   state = {
     text: '',
   };

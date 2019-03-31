@@ -14,8 +14,8 @@ import SignupContainer from '../SignupFormContainer.jsx';
 import LoginContainer from '../LoginFormContainer.jsx';
 import Modal from '../common/Modal.jsx';
 import { getArticleComments } from '../../redux/actions/commentActions';
-import CommentForm from '../comment/CommentForm.jsx';
-import CommentFeed from '../comment/CommentFeed.jsx';
+import { CommentForm } from '../comment/CommentForm.jsx';
+import { CommentFeed } from '../comment/CommentFeed.jsx';
 
 class SingleArticle extends Component {
   state = {
@@ -42,9 +42,7 @@ class SingleArticle extends Component {
     const { slug } = match.params;
     this.props.getSingleArticle(slug, history);
     this.props.getArticleComments(slug);
-    if (this.props.auth.isVerified) {
-      this.props.getAllUsersBookMarkedArticles();
-    }
+    if (this.props.auth.isVerified) this.props.getAllUsersBookMarkedArticles();
   }
 
   handleBookmarkclick = () => {

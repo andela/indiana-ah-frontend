@@ -12,7 +12,7 @@ describe('testing the button element', () => {
 
   it('should apply styles according to passed props', () => {
     const tree = renderer.create(<Button danger inlineButton />).toJSON();
-    expect(tree).toHaveStyleRule('color', expect.stringContaining('#CD160B'));
+    expect(tree).toHaveStyleRule('color', '#fff');
     expect(tree).toHaveStyleRule(
       'border',
       expect.stringContaining('0.2rem solid #CD160B')

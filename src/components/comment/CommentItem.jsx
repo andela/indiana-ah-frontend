@@ -8,7 +8,7 @@ import Button from '../../styles/styledComponents/Button.jsx';
 import Modal from '../common/Modal.jsx';
 import { deleteComment } from '../../redux/actions/commentActions';
 
-class CommentItem extends Component {
+export class CommentItem extends Component {
   state = {
     modalIsOpen: false
   };
@@ -75,7 +75,7 @@ class CommentItem extends Component {
               </Dropdown.Toggle>
               <Dropdown.Menu className="dropdown-menu">
 
-                <Dropdown.Item ><span>Edit</span></Dropdown.Item>
+                <Dropdown.Item as="div"><span>Edit</span></Dropdown.Item>
                 <Dropdown.Divider />
                 <Dropdown.Item onClick={this.openModal} ><span>Delete</span></Dropdown.Item>
                 <Dropdown.Divider />
