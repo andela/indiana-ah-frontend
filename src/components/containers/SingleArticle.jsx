@@ -14,8 +14,8 @@ import SignupContainer from '../SignupFormContainer.jsx';
 import LoginContainer from '../LoginFormContainer.jsx';
 import Modal from '../common/Modal.jsx';
 import { getArticleComments } from '../../redux/actions/commentActions';
-import { CommentForm } from '../comment/CommentForm.jsx';
-import { CommentFeed } from '../comment/CommentFeed.jsx';
+import Commentform from '../comment/CommentForm.jsx';
+import Commentfeed from '../comment/CommentFeed.jsx';
 
 class SingleArticle extends Component {
   state = {
@@ -196,13 +196,13 @@ class SingleArticle extends Component {
             <section className='comment-section'>
             {
               isVerified && <><div className='container pt-5 pb-5'>
-              <CommentForm slug={slug} />
+              <Commentform slug={slug} />
             </div>
             <hr /></>
             }
               <div className='container pt-5 pb-5'>
                 <h2>Comments</h2>
-                <CommentFeed comments={this.props.comments} />
+                <Commentfeed comments={this.props.comments} />
               </div>
           </section>
           </section>

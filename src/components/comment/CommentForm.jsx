@@ -30,6 +30,7 @@ export class CommentForm extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div className="add-comment-box">
           <div className="card-body comment-form">
@@ -77,12 +78,12 @@ export class CommentForm extends Component {
 }
 
 CommentForm.propTypes = {
-  addComment: PropTypes.func.isRequired,
-  user: PropTypes.object.isRequired,
-  slug: PropTypes.string.isRequired,
+  addComment: PropTypes.func,
+  user: PropTypes.object,
+  slug: PropTypes.string,
   errors: PropTypes.object,
-  isLoading: PropTypes.bool.isRequired,
-  auth: PropTypes.object.isRequired
+  isLoading: PropTypes.bool,
+  auth: PropTypes.object
 
 };
 

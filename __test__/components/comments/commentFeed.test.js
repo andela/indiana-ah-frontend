@@ -9,3 +9,10 @@ describe('<CommentItemComponent />', () => {
     expect(wrapper.exists()).toBe(true);
   });
 });
+
+describe('<CommentItemComponent /> with empty comment', () => {
+  const wrapper = shallow(<CommentFeed comments={[]} />);
+  it('should render a CommentItem component', () => {
+    expect(wrapper.exists()).toBe(true);
+  });
+});
