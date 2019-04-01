@@ -30,7 +30,6 @@ export class CommentForm extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className="add-comment-box">
           <div className="card-body comment-form">
