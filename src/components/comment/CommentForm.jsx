@@ -61,7 +61,7 @@ export class CommentForm extends Component {
                 && <Button sm>
                 Submit
                 {this.props.isLoading && (
-              <span style={{ float: 'right', padding: '3px 3px 0 10px' }}>
+              <span className="button-loading">
                 <Circle color={'rgba(11,65,205,1)'} />
               </span>
                 )}
