@@ -37,7 +37,6 @@ export const getArticleComments = articleSlug => async (dispatch) => {
   } catch ({ response }) {
     switch (response.status) {
       case 404:
-        return toast.error(response.data.message);
       case 401:
         return toast.error(response.data.message);
       default:

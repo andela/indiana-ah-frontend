@@ -52,6 +52,7 @@ class SingleArticle extends Component {
 
   render() {
     const { modalContent } = this.state;
+    const { comments } = this.props;
     let articleTags = null;
     let viewingUser;
     const delayDisplay = (
@@ -171,7 +172,7 @@ class SingleArticle extends Component {
                       : () => this.displayForm('login')
                   }
                 />
-                <CommentIconComponent className="reaction-logo" commentCount={this.props.comments.length} />
+                <CommentIconComponent className="reaction-logo" commentCount={comments.length} />
               </div>
               <div className="share-container">
                 <span className="social share-text">Share on</span>
@@ -202,7 +203,7 @@ class SingleArticle extends Component {
             }
               <div className='container pt-5 pb-5'>
                 <h2>Comments</h2>
-                <Commentfeed comments={this.props.comments} />
+                <Commentfeed comments={comments} />
               </div>
           </section>
           </section>

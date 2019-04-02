@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Commentitem from './CommentItem.jsx';
 
-export const CommentFeed = ({ comments }) => (comments.length > 0
+export const CommentFeed = ({ comments }) => (comments.length
   ? comments.map(comment => (
     <Commentitem key={comment.id} comment={comment} />
   )) : (<h3>No comments yet for this article.</h3>));

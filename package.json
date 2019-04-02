@@ -35,7 +35,7 @@
     "i": "^0.3.6",
     "identity-obj-proxy": "^3.0.0",
     "ignore-styles": "^5.0.1",
-    "jest": "=24.5.0",
+    "jest": "=24.3.1",
     "jest-svg-transformer": "^1.0.0",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^2.2.0",
