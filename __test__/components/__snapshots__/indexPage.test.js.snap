@@ -1842,7 +1842,7 @@ Array [
             onClick={[Function]}
           >
             <span
-              data-area="Prev"
+              data-area="prev"
             />
           </p>
         </div>
@@ -1860,7 +1860,7 @@ Array [
             onClick={[Function]}
           >
             <span
-              data-area="Next"
+              data-area="next"
             />
           </p>
         </div>
@@ -3566,7 +3566,7 @@ Array [
             onClick={[Function]}
           >
             <span
-              data-area="Prev"
+              data-area="prev"
             />
           </p>
         </div>
@@ -3584,7 +3584,7 @@ Array [
             onClick={[Function]}
           >
             <span
-              data-area="Next"
+              data-area="next"
             />
           </p>
         </div>
