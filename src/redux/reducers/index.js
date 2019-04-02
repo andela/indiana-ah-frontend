@@ -5,6 +5,7 @@ import userReducer from './userReducer';
 import bookmarkReducer from './bookmarkReducer';
 import userArticlesReducer from './userArticlesReducer';
 import getSingleArticleReducer from './getSingleArticleReducer';
+import commentsReducer from './commentReducer';
 
 export default combineReducers({
   auth: authReducer,
@@ -12,5 +13,6 @@ export default combineReducers({
   user: userReducer,
   bookmarkedArticles: bookmarkReducer,
   allUserArticles: userArticlesReducer,
-  singleArticle: getSingleArticleReducer
+  singleArticle: getSingleArticleReducer,
+  comments: commentsReducer
 });

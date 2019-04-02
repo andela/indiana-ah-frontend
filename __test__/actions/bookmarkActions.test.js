@@ -8,21 +8,32 @@ import addBookmark from '../../src/redux/actions/bookmarkActions';
 jest.mock('../../src/utils');
 jest.mock('react-toastify');
 const mockStore = configureMockStore([thunk]);
-const store = mockStore();
+
+const singleArticle = {
+  id: 1,
+  articleId: 1,
+  userId: 1,
+  Article: {
+    slug: 'slug',
+    articleBody: 'article body',
+    imageUrl: 'article-url',
+    articleTitle: 'article title'
+  }
+};
+const store = mockStore({ singleArticle });
+const id = 'f2d7da57-28c4-444b-840c-d9a78afe00cd';
+const article = {
+  payload: {
+    bookmark: true,
+    id,
+    Article: singleArticle.Article
+  }
+};
 
 describe('Auth action creators test', () => {
   beforeEach(() => {
     store.clearActions();
   });
-
-  const id = 'f2d7da57-28c4-444b-840c-d9a78afe00cd';
-  const article = {
-    payload: {
-      bookmark: true,
-      id
-    }
-  };
-
   const getError = status => ({
     response: {
       status,

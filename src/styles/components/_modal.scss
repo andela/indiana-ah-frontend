@@ -30,6 +30,15 @@ h3.text-center.mt-5 {
 
 @media (max-width: 380px) {
   .modal-body {
-    padding: 3em 4rem 0 4rem;
+    padding: 3em 1rem 0 1rem;
   }
+  .modal-dialog.Modal {
+    width: 30rem;
+    margin-left: 2rem;
+  }
+  .modal.show .modal-dialog {
+    -webkit-transform: none;
+    transform: none;
+    margin-left: -3rem;
+}
 }

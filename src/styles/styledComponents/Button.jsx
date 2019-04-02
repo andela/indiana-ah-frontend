@@ -1,7 +1,15 @@
 import styled from 'styled-components';
 
 const Button = styled.button`
-  background: ${props => (props.bgColor ? '#0B41CD' : '#fff')};
+  background: ${(props) => {
+    if (props.danger) {
+      return '#CD160B';
+    }
+    if (props.bgColor) {
+      return '#0B41CD';
+    }
+    return '#fff';
+  }}
   font-size: 2rem;
   line-height: 2.7rem;
   align: Center;
@@ -12,7 +20,7 @@ const Button = styled.button`
   text-align: center;
   color: ${(props) => {
     if (props.danger) {
-      return '#CD160B';
+      return '#fff';
     }
     if (props.bgColor) {
       return '#fff';

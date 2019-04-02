@@ -74,7 +74,7 @@ export class LoginFormContainer extends Component {
             sm>
             login
             {isLoading && (
-              <span style={{ float: 'right', padding: '3px 3px 0 10px' }}>
+              <span className="button-loading">
                 <Circle color={'rgba(255,255,255,1)'} />
               </span>
             )}

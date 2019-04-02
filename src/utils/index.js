@@ -113,11 +113,11 @@ export const recordLike = (data) => {
   data.likedByMe = !data.likedByMe;
   data.dislikedByMe = false;
 };
+
 export const formatDate = (unformatedDate) => {
-  let date = unformatedDate;
-  date = new Date();
+  const date = new Date(unformatedDate);
   const day = date.getDate();
-  const month = date.getMonth();
+  const month = date.getMonth() + 1;
   const year = date.getFullYear();
   const formattedDate = `${day}/${month}/${year}`;
   return formattedDate;

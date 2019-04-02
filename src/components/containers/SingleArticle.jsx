@@ -13,6 +13,9 @@ import Footer from '../common/footer.jsx';
 import SignupContainer from '../SignupFormContainer.jsx';
 import LoginContainer from '../LoginFormContainer.jsx';
 import Modal from '../common/Modal.jsx';
+import { getArticleComments } from '../../redux/actions/commentActions';
+import Commentform from '../comment/CommentForm.jsx';
+import Commentfeed from '../comment/CommentFeed.jsx';
 
 class SingleArticle extends Component {
   state = {
@@ -38,9 +41,8 @@ class SingleArticle extends Component {
     const { match, history } = this.props;
     const { slug } = match.params;
     this.props.getSingleArticle(slug, history);
-    if (this.props.auth.isVerified) {
-      this.props.getAllUsersBookMarkedArticles();
-    }
+    this.props.getArticleComments(slug);
+    if (this.props.auth.isVerified) this.props.getAllUsersBookMarkedArticles();
   }
 
   handleBookmarkclick = () => {
@@ -50,6 +52,7 @@ class SingleArticle extends Component {
 
   render() {
     const { modalContent } = this.state;
+    const { comments } = this.props;
     let articleTags = null;
     let viewingUser;
     const delayDisplay = (
@@ -62,14 +65,13 @@ class SingleArticle extends Component {
       viewingUser = this.props.user.userData.username;
     }
     const {
+      slug,
       articleTitle,
       timeToRead,
-      Comments,
       likes,
       dislikes,
       imageUrl,
       tags,
-      slug,
       likedByMe,
       dislikedByMe,
       author,
@@ -77,6 +79,7 @@ class SingleArticle extends Component {
       articleBody
     } = this.props.singleArticle.article;
 
+    const { isVerified } = this.props.auth;
     const currentBookmark = this.props.bookmarkedArticles.userBookmarks.find(
       article => article.articleId === this.props.singleArticle.article.id
     );
@@ -103,6 +106,7 @@ class SingleArticle extends Component {
       || !this.props.singleArticle.article.articleBody
     ) return delayDisplay;
 
+
     return (
       <>
         <div className="SingleArticle">
@@ -120,7 +124,7 @@ class SingleArticle extends Component {
                     className="user-image"
                   />
                 </div>
-                {this.props.auth.isVerified && viewingUser !== author.username && (
+                {isVerified && viewingUser !== author.username && (
                   <div className="follow-bookmark-box">
                     <button className="follow-btn">Follow</button>
                     <span>
@@ -168,7 +172,7 @@ class SingleArticle extends Component {
                       : () => this.displayForm('login')
                   }
                 />
-                <CommentIconComponent className="reaction-logo" commentCount={0} />
+                <CommentIconComponent className="reaction-logo" commentCount={comments.length} />
               </div>
               <div className="share-container">
                 <span className="social share-text">Share on</span>
@@ -190,6 +194,18 @@ class SingleArticle extends Component {
                 </a>
               </div>
             </section>
+            <section className='comment-section'>
+            {
+              isVerified && <><div className='container pt-5 pb-5'>
+              <Commentform slug={slug} />
+            </div>
+            <hr /></>
+            }
+              <div className='container pt-5 pb-5'>
+                <h2>Comments</h2>
+                <Commentfeed comments={comments} />
+              </div>
+          </section>
           </section>
           <Modal
             modalIsOpen={this.state.modalIsOpen}
@@ -216,7 +232,9 @@ class SingleArticle extends Component {
 }
 
 SingleArticle.propTypes = {
+  comments: PropTypes.array.isRequired,
   addBookmark: PropTypes.func.isRequired,
+  getArticleComments: PropTypes.func.isRequired,
   getSingleArticle: PropTypes.func.isRequired,
   getAllUsersBookMarkedArticles: PropTypes.func.isRequired,
   bookmarkedArticles: PropTypes.object.isRequired,
@@ -232,7 +250,8 @@ const mapStateToProps = state => ({
   singleArticle: state.singleArticle,
   auth: state.auth,
   user: state.user,
-  bookmarkedArticles: state.bookmarkedArticles
+  bookmarkedArticles: state.bookmarkedArticles,
+  comments: state.comments.comments
 });
 
 export { SingleArticle };
@@ -243,6 +262,7 @@ export default connect(
     getSingleArticle,
     addBookmark,
     getAllUsersBookMarkedArticles,
-    reactToArticle
+    reactToArticle,
+    getArticleComments
   }
 )(SingleArticle);
