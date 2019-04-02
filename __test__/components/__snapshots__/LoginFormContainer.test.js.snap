@@ -60,7 +60,7 @@ exports[`Login Form should match snapshot 1`] = `
     </div>
     
     <button
-      className="sc-htpNat dDoebs"
+      className="sc-htpNat hpCSJ"
       disabled={false}
       height="4.8rem"
       type="submit"
@@ -196,7 +196,7 @@ exports[`test the login container form should match snap shot 1`] = `
     </div>
     
     <button
-      className="sc-htpNat dDoebs"
+      className="sc-htpNat hpCSJ"
       disabled={false}
       height="4.8rem"
       type="submit"
