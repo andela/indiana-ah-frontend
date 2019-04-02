@@ -18,7 +18,7 @@ exports[`It should render the comment item component 1`] = `
         />
       </div>
       <div
-        className="col-xs-5 ml-4"
+        className="col-xs-5 ml-3"
       >
         <p
           className="text-center"
@@ -177,7 +177,7 @@ exports[`It should render the comment item component 2`] = `
         />
       </div>
       <div
-        className="col-xs-5 ml-4"
+        className="col-xs-5 ml-3"
       >
         <p
           className="text-center"

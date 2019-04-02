@@ -50,7 +50,7 @@ export class CommentItem extends Component {
       <>
       <div className="comment-item-section">
         <div className="row">
-          <div className="col-xs-3 ">
+          <div className="col-xs-3">
               <img
                 className="image"
                 src={comment.commenter.imageUrl}

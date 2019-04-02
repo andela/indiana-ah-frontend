@@ -22,7 +22,11 @@
     h3 {
       font-size: 1.5rem
     }
-
+    .image {
+      max-width: 5.0rem;
+      max-height: 4.0rem;
+      margin-left: 3.0rem;
+    }
   }
 }
 .comment-reaction {
@@ -98,11 +102,6 @@
   p {
     margin-top: 0.4rem;
   }
-  .image {
-    max-width: 4.0rem;
-    max-height: 4.0rem;
-    margin-left: 2rem;
-  }
   .fa-thumbs-up:before {
     margin-right: 2rem;
   }
@@ -119,7 +118,7 @@
 
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1199px) {
   .row {
     flex-wrap: unset;
   }
@@ -132,20 +131,15 @@
   .image {
     max-width: 4.0rem;
     max-height: 4.0rem;
-    margin-left: 2rem;
+    margin-left: 3.5rem;
   }
   .fa-thumbs-up:before {
     margin-right: 2rem;
   }
   .comment-item-section {
-    
-    margin-right: 3rem;
     margin-left: 1.5rem;
-    padding-bottom: 3rem;
-    font-size: 2rem;
   }
   h3 {
     font-size: 1.4rem;
   }
-
 }

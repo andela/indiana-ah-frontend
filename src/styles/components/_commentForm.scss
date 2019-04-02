@@ -9,11 +9,16 @@
     font-size: 1.7rem;
     line-height: normal;
     color: rgba(0, 0, 0, 0.7);
-}
+  }
+  h3, h3 {
+    font-size: 1.3rem;
+    margin-left: 5rem;
+  }
 }
 .card-body {
   padding: 1rem 1rem 0 2rem;
 }
+
 .comment-textarea {
   width: 24.0rem;
   border: none;
@@ -73,6 +78,15 @@
       font-size: 1.7rem;
     }
   }
+  .comment-section{
+    .h3, h3 {
+      font-size: 1.75rem;
+      margin-left: 5rem;
+    }
+    h1, h2 {
+      font-size: 2.7rem;
+    }
+  }
 }
 
 // Medium devices (tablets, 768px and up)
@@ -83,6 +97,15 @@
   .comment-form {
     h1 {
       font-size: 2.0rem;
+    }
+  }
+  .comment-section{
+    .h3, h3 {
+      font-size: 1.75rem;
+      margin-left: 5rem;
+    }
+    h1, h2 {
+      font-size: 2.7rem;
     }
   }
 }
@@ -97,9 +120,13 @@
       font-size: 2.5rem;
     }
   }
-  .comment-section {
-    h2 {
-      font-size: 2.5rem;
+  .comment-section{
+    .h3, h3 {
+      font-size: 1.75rem;
+      margin-left: 5rem;
+    }
+    h1, h2 {
+      font-size: 2.7rem;
     }
   }
 }
@@ -123,6 +150,10 @@
     .ml-4, .mx-4 {
       margin-left: 10.5rem!important;
     }
+    .h3, h3 {
+      font-size: 1.75rem;
+      margin-left: 15rem;
+  }
   }
   .add-comment-box {
     margin-right: 11rem;

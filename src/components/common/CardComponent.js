@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import PropTypes from 'prop-types';
 import LikeComponent from './LikeComponent';
@@ -12,7 +11,6 @@ const CardComponent = ({
   img,
   title,
   text,
-  slug,
   likeCount,
   dislikeCount,
   commentCount
@@ -66,7 +64,6 @@ CardComponent.defaultProps = {
 CardComponent.propTypes = {
   img: PropTypes.string,
   title: PropTypes.string.isRequired,
-  slug: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   likeCount: PropTypes.number.isRequired,
   dislikeCount: PropTypes.number.isRequired,

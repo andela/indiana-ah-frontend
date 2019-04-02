@@ -201,7 +201,7 @@ class SingleArticle extends Component {
             <hr /></>
             }
               <div className='container pt-5 pb-5'>
-                <h2 >Comments</h2>
+                <h2>Comments</h2>
                 <Commentfeed comments={this.props.comments} />
               </div>
           </section>
