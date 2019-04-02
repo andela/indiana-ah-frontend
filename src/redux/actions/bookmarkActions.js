@@ -1,12 +1,9 @@
-import thunk from 'redux-thunk';
 import { toast } from 'react-toastify';
-import configureMockStore from 'redux-mock-store';
 import { ADD_BOOKMARK, REMOVE_BOOKMARK } from './actionTypes';
 import { sendHttpRequest } from '../../utils/index';
 
 const addBookmark = id => async (dispatch, getState) => {
   const Article = getState().singleArticle.article;
-  // const Article = { ...article };
   try {
     const response = await sendHttpRequest(`articles/${id}/bookmark`, 'post');
     if (response.bookmark) {

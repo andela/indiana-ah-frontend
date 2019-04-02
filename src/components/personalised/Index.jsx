@@ -71,7 +71,7 @@ class PersonalisedViewComponent extends Component {
     if (!isLoading && allArticles.length === 0) {
       featuresView = <p>There Are No Featured Articles</p>;
     }
-    if (!isLoading && allArticles.length > 3) {
+    if (!isLoading && allArticles.length > 0) {
       const threeRandomArticles = allArticles.sort(() => 0.5 - Math.random()).slice(0, 4);
       featuresView = threeRandomArticles.map((eachCard, index) => <Link to ={`/articles/${eachCard.slug}`} key= {index}>
        <CardComponent
