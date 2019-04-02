@@ -199,4 +199,4 @@ export { PersonalisedViewComponent };
 export default connect(mapStateToProps, {
   getAllArticles,
   getAllUsersBookMarkedArticles
- })(PersonalisedViewComponent);
+})(PersonalisedViewComponent);
