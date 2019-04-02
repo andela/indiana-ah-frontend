@@ -50,14 +50,14 @@ export class CommentItem extends Component {
       <>
       <div className="comment-item-section">
         <div className="row">
-          <div className="col-xs-3">
+          <div className="col-xs-3 ">
               <img
                 className="image"
                 src={comment.commenter.imageUrl}
                 alt=""
               />
           </div>
-          <div className="col-xs-5 ml-4">
+          <div className="col-xs-5 ml-3">
             <p className="text-center"><b>{comment.commenter.username}</b></p>
           </div>
 

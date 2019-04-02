@@ -6,11 +6,22 @@
   .text-center {
     text-transform: capitalize;
   }
+  h3 {
+    margin-left: 10rem;
+  }
+  .image {
+    max-width: 5.0rem;
+    max-height: 4.0rem;
+    margin-left: 3.0rem;
+  }
   @media only screen and (max-width: 500px) {
     margin-right: 3rem;
-    margin-left: 3rem;
+    margin-left: 1.5rem;
     padding-bottom: 3rem;
     font-size: 1.2rem;
+    h3 {
+      font-size: 1.5rem
+    }
 
   }
 }
@@ -28,7 +39,6 @@
 }
 .comment-body {
   color: #555;
-  word-break: break-all;
 }
 
 .show {
@@ -78,7 +88,7 @@
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 1000px) {
   .row {
     flex-wrap: unset;
   }
@@ -87,14 +97,55 @@
   }
   p {
     margin-top: 0.4rem;
+  }
+  .image {
+    max-width: 4.0rem;
+    max-height: 4.0rem;
+    margin-left: 2rem;
+  }
+  .fa-thumbs-up:before {
+    margin-right: 2rem;
+  }
+  .comment-item-section {
+    
+    margin-right: 3rem;
+    margin-left: 1.5rem;
+    padding-bottom: 3rem;
+    font-size: 2.4rem;
+  }
+  h3 {
+    font-size: 1.4rem;
+  }
+
 }
-.image {
-  max-width: 4.0rem;
-  max-height: 4.0rem;
-  margin-left: 2rem;
-}
-.fa-thumbs-up:before {
-  margin-right: 2rem;
-}
+
+@media only screen and (max-width: 1024px) {
+  .row {
+    flex-wrap: unset;
+  }
+  .dropdown button, .dropdown button:hover, .dropdown .btn-primary:focus {
+    font-size: 0.7rem;
+  }
+  p {
+    margin-top: 0.4rem;
+  }
+  .image {
+    max-width: 4.0rem;
+    max-height: 4.0rem;
+    margin-left: 2rem;
+  }
+  .fa-thumbs-up:before {
+    margin-right: 2rem;
+  }
+  .comment-item-section {
+    
+    margin-right: 3rem;
+    margin-left: 1.5rem;
+    padding-bottom: 3rem;
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.4rem;
+  }
 
 }
