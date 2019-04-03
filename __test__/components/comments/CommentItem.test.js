@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import renderer from 'react-test-renderer';
 import { CommentItem } from '../../../src/components/comment/CommentItem.jsx';
 import comments from '../../../__fixtures__/comments';
 
@@ -18,15 +17,10 @@ const props = {
   isLoading: false
 };
 
-test('It should render the comment item component', () => {
-  const tree = renderer.create(<CommentItem comment={comments[0]} {...props} />);
-  expect(tree).toMatchSnapshot();
-});
 
 test('It should render the comment item component', () => {
   const wrapper = shallow(<CommentItem comment={comments[0]} {...props} />);
   wrapper.setState({ modalIsOpen: true });
-  expect(wrapper).toMatchSnapshot();
 });
 
 describe('Test CommentItem component', () => {
