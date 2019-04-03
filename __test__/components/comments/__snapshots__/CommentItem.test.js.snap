@@ -56,52 +56,36 @@ exports[`It should render the comment item component 1`] = `
           We are africans
         </p>
       </div>
-      <Dropdown
-        as="div"
-        navbar={false}
-      >
-        <Bootstrap(DropdownToggle)>
+      <ForwardRef(ContextTransform)>
+        <ForwardRef(Bootstrap(DropdownToggle))>
           ⋮
-        </Bootstrap(DropdownToggle)>
-        <DropdownMenu
-          alignRight={false}
-          as="div"
+        </ForwardRef(Bootstrap(DropdownToggle))>
+        <ForwardRef(Bootstrap(DropdownMenu))
           className="dropdown-menu"
-          flip={true}
         >
-          <DropdownItem
+          <ForwardRef(ContextTransform)
             as="div"
-            disabled={false}
           >
             <span>
               Edit
             </span>
-          </DropdownItem>
-          <DropdownDivider
-            role="separator"
-          />
-          <DropdownItem
-            as={[Function]}
-            disabled={false}
+          </ForwardRef(ContextTransform)>
+          <ForwardRef(Bootstrap(DropdownDivider)) />
+          <ForwardRef(ContextTransform)
             onClick={[Function]}
           >
             <span>
               Delete
             </span>
-          </DropdownItem>
-          <DropdownDivider
-            role="separator"
-          />
-          <DropdownItem
-            as={[Function]}
-            disabled={false}
-          >
+          </ForwardRef(ContextTransform)>
+          <ForwardRef(Bootstrap(DropdownDivider)) />
+          <ForwardRef(ContextTransform)>
             <span>
               Edit History
             </span>
-          </DropdownItem>
-        </DropdownMenu>
-      </Dropdown>
+          </ForwardRef(ContextTransform)>
+        </ForwardRef(Bootstrap(DropdownMenu))>
+      </ForwardRef(ContextTransform)>
     </div>
     <div
       className="row comment-reaction"
@@ -215,52 +199,36 @@ exports[`It should render the comment item component 2`] = `
           We are africans
         </p>
       </div>
-      <Dropdown
-        as="div"
-        navbar={false}
-      >
-        <Bootstrap(DropdownToggle)>
+      <ForwardRef(ContextTransform)>
+        <ForwardRef(Bootstrap(DropdownToggle))>
           ⋮
-        </Bootstrap(DropdownToggle)>
-        <DropdownMenu
-          alignRight={false}
-          as="div"
+        </ForwardRef(Bootstrap(DropdownToggle))>
+        <ForwardRef(Bootstrap(DropdownMenu))
           className="dropdown-menu"
-          flip={true}
         >
-          <DropdownItem
+          <ForwardRef(ContextTransform)
             as="div"
-            disabled={false}
           >
             <span>
               Edit
             </span>
-          </DropdownItem>
-          <DropdownDivider
-            role="separator"
-          />
-          <DropdownItem
-            as={[Function]}
-            disabled={false}
+          </ForwardRef(ContextTransform)>
+          <ForwardRef(Bootstrap(DropdownDivider)) />
+          <ForwardRef(ContextTransform)
             onClick={[Function]}
           >
             <span>
               Delete
             </span>
-          </DropdownItem>
-          <DropdownDivider
-            role="separator"
-          />
-          <DropdownItem
-            as={[Function]}
-            disabled={false}
-          >
+          </ForwardRef(ContextTransform)>
+          <ForwardRef(Bootstrap(DropdownDivider)) />
+          <ForwardRef(ContextTransform)>
             <span>
               Edit History
             </span>
-          </DropdownItem>
-        </DropdownMenu>
-      </Dropdown>
+          </ForwardRef(ContextTransform)>
+        </ForwardRef(Bootstrap(DropdownMenu))>
+      </ForwardRef(ContextTransform)>
     </div>
     <div
       className="row comment-reaction"
