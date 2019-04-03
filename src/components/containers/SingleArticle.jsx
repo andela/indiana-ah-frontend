@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import getSingleArticle from '../../redux/actions/getSingleArticleActions/getSingleArticleActions';
 import reactToArticle from '../../redux/actions/reactionActions';
 import { twitter, facebook } from '../../assets/images/svg';
@@ -87,9 +88,9 @@ class SingleArticle extends Component {
     const createMarkup = () => ({ __html: articleBody });
     if (tags) {
       articleTags = tags.split(',').map((tag, index) => (
-        <span className="article-tags" key={index}>
-          {tag}
-        </span>
+        <Link className="article-tags" to={`/search?tag=${tag}`} key={index}>
+          <span>{tag}</span>
+        </Link>
       ));
     }
     const imageStyle = {
@@ -189,7 +190,8 @@ class SingleArticle extends Component {
                   href={`https://twitter.com/intent/tweet?url=${window.location.href}`}
                   className="twitter-share-button"
                   rel="noopener noreferrer"
-                  target="_blank">
+                  target="_blank"
+                >
                   <img src={twitter} alt="twitter logo" className="social" />
                 </a>
               </div>
