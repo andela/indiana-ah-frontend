@@ -11,14 +11,22 @@ import {
   NETWORK_FAILURE,
   SEND_EMAIL_FAILURE,
   SEND_EMAIL_LOADING,
-  SEND_EMAIL_SUCCESS
+  SEND_EMAIL_SUCCESS,
+  SEND_RESET_LINK_LOADING,
+  SEND_RESET_LINK_SUCCESS,
+  SEND_RESET_LINK_FAILURE,
+  UPDATE_PASSWORD_LOADING,
+  UPDATE_PASSWORD_FAILURE,
+  UPDATE_PASSWORD_SUCCESS
 } from '../../src/redux/actions/actionTypes';
 
 const initialState = {
   isLoading: false,
   isAuthenticated: false,
   isVerified: false,
-  error: ''
+  error: '',
+  sendResetLink: '',
+  updatePassword: ''
 };
 
 describe('authReducer test', () => {
@@ -145,6 +153,72 @@ describe('authReducer test', () => {
     ).toEqual({
       ...initialState,
       isLoading: false,
+    });
+  });
+
+  it('should handle the SEND_RESET_LINK_LOADING action', () => {
+    expect(authReducer(initialState, { type: SEND_RESET_LINK_LOADING })).toEqual({
+      ...initialState,
+      isLoading: true
+    });
+  });
+
+  it('should handle the SEND_RESET_LINK_SUCCESS action', () => {
+    expect(
+      authReducer(initialState, {
+        type: SEND_RESET_LINK_SUCCESS, payload: 'Success'
+      })
+    ).toEqual({
+      ...initialState,
+      isLoading: false,
+      sendResetLink: 'Success',
+      error: ''
+    });
+  });
+
+  it('should handle the SEND_RESET_LINK_FAILURE action', () => {
+    expect(
+      authReducer(initialState, {
+        type: SEND_RESET_LINK_FAILURE, payload: 'Email is not registered in our system'
+      })
+    ).toEqual({
+      ...initialState,
+      isLoading: false,
+      sendResetLink: '',
+      error: 'Email is not registered in our system'
+    });
+  });
+
+  it('should handle the UPDATE_PASSWORD_LOADING, action', () => {
+    expect(authReducer(initialState, { type: UPDATE_PASSWORD_LOADING, })).toEqual({
+      ...initialState,
+      isLoading: true
+    });
+  });
+
+  it('should handle the UPDATE_PASSWORD_FAILURE, action', () => {
+    expect(
+      authReducer(initialState, {
+        type: UPDATE_PASSWORD_FAILURE, payload: 'Internal server error'
+      })
+    ).toEqual({
+      ...initialState,
+      isLoading: false,
+      updatePassword: '',
+      error: 'Internal server error'
+    });
+  });
+
+  it('should handle the SEND_RESET_LINK_FAILURE action', () => {
+    expect(
+      authReducer(initialState, {
+        type: UPDATE_PASSWORD_SUCCESS, payload: 'Success'
+      })
+    ).toEqual({
+      ...initialState,
+      isLoading: false,
+      updatePassword: 'Success',
+      error: ''
     });
   });
 });

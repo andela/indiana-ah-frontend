@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-
 import SideNav from '../../src/components/SideNav.jsx';
 
 describe('<SideNav/>', () => {

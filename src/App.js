@@ -11,6 +11,7 @@ import Profilepage from './components/ProfilePage.jsx';
 import 'react-toastify/dist/ReactToastify.min.css';
 import { validateToken } from './utils';
 import Navbar from './components/common/Navbar.jsx';
+import ResetPasswordPage from './components/ResetPassword.jsx';
 import SocialAuthPage from './components/SocialAuthPage.jsx';
 import createArticle from './components/CreateArticle.jsx';
 import store from './redux/store';
@@ -42,6 +43,7 @@ const App = () => (
         <Route path="/not-found" component={NotFound} exact />
         <Route path="/social-auth" component={SocialAuthPage} />
         <Route path='/search' component={ArticlesSearchResultsPage} />
+        <Route path='/reset-password' component={ResetPasswordPage} />
         <PrivateRoute path="/profile" component={Profilepage} exact />
         <Route path="/" component={homePage} exact />
         <PrivateRoute path="/article/create" component={createArticle} exact />

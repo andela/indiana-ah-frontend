@@ -39,6 +39,7 @@ const IndexCarousel = ({ articles, isLoading }) => {
           }
           commentCount={article.commentCount}
           likeCount={article.likes}
+          slug={article.slug}
           dislikeCount={article.dislikes}
           title={article.articleTitle}
           text={`${article.articleBody.slice(0, 150)}...`}

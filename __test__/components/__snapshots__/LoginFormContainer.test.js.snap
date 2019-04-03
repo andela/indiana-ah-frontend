@@ -129,6 +129,7 @@ exports[`Login Form should match snapshot 1`] = `
   >
     <a
       href="#"
+      onClick={[Function]}
     >
       Forgot password?
     </a>
@@ -265,6 +266,7 @@ exports[`test the login container form should match snap shot 1`] = `
   >
     <a
       href="#"
+      onClick={[Function]}
     >
       Forgot password?
     </a>

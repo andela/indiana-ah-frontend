@@ -4,6 +4,7 @@ import TopBarProgress from 'react-topbar-progress-indicator';
 import { UserArticles } from '../../src/components/UserArticlesPage.jsx';
 
 const prevProps = { location: { search: 'page=1' } };
+global.scrollTo = jest.fn();
 
 const props = {
   userData: { username: 'ozonkwo' },

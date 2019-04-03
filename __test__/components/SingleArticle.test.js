@@ -5,7 +5,8 @@ import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import { SingleArticle } from '../../src/components/containers/SingleArticle.jsx';
 import reducer from '../../src/redux/reducers/getSingleArticleReducer';
-import articleAction from '../../src/redux/actions/getSingleArticleActions/getSingleArticleActions';
+import articleAction from
+  '../../src/redux/actions/getSingleArticleActions/getSingleArticleActions';
 import { apiInstance } from '../../src/utils/index';
 import {
   GET_SINGLE_ARTICLE_LOADING,

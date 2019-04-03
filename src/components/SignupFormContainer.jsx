@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Circle } from 'better-react-spinkit';
-import { signUpFormSchema, validationMessages } from '../utils/validationSchemas';
+import {
+  signUpFormSchema, validationMessages, validate
+} from '../utils/validationSchemas';
 import { registerWithEmail } from '../redux/actions/authActions';
 import InputField from './common/input/InputComponent.jsx';
 import Button from '../styles/styledComponents/Button.jsx';
@@ -29,20 +31,9 @@ export class SignupFormContainer extends Component {
     this.setState({ errors });
   }
 
-  validate = () => {
-    const { errors } = this.state;
-    let isValid = true;
-    Object.values(errors).forEach((error) => {
-      if (error) {
-        isValid = false;
-      }
-    });
-    return isValid;
-  };
-
   handleSubmit = async (e) => {
     e.preventDefault();
-    if (!this.validate()) {
+    if (!validate(this.state.errors)) {
       return;
     }
     this.props.registerWithEmail(this.state.data, this.props);

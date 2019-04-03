@@ -3,8 +3,6 @@ import { shallow, mount } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import { MemoryRouter } from 'react-router-dom';
-import renderer from 'react-test-renderer';
 import IndexForm from '../../src/components/forms/indexForm.jsx';
 import reducer from '../../src/redux/reducers/articleReducer';
 import ConnectedIndexPage, { IndexPage } from '../../src/components/IndexPage.jsx';
@@ -24,30 +22,13 @@ const onChange = jest.fn();
 const getAllArticles = jest.fn();
 let connectedIndexPage;
 let articles;
-const all = {
-  articles: [
-    {
-      article: {
-        good: ''
-      }
-    }
-  ]
-};
-
-describe('Index page component', () => {
-  it('renders correctly', () => {
-    const tree = renderer
-      .create(
-        <MemoryRouter>
-          <Provider store={store}>
-            <ConnectedIndexPage />
-          </Provider>
-        </MemoryRouter>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-});
+const article = [
+  {
+    articleBody: 'how-i-got-into-andela',
+    slug: 'how-i-got-into-andela',
+    articleTitle: 'how-i-got-into-andela'
+  }
+];
 
 describe('Index page', () => {
   beforeEach(() => {
@@ -78,6 +59,11 @@ describe('Index page', () => {
     wrapper.instance().openModal();
     wrapper.instance().closeModal();
     wrapper.instance().displayForm('login');
+    expect(wrapper.state().modalContent).toEqual('login');
+    wrapper.instance().displayForm('register');
+    expect(wrapper.state().modalContent).toEqual('register');
+    wrapper.instance().displayForm('reset');
+    expect(wrapper.state().modalContent).toEqual('reset');
   });
 });
 
@@ -145,7 +131,7 @@ describe('Index subscribe form', () => {
 });
 describe('Index subscribe form', () => {
   it('should change state', () => {
-    const tree = shallow(<IndexCarousel articles={all} />);
+    const tree = shallow(<IndexCarousel articles={article} />);
     expect(tree.exists()).toBe(true);
   });
 });

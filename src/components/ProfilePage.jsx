@@ -28,7 +28,7 @@ export class ProfilePage extends Component {
 
   componentWillUnmount() {
     document.body.style.marginBottom = '30rem';
-  }
+  };
 
   handleProfileImageUpload = async (e) => {
     await this.setState({
