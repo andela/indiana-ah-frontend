@@ -152,7 +152,7 @@ CreateArticle.propTypes = {
   getSingleArticle: PropTypes.func,
   articles: PropTypes.object,
   match: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired
+  history: PropTypes.object
 };
 export default connect(
   mapStateToProps,

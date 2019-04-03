@@ -10,7 +10,7 @@ const UserProfileCard = ({
 <Card style={{ width: '38rem', height: '33rem' }} className = 'p-5 user-card'>
 <div className = 'top-content mb-5'>
 <span className = 'float-left'>
-<p className = 'user-name'>{userName}</p>
+<p className = 'user-name'>{userName.replace(/\d+/, '')}</p>
 <b>Posts&nbsp;({postCount})</b>
 </span>
   <div className = 'image-wrapper'>

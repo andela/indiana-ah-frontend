@@ -4,6 +4,7 @@ import { CommentItem } from '../../../src/components/comment/CommentItem.jsx';
 import comments from '../../../__fixtures__/comments';
 
 const mockFn = jest.fn();
+const event = { preventDefault() {}, target: { files: [] } };
 const props = {
   user: {
     userData: {
@@ -14,8 +15,17 @@ const props = {
     }
   },
   deleteComment: mockFn,
+  editComment: mockFn,
+  auth: {
+    isVerified: true
+  },
   isLoading: false
 };
+
+test('It should render the comment item component', () => {
+  const wrapper = shallow(<CommentItem comment={comments[0]} {...props} />);
+  wrapper.setState({ modalIsOpen: true });
+});
 
 describe('Test CommentItem component', () => {
   const wrapper = mount(<CommentItem comment={comments[0]} {...props} />);
@@ -42,6 +52,10 @@ describe('Test CommentItem component', () => {
 
   it('should find and simulate modal open button click', () => {
     wrapper.instance().openModal();
+    wrapper.instance().onChange(event);
+    wrapper.instance().editModal(event);
+    wrapper.instance().handleCommentUpdate(event);
+    wrapper.setState({ showModal: false });
     props.isLoading = true;
     wrapper.setProps({ ...props });
     props.user.userData.id = 12;
