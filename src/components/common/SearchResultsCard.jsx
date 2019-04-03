@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const SearchResultsCard = ({
   article: {
@@ -21,7 +22,13 @@ const SearchResultsCard = ({
         <img src={author.imageUrl} className="author-image" /> <h5>{author.username}</h5>
       </div>
       <div className="article-sec mb-4">
-        <img src={imageUrl} className="article-image  mb-3" />
+        <img
+          src={
+            imageUrl
+            || 'https://images.pexels.com/photos/1438190/pexels-photo-1438190.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
+          }
+          className="article-image  mb-3"
+        />
         <div className="article-title-row mb-1">{articleTitle}</div>
         <hr />
         <div
@@ -53,5 +60,9 @@ const SearchResultsCard = ({
     </NavLink>
   </div>
 );
+
+SearchResultsCard.propTypes = {
+  article: PropTypes.object
+};
 
 export default SearchResultsCard;

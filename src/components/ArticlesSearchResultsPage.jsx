@@ -7,17 +7,13 @@ import SearchResultsCard from './common/SearchResultsCard.jsx';
 import Footer from './common/footer.jsx';
 
 class ArticlesSearchPage extends Component {
-  state = {};
-
   componentDidMount() {
-    const query = `${this.props.location.search}`;
-    this.props.searchArticles(query);
+    this.props.searchArticles(this.props.location.search);
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.location.search === this.props.location.search) return;
-    const query = `${this.props.location.search}`;
-    this.props.searchArticles(query);
+    this.props.searchArticles(this.props.location.search);
   }
 
   render() {
@@ -63,6 +59,8 @@ ArticlesSearchPage.propTypes = {
 const mapStateToProps = state => ({
   articlesSearchResults: state.articlesSearchResults
 });
+
+export { ArticlesSearchPage, mapStateToProps };
 
 export default connect(
   mapStateToProps,

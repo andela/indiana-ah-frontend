@@ -74,7 +74,7 @@ UserArticles.propTypes = {
   location: PropTypes.object
 };
 
-export { UserArticles };
+export { UserArticles, mapStateToProps };
 
 export default connect(
   mapStateToProps,
