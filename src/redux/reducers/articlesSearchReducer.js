@@ -29,7 +29,7 @@ const articleSearchReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         isLoading: false,
-        error: payload.message
+        error: payload
       };
     default:
       return state;
