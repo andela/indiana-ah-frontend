@@ -130,7 +130,7 @@ export class CommentItem extends Component {
             </div>
             <div className="col-xs-5 ml-3">
               <p className="text-center">
-                <b>{comment.commenter.username}</b>
+                <b>{comment.commenter.username.replace(/\d{5,}/, '')}</b>
               </p>
             </div>
 

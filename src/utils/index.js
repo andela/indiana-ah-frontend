@@ -2,7 +2,7 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 
 export const getUrl = (hostName) => {
-  if ((hostName.includes('staging')) || (hostName.includes('localhost'))) {
+  if (hostName.includes('staging') || hostName.includes('localhost')) {
     return 'https://indiana-ah-staging.herokuapp.com/api/v1/';
   }
   return 'https://indiana-ah-master.herokuapp.com/api/v1/';
@@ -98,35 +98,38 @@ export const filterArticlesByDate = (articles) => {
 };
 
 export const addUserReaction = (data, Reaction, id) => {
-  const myReaction = data[Reaction].find(reaction => id === reaction.userId);
-  data.likedByMe = false;
-  data.dislikedByMe = false;
+  const reactionsData = data;
+  const myReaction = reactionsData[Reaction].find(reaction => id === reaction.userId);
+  reactionsData.likedByMe = false;
+  reactionsData.dislikedByMe = false;
   if (myReaction) {
-    data.likedByMe = myReaction.reactionType === 'like';
-    data.dislikedByMe = myReaction.reactionType === 'dislike';
+    reactionsData.likedByMe = myReaction.reactionType === 'like';
+    reactionsData.dislikedByMe = myReaction.reactionType === 'dislike';
   }
 };
 
 export const recordDisLike = (data) => {
-  if (data.dislikedByMe) {
-    data.dislikes -= 1;
+  const reactionsData = data;
+  if (reactionsData.dislikedByMe) {
+    reactionsData.dislikes -= 1;
   } else {
-    data.dislikes += 1;
+    reactionsData.dislikes += 1;
   }
-  if (data.likedByMe) data.likes -= 1;
-  data.dislikedByMe = !data.dislikedByMe;
-  data.likedByMe = false;
+  if (reactionsData.likedByMe) reactionsData.likes -= 1;
+  reactionsData.dislikedByMe = !reactionsData.dislikedByMe;
+  reactionsData.likedByMe = false;
 };
 
 export const recordLike = (data) => {
-  if (data.likedByMe) {
-    data.likes -= 1;
+  const reactionsData = data;
+  if (reactionsData.likedByMe) {
+    reactionsData.likes -= 1;
   } else {
-    data.likes += 1;
+    reactionsData.likes += 1;
   }
-  if (data.dislikedByMe) data.dislikes -= 1;
-  data.likedByMe = !data.likedByMe;
-  data.dislikedByMe = false;
+  if (reactionsData.dislikedByMe) reactionsData.dislikes -= 1;
+  reactionsData.likedByMe = !reactionsData.likedByMe;
+  reactionsData.dislikedByMe = false;
 };
 
 export const formatDate = (unformatedDate) => {
