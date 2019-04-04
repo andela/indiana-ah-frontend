@@ -17,19 +17,14 @@ const props = {
   isLoading: false
 };
 
-test('It should render the comment item component', () => {
-  const wrapper = shallow(<CommentItem comment={comments[0]} {...props}/>);
-  expect(wrapper).toMatchSnapshot();
-});
 
 test('It should render the comment item component', () => {
-  const wrapper = shallow(<CommentItem comment={comments[0]} {...props}/>);
+  const wrapper = shallow(<CommentItem comment={comments[0]} {...props} />);
   wrapper.setState({ modalIsOpen: true });
-  expect(wrapper).toMatchSnapshot();
 });
 
 describe('Test CommentItem component', () => {
-  const wrapper = mount(<CommentItem comment={comments[0]} {...props}/>);
+  const wrapper = mount(<CommentItem comment={comments[0]} {...props} />);
   it('It should render the comment item component', () => {
     expect(wrapper.state('modalIsOpen')).toBe(false);
   });
@@ -37,10 +32,18 @@ describe('Test CommentItem component', () => {
   it('should simulate button clicks', () => {
     wrapper.setState({ modalIsOpen: true });
     const modal = wrapper.find('CustomModal');
-    expect(modal.find('h2').text()).toBe(' Are you sure you want to delete this comment?');
-    modal.find('button').at(0).simulate('click');
+    expect(modal.find('h2').text()).toBe(
+      ' Are you sure you want to delete this comment?'
+    );
+    modal
+      .find('button')
+      .at(0)
+      .simulate('click');
     expect(wrapper.state('modalIsOpen')).toBe(false);
-    modal.find('button').at(1).simulate('click');
+    modal
+      .find('button')
+      .at(1)
+      .simulate('click');
   });
 
   it('should find and simulate modal open button click', () => {

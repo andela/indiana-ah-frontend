@@ -12,6 +12,9 @@ import {
   DELETE_ARTICLE_LOADING,
   DELETE_ARTICLE_SUCCESS,
   DELETE_ARTICLE_FAILURE,
+  SEARCH_ARTICLE_REQUEST,
+  SEARCH_ARTICLE_SUCCESS,
+  SEARCH_ARTICLE_FAILURE
 } from '../actionTypes';
 import { sendHttpRequest } from '../../../utils';
 
@@ -57,5 +60,15 @@ export const deleteArticles = articleSlug => async (dispatch) => {
     return toast.error(
       <div>Request was not successful at the moment. Try again later</div>
     );
+  }
+};
+
+export const searchArticles = query => async (dispatch) => {
+  dispatch({ type: SEARCH_ARTICLE_REQUEST });
+  try {
+    const response = await sendHttpRequest(`/articles/search${query}`, 'GET');
+    dispatch({ type: SEARCH_ARTICLE_SUCCESS, payload: response });
+  } catch ({ response }) {
+    dispatch({ type: SEARCH_ARTICLE_FAILURE, payload: response.data.message });
   }
 };

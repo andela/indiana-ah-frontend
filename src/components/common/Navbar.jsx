@@ -2,9 +2,7 @@ import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {
-  Navbar, Nav, InputGroup, FormControl
-} from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 import SignupContainer from '../SignupFormContainer.jsx';
 import LoginContainer from '../LoginFormContainer.jsx';
 import Modal from './Modal.jsx';
@@ -13,6 +11,7 @@ import { customLogo, profile } from '../../assets/images/svg';
 import Button from '../../styles/styledComponents/Button.jsx';
 import { signOutUser } from '../../redux/actions/authActions';
 import Dropdown from '../Dropdown.jsx';
+import SearchBar from './SearchBar.jsx';
 
 export class NavBar extends Component {
   state = {
@@ -64,7 +63,6 @@ export class NavBar extends Component {
         />
         <div to="/signup" className="d-flex ft-size-2 ml-5">
           <span className="username ml-3">
-            {' '}
             {(user.userData.name ? user.userData.name.split(' ')[0] : '')
               || user.userData.username}
           </span>
@@ -86,14 +84,7 @@ export class NavBar extends Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto ml-5">
-              <InputGroup className="mb-3">
-                <FormControl placeholder="Search" aria-describedby="basic-addon2" />
-                <InputGroup.Append>
-                  <InputGroup.Text id="basic-addon2">
-                    <i className="fa fa-search" />
-                  </InputGroup.Text>
-                </InputGroup.Append>
-              </InputGroup>
+              <SearchBar />
             </Nav>
             {auth.isAuthenticated ? (
               userLInk

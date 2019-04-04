@@ -19,6 +19,7 @@ import NotFound from './components/NotFound.jsx';
 import SingleArticlePage from './components/containers/SingleArticle.jsx';
 import PrivateRoute from './utils/authenticate';
 import emailVerificationPage from './components/EmailVerificationPage.jsx';
+import ArticlesSearchResultsPage from './components/ArticlesSearchResultsPage.jsx';
 
 const user = validateToken(window.localStorage.getItem('token'));
 if (user) {
@@ -40,6 +41,7 @@ const App = () => (
         <Route path="/verifyUser" component={UserVerificationpage} />
         <Route path="/not-found" component={NotFound} exact />
         <Route path="/social-auth" component={SocialAuthPage} />
+        <Route path='/search' component={ArticlesSearchResultsPage} />
         <PrivateRoute path="/profile" component={Profilepage} exact />
         <Route path="/" component={homePage} exact />
         <PrivateRoute path="/article/create" component={createArticle} exact />

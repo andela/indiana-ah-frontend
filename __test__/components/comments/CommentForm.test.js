@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { CommentForm } from '../../../src/components/comment/CommentForm.jsx';
 
 const mockFn = jest.fn();
@@ -20,10 +20,10 @@ const props = {
 };
 
 describe('Test CommentForm component', () => {
-  const wrapper = shallow(<CommentForm {...props}/>);
+  const wrapper = mount(<CommentForm {...props} />);
   it('should render empty string for invalid form submission', () => {
     wrapper.find('Form').simulate('submit', {
-      preventDefault: () => { }
+      preventDefault: () => {}
     });
     expect(wrapper.state('text').length).toBe(0);
   });
