@@ -174,7 +174,41 @@ describe('Profile page', () => {
           userProfile={userProfile}
         />
       );
-      wrapper.setProps({ profileData: { error: 'Passwords must be the same' } });
+      wrapper.setProps({ profileData: { error: 'Passwords don\'t match' } });
+      wrapper.setState({
+        data: {
+          currentPassword: 'dodosecret',
+          newPassword: 'dadasecret',
+          confirmPassword: 'dadasecreta'
+        }
+      });
+      const wrongPasswordEvent = {
+        preventDefault() { },
+        target: {
+          currentPassword: 'dodosecret',
+          newPassword: 'dadasecret',
+          confirmPassword: 'dadasecreta'
+        }
+      };
+      wrapper.instance().handleBlur(wrongPasswordEvent);
+      expect(wrapper.state().errors.confirmPassword).toEqual('Passwords don\'t match');
+      wrapper.setState({
+        data: {
+          currentPassword: 'dodosecret',
+          newPassword: 'dadasecret',
+          confirmPassword: 'dadasecret'
+        }
+      });
+      const correctPasswordEvent = {
+        preventDefault() { },
+        target: {
+          currentPassword: 'dodosecret',
+          newPassword: 'dadasecret',
+          confirmPassword: 'dadasecret'
+        }
+      };
+      wrapper.instance().handleBlur(correctPasswordEvent);
+      expect(wrapper.state().errors.confirmPassword).toEqual('');
       wrapper.setState({
         data: {
           currentPassword: 'dodosecret',
@@ -186,16 +220,7 @@ describe('Profile page', () => {
         .find(Button)
         .dive()
         .simulate('click');
-      expect(wrapper.state().errors.confirmpassword).toEqual(
-        'Passwords must be the same'
-      );
-      wrapper.setState({
-        data: {
-          currentPassword: 'dodosecret',
-          newPassword: 'dadasecret',
-          confirmPassword: 'dadasecreta'
-        }
-      });
+      expect(wrapper.state().errors.confirmPassword).toEqual('');
     });
   });
 });

@@ -5,6 +5,9 @@ import renderer from 'react-test-renderer';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
+import SignupContainer from '../../src/components/SignupFormContainer.jsx';
+import LoginContainer from '../../src/components/LoginFormContainer.jsx';
+import ResetContainer from '../../src/components/ResetFormContainer.jsx';
 import Navbar, { NavBar } from '../../src/components/common/Navbar.jsx';
 
 const initialState = {
@@ -56,6 +59,11 @@ describe('Custom Navbar component test', () => {
     wrapper.instance().closeModal(mockFn);
     expect(wrapper.state().modalIsOpen).toEqual(false);
     wrapper.instance().displayForm('login');
+    expect(wrapper.find(LoginContainer)).toBeDefined();
+    wrapper.instance().displayForm('register');
+    expect(wrapper.find(SignupContainer)).toBeDefined();
+    wrapper.instance().displayForm('reset');
+    expect(wrapper.find(ResetContainer)).toBeDefined();
     wrapper.instance().dropDown(event);
     wrapper.instance().closeDropDown();
     wrapper.instance().componentWillUnmount();

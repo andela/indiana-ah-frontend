@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap';
 import SignupContainer from '../SignupFormContainer.jsx';
 import LoginContainer from '../LoginFormContainer.jsx';
+import ResetContainer from '../ResetFormContainer.jsx';
 import Modal from './Modal.jsx';
 import { ProfileImg, ImageLogo } from '../../styles/styledComponents/Navigation.jsx';
-import { customLogo, profile } from '../../assets/images/svg';
+import { customLogo } from '../../assets/images/svg';
 import Button from '../../styles/styledComponents/Button.jsx';
 import { signOutUser } from '../../redux/actions/authActions';
 import Dropdown from '../Dropdown.jsx';
@@ -16,7 +17,8 @@ import SearchBar from './SearchBar.jsx';
 export class NavBar extends Component {
   state = {
     dropDown: false,
-    modalIsOpen: false
+    modalIsOpen: false,
+    modalContent: ''
   };
 
   openModal = () => {
@@ -54,6 +56,7 @@ export class NavBar extends Component {
 
   render() {
     const { user, auth } = this.props;
+    const { modalContent } = this.state;
     const userLInk = (
       <Nav className="d-flex flex-row justify-content-between">
         <ProfileImg
@@ -71,6 +74,27 @@ export class NavBar extends Component {
         </div>
       </Nav>
     );
+    const form = () => {
+      switch (modalContent) {
+        case 'login':
+          return <LoginContainer
+            displayForm={this.displayForm}
+            closeModal={this.closeModal}
+          />;
+        case 'register':
+          return <SignupContainer
+            displayForm={this.displayForm}
+            closeModal={this.closeModal}
+          />;
+        case 'reset':
+          return <ResetContainer
+            displayForm={this.displayForm}
+            closeModal={this.closeModal}
+          />;
+        default:
+          return null;
+      }
+    };
     return (
       <Fragment>
         <Navbar bg="white shadow-sm px-5" expand="lg">
@@ -98,19 +122,7 @@ export class NavBar extends Component {
         <Modal
           modalIsOpen={this.state.modalIsOpen}
           closeModal={this.closeModal}
-          body={
-            this.state.modalContent === 'login' ? (
-              <LoginContainer
-                displayForm={this.displayForm}
-                closeModal={this.closeModal}
-              />
-            ) : (
-              <SignupContainer
-                displayForm={this.displayForm}
-                closeModal={this.closeModal}
-              />
-            )
-          }
+          body={form()}
         />
       </Fragment>
     );

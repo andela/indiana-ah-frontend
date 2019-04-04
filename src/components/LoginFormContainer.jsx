@@ -109,7 +109,7 @@ export class LoginFormContainer extends Component {
           </a>
         </p>
         <div className="d-flex justify-content-center bg-light w-100 p-4 mt-3">
-          <a href="#">Forgot password?</a>
+          <a href="#" onClick={() => displayForm('reset')}>Forgot password?</a>
         </div>
       </div>
     );

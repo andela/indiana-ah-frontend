@@ -16,7 +16,13 @@ import {
   REGISTER_WITH_SM,
   SEND_EMAIL_FAILURE,
   SEND_EMAIL_LOADING,
-  SEND_EMAIL_SUCCESS
+  SEND_EMAIL_SUCCESS,
+  SEND_RESET_LINK_LOADING,
+  SEND_RESET_LINK_SUCCESS,
+  SEND_RESET_LINK_FAILURE,
+  UPDATE_PASSWORD_LOADING,
+  UPDATE_PASSWORD_FAILURE,
+  UPDATE_PASSWORD_SUCCESS
 } from './actionTypes';
 import { sendHttpRequest, validateToken } from '../../utils/index';
 
@@ -112,5 +118,34 @@ export const sendUserEmail = ({ history }) => async (dispatch) => {
     history.push('/');
   } catch (res) {
     dispatch({ type: SEND_EMAIL_FAILURE });
+  }
+};
+
+export const sendResetLink = (data, { closeModal }) => async (dispatch) => {
+  dispatch({ type: SEND_RESET_LINK_LOADING });
+  try {
+    const { message } = await sendHttpRequest('/users/begin-password-reset',
+      'POST', data);
+    localStorage.clear();
+    dispatch({ type: SEND_RESET_LINK_SUCCESS, payload: 'Success' });
+    toast.success(<div>{message}</div>);
+    closeModal();
+  } catch ({ response }) {
+    dispatch({ type: SEND_RESET_LINK_FAILURE, payload: response.data.message });
+    toast.error(<div>{response.data.message}</div>);
+  }
+};
+
+export const resetPassword = (data, token, { history }) => async (dispatch) => {
+  dispatch({ type: UPDATE_PASSWORD_LOADING });
+  try {
+    const { message } = await sendHttpRequest(`/users/reset-password?query=${token}`,
+      'PATCH', data);
+    dispatch({ type: UPDATE_PASSWORD_SUCCESS, payload: 'Success' });
+    toast.success(<div>{message}</div>);
+    history.push('/');
+  } catch ({ response }) {
+    dispatch({ type: UPDATE_PASSWORD_FAILURE, payload: response.data.message });
+    toast.error(<div>{response.data.message}</div>);
   }
 };

@@ -22,7 +22,7 @@ const errors = {};
 
 const data = {
   image: 'gfsdjhskfskejrd',
-  tags: 'ghjfsdjg,trdufgkcfgyh ghokhjhlk',
+  tags: ['ghjfsdjg', 'trdufgkcfgyh', 'ghokhjhlk'],
   articleTitle: 'Goood this is working this is hoog ang workinh as itb should good',
   articleBody: 'Goood this is working this is hoog ang workinh as itb should good'
 };
@@ -35,7 +35,8 @@ const props = {
   getSingleArticle: mockFn,
   match: {
     params: { slug: 'when-to-use-refs' }
-  }
+  },
+  history: {}
 };
 global.URL.createObjectURL = jest.fn();
 describe('Test CreateArticle Component', () => {
@@ -45,13 +46,15 @@ describe('Test CreateArticle Component', () => {
     wrapper.instance().handleChange(event);
     wrapper.instance().componentDidMount(mockFn);
     wrapper.instance().handleImageUpload(event);
+    wrapper.setState({ tags: data.tags });
     wrapper.instance().onSubmit(event);
     wrapper
       .instance()
       .handleArticleValidation(articleTitle, articleBody, tags, errors, articleIsValid);
     wrapper.setProps({ createUserArticle: mockFn });
-    wrapper.instance().handleAddition(mockFn);
+    wrapper.instance().handleAddition(data.tags);
     wrapper.instance().handleImageDelete(event);
+    wrapper.setState({ tags: data.tags });
     wrapper.instance().onSubmit(event);
     wrapper
       .instance()
@@ -62,9 +65,10 @@ describe('Test CreateArticle Component', () => {
         articleIsValid
       );
     wrapper.setProps({ createUserArticle: mockFn });
-    wrapper.instance().onChange(event);
+    wrapper.instance().onChange(data.articleBody);
 
     expect(mapStateToProps(initialState).isLoading).toEqual(undefined);
+    wrapper.setState({ tags: data.tags });
     wrapper.instance().onSubmit(event);
     wrapper
       .instance()
