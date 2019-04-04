@@ -7,7 +7,7 @@ import {
   EDIT_COMMENT,
   EDIT_COMMENTS_FAILURE
 } from './actionTypes';
-import { sendHttpRequest } from '../../utils/index';
+import { sendHttpRequest, addUserReaction } from '../../utils/index';
 
 export const addComment = (articleSlug, commentData) => async (dispatch, getState) => {
   const user = getState().user.userData;
@@ -38,10 +38,23 @@ export const addComment = (articleSlug, commentData) => async (dispatch, getStat
   }
 };
 
-export const getArticleComments = articleSlug => async (dispatch) => {
+export const getArticleComments = articleSlug => async (dispatch, getState) => {
+  const { id } = getState().user.userData;
   try {
     const response = await sendHttpRequest(`/articles/${articleSlug}/comments`, 'GET');
-    return dispatch({ type: GET_ALL_ARTICLE_COMMENTS, payload: response.comments });
+    const comments = response.comments.map((comment) => {
+      const likes = comment.CommentReactions.filter(
+        reaction => reaction.reactionType === 'like'
+      );
+      const dislikes = comment.CommentReactions.filter(
+        reaction => reaction.reactionType === 'dislike'
+      );
+      comment.likes = likes.length;
+      comment.dislikes = dislikes.length;
+      addUserReaction(comment, 'CommentReactions', id);
+      return comment;
+    });
+    return dispatch({ type: GET_ALL_ARTICLE_COMMENTS, payload: comments });
   } catch ({ response }) {
     switch (response.status) {
       case 404:

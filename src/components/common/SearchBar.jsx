@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { InputGroup, Form } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
 class SearchBar extends Component {
@@ -16,6 +17,7 @@ class SearchBar extends Component {
     e.preventDefault();
     const { history } = this.props;
     const { searchValue, filterOption } = this.state;
+    if (!searchValue) return;
     const query = !filterOption ? `q=${searchValue}` : `${filterOption}=${searchValue}`;
     history.replace(`/search?${query}`);
   };
@@ -51,6 +53,10 @@ class SearchBar extends Component {
     );
   }
 }
+
+SearchBar.propTypes = {
+  history: PropTypes.object
+};
 
 export { SearchBar };
 

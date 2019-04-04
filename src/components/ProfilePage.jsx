@@ -81,7 +81,7 @@ export class ProfilePage extends Component {
                   />
                 </span>
               </div>
-              <h5 className="black">{userData.username}</h5>
+              <h5 className="black">{userData.username.replace(/\d{5,}/, '')}</h5>
             </div>
             <div className="space-sm col-md-1 col-sm-1" />
             {userData.bio && userData.name ? (

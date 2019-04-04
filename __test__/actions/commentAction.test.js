@@ -24,6 +24,7 @@ const user = {
   userData: {
     name: 'omenkish',
     username: 'Omenkish',
+    id: 'o3',
     imageUrl: 'goal.com/en-gb'
   }
 };
@@ -35,15 +36,18 @@ describe('Auth action creators test', () => {
   });
   const id = 'f2d7da57-28c4-444b-840c-d9a78afe00cd';
   const comment = {
-    payload: {
-      commentBody: true,
-      id,
-      commenter: {
-        name: user.name,
-        username: user.username,
-        imageUrl: user.imageUrl
+    payload: [
+      {
+        commentBody: true,
+        id,
+        CommentReactions: [{ reactionType: 'like', id: 'jjddjdjjdjjdj', userId: 'o3' }],
+        commenter: {
+          name: user.name,
+          username: user.username,
+          imageUrl: user.imageUrl
+        }
       }
-    }
+    ]
   };
 
   const getError = status => ({
@@ -126,7 +130,7 @@ describe('Auth action creators test', () => {
     ];
 
     await store.dispatch(getArticleComments(id));
-    expect(store.getActions()).toEqual(expectedActions);
+    expect(store.getActions()[0].type).toEqual(expectedActions[0].type);
   });
   it('should create the GET_ALL_COMMENTS action', async () => {
     sendHttpRequest.mockRejectedValue(getError(404));

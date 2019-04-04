@@ -17,7 +17,8 @@ import {
   SEND_RESET_LINK_FAILURE,
   UPDATE_PASSWORD_LOADING,
   UPDATE_PASSWORD_FAILURE,
-  UPDATE_PASSWORD_SUCCESS
+  UPDATE_PASSWORD_SUCCESS,
+  AUTHENTICATE_USER
 } from '../../src/redux/actions/actionTypes';
 
 const initialState = {
@@ -108,6 +109,20 @@ describe('authReducer test', () => {
     });
   });
 
+  it('should handle the AUTHENTICATE_USER action', () => {
+    expect(
+      authReducer(initialState, {
+        type: AUTHENTICATE_USER,
+        user: { username: 'ozone', email: 'ozone@gmail.com' }
+      })
+    ).toEqual({
+      isLoading: false,
+      isAuthenticated: true,
+      error: '',
+      isVerified: false
+    });
+  });
+
   it('should handle the SIGN_OUT_USER action', () => {
     expect(
       authReducer(initialState, {
@@ -148,11 +163,11 @@ describe('authReducer test', () => {
   it('should handle the SEND_EMAIL_FAILURE action', () => {
     expect(
       authReducer(initialState, {
-        type: SEND_EMAIL_FAILURE,
+        type: SEND_EMAIL_FAILURE
       })
     ).toEqual({
       ...initialState,
-      isLoading: false,
+      isLoading: false
     });
   });
 

@@ -9,6 +9,7 @@ import Textarea from 'react-textarea-autosize';
 import Button from '../../styles/styledComponents/Button.jsx';
 import Modal from '../common/Modal.jsx';
 import { deleteComment, editComment } from '../../redux/actions/commentActions';
+import { reactToComment } from '../../redux/actions/reactionActions';
 
 export class CommentItem extends Component {
   state = {
@@ -46,7 +47,9 @@ export class CommentItem extends Component {
   };
 
   render() {
-    const { comment, user } = this.props;
+    const {
+      comment, user, likes, dislikes, auth
+    } = this.props;
     const modalBody = (
       <div>
         <section className="comment-modal">
@@ -127,7 +130,7 @@ export class CommentItem extends Component {
             </div>
             <div className="col-xs-5 ml-3">
               <p className="text-center">
-                <b>{comment.commenter.username}</b>
+                <b>{comment.commenter.username.replace(/\d{5,}/, '')}</b>
               </p>
             </div>
 
@@ -165,10 +168,26 @@ export class CommentItem extends Component {
           <div className="row comment-reaction">
             <div className="col-xs-6 ml-6">
               {' '}
-              <i className="far fa-thumbs-up" />
+              <i
+                className={`${comment.likedByMe ? 'fas' : 'far'} fa-thumbs-up mr-2`}
+                onClick={
+                  auth.isVerified
+                    ? () => this.props.reactToComment(comment.id, 'like')
+                    : undefined
+                }
+              />
+              <small>{likes}</small>
             </div>
             <div className="col-xs-6 ml-5">
-              <i className="far fa-thumbs-down" />
+              <i
+                className={`${comment.dislikedByMe ? 'fas' : 'far'} fa-thumbs-down mr-2`}
+                onClick={
+                  auth.isVerified
+                    ? () => this.props.reactToComment(comment.id, 'dislike')
+                    : undefined
+                }
+              />
+              <small>{dislikes}</small>
             </div>
           </div>
         </div>
@@ -189,7 +208,10 @@ CommentItem.propTypes = {
   user: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
   editComment: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  reactToComment: PropTypes.func,
+  likes: PropTypes.number,
+  dislikes: PropTypes.number
 };
 
 const mapStateToProps = state => ({
@@ -200,5 +222,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { deleteComment, editComment }
+  { deleteComment, editComment, reactToComment }
 )(CommentItem);
