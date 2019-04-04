@@ -36,14 +36,13 @@ class Dropdown extends React.Component {
               <li>Create Article </li>
             </Link>
             <Link to="/dashboard/posts">
-              <li>My Article </li>
+              <li>My Articles </li>
             </Link>
             <Link
               to="/"
               onClick={() => {
                 signOutUser();
-              }}
-            >
+              }}>
               <li>Logout</li>
             </Link>
           </ul>
