@@ -20,9 +20,6 @@ const props = {
   },
   deleteComment: mockFn,
   editComment: mockFn,
-  auth: {
-    isVerified: true
-  },
   isLoading: false
 };
 
@@ -78,6 +75,14 @@ describe('Test CommentItem component', () => {
       .at(1)
       .simulate('click');
   });
+  it('should simulate button clicks', () => {
+    wrapper.setState({ modalIsOpen: true });
+    const modal = wrapper.find('CustomModal');
+    expect(modal.find('h2').text()).toBe(' Are you sure you want to delete this comment?');
+    modal.find('button').at(0).simulate('click');
+    expect(wrapper.state('modalIsOpen')).toBe(false);
+    modal.find('button').at(1).simulate('click');
+  });
 
   it('should find and simulate modal open button click', () => {
     wrapper.instance().openModal();
@@ -85,6 +90,7 @@ describe('Test CommentItem component', () => {
     wrapper.instance().editModal(event);
     wrapper.instance().handleCommentUpdate(event);
     wrapper.setState({ showModal: false });
+    wrapper.instance().showEditHistory();
     props.isLoading = true;
     wrapper.setProps({ ...props });
     props.user.userData.id = 12;
