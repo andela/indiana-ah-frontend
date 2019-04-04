@@ -20,6 +20,8 @@ const props = {
   },
   deleteComment: mockFn,
   editComment: mockFn,
+  editHistory: comments,
+  getCommentEditHistory: mockFn,
   isLoading: false
 };
 

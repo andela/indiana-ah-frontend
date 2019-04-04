@@ -53,7 +53,7 @@ h3.text-center.mt-5 {
 @media (max-width: 1366px) {
   .modal-dialog.Modal.comment-item-page {
     width: 40rem;
-    margin-left: 2rem;
+    
     -webkit-transform: none;
     transform: none;
     margin-left: -3rem;
@@ -70,7 +70,7 @@ h3.text-center.mt-5 {
     width: auto !important;
     .modal-content {
       width: 90rem !important;
-      margin-left: 25rem;
+      margin-left: 9rem;
     }
     .modal-body {
       max-width: 90rem !important;
@@ -144,15 +144,6 @@ h3.text-center.mt-5 {
       box-shadow: -1px 4px 28px 0px rgba(0, 0, 0, 0.75);
     }
   }
-  .modal-dialog.Modal {
-    width: 30rem;
-    margin-left: 2rem;
-  }
-  .modal.show .modal-dialog {
-    -webkit-transform: none;
-    transform: none;
-    margin-left: -3rem;
-}
 }
 
 @media (max-width: 350px) {
@@ -184,4 +175,3 @@ h3.text-center.mt-5 {
     }
   }
 }
-

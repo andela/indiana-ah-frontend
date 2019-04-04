@@ -25,7 +25,7 @@
 }
 
 .comment-textarea {
-  width: 24.0rem;
+  width: 20.0rem;
   border: none;
   border-bottom: 0.05rem solid #ccc;
   outline: none;
@@ -70,7 +70,7 @@
   max-height: 4.5rem;
 }
 .cKRIiy {
-  margin-left: 5rem;
+  margin-left: 15rem;;
 }
 @media (min-width: 576px) { 
   .cKRIiy {
@@ -97,7 +97,7 @@
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   .comment-textarea {
-    width: 60.0rem;
+    width: 55.0rem;
   }
   .comment-form {
     h1 {
@@ -118,7 +118,7 @@
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) { 
   .comment-textarea {
-    width: 80.0rem;
+    width: 70.0rem;
   }
   .comment-form {
     h1 {
@@ -139,7 +139,7 @@
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .comment-textarea {
-    width: 95rem;
+    width: 88rem;
   }
   .comment-section {
     h1, h2 {

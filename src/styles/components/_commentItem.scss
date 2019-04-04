@@ -1,4 +1,3 @@
-
 .comment-item-section {
   margin-right: 10rem;
   margin-left: 11rem;
@@ -10,14 +9,10 @@
   h3 {
     margin-left: 10rem;
   }
-
-  .fas {
-    color: $brand-color;
-  }
   .image {
-    max-width: 5rem;
-    max-height: 4rem;
-    margin-left: 3rem;
+    max-width: 5.0rem;
+    max-height: 4.0rem;
+    margin-left: 3.0rem;
   }
   @media only screen and (max-width: 500px) {
     margin-right: 3rem;
@@ -25,12 +20,12 @@
     padding-bottom: 3rem;
     font-size: 1.2rem;
     h3 {
-      font-size: 1.5rem;
+      font-size: 1.5rem
     }
     .image {
-      max-width: 5rem;
-      max-height: 4rem;
-      margin-left: 3rem;
+      max-width: 5.0rem;
+      max-height: 4.0rem;
+      margin-left: 3.0rem;
     }
   }
 }
@@ -38,19 +33,18 @@
   margin-left: 5rem;
   color: #555;
 }
-.comment-reaction i {
-  cursor: pointer;
-}
 .fa-clock {
   margin-left: 2rem;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, .5);
 }
 .comment-time {
   font-size: 1.5rem;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, .5);
 }
 .comment-body {
+  text-align:justify; 
   color: #555;
+  font-family: 'Zilla Slab', serif;
 }
 
 .show {
@@ -62,11 +56,9 @@
 }
 
 .dropdown {
-  button,
-  button:hover,
-  .btn-primary:focus {
+  button, button:hover, .btn-primary:focus {
     background-color: $brand-color;
-    color: rgba(255, 255, 255, 1);
+    color: rgba(255,255,255,1);
     font-size: 1.5rem;
   }
 }
@@ -79,15 +71,15 @@
 }
 
 .dropdown-item {
-  padding: 0.7rem 1.5rem;
+  padding: .7rem 1.5rem;
 }
 
 .dropdown-item:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0,0,0,.1);
 }
 
 .dropdown-divider {
-  margin: 0;
+  margin:0;
 }
 
 .dropdown-menu.show {
@@ -132,10 +124,14 @@
     margin-right: 2rem;
   }
   .comment-item-section {
+    
     margin-right: 3rem;
     margin-left: 1.5rem;
     padding-bottom: 3rem;
     font-size: 2.4rem;
+    .row {
+      flex-wrap: unset;
+    }
   }
   h3 {
     font-size: 1.4rem;
@@ -168,8 +164,8 @@
     margin-top: 0.4rem;
   }
   .image {
-    max-width: 4rem;
-    max-height: 4rem;
+    max-width: 4.0rem;
+    max-height: 4.0rem;
     margin-left: 3.5rem;
   }
   .fa-thumbs-up:before {
@@ -177,12 +173,14 @@
   }
   .comment-item-section {
     margin-left: 1.5rem;
+    .row {
+      flex-wrap: unset;
+    }
   }
   h3 {
     font-size: 1.4rem;
   }
 }
-
 .edit {
   display: flex;
   justify-content: flex-end;
@@ -196,4 +194,8 @@
   .jXLEy {
     padding: 0.2rem 1rem;
   }
+}
+
+.fas {
+  color: $brand-color;
 }
