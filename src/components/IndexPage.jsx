@@ -79,23 +79,25 @@ export class IndexPage extends Component {
     const topArticles = filterArticlesByLikes(articles);
     const newArticles = filterArticlesByDate(articles);
     const form = () => {
-      if (modalContent === 'login') {
-        return <LoginContainer
-          displayForm={this.displayForm}
-          closeModal={this.closeModal}
-        />;
-      } if (modalContent === 'register') {
-        return <SignupContainer
-          displayForm={this.displayForm}
-          closeModal={this.closeModal}
-        />;
-      } if (modalContent === 'reset') {
-        return <ResetContainer
-          displayForm={this.displayForm}
-          closeModal={this.closeModal}
-        />;
+      switch (modalContent) {
+        case 'login':
+          return <LoginContainer
+            displayForm={this.displayForm}
+            closeModal={this.closeModal}
+          />;
+        case 'register':
+          return <SignupContainer
+            displayForm={this.displayForm}
+            closeModal={this.closeModal}
+          />;
+        case 'reset':
+          return <ResetContainer
+            displayForm={this.displayForm}
+            closeModal={this.closeModal}
+          />;
+        default:
+          return null;
       }
-      return null;
     };
 
     return (

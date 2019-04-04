@@ -80,10 +80,10 @@ const sortLikes = (current, next) => {
   return 0;
 };
 const sortDate = (current, next) => {
-  const a = new Date(current.createdAt);
-  const b = new Date(next.createdAt);
-  if (a > b) return -1;
-  if (a < b) return 1;
+  const currentDate = new Date(current.createdAt);
+  const nextDate = new Date(next.createdAt);
+  if (currentDate > nextDate) return -1;
+  if (currentDate < nextDate) return 1;
   return 0;
 };
 
@@ -93,7 +93,7 @@ export const filterArticlesByLikes = (articles) => {
 };
 
 export const filterArticlesByDate = (articles) => {
-  const newArticles = articles.sort(sortDate);
+  const newArticles = articles.sort(sortDate).slice(0, 6);
   return newArticles;
 };
 
