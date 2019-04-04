@@ -9,6 +9,7 @@ import Textarea from 'react-textarea-autosize';
 import Button from '../../styles/styledComponents/Button.jsx';
 import Modal from '../common/Modal.jsx';
 import { deleteComment, editComment } from '../../redux/actions/commentActions';
+import { reactToComment } from '../../redux/actions/reactionActions';
 
 export class CommentItem extends Component {
   state = {
@@ -46,7 +47,9 @@ export class CommentItem extends Component {
   };
 
   render() {
-    const { comment, user } = this.props;
+    const {
+      comment, user, likes, dislikes
+    } = this.props;
     const modalBody = (
       <div>
         <section className="comment-modal">
@@ -165,10 +168,18 @@ export class CommentItem extends Component {
           <div className="row comment-reaction">
             <div className="col-xs-6 ml-6">
               {' '}
-              <i className="far fa-thumbs-up" />
+              <i
+                className={`${comment.likes ? 'fas' : 'far'} fa-thumbs-up`}
+                onClick={() => this.props.reactToComment(comment.id, 'like')}
+              />
+              <small>{likes}</small>
             </div>
             <div className="col-xs-6 ml-5">
-              <i className="far fa-thumbs-down" />
+              <i
+                className="far fa-thumbs-down"
+                onClick={() => this.props.reactToComment(comment.id, 'dislike')}
+              />
+              <small>{dislikes}</small>
             </div>
           </div>
         </div>
@@ -200,5 +211,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { deleteComment, editComment }
+  { deleteComment, editComment, reactToComment }
 )(CommentItem);

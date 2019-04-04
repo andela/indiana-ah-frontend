@@ -20,8 +20,9 @@ class ArticlesSearchPage extends Component {
     const urlSearchParams = new URLSearchParams(this.props.location.search);
     const [key, value] = [...urlSearchParams.entries()][0];
 
-    const { isLoading, searchData } = this.props.articlesSearchResults;
+    const { isLoading, searchData, error } = this.props.articlesSearchResults;
     if (!Object.keys(searchData).length) return <TopBarProgress />;
+    if (error) return <h2>{error}</h2>;
     if (!searchData.searchResults.length) {
       return (
         <h2 className="text-center mt-5">Couldn't find articles matching your search</h2>

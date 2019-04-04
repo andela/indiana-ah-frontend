@@ -38,10 +38,33 @@ export const addComment = (articleSlug, commentData) => async (dispatch, getStat
   }
 };
 
-export const getArticleComments = articleSlug => async (dispatch) => {
+export const getArticleComments = articleSlug => async (dispatch, getState) => {
+  const { id } = getState().user.userData;
+  console.log(id);
   try {
     const response = await sendHttpRequest(`/articles/${articleSlug}/comments`, 'GET');
-    return dispatch({ type: GET_ALL_ARTICLE_COMMENTS, payload: response.comments });
+    const comments = response.comments.map((comment) => {
+      const likes = comment.CommentReactions.filter(
+        reaction => reaction.reactionType === 'like'
+      );
+      const dislikes = comment.CommentReactions.filter(
+        reaction => reaction.reactionType === 'dislike'
+      );
+      const myReaction = comment.CommentReactions.find(
+        reaction => id === reaction.userId
+      );
+      comment.likedByMe = false;
+      comment.dislikedByMe = false;
+      if (myReaction) {
+        comment.likedByMe = myReaction.reactionType === 'like';
+        comment.dislikedByMe = myReaction.reactionType === 'dislike';
+      }
+
+      comment.likes = likes.length;
+      comment.dislikes = dislikes.length;
+      return comment;
+    });
+    return dispatch({ type: GET_ALL_ARTICLE_COMMENTS, payload: comments });
   } catch ({ response }) {
     switch (response.status) {
       case 404:

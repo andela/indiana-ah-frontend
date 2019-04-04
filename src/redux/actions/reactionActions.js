@@ -1,7 +1,12 @@
 import { sendHttpRequest } from '../../utils';
-import { LIKE_ARTICLE, DISLIKE_ARTICLE } from './actionTypes';
+import {
+  LIKE_ARTICLE,
+  DISLIKE_ARTICLE,
+  LIKE_COMMENT,
+  DISLIKE_COMMENT
+} from './actionTypes';
 
-const reactToArticle = (slug, reactionType) => async (dispatch) => {
+export const reactToArticle = (slug, reactionType) => async (dispatch) => {
   if (reactionType === 'like') {
     dispatch({ type: LIKE_ARTICLE });
   } else {
@@ -17,4 +22,19 @@ const reactToArticle = (slug, reactionType) => async (dispatch) => {
   }
 };
 
-export default reactToArticle;
+export const reactToComment = (id, reactionType) => async (dispatch) => {
+  if (reactionType === 'like') {
+    dispatch({ type: LIKE_COMMENT, payload: id });
+  } else {
+    dispatch({ type: DISLIKE_COMMENT, payload: id });
+  }
+
+  try {
+    await sendHttpRequest('/comments/reaction', 'POST', {
+      reactionType,
+      commentId: id
+    });
+  } catch (error) {
+    return error;
+  }
+};

@@ -16,6 +16,7 @@ class SearchBar extends Component {
     e.preventDefault();
     const { history } = this.props;
     const { searchValue, filterOption } = this.state;
+    if (!searchValue) return;
     const query = !filterOption ? `q=${searchValue}` : `${filterOption}=${searchValue}`;
     history.replace(`/search?${query}`);
   };

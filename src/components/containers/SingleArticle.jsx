@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import getSingleArticle from '../../redux/actions/getSingleArticleActions/getSingleArticleActions';
-import reactToArticle from '../../redux/actions/reactionActions';
+import { reactToArticle } from '../../redux/actions/reactionActions';
 import { twitter, facebook } from '../../assets/images/svg';
 import addBookmark from '../../redux/actions/bookmarkActions';
 import { getAllUsersBookMarkedArticles } from '../../redux/actions/articleActions/articleActions';
