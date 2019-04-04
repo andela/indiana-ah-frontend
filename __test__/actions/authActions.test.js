@@ -16,13 +16,21 @@ import {
   LOGIN_WITH_EMAIL_FAILURE,
   LOGIN_WITH_EMAIL_SUCCESS,
   SET_CURRENT_USER,
-  SIGN_OUT_USER
+  SIGN_OUT_USER,
+  SEND_RESET_LINK_LOADING,
+  SEND_RESET_LINK_SUCCESS,
+  SEND_RESET_LINK_FAILURE,
+  UPDATE_PASSWORD_LOADING,
+  UPDATE_PASSWORD_FAILURE,
+  UPDATE_PASSWORD_SUCCESS
 } from '../../src/redux/actions/actionTypes';
 import {
   verifyUser,
   registerWithEmail,
   loginWithEmail,
-  signOutUser
+  signOutUser,
+  sendResetLink,
+  resetPassword
 } from '../../src/redux/actions/authActions';
 
 const mock = new MockAdapter(apiInstance);
@@ -54,10 +62,23 @@ const expectedLoginResponseDataReg = {
   message: 'successfully logged in',
   token: jwt.sign(rightUserLoginData, 'ejrjrroor', { expiresIn: '24hrs' })
 };
+const expectedResetLinkResponseData = {
+  message: 'password reset link sent to tikucim@yahoo.com',
+  token: jwt.sign(rightUserLoginData, 'ejrjrroor', { expiresIn: '24hrs' })
+};
+
 const expectedResponseDataReg = {
   message: `Successfully registered to Authors haven.
      Kindly check your email to verify your account`,
   token: jwt.sign(rightUserRegData, 'dkdkkdkkd')
+};
+
+const expectedResetReseponse = {
+  message: 'Password reset successfully',
+  updatedUser: {
+    name: null,
+    password: 'cB23000gh'
+  }
 };
 
 const { token } = expectedResponseDataReg;
@@ -117,6 +138,61 @@ describe('Auth action creators test', () => {
     ];
 
     await store.dispatch(loginWithEmail(badUserLoginData, { closeModal }));
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('should create the SEND_RESET_LINK_SUCCESS action if the api request was successful', async () => {
+    mock.onPost('/users/begin-password-reset').reply(200, expectedResetLinkResponseData);
+
+    const expectedActions = [
+      { type: SEND_RESET_LINK_LOADING },
+      { type: SEND_RESET_LINK_SUCCESS, payload: 'Success' }
+    ];
+
+    await store.dispatch(sendResetLink({ email: 'tikucim@yahoo.com' }, { closeModal }));
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('should create the SEND_RESET_LINK_FAILURE action if the api request was not successful', async () => {
+    mock.onPost('/users/begin-password-reset').reply(404, {
+      message: 'This email is not registered in our system'
+    });
+
+    const expectedActions = [
+      { type: SEND_RESET_LINK_LOADING },
+      {
+        type: SEND_RESET_LINK_FAILURE,
+        payload: 'This email is not registered in our system'
+      }
+    ];
+
+    await store.dispatch(sendResetLink({ email: 'tikuokoye@yahoo.com' }, { closeModal }));
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('should create the UPDATE_PASSWORD_SUCCESS action if the api request was successful', async () => {
+    mock.onPatch(`/users/reset-password?query=${token}`).reply(200, expectedResetReseponse);
+
+    const expectedActions = [
+      { type: UPDATE_PASSWORD_LOADING },
+      { type: UPDATE_PASSWORD_SUCCESS, payload: 'Success' }
+    ];
+
+    await store.dispatch(resetPassword({ password: 'cim23000' }, token, { history }));
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('should create the UPDATE_PASSWORD_FAILURE action if the api request was not successful', async () => {
+    mock.onPatch(`/users/reset-password?query=${token}`).reply(401, {
+      message: 'This link is invalid or expired!!'
+    });
+
+    const expectedActions = [
+      { type: UPDATE_PASSWORD_LOADING },
+      { type: UPDATE_PASSWORD_FAILURE, payload: 'This link is invalid or expired!!' }
+    ];
+
+    await store.dispatch(resetPassword({ password: 'cim23000' }, token, { history }));
     expect(store.getActions()).toEqual(expectedActions);
   });
 

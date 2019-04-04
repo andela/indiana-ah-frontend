@@ -18,6 +18,7 @@ class PersonalisedViewComponent extends Component {
         title: 'National day',
         text: 'Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
         likeCount: 0,
+        slug: 'national-day',
         dislikeCount: 62,
         commentCount: 150
       },
@@ -26,6 +27,7 @@ class PersonalisedViewComponent extends Component {
         title: 'How to build a world class feature',
         text: 'If you are going to use a passage of Lorem Ipsum, you need to be sure there isnt anything embarrassing hidden in the middle of text.',
         likeCount: 200,
+        slug: 'how-to-build-a-world-class-feature',
         dislikeCount: 2,
         commentCount: 100
       },
@@ -34,6 +36,7 @@ class PersonalisedViewComponent extends Component {
         text: 'If you are going to use a passage of Lorem Ipsum, you need to be sure there isnt anything embarrassing hidden in the middle of text.',
         title: 'Read like a pro',
         likeCount: 2,
+        slug: 'read-like-a-pro',
         dislikeCount: 2,
         commentCount: 25
       }]
@@ -75,14 +78,15 @@ class PersonalisedViewComponent extends Component {
       const threeRandomArticles = allArticles.sort(() => 0.5 - Math.random()).slice(0, 4);
       featuresView = threeRandomArticles.map((eachCard, index) => <Link to ={`/articles/${eachCard.slug}`} key= {index}>
        <CardComponent
-    img={eachCard.imageUrl}
-    color={eachCard.color}
-    commentCount={0}
-    likeCount={eachCard.likes}
-    dislikeCount={eachCard.dislikes}
-    title={eachCard.articleTitle}
-    text={eachCard.articleBody}
-     />
+        img={eachCard.imageUrl}
+        color={eachCard.color}
+        commentCount={0}
+        slug={eachCard.slug}
+        likeCount={eachCard.likes}
+        dislikeCount={eachCard.dislikes}
+        title={eachCard.articleTitle}
+        text={eachCard.articleBody}
+        />
       </Link>);
     }
     if (!isBookMarkedArticlesLoading && userBookmarks.length > 0) {
@@ -96,14 +100,15 @@ class PersonalisedViewComponent extends Component {
       if (bookmarkedAticleResults.length === 1) {
         bookmarkView = bookmarkedAticleResults.map((eachCard, index) => <Link to ={`/articles/${eachCard.slug}`} key= {index}>
       <CardComponent
-      img={eachCard.imageUrl}
-      color={eachCard.color}
-      commentCount={40}
-      likeCount={430}
-      dislikeCount={40}
-      title={eachCard.articleTitle}
-      text={eachCard.articleBody}
-       />
+        img={eachCard.imageUrl}
+        color={eachCard.color}
+        commentCount={40}
+        likeCount={430}
+        slug={eachCard.slug}
+        dislikeCount={40}
+        title={eachCard.articleTitle}
+        text={eachCard.articleBody}
+        />
        </Link>);
       }
       bookmarkView = <IndexCarousel articles={bookmarkedAticleResults} isLoading={false} />;
@@ -140,6 +145,7 @@ is supported by 1.2 million members in the United States and close to 5 million 
   key= {index}
   img={eachCard.img}
   color={eachCard.color}
+  slug={eachCard.slug}
   commentCount={eachCard.commentCount}
   likeCount={eachCard.likeCount}
   dislikeCount={eachCard.dislikeCount}

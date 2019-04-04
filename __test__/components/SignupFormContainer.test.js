@@ -39,12 +39,6 @@ describe('Sign up form container test', () => {
   it('should check that the component renders correctly and it functions as expected', () => {
     expect(wrapper.exists()).toBe(true);
     expect(wrapper.state()).toEqual(initialState);
-
-    expect(wrapper.instance().validate()).toEqual(true);
-    wrapper.setState({
-      errors: { username: 'ozone4real', password: 'password too short' }
-    });
-    expect(wrapper.instance().validate()).toEqual(false);
     wrapper.instance().handleSubmit(emailEvent);
     wrapper.setProps({ registerWithEmail: spyRegisterWithEmail });
     wrapper.instance().handleChange(emailEvent);
@@ -81,7 +75,6 @@ describe('Sign up form container test', () => {
     wrapper.instance().handleSubmit(emailEvent);
     wrapper.setState({ data: {} });
     wrapper.instance().handleBlur(usernameEvent);
-    wrapper.instance().validate();
     wrapper.setProps({ auth: { error: '', isLoading: true } });
   });
 });

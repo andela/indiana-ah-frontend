@@ -2,22 +2,23 @@ import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {
-  Navbar, Nav, InputGroup, FormControl
-} from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 import SignupContainer from '../SignupFormContainer.jsx';
 import LoginContainer from '../LoginFormContainer.jsx';
+import ResetContainer from '../ResetFormContainer.jsx';
 import Modal from './Modal.jsx';
 import { ProfileImg, ImageLogo } from '../../styles/styledComponents/Navigation.jsx';
-import { customLogo, profile } from '../../assets/images/svg';
+import { customLogo } from '../../assets/images/svg';
 import Button from '../../styles/styledComponents/Button.jsx';
 import { signOutUser } from '../../redux/actions/authActions';
 import Dropdown from '../Dropdown.jsx';
+import SearchBar from './SearchBar.jsx';
 
 export class NavBar extends Component {
   state = {
     dropDown: false,
-    modalIsOpen: false
+    modalIsOpen: false,
+    modalContent: ''
   };
 
   openModal = () => {
@@ -55,6 +56,7 @@ export class NavBar extends Component {
 
   render() {
     const { user, auth } = this.props;
+    const { modalContent } = this.state;
     const userLInk = (
       <Nav className="d-flex flex-row justify-content-between">
         <ProfileImg
@@ -64,7 +66,6 @@ export class NavBar extends Component {
         />
         <div to="/signup" className="d-flex ft-size-2 ml-5">
           <span className="username ml-3">
-            {' '}
             {(user.userData.name ? user.userData.name.split(' ')[0] : '')
               || user.userData.username}
           </span>
@@ -73,6 +74,27 @@ export class NavBar extends Component {
         </div>
       </Nav>
     );
+    const form = () => {
+      switch (modalContent) {
+        case 'login':
+          return <LoginContainer
+            displayForm={this.displayForm}
+            closeModal={this.closeModal}
+          />;
+        case 'register':
+          return <SignupContainer
+            displayForm={this.displayForm}
+            closeModal={this.closeModal}
+          />;
+        case 'reset':
+          return <ResetContainer
+            displayForm={this.displayForm}
+            closeModal={this.closeModal}
+          />;
+        default:
+          return null;
+      }
+    };
     return (
       <Fragment>
         <Navbar bg="white shadow-sm px-5" expand="lg">
@@ -86,14 +108,7 @@ export class NavBar extends Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto ml-5">
-              <InputGroup className="mb-3">
-                <FormControl placeholder="Search" aria-describedby="basic-addon2" />
-                <InputGroup.Append>
-                  <InputGroup.Text id="basic-addon2">
-                    <i className="fa fa-search" />
-                  </InputGroup.Text>
-                </InputGroup.Append>
-              </InputGroup>
+              <SearchBar />
             </Nav>
             {auth.isAuthenticated ? (
               userLInk
@@ -107,19 +122,7 @@ export class NavBar extends Component {
         <Modal
           modalIsOpen={this.state.modalIsOpen}
           closeModal={this.closeModal}
-          body={
-            this.state.modalContent === 'login' ? (
-              <LoginContainer
-                displayForm={this.displayForm}
-                closeModal={this.closeModal}
-              />
-            ) : (
-              <SignupContainer
-                displayForm={this.displayForm}
-                closeModal={this.closeModal}
-              />
-            )
-          }
+          body={form()}
         />
       </Fragment>
     );

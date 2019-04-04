@@ -5,7 +5,8 @@ import 'react-quill/dist/quill.snow.css';
 import createUserArticle from '../redux/actions/articleActions/createArticleAction';
 import 'react-tagsinput/react-tagsinput.css';
 import CreateArticlePage from './common/CreateArticlePage.jsx';
-import getSingleArticle from '../redux/actions/getSingleArticleActions/getSingleArticleActions';
+import getSingleArticle from
+  '../redux/actions/getSingleArticleActions/getSingleArticleActions';
 
 export class CreateArticle extends Component {
   state = {
@@ -96,7 +97,6 @@ export class CreateArticle extends Component {
     const data = { ...this.state };
     const { tags } = data;
     data.tags = tags.join();
-
     const { formData } = this.state;
 
     if (this.handleArticleValidation(data.articleTitle, data.articleBody, data.tags)) {

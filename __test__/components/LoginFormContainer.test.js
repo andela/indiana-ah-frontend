@@ -57,4 +57,9 @@ describe('test the login container form', () => {
     aTag.simulate('click');
     expect(displayForm).toHaveBeenCalled();
   });
+  it('should simulate clicking the link that opens the reset password form', () => {
+    const aTag = wrapper.find('a').at(4);
+    aTag.simulate('click');
+    expect(displayForm).toHaveBeenCalled();
+  });
 });

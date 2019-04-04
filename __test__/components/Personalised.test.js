@@ -58,15 +58,16 @@ describe('<PersonalisedViewComponent articles={initialState} />', () => {
     expect(wrapper.find('.personalised-container')).toBeDefined();
     expect(
       wrapper.find(
-<CardComponent key={0}
-img={article.imageUrl}
-color={article.color}
-commentCount={0}
-likeCount={article.likes}
-dislikeCount={article.dislikes}
-title={`${article.articleTitle.slice(0, 30)}`}
-text={`${article.articleBody.slice(0, 160)}...`}
-/>
+        <CardComponent key={0}
+        img={article.imageUrl}
+        color={article.color}
+        commentCount={0}
+        slug={article.slug}
+        likeCount={article.likes}
+        dislikeCount={article.dislikes}
+        title={`${article.articleTitle.slice(0, 30)}`}
+        text={`${article.articleBody.slice(0, 160)}...`}
+        />
       )
     ).toBeDefined();
   });

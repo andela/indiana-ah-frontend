@@ -43,29 +43,68 @@ Array [
         onKeyDown={[Function]}
       >
         <div
-          className="mb-3 input-group"
+          className="search-bar"
         >
-          <input
-            aria-describedby="basic-addon2"
-            className="form-control"
-            placeholder="Search"
-          />
-          <div
-            className="input-group-append"
+          <form
+            className=""
+            onSubmit={[Function]}
           >
-            <span
-              className="input-group-text"
-              id="basic-addon2"
+            <div
+              className="mb-3 input-group"
             >
-              <i
-                className="fa fa-search"
+              <select
+                name="filterOption"
+                onChange={[Function]}
+              >
+                <option
+                  value=""
+                >
+                  All
+                </option>
+                <option
+                  value="author"
+                >
+                  Author
+                </option>
+                <option
+                  value="tag"
+                >
+                  Tag
+                </option>
+                <option
+                  value="title"
+                >
+                  Title
+                </option>
+              </select>
+              <input
+                aria-describedby="basic-addon2"
+                className="form-control"
+                name="searchValue"
+                onChange={[Function]}
+                placeholder="Search Articles"
+                required={true}
+                value=""
               />
-            </span>
-          </div>
+              <div
+                className="input-group-append"
+              >
+                <span
+                  className="input-group-text"
+                  id="basic-addon2"
+                  onClick={[Function]}
+                >
+                  <i
+                    className="fa fa-search"
+                  />
+                </span>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
       <button
-        className="ml-auto sc-htpNat HDMxK"
+        className="ml-auto sc-htpNat dIJQYP"
         onClick={[Function]}
       >
         Login

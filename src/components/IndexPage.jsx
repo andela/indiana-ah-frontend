@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import SignupContainer from './SignupFormContainer.jsx';
 import LoginContainer from './LoginFormContainer.jsx';
+import ResetContainer from './ResetFormContainer.jsx';
 import Modal from './common/Modal.jsx';
 import Button from '../styles/styledComponents/Button.jsx';
 import IndexForm from './forms/indexForm.jsx';
@@ -49,7 +50,8 @@ export class IndexPage extends Component {
           and prompt with their responses.`,
         location: 'Hawaii'
       }
-    ]
+    ],
+    modalContent: ''
   };
 
   componentDidMount() {
@@ -76,6 +78,28 @@ export class IndexPage extends Component {
     const { modalContent, reviews } = this.state;
     const topArticles = filterArticlesByLikes(articles);
     const newArticles = filterArticlesByDate(articles);
+    const form = () => {
+      switch (modalContent) {
+        case 'login':
+          return <LoginContainer
+            displayForm={this.displayForm}
+            closeModal={this.closeModal}
+          />;
+        case 'register':
+          return <SignupContainer
+            displayForm={this.displayForm}
+            closeModal={this.closeModal}
+          />;
+        case 'reset':
+          return <ResetContainer
+            displayForm={this.displayForm}
+            closeModal={this.closeModal}
+          />;
+        default:
+          return null;
+      }
+    };
+
     return (
       <Fragment>
         <div className="container">
@@ -165,19 +189,7 @@ export class IndexPage extends Component {
         <Modal
           modalIsOpen={this.state.modalIsOpen}
           closeModal={this.closeModal}
-          body={
-            modalContent === 'login' ? (
-              <LoginContainer
-                displayForm={this.displayForm}
-                closeModal={this.closeModal}
-              />
-            ) : (
-              <SignupContainer
-                displayForm={this.displayForm}
-                closeModal={this.closeModal}
-              />
-            )
-          }
+          body={form()}
         />
         <Footer />
       </Fragment>

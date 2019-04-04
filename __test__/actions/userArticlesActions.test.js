@@ -8,7 +8,7 @@ import {
   GET_ALL_USER_ARTICLES_SUCCESS,
   GET_ALL_USER_ARTICLES_FAILURE
 } from '../../src/redux/actions/actionTypes';
-import getAllUserArticles from '../../src/redux/actions/userArticlesActions';
+import getAllUserArticles from '../../src/redux/actions/articleActions/userArticlesActions';
 
 const responseData = { articles: [{ articleTitle: 'Im the man' }] };
 

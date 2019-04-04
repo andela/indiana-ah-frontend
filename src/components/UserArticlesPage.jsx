@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import TopBarProgress from 'react-topbar-progress-indicator';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import getAllUserArticles from '../redux/actions/userArticlesActions';
+import getAllUserArticles from '../redux/actions/articleActions/userArticlesActions';
 import UserArticleCardComponent from './common/UserArticleCardComponent';
 import Pagination from './common/Pagination';
 import { setAndGetCurrentPage } from '../utils/index';
@@ -74,7 +74,7 @@ UserArticles.propTypes = {
   location: PropTypes.object
 };
 
-export { UserArticles };
+export { UserArticles, mapStateToProps };
 
 export default connect(
   mapStateToProps,

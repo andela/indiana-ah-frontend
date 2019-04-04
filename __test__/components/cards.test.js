@@ -19,6 +19,7 @@ describe('<CardComponent />', () => {
     title: 'lkjhljugyghjh',
     text: 'lkjhljugyghjh',
     likeCount: 6,
+    slug: 'how-i-got-into-andela',
     dislikeCount: 2,
     commentCount: 4
   };
@@ -41,6 +42,7 @@ describe('<UserProfileCardComponent />', () => {
     img: 'https://avatars1.githubusercontent.com/u/22154654?s=460&v=4',
     postCount: 2,
     bio: 'lkjhljugyghjh',
+    articleBody: 'There is no limit to what you can achieve with a pen.',
     followingCount: 2,
     followersCount: 3
   };
@@ -74,6 +76,8 @@ describe('<UserArticleCardComponent />', () => {
     followersCount: 3,
     userName: 'Dozie',
     likeCount: 2,
+    articleBody: 'There is no limit to what you can achieve with a pen.',
+    slug: 'how-i-got-into-andela',
     dislikeCount: 3,
     commentCount: 5,
     timeCount: '2 days Ago',

@@ -2,10 +2,10 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 
 export const getUrl = (hostName) => {
-  if (hostName.includes('master')) {
-    return 'https://indiana-ah-master.herokuapp.com/api/v1/';
+  if ((hostName.includes('staging')) || (hostName.includes('localhost'))) {
+    return 'https://indiana-ah-staging.herokuapp.com/api/v1/';
   }
-  return 'https://indiana-ah-staging.herokuapp.com/api/v1/';
+  return 'https://indiana-ah-master.herokuapp.com/api/v1/';
 };
 
 const apiInstance = axios.create({
@@ -79,6 +79,13 @@ const sortLikes = (current, next) => {
   if (current.likes > next.likes) return -1;
   return 0;
 };
+const sortDate = (current, next) => {
+  const currentDate = new Date(current.createdAt);
+  const nextDate = new Date(next.createdAt);
+  if (currentDate > nextDate) return -1;
+  if (currentDate < nextDate) return 1;
+  return 0;
+};
 
 export const filterArticlesByLikes = (articles) => {
   const topArticles = articles.sort(sortLikes).slice(0, 7);
@@ -86,9 +93,7 @@ export const filterArticlesByLikes = (articles) => {
 };
 
 export const filterArticlesByDate = (articles) => {
-  const newArticles = articles
-    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-    .slice(0, 6);
+  const newArticles = articles.sort(sortDate).slice(0, 6);
   return newArticles;
 };
 
@@ -113,11 +118,11 @@ export const recordLike = (data) => {
   data.likedByMe = !data.likedByMe;
   data.dislikedByMe = false;
 };
+
 export const formatDate = (unformatedDate) => {
-  let date = unformatedDate;
-  date = new Date();
+  const date = new Date(unformatedDate);
   const day = date.getDate();
-  const month = date.getMonth();
+  const month = date.getMonth() + 1;
   const year = date.getFullYear();
   const formattedDate = `${day}/${month}/${year}`;
   return formattedDate;

@@ -4,7 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 
 const CustomModal = props => (
   <div>
-    <Modal show={props.modalIsOpen} onHide={props.closeModal} dialogClassName="Modal">
+    <Modal show={props.modalIsOpen} onHide={props.closeModal} dialogClassName='Modal'>
       <Modal.Body>{props.body}</Modal.Body>
     </Modal>
   </div>

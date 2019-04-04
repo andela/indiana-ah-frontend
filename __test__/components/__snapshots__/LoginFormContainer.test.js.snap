@@ -60,7 +60,7 @@ exports[`Login Form should match snapshot 1`] = `
     </div>
     
     <button
-      className="sc-htpNat hIFVTI"
+      className="sc-htpNat hpCSJ"
       disabled={false}
       height="4.8rem"
       type="submit"
@@ -129,6 +129,7 @@ exports[`Login Form should match snapshot 1`] = `
   >
     <a
       href="#"
+      onClick={[Function]}
     >
       Forgot password?
     </a>
@@ -196,7 +197,7 @@ exports[`test the login container form should match snap shot 1`] = `
     </div>
     
     <button
-      className="sc-htpNat hIFVTI"
+      className="sc-htpNat hpCSJ"
       disabled={false}
       height="4.8rem"
       type="submit"
@@ -265,6 +266,7 @@ exports[`test the login container form should match snap shot 1`] = `
   >
     <a
       href="#"
+      onClick={[Function]}
     >
       Forgot password?
     </a>

@@ -8,6 +8,18 @@ export const passwordFormSchema = {
   newPassword: /^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]{8,})$/
 };
 
+export const validate = (errors) => {
+  let isValid = true;
+  Object.values(errors).forEach((error) => {
+    if (error) {
+      isValid = false;
+    }
+  });
+  return isValid;
+};
+
+export const checkIfSame = (password, confirmPassword) => password === confirmPassword;
+
 export const validationMessages = {
   email: 'Please enter a valid email address',
   username:
@@ -15,5 +27,5 @@ export const validationMessages = {
     + ' "_" and must be at least 3 characters long.',
   password:
     'Password must contain alphabets and numbers and must be at least 8 characters long',
-  confirmPassword: 'Passwords don"t match'
+  confirmPassword: 'Passwords don\'t match'
 };

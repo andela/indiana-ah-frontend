@@ -34,7 +34,9 @@ describe('social auth reducer', () => {
       isLoading: false,
       isAuthenticated: false,
       isVerified: false,
-      error: ''
+      error: '',
+      sendResetLink: '',
+      updatePassword: ''
     });
   });
   it('should setup reducer to login with social media', () => {

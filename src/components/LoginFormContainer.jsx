@@ -74,7 +74,7 @@ export class LoginFormContainer extends Component {
             sm>
             login
             {isLoading && (
-              <span style={{ float: 'right', padding: '3px 3px 0 10px' }}>
+              <span className="button-loading">
                 <Circle color={'rgba(255,255,255,1)'} />
               </span>
             )}
@@ -109,7 +109,7 @@ export class LoginFormContainer extends Component {
           </a>
         </p>
         <div className="d-flex justify-content-center bg-light w-100 p-4 mt-3">
-          <a href="#">Forgot password?</a>
+          <a href="#" onClick={() => displayForm('reset')}>Forgot password?</a>
         </div>
       </div>
     );
