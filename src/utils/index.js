@@ -97,6 +97,16 @@ export const filterArticlesByDate = (articles) => {
   return newArticles;
 };
 
+export const addUserReaction = (data, Reaction, id) => {
+  const myReaction = data[Reaction].find(reaction => id === reaction.userId);
+  data.likedByMe = false;
+  data.dislikedByMe = false;
+  if (myReaction) {
+    data.likedByMe = myReaction.reactionType === 'like';
+    data.dislikedByMe = myReaction.reactionType === 'dislike';
+  }
+};
+
 export const recordDisLike = (data) => {
   if (data.dislikedByMe) {
     data.dislikes -= 1;

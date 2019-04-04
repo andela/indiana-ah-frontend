@@ -7,12 +7,9 @@ import {
 } from './actionTypes';
 
 export const reactToArticle = (slug, reactionType) => async (dispatch) => {
-  if (reactionType === 'like') {
-    dispatch({ type: LIKE_ARTICLE });
-  } else {
-    dispatch({ type: DISLIKE_ARTICLE });
-  }
-
+  dispatch({
+    type: reactionType === 'like' ? LIKE_ARTICLE : DISLIKE_ARTICLE
+  });
   try {
     await sendHttpRequest(`/articles/${slug}/reaction`, 'POST', {
       reactionType
@@ -23,12 +20,10 @@ export const reactToArticle = (slug, reactionType) => async (dispatch) => {
 };
 
 export const reactToComment = (id, reactionType) => async (dispatch) => {
-  if (reactionType === 'like') {
-    dispatch({ type: LIKE_COMMENT, payload: id });
-  } else {
-    dispatch({ type: DISLIKE_COMMENT, payload: id });
-  }
-
+  dispatch({
+    type: reactionType === 'like' ? LIKE_COMMENT : DISLIKE_COMMENT,
+    payload: id
+  });
   try {
     await sendHttpRequest('/comments/reaction', 'POST', {
       reactionType,

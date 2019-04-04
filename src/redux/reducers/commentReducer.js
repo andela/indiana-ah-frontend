@@ -6,7 +6,7 @@ import {
   EDIT_COMMENT,
   EDIT_COMMENTS_FAILURE,
   LIKE_COMMENT,
-  DISLIKE_COMMENT
+  DISLIKE_COMMENT,
 } from '../actions/actionTypes';
 import { recordDisLike, recordLike } from '../../utils';
 

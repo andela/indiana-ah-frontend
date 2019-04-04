@@ -1,7 +1,7 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 import { GET_SINGLE_ARTICLE_LOADING, GET_SINGLE_ARTICLE_SUCCESS } from '../actionTypes';
-import { sendHttpRequest } from '../../../utils';
+import { sendHttpRequest, addUserReaction } from '../../../utils';
 
 const getSingleArticle = (slug, history) => async (dispatch, getState) => {
   const { id } = getState().user.userData;
@@ -10,13 +10,7 @@ const getSingleArticle = (slug, history) => async (dispatch, getState) => {
   });
   try {
     const { article, timeToRead } = await sendHttpRequest(`/articles/${slug}`, 'GET');
-    const myReaction = article.Reactions.find(reaction => reaction.userId === id);
-    article.likedByMe = false;
-    article.dislikedByMe = false;
-    if (myReaction) {
-      article.likedByMe = myReaction.reactionType === 'like';
-      article.dislikedByMe = myReaction.reactionType === 'dislike';
-    }
+    addUserReaction(article, 'Reactions', id);
     article.timeToRead = timeToRead;
     dispatch({
       type: GET_SINGLE_ARTICLE_SUCCESS,

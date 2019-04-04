@@ -14,6 +14,7 @@ const props = {
     searchData: {
       searchResults: [{ slug: 'i-am-the-man', articleTitle: 'i am the man' }]
     },
+    error: '',
     isLoading: true
   }
 };
@@ -40,6 +41,10 @@ describe('Articles search test', () => {
       ...props,
       isLoading: false,
       articlesSearchResults: { searchData: { searchResults: [] } }
+    });
+    wrapper.setProps({
+      ...props,
+      articlesSearchResults: { error: 'invalid search parameter' }
     });
     expect(mapStateToProps({ articlesSearchResults: {} })).toEqual({
       articlesSearchResults: {}

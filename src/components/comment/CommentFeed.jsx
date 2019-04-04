@@ -7,8 +7,8 @@ export const CommentFeed = ({ comments }) => (comments.length ? (
       <Commentitem
         key={comment.id}
         comment={comment}
-        likes={comment.likes}
-        dislikes={comment.dislikes}
+        likes={comment.likes || ''}
+        dislikes={comment.dislikes || ''}
       />
   ))
 ) : (

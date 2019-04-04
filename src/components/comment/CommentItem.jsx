@@ -48,7 +48,7 @@ export class CommentItem extends Component {
 
   render() {
     const {
-      comment, user, likes, dislikes
+      comment, user, likes, dislikes, auth
     } = this.props;
     const modalBody = (
       <div>
@@ -169,15 +169,23 @@ export class CommentItem extends Component {
             <div className="col-xs-6 ml-6">
               {' '}
               <i
-                className={`${comment.likes ? 'fas' : 'far'} fa-thumbs-up`}
-                onClick={() => this.props.reactToComment(comment.id, 'like')}
+                className={`${comment.likedByMe ? 'fas' : 'far'} fa-thumbs-up mr-2`}
+                onClick={
+                  auth.isVerified
+                    ? () => this.props.reactToComment(comment.id, 'like')
+                    : undefined
+                }
               />
               <small>{likes}</small>
             </div>
             <div className="col-xs-6 ml-5">
               <i
-                className="far fa-thumbs-down"
-                onClick={() => this.props.reactToComment(comment.id, 'dislike')}
+                className={`${comment.dislikedByMe ? 'fas' : 'far'} fa-thumbs-down mr-2`}
+                onClick={
+                  auth.isVerified
+                    ? () => this.props.reactToComment(comment.id, 'dislike')
+                    : undefined
+                }
               />
               <small>{dislikes}</small>
             </div>
@@ -200,7 +208,10 @@ CommentItem.propTypes = {
   user: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
   editComment: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  reactToComment: PropTypes.func,
+  likes: PropTypes.number,
+  dislikes: PropTypes.number
 };
 
 const mapStateToProps = state => ({

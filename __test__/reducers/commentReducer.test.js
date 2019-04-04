@@ -5,7 +5,9 @@ import {
   GET_ALL_ARTICLE_COMMENTS,
   COMMENTS_LOADING,
   EDIT_COMMENT,
-  EDIT_COMMENTS_FAILURE
+  EDIT_COMMENTS_FAILURE,
+  DISLIKE_COMMENT,
+  LIKE_COMMENT
 } from '../../src/redux/actions/actionTypes';
 
 const initialState1 = {
@@ -16,6 +18,8 @@ const initialState1 = {
       articleId: 3,
       userId: 2,
       commentBody: 'awesome',
+      likedByMe: true,
+      dislikedByMe: false,
       commenter: {
         name: 'Omenkish',
         username: 'Omenkish',
@@ -95,6 +99,17 @@ describe('commentReducer test', () => {
     ).toEqual({
       ...initialState1,
       isLoading: false
+    });
+  });
+  it('should handle the LIKE_COMMENT action', () => {
+    expect(commentReducer(initialState1, { type: LIKE_COMMENT, payload: 4 })).toEqual({
+      ...initialState1
+    });
+  });
+
+  it('should handle the DISLIKE_COMMENT action', () => {
+    expect(commentReducer(initialState1, { type: DISLIKE_COMMENT, payload: 4 })).toEqual({
+      ...initialState1
     });
   });
 });
