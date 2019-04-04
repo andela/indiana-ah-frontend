@@ -28,7 +28,7 @@ export class NavBar extends Component {
       const display = name.split(' ')[0];
       displayName = display;
     } else if (username) {
-      displayName = username.replace(/\d+/, '');
+      displayName = username.replace(/\d{5,}/, '');
     } else {
       displayName = ' ';
     }

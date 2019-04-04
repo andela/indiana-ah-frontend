@@ -117,7 +117,8 @@ class SingleArticle extends Component {
                 <div className="author-image-box">
                   <p className="author">
                     {' '}
-                    written by {author.username ? author.username.replace(/\d+/, '') : ''}
+                    written by{' '}
+                    {author.username ? author.username.replace(/\d{5,}/, '') : ''}
                   </p>
                   <img
                     src={author.imageUrl}
