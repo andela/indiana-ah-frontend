@@ -107,7 +107,6 @@ class SingleArticle extends Component {
       || !this.props.singleArticle.article.articleBody
     ) return delayDisplay;
 
-
     return (
       <>
         <div className="SingleArticle">
@@ -116,7 +115,11 @@ class SingleArticle extends Component {
             <div className="heading-info">
               <div className="article-info">
                 <div className="author-image-box">
-                  <p className="author"> written by {author.username}</p>
+                  <p className="author">
+                    {' '}
+                    written by{' '}
+                    {author.username ? author.username.replace(/\d{5,}/, '') : ''}
+                  </p>
                   <img
                     src={author.imageUrl}
                     alt="user-image"
@@ -173,7 +176,10 @@ class SingleArticle extends Component {
                       : () => this.displayForm('login')
                   }
                 />
-                <CommentIconComponent className="reaction-logo" commentCount={comments.length} />
+                <CommentIconComponent
+                  className="reaction-logo"
+                  commentCount={comments.length}
+                />
               </div>
               <div className="share-container">
                 <span className="social share-text">Share on</span>
@@ -196,18 +202,20 @@ class SingleArticle extends Component {
                 </a>
               </div>
             </section>
-            <section className='comment-section'>
-            {
-              isVerified && <><div className='container pt-5 pb-5'>
-              <Commentform slug={slug} />
-            </div>
-            <hr /></>
-            }
-              <div className='container pt-5 pb-5'>
+            <section className="comment-section">
+              {isVerified && (
+                <>
+                  <div className="container pt-5 pb-5">
+                    <Commentform slug={slug} />
+                  </div>
+                  <hr />
+                </>
+              )}
+              <div className="container pt-5 pb-5">
                 <h2>Comments</h2>
                 <Commentfeed comments={comments} />
               </div>
-          </section>
+            </section>
           </section>
           <Modal
             modalIsOpen={this.state.modalIsOpen}

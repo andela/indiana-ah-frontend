@@ -1,5 +1,10 @@
 import {
-  ADD_COMMENT, GET_ALL_ARTICLE_COMMENTS, COMMENTS_LOADING, DELETE_COMMENT
+  ADD_COMMENT,
+  GET_ALL_ARTICLE_COMMENTS,
+  COMMENTS_LOADING,
+  DELETE_COMMENT,
+  EDIT_COMMENT,
+  EDIT_COMMENTS_FAILURE
 } from '../actions/actionTypes';
 
 const initialState = {
@@ -12,7 +17,7 @@ const commentReducer = (state = initialState, action) => {
     case COMMENTS_LOADING:
       return {
         ...state,
-        isLoading: true,
+        isLoading: true
       };
     case ADD_COMMENT:
       return {
@@ -25,13 +30,24 @@ const commentReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        comments: action.payload,
+        comments: action.payload
       };
     case DELETE_COMMENT:
       return {
         ...state,
         isLoading: false,
-        comments: state.comments.filter(comment => comment.id !== action.id),
+        comments: state.comments.filter(comment => comment.id !== action.id)
+      };
+    case EDIT_COMMENT:
+      return {
+        ...state,
+        isLoading: false,
+        comments: state.comments.map(comment => (comment.id === action.payload.id ? action.payload : comment))
+      };
+    case EDIT_COMMENTS_FAILURE:
+      return {
+        ...state,
+        isLoading: false
       };
     default:
       return state;
