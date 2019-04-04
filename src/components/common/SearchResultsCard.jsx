@@ -19,7 +19,8 @@ const SearchResultsCard = ({
   <div className="search-card-container">
     <NavLink to={`/articles/${slug}`}>
       <div className="autor-sec mb-2">
-        <img src={author.imageUrl} className="author-image" /> <h5>{author.username}</h5>
+        <img src={author.imageUrl} className="author-image" />{' '}
+        <h5>{author.username ? author.username.replace(/\d{5,}/, '') : ' '}</h5>
       </div>
       <div className="article-sec mb-4">
         <img

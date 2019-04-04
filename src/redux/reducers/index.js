@@ -7,6 +7,7 @@ import userArticlesReducer from './userArticlesReducer';
 import getSingleArticleReducer from './getSingleArticleReducer';
 import commentsReducer from './commentReducer';
 import articlesSearchReducer from './articlesSearchReducer';
+import userStatsReducer from './userStatsReducer';
 
 export default combineReducers({
   auth: authReducer,
@@ -16,5 +17,6 @@ export default combineReducers({
   allUserArticles: userArticlesReducer,
   singleArticle: getSingleArticleReducer,
   comments: commentsReducer,
-  articlesSearchResults: articlesSearchReducer
+  articlesSearchResults: articlesSearchReducer,
+  statistics: userStatsReducer
 });
