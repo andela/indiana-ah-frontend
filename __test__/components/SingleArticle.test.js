@@ -95,11 +95,11 @@ describe('<SingleArticle/>', () => {
         getArticleComments={mockFn}
         getAllUsersFollowed={mockFn}
         addBookmark={mockFn}
+        followOrUnfollow={mockFn}
         history={history}
         reactToArticle={jest.fn(article.slug, 'login')}
       />
     );
-    expect(wrapper).toMatchSnapshot();
     expect(wrapper.find('div.carousel-spinner').length).toEqual(0);
     article.article.tags = 'hey, hoo, hi';
     article.article.imageUrl = 'http://i3i3i3ii3je';
