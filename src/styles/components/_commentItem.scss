@@ -9,10 +9,14 @@
   h3 {
     margin-left: 10rem;
   }
+
+  .fas {
+    color: $brand-color;
+  }
   .image {
-    max-width: 5.0rem;
-    max-height: 4.0rem;
-    margin-left: 3.0rem;
+    max-width: 5rem;
+    max-height: 4rem;
+    margin-left: 3rem;
   }
   @media only screen and (max-width: 500px) {
     margin-right: 3rem;
@@ -20,12 +24,12 @@
     padding-bottom: 3rem;
     font-size: 1.2rem;
     h3 {
-      font-size: 1.5rem
+      font-size: 1.5rem;
     }
     .image {
-      max-width: 5.0rem;
-      max-height: 4.0rem;
-      margin-left: 3.0rem;
+      max-width: 5rem;
+      max-height: 4rem;
+      margin-left: 3rem;
     }
   }
 }
@@ -33,13 +37,16 @@
   margin-left: 5rem;
   color: #555;
 }
+.comment-reaction i {
+  cursor: pointer;
+}
 .fa-clock {
   margin-left: 2rem;
-  color: rgba(0, 0, 0, .5);
+  color: rgba(0, 0, 0, 0.5);
 }
 .comment-time {
   font-size: 1.5rem;
-  color: rgba(0, 0, 0, .5);
+  color: rgba(0, 0, 0, 0.5);
 }
 .comment-body {
   color: #555;
@@ -54,9 +61,11 @@
 }
 
 .dropdown {
-  button, button:hover, .btn-primary:focus {
+  button,
+  button:hover,
+  .btn-primary:focus {
     background-color: $brand-color;
-    color: rgba(255,255,255,1);
+    color: rgba(255, 255, 255, 1);
     font-size: 1.5rem;
   }
 }
@@ -69,15 +78,15 @@
 }
 
 .dropdown-item {
-  padding: .7rem 1.5rem;
+  padding: 0.7rem 1.5rem;
 }
 
 .dropdown-item:hover {
-  background-color: rgba(0,0,0,.1);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .dropdown-divider {
-  margin:0;
+  margin: 0;
 }
 
 .dropdown-menu.show {
@@ -93,10 +102,12 @@
 }
 
 @media only screen and (max-width: 1000px) {
-  .row {
+  .comment-form .row {
     flex-wrap: unset;
   }
-  .dropdown button, .dropdown button:hover, .dropdown .btn-primary:focus {
+  .dropdown button,
+  .dropdown button:hover,
+  .dropdown .btn-primary:focus {
     font-size: 0.7rem;
   }
   p {
@@ -106,7 +117,6 @@
     margin-right: 2rem;
   }
   .comment-item-section {
-    
     margin-right: 3rem;
     margin-left: 1.5rem;
     padding-bottom: 3rem;
@@ -115,22 +125,23 @@
   h3 {
     font-size: 1.4rem;
   }
-
 }
 
 @media only screen and (max-width: 1199px) {
-  .row {
+  .comment-form .row {
     flex-wrap: unset;
   }
-  .dropdown button, .dropdown button:hover, .dropdown .btn-primary:focus {
+  .dropdown button,
+  .dropdown button:hover,
+  .dropdown .btn-primary:focus {
     font-size: 0.7rem;
   }
   p {
     margin-top: 0.4rem;
   }
   .image {
-    max-width: 4.0rem;
-    max-height: 4.0rem;
+    max-width: 4rem;
+    max-height: 4rem;
     margin-left: 3.5rem;
   }
   .fa-thumbs-up:before {
@@ -141,5 +152,20 @@
   }
   h3 {
     font-size: 1.4rem;
+  }
+}
+
+.edit {
+  display: flex;
+  justify-content: flex-end;
+  .span {
+    margin-right: 20px;
+  }
+  .mr-4.edit-button {
+    margin-left: unset !important;
+    margin-right: unset !important;
+  }
+  .jXLEy {
+    padding: 0.2rem 1rem;
   }
 }

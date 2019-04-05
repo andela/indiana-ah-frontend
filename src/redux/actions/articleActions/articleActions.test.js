@@ -34,8 +34,8 @@ const error = {
   config: {}
 };
 
-describe('get all parcels action', () => {
-  it('handles getting all parcels', async () => {
+describe('get all article action', () => {
+  it('handles getting all articles', async () => {
     mock.onGet('/articles').reply(200, mockData);
 
     const expectedActions = [
@@ -53,7 +53,7 @@ describe('get all parcels action', () => {
     expect(actualActions).toEqual(expectedActions);
   });
 
-  it('handles getting all parcels when there is no parcel returned', async () => {
+  it('handles getting all articles when there is no article returned', async () => {
     mock.onGet('/articles').reply(200, noData);
 
     const expectedActions = [

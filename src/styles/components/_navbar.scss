@@ -15,6 +15,9 @@ nav a {
 .d-flex.ft-size-2.ml-5 {
   margin-top: 1rem;
 }
+.search-bar {
+  width: 100%;
+}
 .input-group {
   position: relative;
   display: -ms-flexbox;
@@ -24,12 +27,12 @@ nav a {
   -ms-flex-align: stretch;
   align-items: stretch;
   margin: 1rem;
-  width: 40rem;
 }
 
 input.form-control {
   width: 60rem;
   height: 4.3rem;
+  border-right: unset;
 }
 input.form-control:focus {
   outline: none;
@@ -48,6 +51,13 @@ input.form-control:focus {
 .input-group > .form-control,
 .input-group > .form-control-plaintext {
   font-size: 1.6rem;
+}
+
+.search-bar {
+  input:focus {
+    box-shadow: none;
+    border: 1px solid #ced4da;
+  }
 }
 
 .collapse {
@@ -80,17 +90,37 @@ input.form-control:focus {
     display: flex !important;
     flex-direction: row !important;
     padding: 0 1rem;
-    .input-group {
-      width: 25rem;
+    .show .input-group {
+      width: 100%;
     }
+  }
+  .d-flex.flex-row.justify-content-between.nav-bar-name.navbar-nav {
+    justify-content: flex-end !important;
+    margin-right: 2.5rem;
+  }
+  .justify-content-between {
+    justify-content: flex-end !important;
+  }
+  .navbar-light .navbar-toggler {
+    color: rgba(0, 0, 0, 0.5);
+    border-color: rgba(0, 0, 0, 0.1);
   }
 }
 @media (max-width: 600px) {
   .input-group {
-    width: 10rem;
+    width: 98%;
   }
   .show {
-    padding: 0 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-around !important;
+    padding: 0 1rem !important;
+  }
+  .dropdown {
+    margin-right: 2rem;
+  }
+  input {
+    width: auto;
   }
   .ml-5,
   .mx-5 {
@@ -119,15 +149,24 @@ input.form-control:focus {
     padding-left: 0.8rem !important;
   }
 }
+@media (max-width: 400px) {
+  .d-flex.flex-row.justify-content-between.nav-bar-name.navbar-nav {
+    margin-right: 0rem !important;
+  }
+}
 
-@media (max-width: 355px) {
+@media (max-width: 360px) {
   .navbar.navbar-expand-lg {
     .feather {
       width: 19rem;
     }
   }
+  .d-flex.flex-row.justify-content-between.nav-bar-name.navbar-nav {
+    justify-content: flex-end !important;
+    margin-right: -1rem !important;
+  }
   .show .input-group {
-    width: 18rem;
+    width: 97%;
   }
   .show {
     padding: 0 0 !important;
@@ -185,5 +224,12 @@ select.form-control {
   }
   .dropdown.dropdown-lg .dropdown-menu {
     min-width: 500px;
+  }
+}
+
+@media (min-width: 901px) {
+  .mr-auto {
+    margin-right: auto !important;
+    width: 50%;
   }
 }

@@ -21,6 +21,20 @@ export class NavBar extends Component {
     modalContent: ''
   };
 
+  setUsername = (userData) => {
+    const { name, username } = userData;
+    let displayName;
+    if (name) {
+      const display = name.split(' ')[0];
+      displayName = display;
+    } else if (username) {
+      displayName = username.replace(/\d{5,}/, '');
+    } else {
+      displayName = ' ';
+    }
+    return displayName;
+  };
+
   openModal = () => {
     this.setState(() => ({ modalIsOpen: true }));
   };
@@ -66,8 +80,7 @@ export class NavBar extends Component {
         />
         <div to="/signup" className="d-flex ft-size-2 ml-5">
           <span className="username ml-3">
-            {(user.userData.name ? user.userData.name.split(' ')[0] : '')
-              || user.userData.username}
+            {this.setUsername(user.userData)}
           </span>
           <span style={{ padding: '0 0.3em' }} />
           <Dropdown signOutUser={this.props.signOutUser} />

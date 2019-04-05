@@ -4,7 +4,12 @@ import { CommentItem } from '../../../src/components/comment/CommentItem.jsx';
 import comments from '../../../__fixtures__/comments';
 
 const mockFn = jest.fn();
+const event = { preventDefault() {}, target: { files: [] } };
 const props = {
+  auth: {
+    isVerified: true
+  },
+  reactToComment: jest.fn(),
   user: {
     userData: {
       id: 1,
@@ -14,13 +19,47 @@ const props = {
     }
   },
   deleteComment: mockFn,
+  editComment: mockFn,
+  auth: {
+    isVerified: true
+  },
   isLoading: false
 };
+
+test('It should render the comment item component', () => {
+  const wrapper = shallow(<CommentItem comment={comments[0]} {...props} />);
+  wrapper.setState({ modalIsOpen: true });
+});
 
 describe('Test CommentItem component', () => {
   const wrapper = mount(<CommentItem comment={comments[0]} {...props} />);
   it('It should render the comment item component', () => {
     expect(wrapper.state('modalIsOpen')).toBe(false);
+  });
+
+  it('should test for clicks on the like/dislike buttons', () => {
+    wrapper
+      .find('i')
+      .at(1)
+      .simulate('click');
+    wrapper
+      .find('i')
+      .at(2)
+      .simulate('click');
+    wrapper.setProps({ auth: { isVerified: false } });
+    wrapper
+      .find('i')
+      .at(1)
+      .simulate('click');
+    wrapper
+      .find('i')
+      .at(2)
+      .simulate('click');
+    expect(wrapper.find('.far')).toHaveLength(3);
+    wrapper.setProps({
+      comment: { ...comments[0], likedByMe: true, dislikedByMe: true }
+    });
+    expect(wrapper.find('.fas')).toHaveLength(2);
   });
 
   it('should simulate button clicks', () => {
@@ -42,6 +81,10 @@ describe('Test CommentItem component', () => {
 
   it('should find and simulate modal open button click', () => {
     wrapper.instance().openModal();
+    wrapper.instance().onChange(event);
+    wrapper.instance().editModal(event);
+    wrapper.instance().handleCommentUpdate(event);
+    wrapper.setState({ showModal: false });
     props.isLoading = true;
     wrapper.setProps({ ...props });
     props.user.userData.id = 12;
