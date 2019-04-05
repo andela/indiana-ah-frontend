@@ -36,7 +36,8 @@ const initialState = {
         likes: 0,
         dislikes: 0
       }
-    ]
+    ],
+    totalCount: 1
   },
   error: ''
 };
@@ -44,7 +45,8 @@ const initialState2 = {
   isLoading: false,
   articleData: {
     articles: [
-    ]
+    ],
+    totalCount: 0
   },
   error: ''
 };

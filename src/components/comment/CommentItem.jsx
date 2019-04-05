@@ -42,7 +42,7 @@ export class CommentItem extends Component {
   }
 
   openModal = () => {
-    this.setState(() => ({ modalIsOpen: true }));
+    this.setState(() => ({ modalIsOpen: true, modalContent: 'delete' }));
   }
 
   closeModal = () => {
@@ -80,6 +80,15 @@ export class CommentItem extends Component {
       </div>
     );
 
+
+    let modalToOpen;
+    if (modalContent === 'history') {
+      modalToOpen = <EditHistoryfeed editHistory={ editHistory }/>;
+    } else if (modalContent === 'delete') {
+      modalToOpen = modalBody;
+    } else {
+      modalToOpen = '';
+    }
     const editModal = (
       <div className="add-comment-box">
         <div className="card-body comment-form">
@@ -216,8 +225,7 @@ export class CommentItem extends Component {
             modalIsOpen={modalIsOpen}
             closeModal={this.closeModal}
             customClass={modalContent === 'history' && 'comment-item-page'}
-            body={ modalContent !== 'history' ? (
-              modalBody) : (<EditHistoryfeed editHistory={editHistory}/>)}
+            body={ modalToOpen}
         />
       </>
     );

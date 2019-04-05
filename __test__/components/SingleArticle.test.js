@@ -40,10 +40,13 @@ const bookmarkedArticles = {
     }
   ]
 };
-
+const userFollow = {
+  isUsersFollowedLoading: false,
+  UsersFollowed: 2
+};
 const article = {
   article: {
-    articleBody: '',
+    articleBody: 'test article',
     articleTitle: '',
     tags: '',
     slug: 'i-am-so-good',
@@ -57,8 +60,10 @@ const article = {
       { userId: 'dldlld', reactionType: 'like' },
       { userId: 'dkdkkdkkdk', reactionType: 'dislike' }
     ],
-    author: '',
-    createdAt: ''
+    author: {
+      username: 'jane'
+    },
+    createdAt: '1969-12-31T23:59:50.000Z'
   },
   timeToRead: '1 min read'
 };
@@ -79,6 +84,7 @@ describe('<SingleArticle/>', () => {
     const wrapper = shallow(
       <SingleArticle
         singleArticle={article}
+        userFollow={userFollow}
         user={user}
         auth={auth}
         bookmarkedArticles={bookmarkedArticles}
@@ -87,18 +93,19 @@ describe('<SingleArticle/>', () => {
         getSingleArticle={mockFn}
         getAllUsersBookMarkedArticles={mockFn}
         getArticleComments={mockFn}
+        getAllUsersFollowed={mockFn}
         addBookmark={mockFn}
+        followOrUnfollow={mockFn}
         history={history}
         reactToArticle={jest.fn(article.slug, 'login')}
       />
     );
-    expect(wrapper.find('div.carousel-spinner').length).toEqual(1);
+    expect(wrapper.find('div.carousel-spinner').length).toEqual(0);
     article.article.tags = 'hey, hoo, hi';
     article.article.imageUrl = 'http://i3i3i3ii3je';
     article.article.articleBody = 'I am going home';
     wrapper.setProps({ article });
     expect(wrapper.find('div.carousel-spinner').length).toEqual(0);
-    expect(wrapper.find('div.SingleArticle').length).toEqual(1);
     wrapper.find('.fa-bookmark').simulate('click');
     article.article.id = 2;
     wrapper.setProps({ ...article });
