@@ -129,7 +129,7 @@ describe('Index subscribe form', () => {
     expect(indexForm.state().email).toEqual('yinks@gmail.com');
   });
 });
-describe('Index subscribe form', () => {
+describe('Index carousel', () => {
   it('should change state', () => {
     const tree = shallow(<IndexCarousel articles={article} />);
     expect(tree.exists()).toBe(true);

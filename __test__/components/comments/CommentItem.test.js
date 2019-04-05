@@ -20,9 +20,8 @@ const props = {
   },
   deleteComment: mockFn,
   editComment: mockFn,
-  auth: {
-    isVerified: true
-  },
+  editHistory: comments,
+  getCommentEditHistory: mockFn,
   isLoading: false
 };
 
@@ -30,7 +29,6 @@ test('It should render the comment item component', () => {
   const wrapper = shallow(<CommentItem comment={comments[0]} {...props} />);
   wrapper.setState({ modalIsOpen: true });
 });
-
 describe('Test CommentItem component', () => {
   const wrapper = mount(<CommentItem comment={comments[0]} {...props} />);
   it('It should render the comment item component', () => {
@@ -78,6 +76,14 @@ describe('Test CommentItem component', () => {
       .at(1)
       .simulate('click');
   });
+  it('should simulate button clicks', () => {
+    wrapper.setState({ modalIsOpen: true });
+    const modal = wrapper.find('CustomModal');
+    expect(modal.find('h2').text()).toBe(' Are you sure you want to delete this comment?');
+    modal.find('button').at(0).simulate('click');
+    expect(wrapper.state('modalIsOpen')).toBe(false);
+    modal.find('button').at(1).simulate('click');
+  });
 
   it('should find and simulate modal open button click', () => {
     wrapper.instance().openModal();
@@ -85,9 +91,16 @@ describe('Test CommentItem component', () => {
     wrapper.instance().editModal(event);
     wrapper.instance().handleCommentUpdate(event);
     wrapper.setState({ showModal: false });
+    wrapper.instance().showEditHistory();
     props.isLoading = true;
     wrapper.setProps({ ...props });
     props.user.userData.id = 12;
     wrapper.setProps({ ...props });
+  });
+
+  it('should find and simulate edit button click', () => {
+    wrapper.setState({ showModal: true });
+    wrapper.find('button').at(1).simulate('click');
+    expect(wrapper.find('h1').text()).toBe(' Edit Comment');
   });
 });

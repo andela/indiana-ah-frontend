@@ -38,6 +38,9 @@ class Dropdown extends React.Component {
             <Link to="/dashboard/posts">
               <li>My Articles </li>
             </Link>
+            <Link to="/statistics">
+              <li>My Stats </li>
+            </Link>
             <Link
               to="/"
               onClick={() => {

@@ -26,7 +26,7 @@ const commentReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        comments: [...state.comments, action.payload]
+        comments: [action.payload, ...state.comments]
       };
 
     case GET_ALL_ARTICLE_COMMENTS:

@@ -25,6 +25,8 @@ export const addComment = (articleSlug, commentData) => async (dispatch, getStat
     );
     const commentDetails = response.data;
     commentDetails.commenter = commenter;
+    commentDetails.likes = 0;
+    commentDetails.dislikes = 0;
     return dispatch({ type: ADD_COMMENT, payload: commentDetails });
   } catch ({ response }) {
     switch (response.status) {

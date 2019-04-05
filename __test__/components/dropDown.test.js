@@ -19,9 +19,9 @@ describe('Test Dropdown Component', () => {
     expect(wrapper.find('div').length).toEqual(1);
     expect(wrapper.find('i').length).toEqual(1);
     wrapper.setState({ displayMenu: true });
-    expect(wrapper.find('Link').length).toEqual(4);
+    expect(wrapper.find('Link').length).toEqual(5);
     expect(wrapper.find('ul').length).toEqual(1);
-    expect(wrapper.find('li').length).toEqual(4);
+    expect(wrapper.find('li').length).toEqual(5);
 
     wrapper
       .find('Link')

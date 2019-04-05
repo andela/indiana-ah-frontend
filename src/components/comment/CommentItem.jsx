@@ -3,13 +3,15 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import { Circle } from 'better-react-spinkit';
-import Dropdown from 'react-bootstrap/Dropdown';
+import { Dropdown, Badge } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import Textarea from 'react-textarea-autosize';
 import Button from '../../styles/styledComponents/Button.jsx';
 import Modal from '../common/Modal.jsx';
 import { deleteComment, editComment } from '../../redux/actions/commentActions';
 import { reactToComment } from '../../redux/actions/reactionActions';
+import EditHistoryfeed from './EditHistoryFeed.jsx';
+import getCommentEditHistory from '../../redux/actions/editHistoryActions';
 
 export class CommentItem extends Component {
   state = {
@@ -34,22 +36,29 @@ export class CommentItem extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  async showEditHistory(commentId) {
+    await this.props.getCommentEditHistory(commentId);
+    this.setState({ modalIsOpen: true, modalContent: 'history' });
+  }
+
   openModal = () => {
     this.setState(() => ({ modalIsOpen: true }));
-  };
+  }
+
+  closeModal = () => {
+    this.setState(() => ({ modalIsOpen: false, modalContent: null }));
+  }
 
   editModal = () => {
     this.setState(() => ({ showModal: true }));
   };
 
-  closeModal = () => {
-    this.setState(() => ({ modalIsOpen: false }));
-  };
-
   render() {
     const {
-      comment, user, likes, dislikes, auth
+      comment, user, likes, dislikes, auth,
+      editHistory
     } = this.props;
+    const { modalContent, modalIsOpen } = this.state;
     const modalBody = (
       <div>
         <section className="comment-modal">
@@ -139,7 +148,15 @@ export class CommentItem extends Component {
               <span className="comment-time">
                 {' '}
                 &nbsp; {moment(comment.createdAt).fromNow()}
-              </span>
+              </span>&nbsp;
+              {
+                (comment.updatedAt > comment.createdAt)
+                && (
+                  <Badge pill variant="secondary">
+                    Edited
+                  </Badge>
+                )
+              }
             </div>
           </div>
           <div className="row">
@@ -150,17 +167,20 @@ export class CommentItem extends Component {
               <Dropdown>
                 <Dropdown.Toggle>&#8942;</Dropdown.Toggle>
                 <Dropdown.Menu className="dropdown-menu">
-                  <Dropdown.Item as="div" onClick={this.editModal}>
+                <Dropdown.Item as="div" onClick={this.editModal}>
                     <span>Edit</span>
                   </Dropdown.Item>
                   <Dropdown.Divider />
                   <Dropdown.Item onClick={this.openModal}>
                     <span>Delete</span>
                   </Dropdown.Item>
+                  {
+                  (comment.updatedAt > comment.createdAt)
+                  && <>
                   <Dropdown.Divider />
-                  <Dropdown.Item>
-                    <span>Edit History</span>
-                  </Dropdown.Item>
+                      <Dropdown.Item ><span onClick={this.showEditHistory.bind(this, comment.id)}>Edit History</span></Dropdown.Item>
+                  </>
+                }
                 </Dropdown.Menu>
               </Dropdown>
             )}
@@ -193,9 +213,11 @@ export class CommentItem extends Component {
         </div>
         {this.state.showModal && editModal}
         <Modal
-          modalIsOpen={this.state.modalIsOpen}
-          closeModal={this.closeModal}
-          body={modalBody}
+            modalIsOpen={modalIsOpen}
+            closeModal={this.closeModal}
+            customClass={modalContent === 'history' && 'comment-item-page'}
+            body={ modalContent !== 'history' ? (
+              modalBody) : (<EditHistoryfeed editHistory={editHistory}/>)}
         />
       </>
     );
@@ -203,24 +225,32 @@ export class CommentItem extends Component {
 }
 
 CommentItem.propTypes = {
+  getCommentEditHistory: PropTypes.func.isRequired,
   deleteComment: PropTypes.func.isRequired,
   comment: PropTypes.object.isRequired,
+  editHistory: PropTypes.array.isRequired,
   user: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
   editComment: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   reactToComment: PropTypes.func,
-  likes: PropTypes.number,
-  dislikes: PropTypes.number
+  likes: PropTypes.any,
+  dislikes: PropTypes.any
 };
 
 const mapStateToProps = state => ({
   user: state.user,
   isLoading: state.comments.isLoading,
-  auth: state.auth
+  auth: state.auth,
+  editHistory: state.editHistory.editHistory
 });
 
 export default connect(
   mapStateToProps,
-  { deleteComment, editComment, reactToComment }
+  {
+    deleteComment,
+    editComment,
+    reactToComment,
+    getCommentEditHistory
+  }
 )(CommentItem);

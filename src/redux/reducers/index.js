@@ -8,6 +8,7 @@ import getSingleArticleReducer from './getSingleArticleReducer';
 import commentsReducer from './commentReducer';
 import articlesSearchReducer from './articlesSearchReducer';
 import userStatsReducer from './userStatsReducer';
+import editHistoryReducer from './editHistoryReducer';
 
 export default combineReducers({
   auth: authReducer,
@@ -18,5 +19,6 @@ export default combineReducers({
   singleArticle: getSingleArticleReducer,
   comments: commentsReducer,
   articlesSearchResults: articlesSearchReducer,
-  statistics: userStatsReducer
+  statistics: userStatsReducer,
+  editHistory: editHistoryReducer
 });
