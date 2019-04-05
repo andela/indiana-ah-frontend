@@ -16,10 +16,11 @@ class SearchBar extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { history } = this.props;
-    const { searchValue, filterOption } = this.state;
-    if (!searchValue) return;
+    const { filterOption } = this.state;
+    if (!this.state.searchValue) return;
+    const searchValue = this.state.searchValue.trim();
     const query = !filterOption ? `q=${searchValue}` : `${filterOption}=${searchValue}`;
-    history.replace(`/search?${query}`);
+    history.push(`/search?${query}`);
   };
 
   render() {

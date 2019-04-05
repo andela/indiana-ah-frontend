@@ -61,7 +61,7 @@ describe('Test CommentItem component', () => {
   });
 
   it('should simulate button clicks', () => {
-    wrapper.setState({ modalIsOpen: true });
+    wrapper.setState({ modalIsOpen: true, modalContent: 'delete' });
     const modal = wrapper.find('CustomModal');
     expect(modal.find('h2').text()).toBe(
       ' Are you sure you want to delete this comment?'
@@ -77,7 +77,7 @@ describe('Test CommentItem component', () => {
       .simulate('click');
   });
   it('should simulate button clicks', () => {
-    wrapper.setState({ modalIsOpen: true });
+    wrapper.setState({ modalIsOpen: true, modalContent: 'delete' });
     const modal = wrapper.find('CustomModal');
     expect(modal.find('h2').text()).toBe(' Are you sure you want to delete this comment?');
     modal.find('button').at(0).simulate('click');

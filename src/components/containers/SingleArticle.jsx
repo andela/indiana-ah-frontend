@@ -13,6 +13,7 @@ import CommentIconComponent from '../common/CommentIconComponent';
 import Footer from '../common/footer.jsx';
 import SignupContainer from '../SignupFormContainer.jsx';
 import LoginContainer from '../LoginFormContainer.jsx';
+import ResetContainer from '../ResetFormContainer.jsx';
 import Modal from '../common/Modal.jsx';
 import { getArticleComments } from '../../redux/actions/commentActions';
 import Commentform from '../comment/CommentForm.jsx';
@@ -132,6 +133,28 @@ class SingleArticle extends Component {
       const result = UsersFollowed.filter(eachUser => eachUser.username === articleAuthor)[0];
       buttonAction = result ? 'Unfollow' : 'Follow';
     }
+    const form = () => {
+      switch (modalContent) {
+        case 'login':
+          return <LoginContainer
+            displayForm={this.displayForm}
+            closeModal={this.closeModal}
+          />;
+        case 'register':
+          return <SignupContainer
+            displayForm={this.displayForm}
+            closeModal={this.closeModal}
+          />;
+        case 'reset':
+          return <ResetContainer
+            displayForm={this.displayForm}
+            closeModal={this.closeModal}
+          />;
+        default:
+          return null;
+      }
+    };
+
     return (
       <>
         <div className="SingleArticle">
@@ -250,19 +273,7 @@ class SingleArticle extends Component {
           <Modal
             modalIsOpen={this.state.modalIsOpen}
             closeModal={this.closeModal}
-            body={
-              modalContent === 'login' ? (
-                <LoginContainer
-                  displayForm={this.displayForm}
-                  closeModal={this.closeModal}
-                />
-              ) : (
-                <SignupContainer
-                  displayForm={this.displayForm}
-                  closeModal={this.closeModal}
-                />
-              )
-            }
+            body={form()}
           />
         </div>
         <Footer />

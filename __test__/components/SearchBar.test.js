@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import { SearchBar } from '../../src/components/common/SearchBar.jsx';
 
 describe('search bar test', () => {
-  const component = mount(<SearchBar history={{ replace: jest.fn() }} />);
+  const component = mount(<SearchBar history={{ push: jest.fn() }} />);
   it('should test that the component rendered', () => {
     expect(component).toHaveLength(1);
   });

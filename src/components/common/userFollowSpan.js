@@ -49,10 +49,10 @@ const userFollowSpan = ({
   overlay={renderTooltipUnfollow}
 >
 <div className="userfollow-name  d-inline-block">
-{username}
+{username.replace(/\d{5,}/, '')}
 </div>
 </OverlayTrigger> : <div className="userfollow-name  d-inline-block">
-{username}
+{username.replace(/\d{5,}/, '')}
 </div>
 }
   </div>
