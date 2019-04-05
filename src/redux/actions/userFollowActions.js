@@ -50,7 +50,6 @@ export const followOrUnfollow = (username, action) => async (dispatch) => {
   try {
     const response = await sendHttpRequest(`/profiles/${username}/follow`, 'POST');
     if ('message' in response) {
-      toast.success(<div>{response.message}</div>);
       return dispatch({
         type: action === 'Unfollow' ? UNFOLLOW_USER_SUCCESS : FOLLOW_USER_SUCCESS,
         payload: action === 'Follow' ? { username } : username
