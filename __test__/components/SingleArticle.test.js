@@ -106,7 +106,6 @@ describe('<SingleArticle/>', () => {
     article.article.articleBody = 'I am going home';
     wrapper.setProps({ article });
     expect(wrapper.find('div.carousel-spinner').length).toEqual(0);
-    // expect(wrapper.find('div.SingleArticle').length).toEqual(0);
     wrapper.find('.fa-bookmark').simulate('click');
     article.article.id = 2;
     wrapper.setProps({ ...article });
