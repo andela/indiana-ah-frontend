@@ -29,11 +29,6 @@ test('It should render the comment item component', () => {
   const wrapper = shallow(<CommentItem comment={comments[0]} {...props} />);
   wrapper.setState({ modalIsOpen: true });
 });
-test('It should render the comment item component', () => {
-  const wrapper = mount(<CommentItem comment={comments[0]} {...props} />);
-  wrapper.setState({ showModal: true });
-  expect(wrapper).toMatchSnapshot();
-});
 describe('Test CommentItem component', () => {
   const wrapper = mount(<CommentItem comment={comments[0]} {...props} />);
   it('It should render the comment item component', () => {
