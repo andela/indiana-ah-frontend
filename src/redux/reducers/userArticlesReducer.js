@@ -36,6 +36,7 @@ const userArticlesReducer = (state = initialState, action) => {
         ...state,
         articleData: {
           ...state.articleData,
+          totalCount: state.articleData.totalCount - 1,
           articles: state.articleData.articles.filter(article => article.slug !== action.payload)
         }
       };

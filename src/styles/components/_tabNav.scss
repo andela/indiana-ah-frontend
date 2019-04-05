@@ -13,14 +13,20 @@
   a:hover {
     color: black;
   }
-  .active-link {
+  .active-link.active {
     color: black !important;
+    background-color: unset;
   }
-
+  @media screen and (max-width: 904px) {
+    a {
+      font-size: 1.4rem;
+      padding: 1rem;
+    }
+  }
   @media screen and (max-width: 600px) {
     margin: 1.5rem 0 0 0;
     a {
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       padding: 1rem;
     }
   }

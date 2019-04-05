@@ -9,6 +9,7 @@ import commentsReducer from './commentReducer';
 import articlesSearchReducer from './articlesSearchReducer';
 import userStatsReducer from './userStatsReducer';
 import editHistoryReducer from './editHistoryReducer';
+import userFollowReducer from './userFollowReducer';
 
 export default combineReducers({
   auth: authReducer,
@@ -20,5 +21,6 @@ export default combineReducers({
   comments: commentsReducer,
   articlesSearchResults: articlesSearchReducer,
   statistics: userStatsReducer,
-  editHistory: editHistoryReducer
+  editHistory: editHistoryReducer,
+  userFollow: userFollowReducer
 });

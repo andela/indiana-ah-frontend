@@ -13,10 +13,14 @@ import CommentIconComponent from '../common/CommentIconComponent';
 import Footer from '../common/footer.jsx';
 import SignupContainer from '../SignupFormContainer.jsx';
 import LoginContainer from '../LoginFormContainer.jsx';
+import ResetContainer from '../ResetFormContainer.jsx';
 import Modal from '../common/Modal.jsx';
 import { getArticleComments } from '../../redux/actions/commentActions';
 import Commentform from '../comment/CommentForm.jsx';
 import Commentfeed from '../comment/CommentFeed.jsx';
+import {
+  getAllUsersFollowed, followOrUnfollow
+} from '../../redux/actions/userFollowActions';
 
 class SingleArticle extends Component {
   state = {
@@ -34,6 +38,10 @@ class SingleArticle extends Component {
     if (!isLoading) this.setState(() => ({ modalIsOpen: false }));
   };
 
+  userFollowFunc = (username, buttonAction) => {
+    this.props.followOrUnfollow(username, buttonAction);
+  };
+
   displayForm = (form) => {
     this.setState({ modalIsOpen: true, modalContent: form });
   };
@@ -43,7 +51,10 @@ class SingleArticle extends Component {
     const { slug } = match.params;
     this.props.getSingleArticle(slug, history);
     this.props.getArticleComments(slug);
-    if (this.props.auth.isVerified) this.props.getAllUsersBookMarkedArticles();
+    if (this.props.auth.isVerified) {
+      this.props.getAllUsersFollowed();
+      this.props.getAllUsersBookMarkedArticles();
+    }
   }
 
   handleBookmarkclick = () => {
@@ -56,6 +67,7 @@ class SingleArticle extends Component {
     const { comments } = this.props;
     let articleTags = null;
     let viewingUser;
+    let buttonAction;
     const delayDisplay = (
       <div
         className="carousel-spinner
@@ -81,6 +93,8 @@ class SingleArticle extends Component {
     } = this.props.singleArticle.article;
 
     const { isVerified } = this.props.auth;
+    const { userFollow: { isUsersFollowedLoading: isLoading, UsersFollowed } } = this.props;
+
     const currentBookmark = this.props.bookmarkedArticles.userBookmarks.find(
       article => article.articleId === this.props.singleArticle.article.id
     );
@@ -104,9 +118,42 @@ class SingleArticle extends Component {
     /${dateCreated.getMonth()}/${dateCreated.getFullYear()}`;
     if (
       this.props.singleArticle.isLoading
+      || isLoading
       || !this.props.singleArticle.article.articleBody
     ) return delayDisplay;
 
+
+    const articleAuthor = author.username;
+
+    if (!(isLoading || UsersFollowed.length)) {
+      buttonAction = 'Follow';
+    }
+
+    if (!isLoading && UsersFollowed.length) {
+      const result = UsersFollowed.filter(eachUser => eachUser.username === articleAuthor)[0];
+      buttonAction = result ? 'Unfollow' : 'Follow';
+    }
+    const form = () => {
+      switch (modalContent) {
+        case 'login':
+          return <LoginContainer
+            displayForm={this.displayForm}
+            closeModal={this.closeModal}
+          />;
+        case 'register':
+          return <SignupContainer
+            displayForm={this.displayForm}
+            closeModal={this.closeModal}
+          />;
+        case 'reset':
+          return <ResetContainer
+            displayForm={this.displayForm}
+            closeModal={this.closeModal}
+          />;
+        default:
+          return null;
+      }
+    };
 
     return (
       <>
@@ -131,7 +178,12 @@ class SingleArticle extends Component {
                 </div>
                 {isVerified && viewingUser !== author.username && (
                   <div className="follow-bookmark-box">
-                    <button className="follow-btn">Follow</button>
+                    <button
+                    className="follow-btn"
+                    onClick={ () => this.userFollowFunc(articleAuthor, buttonAction)}
+                    >
+                    {buttonAction}
+                    </button>
                     <span>
                       <i
                         onClick={this.handleBookmarkclick}
@@ -221,19 +273,7 @@ class SingleArticle extends Component {
           <Modal
             modalIsOpen={this.state.modalIsOpen}
             closeModal={this.closeModal}
-            body={
-              modalContent === 'login' ? (
-                <LoginContainer
-                  displayForm={this.displayForm}
-                  closeModal={this.closeModal}
-                />
-              ) : (
-                <SignupContainer
-                  displayForm={this.displayForm}
-                  closeModal={this.closeModal}
-                />
-              )
-            }
+            body={form()}
           />
         </div>
         <Footer />
@@ -247,10 +287,13 @@ SingleArticle.propTypes = {
   addBookmark: PropTypes.func.isRequired,
   getArticleComments: PropTypes.func.isRequired,
   getSingleArticle: PropTypes.func.isRequired,
+  followOrUnfollow: PropTypes.func.isRequired,
   getAllUsersBookMarkedArticles: PropTypes.func.isRequired,
+  getAllUsersFollowed: PropTypes.func.isRequired,
   bookmarkedArticles: PropTypes.object.isRequired,
   singleArticle: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired,
+  userFollow: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
   auth: PropTypes.object,
   reactToArticle: PropTypes.func,
@@ -262,7 +305,8 @@ const mapStateToProps = state => ({
   auth: state.auth,
   user: state.user,
   bookmarkedArticles: state.bookmarkedArticles,
-  comments: state.comments.comments
+  comments: state.comments.comments,
+  userFollow: state.userFollow
 });
 
 export { SingleArticle };
@@ -274,6 +318,8 @@ export default connect(
     addBookmark,
     getAllUsersBookMarkedArticles,
     reactToArticle,
-    getArticleComments
+    getArticleComments,
+    getAllUsersFollowed,
+    followOrUnfollow
   }
 )(SingleArticle);
