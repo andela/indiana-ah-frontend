@@ -13,8 +13,9 @@
   a:hover {
     color: black;
   }
-  .active-link {
+  .active-link.active {
     color: black !important;
+    background-color: unset;
   }
   @media screen and (max-width: 904px) {
     a {

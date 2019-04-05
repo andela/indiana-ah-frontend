@@ -1,6 +1,7 @@
 /* eslint-disable class-methods-use-this */
 import React, { Fragment, Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
 import UserArticlesPage from './UserArticlesPage.jsx';
 import UserBookmarkPage from './UserBookmarksPage.jsx';
 import UsersFollowingPage from './UsersFollowingPage.jsx';
@@ -24,7 +25,7 @@ class UserDashboard extends Component {
         <div className="user-dashboard">
           <SideNav className="side-nav" />
           <div className="dashboard-column">
-            <TabNav className="tab-nav" />
+            <TabNav className="tab-nav" location={this.props.location} />
             <Switch>
               <Route path="/dashboard/posts" component={UserArticlesPage} />
               <Route path="/dashboard/bookmarks" component={UserBookmarkPage} />
@@ -37,5 +38,9 @@ class UserDashboard extends Component {
     );
   }
 }
+
+UserDashboard.propTypes = {
+  location: PropTypes.object
+};
 
 export default UserDashboard;
