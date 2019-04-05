@@ -7,6 +7,7 @@ export default [
     userId: 1,
     commentBody: 'We are africans',
     createdAt: moment(0),
+    updatedAt: moment(10),
     commenter: {
       name: 'omenkish',
       username: 'Omenkish',
@@ -19,6 +20,7 @@ export default [
     userId: 2,
     commentBody: 'We are africans',
     createdAt: moment(-10000),
+    updatedAt: moment(10),
     commenter: {
       name: 'omenkish Baller',
       username: 'omenkish',

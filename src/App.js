@@ -13,6 +13,7 @@ import { validateToken } from './utils';
 import Navbar from './components/common/Navbar.jsx';
 import ResetPasswordPage from './components/ResetPassword.jsx';
 import SocialAuthPage from './components/SocialAuthPage.jsx';
+import Comment from './components/comment/CommentForm.jsx';
 import createArticle from './components/CreateArticle.jsx';
 import store from './redux/store';
 import UserDashboard from './components/UserDashboard.jsx';
@@ -46,6 +47,7 @@ const App = () => (
         <Route path="/search" component={ArticlesSearchResultsPage} />
         <Route path="/reset-password" component={ResetPasswordPage} />
         <PrivateRoute path="/profile" component={Profilepage} exact />
+        <Route path="/comment" component={Comment} exact/>
         <Route path="/" component={homePage} exact />
         <PrivateRoute path="/article/create" component={createArticle} exact />
         <PrivateRoute path="/article/update/:slug" component={createArticle} exact />

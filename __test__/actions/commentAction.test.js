@@ -66,7 +66,7 @@ describe('Auth action creators test', () => {
     });
     const expectedActions = [
       { type: COMMENTS_LOADING },
-      { type: ADD_COMMENT, payload: comment.payload }
+      { type: ADD_COMMENT, payload: comment.payload },
     ];
 
     await store.dispatch(addComment());
@@ -78,24 +78,27 @@ describe('Auth action creators test', () => {
     expect(toast.error).toHaveBeenCalledWith('hello');
   });
 
-  it('should create the ADD_BOOKMARK action', async () => {
+  it('should create the ADD_COMMENT action', async () => {
     sendHttpRequest.mockRejectedValue(getError(401));
     await store.dispatch(addComment());
     expect(toast.error).toHaveBeenCalledWith('hello');
   });
 
-  it('should create the ADD_BOOKMARK action', async () => {
+  it('should create the ADD_COMMENT action', async () => {
     sendHttpRequest.mockRejectedValue(getError(400));
     await store.dispatch(addComment());
     expect(toast.error)
       .toHaveBeenCalledWith(`Cannot comment on this article at the moment.
           Please try again later`);
   });
-  it('should create the REMOVE_BOOKMARK action', async () => {
+  it('should create the DELETE_COMMENT action', async () => {
     sendHttpRequest.mockResolvedValue({
       message: 'Comment deleted successfully'
     });
-    const expectedActions = [{ type: COMMENTS_LOADING }, { type: DELETE_COMMENT, id }];
+    const expectedActions = [
+      { type: COMMENTS_LOADING },
+      { type: DELETE_COMMENT, id }
+    ];
 
     await store.dispatch(deleteComment(id));
     expect(store.getActions()[0]).toEqual(expectedActions[0]);
@@ -107,13 +110,13 @@ describe('Auth action creators test', () => {
     expect(toast.error).toHaveBeenCalledWith('hello');
   });
 
-  it('should create the REMOVE_BOOKMARK action', async () => {
+  it('should create the DELETE_COMMENT action', async () => {
     sendHttpRequest.mockRejectedValue(getError(401));
     await store.dispatch(deleteComment(id));
     expect(toast.error).toHaveBeenCalledWith('hello');
   });
 
-  it('should create the REMOVE_BOOKMARK action', async () => {
+  it('should create the DELETE_COMMENT action', async () => {
     sendHttpRequest.mockRejectedValue(getError(400));
     await store.dispatch(deleteComment(id));
     expect(toast.error).toHaveBeenCalledWith(`Cannot delete this comment at the moment.
@@ -138,13 +141,13 @@ describe('Auth action creators test', () => {
     expect(toast.error).toHaveBeenCalledWith('hello');
   });
 
-  it('should create the ADD_BOOKMARK action', async () => {
+  it('should create the ADD_COMMENT action ', async () => {
     sendHttpRequest.mockRejectedValue(getError(401));
     await store.dispatch(getArticleComments(id));
     expect(toast.error).toHaveBeenCalledWith('hello');
   });
 
-  it('should create the ADD_BOOKMARK action', async () => {
+  it('should create the ADD_COMMENT action', async () => {
     sendHttpRequest.mockRejectedValue(getError(400));
     await store.dispatch(getArticleComments(id));
     expect(toast.error)
