@@ -56,7 +56,7 @@ describe('commentReducer test', () => {
       })
     ).toEqual({
       ...initialState1,
-      comments: [...initialState1.comments, action.payload]
+      comments: [action.payload, ...initialState1.comments]
     });
   });
 

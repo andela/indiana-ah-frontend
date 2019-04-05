@@ -151,11 +151,11 @@ export class CommentItem extends Component {
               </span>&nbsp;
               {
                 (comment.updatedAt > comment.createdAt)
-                && <>
+                && (
                   <Badge pill variant="secondary">
                     Edited
                   </Badge>
-                </>
+                )
               }
             </div>
           </div>

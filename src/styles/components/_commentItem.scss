@@ -9,6 +9,9 @@
   h3 {
     margin-left: 10rem;
   }
+  span.badge {
+    font-size: 1rem;
+  }
   .image {
     max-width: 5.0rem;
     max-height: 4.0rem;
@@ -21,6 +24,9 @@
     font-size: 1.2rem;
     h3 {
       font-size: 1.5rem
+    }
+    span.badge {
+      display: none;
     }
     .image {
       max-width: 5.0rem;
@@ -196,6 +202,9 @@
   }
 }
 
+.comment-reaction i {
+  cursor: pointer;
+}
 .fas {
   color: $brand-color;
 }

@@ -29,7 +29,11 @@ test('It should render the comment item component', () => {
   const wrapper = shallow(<CommentItem comment={comments[0]} {...props} />);
   wrapper.setState({ modalIsOpen: true });
 });
-
+test('It should render the comment item component', () => {
+  const wrapper = mount(<CommentItem comment={comments[0]} {...props} />);
+  wrapper.setState({ showModal: true });
+  expect(wrapper).toMatchSnapshot();
+});
 describe('Test CommentItem component', () => {
   const wrapper = mount(<CommentItem comment={comments[0]} {...props} />);
   it('It should render the comment item component', () => {
@@ -97,5 +101,11 @@ describe('Test CommentItem component', () => {
     wrapper.setProps({ ...props });
     props.user.userData.id = 12;
     wrapper.setProps({ ...props });
+  });
+
+  it('should find and simulate edit button click', () => {
+    wrapper.setState({ showModal: true });
+    wrapper.find('button').at(1).simulate('click');
+    expect(wrapper.find('h1').text()).toBe(' Edit Comment');
   });
 });
