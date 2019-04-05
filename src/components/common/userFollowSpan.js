@@ -43,7 +43,7 @@ const userFollowSpan = ({
 
   <div className="col-md-8 vl">
 {
-  visible === true ? <OverlayTrigger
+  visible ? <OverlayTrigger
   placement='top'
   delay={{ show: 250, hide: 1300 }}
   overlay={renderTooltipUnfollow}

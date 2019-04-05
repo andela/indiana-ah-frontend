@@ -38,7 +38,7 @@ class SingleArticle extends Component {
     if (!isLoading) this.setState(() => ({ modalIsOpen: false }));
   };
 
-  UserFollow = (username, buttonAction) => {
+  userFollowFunc = (username, buttonAction) => {
     this.props.followOrUnfollow(username, buttonAction);
   };
 
@@ -125,7 +125,7 @@ class SingleArticle extends Component {
 
     const articleAuthor = author.username;
 
-    if (!isLoading && !UsersFollowed.length) {
+    if (!(isLoading || UsersFollowed.length)) {
       buttonAction = 'Follow';
     }
 
@@ -180,7 +180,7 @@ class SingleArticle extends Component {
                   <div className="follow-bookmark-box">
                     <button
                     className="follow-btn"
-                    onClick={this.UserFollow.bind(this, articleAuthor, buttonAction)}
+                    onClick={ () => this.userFollowFunc(articleAuthor, buttonAction)}
                     >
                     {buttonAction}
                     </button>

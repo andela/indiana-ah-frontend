@@ -19,7 +19,7 @@ class UserFollowingPage extends Component {
 
     const { userFollow: { isUsersFollowedLoading: isLoading, UsersFollowed } } = this.props;
 
-    if (!isLoading && !UsersFollowed.length) {
+    if (!(isLoading || UsersFollowed.length)) {
       followingView = <h1> You Currently do not Follow anyone  </h1>;
     }
     if (!isLoading && UsersFollowed.length) {

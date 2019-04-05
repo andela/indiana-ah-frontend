@@ -17,7 +17,7 @@ class UserFollowersPage extends Component {
   render() {
     let followersView;
     const { userFollow: { isFollowersLoading: isLoading, followers } } = this.props;
-    if (!isLoading && !followers.length) {
+    if (!(isLoading || followers.length)) {
       followersView = <h1> You do not have any followers  </h1>;
     }
     if (!isLoading && followers.length) {
